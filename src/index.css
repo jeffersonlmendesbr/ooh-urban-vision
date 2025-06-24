@@ -75,6 +75,41 @@
   }
 }
 
+/* Custom scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Largura da scrollbar para Webkit (Chrome, Safari, Edge novo) */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* Fundo da trilha transparente */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888; /* Cor do polegar da scrollbar */
+  border-radius: 4px; /* Bordas arredondadas */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Cor do polegar ao passar o mouse */
+}
+
+/* Para Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin; /* "thin" ou "none" (para ocultar completamente, mas pode afetar a usabilidade) */
+  scrollbar-color: #888 transparent; /* Cor do polegar e da trilha */
+}
+
+/* Para ocultar completamente a scrollbar, se desejado (descomente e ajuste) */
+/*
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.custom-scrollbar {
+  -ms-overflow-style: none;  // IE e Edge antigo
+  scrollbar-width: none;  // Firefox
+}
+*/
+
 /* Custom Jefferson Mendes Tailwind Classes */
 @layer utilities {
   .text-warm-beige { color: var(--warm-beige); }

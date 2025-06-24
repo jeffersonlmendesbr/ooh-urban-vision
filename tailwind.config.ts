@@ -61,7 +61,9 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        'warm-beige': '#EDE2D1',
+        'olive-green': '#808000', // Adicionado verde oliva
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -70,26 +72,24 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' },
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' },
+				},
+        'fade-in-slightly-delayed': { // Nova animação
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '50%': { opacity: '0', transform: 'translateY(10px)' }, // Mantém invisível por um tempo
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+        'fadeInSlightlyDelayed': 'fade-in-slightly-delayed 1s ease-out forwards', // Nova animação
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
