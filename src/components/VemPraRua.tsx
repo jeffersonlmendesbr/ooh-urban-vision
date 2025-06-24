@@ -31,7 +31,10 @@ const projectsData: Project[] = [
 ];
 
 const VemPraRua: React.FC = () => {
+  console.log('[VemPraRua] Component rendering...');
   const [hoveredProject, setHoveredProject] = useState<Project | null>(projectsData[0]); // Inicializa com o primeiro projeto
+
+  console.log('[VemPraRua] Initial hoveredProject:', hoveredProject);
 
   return (
     <section
@@ -48,12 +51,19 @@ const VemPraRua: React.FC = () => {
             style={{ scrollBehavior: 'smooth' }}
         >
           <ul className="space-y-3">
-            {projectsData.map((project, index) => (
+            {projectsData.map((project, index) => {
+              // console.log('[VemPraRua] Mapping project for list:', project.id);
+              return (
               <li
                 key={project.id}
-                onMouseEnter={() => setHoveredProject(project)}
-                // Em mobile, o hover pode ser problemático. Considerar onClick se for um problema.
-                // onMouseLeave={() => setHoveredProject(projectsData[0])} // Mantido para desktop
+                onMouseEnter={() => {
+                  console.log('[VemPraRua] MouseEnter:', project.id);
+                  setHoveredProject(project);
+                }}
+                onMouseLeave={() => {
+                  console.log('[VemPraRua] MouseLeave, resetting to Wilson');
+                  setHoveredProject(projectsData[0]); // Volta para o primeiro projeto ao sair
+                }}
                 className={`
                   uppercase text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out
                   hover:text-olive-green hover:pl-2
