@@ -456,14 +456,7 @@ h1, h2, h3, h4, h5, h6 {
 /* @keyframes marquee-scroll { ... } */
 
 
-/* .card-experiencia { */ /* Esta duplicata parece ser um erro da ferramenta de diff anterior, vou remover */
-    /* background-color: var(--bege-quente); */
-    /* padding: 25px 30px; */ /* Ajustado padding */
-    text-align: center;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--bege-quente); /* Separador */
-}
+
 
 .selos-gerais span {
     display: inline-block;
@@ -1135,9 +1128,9 @@ body {
 }
 
 /* Estilos para animação de entrada de seção - SERÃO REFEITOS ou APLICADOS PONTUALMENTE */
-/* .section { */
-    /* ... outros estilos .section ... */
-/* } */
+/* .section {
+    ... outros estilos .section ...
+} */
 
 /* Menu Fullscreen */
 #fullscreen-menu {
@@ -1296,7 +1289,7 @@ body.menu-open #fullscreen-menu ul li:nth-child(9) { transition-delay: 0.76s; }
     /* opacity: 0; */ /* REMOVIDO - Nova lógica de animação */
     /* transform: translateY(30px); */ /* REMOVIDO - Nova lógica de animação */
     /* transition: opacity 0.8s ease-out, transform 0.8s ease-out; */ /* REMOVIDO - Nova lógica de animação */
-/* } */
+}
 
 /* .section.is-visible { */
     /* opacity: 1; */ /* REMOVIDO - Nova lógica de animação */
