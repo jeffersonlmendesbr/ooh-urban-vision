@@ -23,13 +23,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section {
-    padding: 60px 20px;
-    min-height: 70vh; /* Altura mínima para dar um efeito de "tela cheia" por seção */
+    padding: 80px 40px; /* Padding aumentado para maior respiro entre seções */
+    /* min-height: 70vh; */ /* REMOVIDO - Altura será mais baseada no conteúdo + padding, exceto casos específicos */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative; /* Necessário para alguns efeitos de animação/parallax futuros */
 }
 
 /* Paleta de Cores */
@@ -41,79 +42,126 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Estilos Iniciais para as seções (apenas para visualização) */
-/* Hero Section */
-#hero {
-    background-color: var(--preto-contraste);
-    color: var(--bege-quente);
+/* Hero Section Reestruturada */
+#hero.hero-fullscreen {
+    width: 100%; /* Alterado de 100vw para 100% para evitar possíveis issues com scrollbar do browser */
+    height: 100vh;
+    padding: 0; /* Remover padding da .section para ocupar tela cheia */
+    overflow: hidden; /* Para garantir que o conteúdo parallax não crie scrollbars indesejadas */
+    position: relative; /* Contexto de posicionamento para elementos internos */
+    display: flex; /* Para centralizar o hero-content-overlay */
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://picsum.photos/seed/oohhero/1920/1080?grayscale&blur=2'); /* Placeholder P&B com leve blur */
+    background-size: cover;
+    background-position: center center;
+    z-index: 1;
+    /* O parallax será aplicado aqui via JS alterando transform ou background-position */
+}
+
+.hero-content-overlay {
+    position: relative; /* Para ficar sobre o background-image */
+    z-index: 2;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Ocupar toda a altura da tela */
-    padding: 80px 40px; /* Aumentar padding para respiro */
-    text-align: left; /* Alinhar texto à esquerda para um estilo mais editorial */
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.35); /* Overlay escuro sutil para contraste do texto */
 }
 
-.hero-content {
-    display: flex;
-    align-items: flex-start; /* Alinhar itens no topo */
-    gap: 40px; /* Espaço entre a imagem e o texto */
-    max-width: 1200px; /* Limitar a largura máxima do conteúdo */
+.hero-text-container {
+    max-width: 800px; /* Largura máxima para o texto */
+    color: var(--bege-quente); /* Cor principal do texto do Hero */
+    /* Animação de entrada para o texto do hero */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 1s ease-out 0.5s forwards; /* Delay para iniciar após carregamento */
 }
 
-.hero-image-placeholder {
-    width: 300px; /* Largura da imagem placeholder */
-    height: 400px; /* Altura da imagem placeholder */
-    background-color: var(--prata-fosco); /* Cor do placeholder */
-    border: 2px solid var(--verde-oliva); /* Borda sutil */
-    flex-shrink: 0; /* Impedir que o placeholder encolha */
+@keyframes fadeInSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.hero-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.hero-text .impact-phrase {
+.hero-impact-phrase {
     font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    font-size: 1.5rem; /* Tamanho ajustado */
-    color: var(--prata-fosco); /* Prata fosco para a frase de impacto */
-    margin-bottom: 1rem;
-    line-height: 1.4;
+    font-weight: 300; /* Light */
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    color: var(--prata-fosco);
 }
 
-#hero h1 {
+.hero-name {
     font-family: 'Playfair Display', serif;
-    font-weight: 900; /* Mais peso para o nome */
-    font-size: 4.5rem; /* Tamanho grande para impacto */
+    font-weight: 800; /* Ajustado de 900 para melhor leitura em alguns casos */
+    font-size: 5.5rem; /* Aumentado para mais impacto */
+    line-height: 1.05; /* Ajustado para o novo tamanho */
+    margin-bottom: 0.75rem;
     color: var(--bege-quente);
-    margin-bottom: 0.5rem;
-    line-height: 1.1;
+    letter-spacing: -1px; /* Leve ajuste no espaçamento */
 }
 
-#hero h2 {
+.hero-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400; /* Regular */
+    font-size: 1.9rem; /* Aumentado */
+    color: var(--verde-oliva);
+    margin-bottom: 3rem; /* Mais espaço antes dos links */
+    letter-spacing: 0.5px;
+}
+
+.hero-contact-links a {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 1.75rem; /* Tamanho para o cargo */
-    color: var(--verde-oliva); /* Verde oliva para o cargo, criando contraste */
-    margin-bottom: 2rem;
-}
-
-.hero-links a {
+    font-size: 1rem;
     color: var(--bege-quente);
     text-decoration: none;
-    margin-right: 20px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 1rem;
-    border-bottom: 1px solid transparent;
-    transition: border-bottom 0.3s ease;
+    margin: 0 18px; /* Leve ajuste no espaçamento */
+    padding-bottom: 4px;
+    position: relative;
+    transition: color 0.3s ease;
+    text-transform: uppercase; /* Para um toque mais refinado */
+    letter-spacing: 1px;
 }
 
-.hero-links a:hover {
-    border-bottom: 1px solid var(--verde-oliva); /* Efeito hover sutil */
+.hero-contact-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1.5px; /* Linha um pouco mais espessa */
+    background-color: var(--verde-oliva);
+    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transição mais suave */
 }
+
+.hero-contact-links a:hover {
+    color: var(--prata-fosco);
+}
+
+.hero-contact-links a:hover::after {
+    width: 100%;
+}
+
+/* Ajustes específicos para a seção Hero não usar o padding padrão de .section */
+#hero.section {
+    padding: 0;
+}
+
 
 /* Content Wrapper para seções com muito texto */
 .content-wrapper {
@@ -734,81 +782,211 @@ h1, h2, h3, h4, h5, h6 {
     border-top: 1px solid rgba(192, 192, 192, 0.3); /* Linha separadora sutil */
 }
 
-/* Menu de Navegação Fixo */
+/* Menu de Navegação Fixo - ESTILOS ANTIGOS REMOVIDOS */
+/* #main-nav { ... } */
+/* #main-nav .nav-content-wrapper { ... } */
+/* #main-nav .nav-logo { ... } */
+/* #main-nav ul { ... } */
+/* #main-nav ul li a { ... } */
+/* #main-nav ul li a:hover, */
+/* #main-nav ul li a.active { ... } */
+
+/* Novo Cabeçalho */
 #main-nav {
-    position: fixed;
+    position: absolute; /* Ou fixed se quiser que sempre fique visível no scroll inicial, mas briefing sugere "estático no topo" e "sensação de não estar lá" */
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(26, 26, 26, 0.9); /* Preto 90% com leve transparência */
-    padding: 15px 0; /* Padding vertical, horizontal será no wrapper */
-    z-index: 1000; /* Para ficar sobre outros elementos */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.3s ease;
+    background-color: transparent; /* Fundo totalmente transparente */
+    padding: 25px 0;
+    z-index: 1000; /* Sobre outros elementos, mas abaixo do menu fullscreen quando aberto */
+    transition: background-color 0.3s ease; /* Para possíveis efeitos no futuro */
 }
 
-/* Efeito de mudança de fundo do menu ao rolar - a ser implementado com JS se necessário mais controle */
-/* #main-nav.scrolled {
-    background-color: rgba(26, 26, 26, 0.95);
-} */
-
-#main-nav .nav-content-wrapper {
-    max-width: 1200px; /* Mesma largura do hero-content para alinhamento */
+#main-nav .nav-container {
+    max-width: 1300px; /* Largura um pouco maior para respiro */
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px; /* Padding horizontal para o conteúdo do menu */
+    padding: 0 40px; /* Padding horizontal igual ao das seções */
 }
 
-#main-nav .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--bege-quente);
+#main-nav .nav-brand-logo {
+    font-family: 'Playfair Display', serif; /* Tipografia editorial */
+    font-weight: 700; /* Bold */
+    font-size: 1.8rem; /* Tamanho ajustado para presença */
+    color: var(--preto-contraste); /* Cor do texto do logo - pode ser bege se o hero for escuro */
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+/* Cor do logo e hamburger quando sobre a seção Hero (que será escura) */
+#hero #main-nav .nav-brand-logo,
+#hero #main-nav .hamburger-icon,
+#hero #main-nav .hamburger-icon::before,
+#hero #main-nav .hamburger-icon::after {
+    color: var(--bege-quente); /* Para o logo */
+    background-color: var(--bege-quente); /* Para as linhas do hamburger */
+}
+/* Garantir que o X do menu aberto sobre o Hero também seja bege */
+#hero body.menu-open .hamburger-icon::before,
+#hero body.menu-open .hamburger-icon::after {
+    background-color: var(--bege-quente);
 }
 
-#main-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px; /* Espaçamento entre os links */
+
+.menu-toggle {
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1001; /* Acima do header, mas abaixo do menu fullscreen */
 }
 
-#main-nav ul li a {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 0.95rem;
-    color: var(--prata-fosco); /* Links em prata fosco */
-    text-decoration: none;
-    padding: 5px 0;
-    border-bottom: 2px solid transparent; /* Para animação no hover */
-    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+.hamburger-icon {
+    display: block;
+    position: relative;
+    width: 28px;
+    height: 2px;
+    background-color: var(--preto-contraste); /* Cor do ícone - pode ser bege se o hero for escuro */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+/* Se o Hero tiver fundo escuro, o hamburger pode precisar ser claro:
+#hero .hamburger-icon, #hero .hamburger-icon::before, #hero .hamburger-icon::after {
+    background-color: var(--bege-quente);
+}
+*/
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--preto-contraste); /* Cor do ícone */
+    transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
 }
 
-#main-nav ul li a:hover,
-#main-nav ul li a.active { /* Classe active a ser adicionada com JS */
-    color: var(--bege-quente); /* Cor de destaque no hover/ativo */
-    border-bottom-color: var(--verde-oliva);
+.hamburger-icon::before {
+    top: -8px;
 }
+
+.hamburger-icon::after {
+    bottom: -8px;
+}
+
+/* Estilos para o hamburger quando o menu estiver aberto (classe 'menu-open' no body ou nav) */
+body.menu-open .hamburger-icon {
+    background-color: transparent; /* Linha do meio some */
+}
+
+body.menu-open .hamburger-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+    background-color: var(--bege-quente); /* Cor do X quando menu aberto, geralmente cor clara */
+}
+
+body.menu-open .hamburger-icon::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+    background-color: var(--bege-quente); /* Cor do X quando menu aberto */
+}
+
 
 /* Ajuste de padding no body para compensar o menu fixo */
 body {
-    padding-top: 70px; /* Altura aproximada do menu, ajuste conforme necessário */
+    /* padding-top: 70px; */ /* REMOVIDO - Não mais necessário com o novo header */
     overflow-x: hidden; /* Prevenir scroll horizontal caso alguma animação exceda limites */
 }
 
-/* Estilos para animação de entrada de seção */
-.section {
+/* Estilos para animação de entrada de seção - SERÃO REFEITOS ou APLICADOS PONTUALMENTE */
+/* .section { */
     /* ... outros estilos .section ... */
+/* } */
+
+/* Menu Fullscreen */
+#fullscreen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(26, 26, 26, 0.85); /* Preto 90% com mais opacidade */
+    z-index: 1002; /* Acima do header e do conteúdo da página */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s; /* Atraso na remoção da visibilidade */
+    backdrop-filter: blur(5px); /* Efeito fosco/blur */
+    -webkit-backdrop-filter: blur(5px); /* Para Safari */
 }
 
-.section.is-visible {
+body.menu-open #fullscreen-menu {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.fullscreen-menu-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.fullscreen-menu-content ul li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+/* Animação de entrada dos itens do menu quando o menu está aberto */
+body.menu-open #fullscreen-menu ul li {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Aplicando delays escalonados para os itens do menu */
+body.menu-open #fullscreen-menu ul li:nth-child(1) { transition-delay: 0.2s; }
+body.menu-open #fullscreen-menu ul li:nth-child(2) { transition-delay: 0.25s; }
+body.menu-open #fullscreen-menu ul li:nth-child(3) { transition-delay: 0.3s; }
+body.menu-open #fullscreen-menu ul li:nth-child(4) { transition-delay: 0.35s; }
+body.menu-open #fullscreen-menu ul li:nth-child(5) { transition-delay: 0.4s; }
+body.menu-open #fullscreen-menu ul li:nth-child(6) { transition-delay: 0.45s; }
+body.menu-open #fullscreen-menu ul li:nth-child(7) { transition-delay: 0.5s; }
+body.menu-open #fullscreen-menu ul li:nth-child(8) { transition-delay: 0.55s; }
+body.menu-open #fullscreen-menu ul li:nth-child(9) { transition-delay: 0.6s; }
+
+
+.fullscreen-menu-link {
+    font-family: 'Playfair Display', serif; /* Tipografia editorial */
+    font-weight: 700; /* Bold */
+    font-size: 2.8rem; /* Tamanho grande */
+    color: var(--bege-quente);
+    text-decoration: none;
+    display: block;
+    padding: 10px 0; /* Espaçamento vertical */
+    margin: 5px 0; /* Espaçamento entre links */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.fullscreen-menu-link:hover {
+    color: var(--verde-oliva); /* Destaque no hover */
+    transform: scale(1.05); /* Leve aumento no hover */
+}
+
+/* Ajustar o z-index do menu-toggle para ficar acima do blur do menu fullscreen quando este está fechado, mas o ícone X precisa ficar acima do menu aberto */
+.menu-toggle {
+    z-index: 1003; /* Acima do menu fullscreen */
+    /* opacity: 0; */ /* REMOVIDO - Nova lógica de animação */
+    /* transform: translateY(30px); */ /* REMOVIDO - Nova lógica de animação */
+    /* transition: opacity 0.8s ease-out, transform 0.8s ease-out; */ /* REMOVIDO - Nova lógica de animação */
+/* } */
+
+/* .section.is-visible { */
+    /* opacity: 1; */ /* REMOVIDO - Nova lógica de animação */
+    /* transform: translateY(0); */ /* REMOVIDO - Nova lógica de animação */
+/* } */

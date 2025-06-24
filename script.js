@@ -6,99 +6,61 @@
 // - Validações (embora não haja formulário, pode ser útil para outros fins)
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("Página carregada e script.js pronto!");
+    console.log("Página carregada e script.js pronto para novos ajustes!");
 
-    const mainNav = document.getElementById('main-nav');
-    const navHeight = mainNav ? mainNav.offsetHeight : 70; // Altura do menu para offset
-    const navLinks = document.querySelectorAll('#main-nav ul li a');
-    const sections = document.querySelectorAll('.section');
+    // Lógica do menu antigo e IntersectionObserver para .is-visible foi removida.
+    // O script será reconstruído com a nova lógica de menu fullscreen e animações.
 
-    // Rolagem suave para links do menu
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
+    const menuToggle = document.querySelector('.menu-toggle');
+    const fullscreenMenu = document.getElementById('fullscreen-menu');
+    const body = document.body;
+    const fullscreenMenuLinks = document.querySelectorAll('.fullscreen-menu-link');
 
-            if (targetSection) {
-                let targetPosition = targetSection.offsetTop;
+    if (menuToggle && fullscreenMenu) {
+        menuToggle.addEventListener('click', () => {
+            body.classList.toggle('menu-open');
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
 
-                // Ajuste para o offset do menu SOMENTE se não for o link do logo para o #hero
-                // ou se o targetSection for o próprio #hero (para evitar duplo desconto)
-                if (targetId !== '#hero' || (targetId === '#hero' && targetSection.id === 'hero')) {
-                     // Se for o link do logo para #hero, o padding-top do body já compensa
-                     // Se for outro link, descontar altura do menu
-                    if(targetId !== '#hero') {
-                        targetPosition -= navHeight;
-                    }
-                }
-
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Adicionar classe 'active' ao link do menu conforme a seção visível
-    function setActiveLink() {
-        let currentSectionId = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            // Considera a altura do menu + um pequeno buffer
-            if (pageYOffset >= sectionTop - navHeight - 50) {
-                currentSectionId = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSectionId}`) {
-                link.classList.add('active');
-            }
-        });
-    }
-
-    window.addEventListener('scroll', setActiveLink);
-    setActiveLink(); // Define o link ativo no carregamento da página
-
-    // Animação de entrada de seções com Intersection Observer
-    const sectionObserverOptions = {
-        root: null, // viewport
-        rootMargin: '0px',
-        threshold: 0.1 // 10% da seção visível
-    };
-
-    function sectionCallback(entries, observer) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                // Opcional: Desconectar o observer depois que a animação ocorreu uma vez
-                // observer.unobserve(entry.target);
+            if (body.classList.contains('menu-open')) {
+                body.style.overflow = 'hidden'; // Bloquear scroll da página
             } else {
-                // Opcional: Remover a classe se quiser que a animação ocorra toda vez que rolar para fora e para dentro
-                // entry.target.classList.remove('is-visible');
+                body.style.overflow = ''; // Restaurar scroll da página
             }
         });
     }
 
-    const sectionObserver = new IntersectionObserver(sectionCallback, sectionObserverOptions);
-
-    sections.forEach(section => {
-        // A seção Hero já é visível no carregamento, então aplicamos a classe diretamente
-        // ou ajustamos o threshold/timing para ela. Para simplificar, vou aplicar direto.
-        if (section.id === 'hero') {
-            section.classList.add('is-visible');
-        } else {
-            sectionObserver.observe(section);
-        }
+    // Fechar o menu ao clicar em um link
+    fullscreenMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (body.classList.contains('menu-open')) {
+                body.classList.remove('menu-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                body.style.overflow = ''; // Restaurar scroll da página
+            }
+            // A rolagem suave para a seção será tratada no próximo passo do plano
+        });
     });
 
-    // Atualizar o ano no rodapé
+
+    // Manter a atualização do ano no rodapé
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
+    }
+
+    // Efeito Parallax para a seção Hero
+    const heroSection = document.querySelector('#hero.hero-fullscreen');
+    const heroBackground = document.querySelector('.hero-background-image');
+
+    if (heroSection && heroBackground) {
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.pageYOffset;
+            // Move o fundo mais devagar que o scroll (ajuste o divisor para mudar a intensidade)
+            // Apenas aplicar se a seção Hero estiver visível para otimizar
+            if (scrollPosition < window.innerHeight) { // window.innerHeight é a altura da seção Hero
+                heroBackground.style.transform = `translateY(${scrollPosition * 0.3}px)`;
+            }
+        });
     }
 });
