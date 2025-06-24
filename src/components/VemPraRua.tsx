@@ -51,9 +51,7 @@ const VemPraRua: React.FC = () => {
             style={{ scrollBehavior: 'smooth' }}
         >
           <ul className="space-y-3">
-            {projectsData.map((project, index) => {
-              // console.log('[VemPraRua] Mapping project for list:', project.id);
-              return (
+            {projectsData.map((project) => (
               <li
                 key={project.id}
                 onMouseEnter={() => {
@@ -62,7 +60,7 @@ const VemPraRua: React.FC = () => {
                 }}
                 onMouseLeave={() => {
                   console.log('[VemPraRua] MouseLeave, resetting to Wilson');
-                  setHoveredProject(projectsData[0]); // Volta para o primeiro projeto ao sair
+                  setHoveredProject(projectsData[0]);
                 }}
                 className={`
                   uppercase text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out
