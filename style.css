@@ -365,158 +365,167 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--preto-contraste);
     font-family: 'Playfair Display', serif;
     font-size: 2.8rem; /* Tamanho do título da seção */
-    margin-bottom: 2.5rem; /* Espaço abaixo do título da seção */
+    margin-bottom: 2rem; /* Reduzido para dar mais espaço aos cards */
     text-align: center;
 }
 
-.experiencias-categorias-container {
-    width: 100%;
-}
+/* Removidos estilos de .experiencias-categorias-container, .experiencia-categoria, .categoria-titulo */
 
-.experiencia-categoria {
-    margin-bottom: 3rem; /* Espaço entre categorias */
-}
+.experiencias-linha-horizontal {
+    display: flex;
+    flex-wrap: nowrap; /* Garante uma única linha */
+    overflow-x: auto; /* Habilita scroll horizontal */
+    width: calc(100% + 80px); /* Compensa o padding do .section para o scroll ir até as bordas da seção (40px de cada lado) */
+    /* Adicionar um padding nas laterais do container para os cards não colarem nas bordas da seção ao rolar */
+    /* padding-left: calc((100vw - (var(--card-width) * var(--cards-visible-initially) + var(--gap-between-cards) * (var(--cards-visible-initially) -1 ))) / 2); */
+    /* O padding acima é complexo, uma abordagem mais simples é usar o padding do content-wrapper da seção */
+    gap: 25px; /* Espaçamento entre os cards na linha horizontal */
+    align-items: stretch; /* Para que os cards tenham a mesma altura */
+    margin: 0 -40px; /* Compensa o padding do .section para o scroll ir até as bordas da seção */
+    padding: 20px 40px; /* Adiciona padding interno para os cards não colarem nas bordas da viewport e para respiro da scrollbar */
+    /* Ajustar o padding do .content-wrapper da seção #experiencias para 0 nas laterais */
 
-.experiencia-categoria:last-child {
-    margin-bottom: 0;
+     /* Customização da barra de scroll (opcional, cross-browser pode ser chato) */
+    scrollbar-width: thin;
+    scrollbar-color: var(--verde-oliva) rgba(237, 226, 209, 0.5); /* Cor do thumb e do track (com opacidade) */
 }
-
-.categoria-titulo { /* Estilo para H3 "Agências" e "Veículos" */
-    font-family: 'Playfair Display', serif; /* Ou Neue Montreal / Aeonik */
-    font-size: 2rem;
-    color: var(--preto-contraste);
-    text-align: left;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--verde-oliva);
-    display: inline-block; /* Para que a borda não ocupe a largura toda */
+#experiencias-linha-horizontal::-webkit-scrollbar {
+    height: 10px; /* Altura da barra de scroll */
 }
-
-.experiencias-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Ajustado minmax */
-    gap: 30px; /* Espaçamento entre os cards */
-    /* margin-top: 1.5rem; */ /* Removido, .categoria-titulo já tem margin-bottom */
-    /* margin-bottom: 1.5rem; */ /* Removido, .experiencia-categoria tem margin-bottom */
+#experiencias-linha-horizontal::-webkit-scrollbar-track {
+    background: rgba(237, 226, 209, 0.3); /* Bege quente com mais transparência */
+    border-radius: 5px;
+    margin: 0 30px; /* Margens laterais para a track não colar */
 }
-
-/* Competencias Marquee */
-.competencias-marquee-wrapper {
-    width: 100%;
-    background-color: var(--verde-oliva); /* Fundo oliva ou cinza */
-    padding: 15px 0;
-    overflow: hidden;
-    margin-top: 3rem; /* Espaço acima do marquee */
-    /* position: absolute; */ /* Se quiser que fique fixo na base da seção 100vh */
-    /* bottom: 0; */
-    /* left: 0; */
+#experiencias-linha-horizontal::-webkit-scrollbar-thumb {
+    background-color: var(--verde-oliva);
+    border-radius: 5px;
+    border: 2px solid transparent; /* Borda para dar efeito de "flutuar" */
+    background-clip: content-box;
 }
-
-.competencias-marquee {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; /* Itens em linha */
-    white-space: nowrap; /* Evitar quebra de linha dos itens */
-    animation: marquee-scroll 30s linear infinite;
-}
-
-.competencias-marquee li {
-    font-family: 'DM Sans', sans-serif; /* Ou Inter, etc. */
-    font-size: 1rem;
-    color: var(--prata-fosco);
-    padding: 0 25px; /* Espaçamento entre os itens do marquee */
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-@keyframes marquee-scroll {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-50%); /* Rola até a metade (assumindo que o conteúdo é duplicado) */
-    }
+#experiencias .content-wrapper { /* Remover padding lateral do wrapper para esta seção */
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none; /* Permitir que a linha horizontal ocupe toda a largura */
 }
 
 
 .card-experiencia {
     background-color: var(--bege-quente);
-    padding: 25px 30px; /* Ajustado padding */
-    border-radius: 6px; /* Borda mais sutil */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); /* Sombra mais suave */
-    border-left: 4px solid var(--verde-oliva);
-    /* Animação de entrada */
+    padding: 25px; /* Padding interno do card */
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid var(--verde-oliva);
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-40px); /* Animação de entrada horizontal */
     transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease-in-out;
+    min-width: 320px; /* Largura mínima dos cards */
+    width: 350px;  /* Largura preferida dos cards */
+    /* max-width: 380px; */ /* Removido max-width para consistência */
+    /* height: auto; */ /* Altura baseada no conteúdo, mas o container flex com align-items:stretch ajudará */
+    height: calc(100vh - 220px); /* Altura experimental: 100vh - padding_secao_top/bottom - altura_titulo - margem_titulo - padding_linha_horizontal_top/bottom - altura_scrollbar */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */ /* Ajustado para flex-start para priorizar conteúdo no topo */
+    justify-content: flex-start;
 }
 
 .card-experiencia:hover {
-    transform: translateY(-5px) translateX(0); /* Mantém translateX(0) para não interferir com animação de entrada */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-6px) translateX(0);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* .card-experiencia.current-job { */ /* Removido pois Africa DDB está em seção separada */
-    /* border-left-color: var(--preto-contraste);
-    background-color: #f5efe2;
-} */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.6rem; /* Aumentado */
+    flex-shrink: 0; /* Para não encolher */
+}
 
-.card-experiencia h4 { /* Alterado de h3 para h4 */
-    font-family: 'Playfair Display', serif; /* Ou DM Sans / Inter para um look mais moderno nos cards */
-    font-size: 1.4rem; /* Ajustado */
+.card-experiencia h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; /* Mantido */
     color: var(--preto-contraste);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0;
+    margin-right: 10px; /* Espaço para a tag */
+}
+
+.tipo-experiencia {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem; /* Reduzido */
+    font-weight: 500;
+    color: var(--verde-oliva);
+    background-color: rgba(122, 132, 80, 0.1);
+    padding: 4px 8px; /* Aumentado */
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
 }
 
 .card-experiencia .cargo {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 500;
-    font-size: 1.1rem;
-    color: var(--verde-oliva);
-    margin-bottom: 0.25rem;
+    font-size: 1rem; /* Reduzido */
+    color: var(--preto-contraste);
+    margin-bottom: 0.2rem; /* Reduzido */
+    flex-shrink: 0;
 }
 
 .card-experiencia .periodo {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem; /* Reduzido */
+    color: #555; /* Mantido */
+    margin-bottom: 1rem; /* Mantido */
+    flex-shrink: 0;
 }
 
-.card-experiencia p {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
+.card-experiencia .descricao {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem; /* Tamanho uniforme para descrição, reduzido */
+    line-height: 1.6; /* Ajustado */
+    color: #333;
+    margin-bottom: 1.2rem; /* Reduzido */
+    flex-grow: 1;
+    overflow-y: auto; /* Permitir scroll na descrição se necessário */
+    max-height: 200px; /* Limite para a descrição antes de scrollar, ajustar conforme necessário */
 }
 
 .tags-experiencia {
     list-style: none;
     padding: 0;
-    margin-top: 1rem;
+    margin-top: auto;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px; /* Reduzido */
+    flex-shrink: 0;
+    padding-top: 10px; /* Espaço acima das tags */
+    border-top: 1px solid rgba(0,0,0,0.05); /* Linha sutil acima das tags */
 }
 
 .tags-experiencia li {
-    background-color: var(--prata-fosco);
-    color: var(--preto-contraste);
-    padding: 5px 10px;
+    font-family: 'DM Sans', sans-serif;
+    background-color: rgba(122, 132, 80, 0.15); /* Verde oliva com mais opacidade */
+    color: var(--verde-oliva); /* Texto verde oliva */
+    padding: 4px 9px;
     border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: 400;
+    font-size: 0.75rem; /* Reduzido */
+    font-weight: 500;
 }
 
-.card-experiencia.current-job .tags-experiencia li {
-    background-color: var(--verde-oliva);
-    color: var(--bege-quente);
-}
+/* REMOVIDO: Competencias Marquee */
+/* .competencias-marquee-wrapper { ... } */
+/* .competencias-marquee { ... } */
+/* .competencias-marquee li { ... } */
+/* @keyframes marquee-scroll { ... } */
 
-.selos-gerais {
+
+/* .card-experiencia { */ /* Esta duplicata parece ser um erro da ferramenta de diff anterior, vou remover */
+    /* background-color: var(--bege-quente); */
+    /* padding: 25px 30px; */ /* Ajustado padding */
     text-align: center;
     margin-top: 3rem;
     padding-top: 2rem;
