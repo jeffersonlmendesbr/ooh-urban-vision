@@ -413,16 +413,20 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Distribui espaço: título no topo, selos na base, cards no meio */
+    /* justify-content: space-between; */ /* Alterado para flex-start */
+    justify-content: flex-start;
     height: 100%; /* Para ocupar a altura do .section (que já tem padding) */
+    position: relative; /* Para o posicionamento absoluto dos selos-gerais */
 }
 
 .experiencias-linha-horizontal {
     /* ... outros estilos mantidos ... */
-    min-height: 340px; /* Altura do card (300px) + padding vertical da linha (20px*2) */
-    flex-shrink: 0; /* Para não encolher se o conteúdo do wrapper for maior */
-    /* Adicionar um pouco de margin-top para separar do título */
+    min-height: 340px;
+    flex-shrink: 0;
     margin-top: 1.5rem;
+    flex-grow: 1; /* Para ocupar o espaço central */
+    display: flex; /* Para centralizar os cards verticalmente se a linha for mais alta */
+    align-items: center; /* Centraliza os cards verticalmente na linha */
 }
 
 
@@ -531,23 +535,32 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Estilos para Selos Gerais (Competências) na seção Experiencias */
 .selos-gerais {
+    position: absolute; /* Posicionamento absoluto em relação ao .content-wrapper */
+    bottom: 40px; /* Distância da base da seção (considerando padding da .section) */
+    left: 0;
+    right: 0;
+    /* width: 100%; */ /* Removido, left/right 0 cuidam da largura se o pai for o viewport ou similar */
+    padding: 10px 0; /* Padding vertical para os selos */
     text-align: center;
-    margin-top: 1.5rem; /* Espaço acima dos selos, separando da linha de cards */
-    /* padding-bottom já vem do .section ou .content-wrapper se necessário, ou pode ser adicionado aqui */
-    width: 100%;
-    flex-shrink: 0; /* Para não encolher */
+    z-index: 5; /* Para ficar acima do fundo da seção, mas abaixo de elementos sobrepostos como menu */
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Para suavizar o parallax do JS */
+    background-color: rgba(255, 255, 255, 0.85); /* Fundo branco semitransparente para legibilidade sobre os cards que passam por baixo */
+    backdrop-filter: blur(4px); /* Efeito de vidro fosco */
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05); /* Sombra sutil no topo */
 }
 
 .selos-gerais span {
     display: inline-block;
-    margin: 5px 10px; /* Margem vertical e horizontal entre os selos */
+    margin: 4px 8px; /* Margem ajustada */
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: #555; /* Cor cinza para discrição */
-    padding: 5px 10px;
-    background-color: rgba(237, 226, 209, 0.4); /* Bege quente bem sutil de fundo */
-    border-radius: 4px;
+    font-size: 0.85rem; /* Tamanho ajustado */
+    font-weight: 500; /* Um pouco mais de peso */
+    color: #333; /* Cor mais escura para melhor contraste no fundo claro */
+    padding: 6px 12px; /* Padding aumentado */
+    background-color: transparent; /* Fundo do span individual removido, o wrapper tem fundo */
+    border-radius: 15px; /* Bordas mais arredondadas tipo pílula */
+    border: 1px solid var(--prata-fosco); /* Borda sutil */
 }
 
 
