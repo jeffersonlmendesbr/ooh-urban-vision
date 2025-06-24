@@ -960,8 +960,8 @@ body.menu-open #fullscreen-menu {
 
 .fullscreen-menu-content ul li {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    transform: translateY(30px); /* Aumentado para movimento mais perceptível */
+    transition: opacity 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Duração e timing function ajustados */
 }
 
 /* Animação de entrada dos itens do menu quando o menu está aberto */
@@ -971,52 +971,53 @@ body.menu-open #fullscreen-menu ul li {
 }
 
 /* Aplicando delays escalonados para os itens do menu */
-body.menu-open #fullscreen-menu ul li:nth-child(1) { transition-delay: 0.2s; }
-body.menu-open #fullscreen-menu ul li:nth-child(2) { transition-delay: 0.25s; }
-body.menu-open #fullscreen-menu ul li:nth-child(3) { transition-delay: 0.3s; }
-body.menu-open #fullscreen-menu ul li:nth-child(4) { transition-delay: 0.35s; }
-body.menu-open #fullscreen-menu ul li:nth-child(5) { transition-delay: 0.4s; }
-body.menu-open #fullscreen-menu ul li:nth-child(6) { transition-delay: 0.45s; }
-body.menu-open #fullscreen-menu ul li:nth-child(7) { transition-delay: 0.5s; }
-body.menu-open #fullscreen-menu ul li:nth-child(8) { transition-delay: 0.55s; }
-body.menu-open #fullscreen-menu ul li:nth-child(9) { transition-delay: 0.6s; }
+body.menu-open #fullscreen-menu ul li:nth-child(1) { transition-delay: 0.20s; }
+body.menu-open #fullscreen-menu ul li:nth-child(2) { transition-delay: 0.27s; } /* Incremento de 0.07s */
+body.menu-open #fullscreen-menu ul li:nth-child(3) { transition-delay: 0.34s; }
+body.menu-open #fullscreen-menu ul li:nth-child(4) { transition-delay: 0.41s; }
+body.menu-open #fullscreen-menu ul li:nth-child(5) { transition-delay: 0.48s; }
+body.menu-open #fullscreen-menu ul li:nth-child(6) { transition-delay: 0.55s; }
+body.menu-open #fullscreen-menu ul li:nth-child(7) { transition-delay: 0.62s; }
+body.menu-open #fullscreen-menu ul li:nth-child(8) { transition-delay: 0.69s; }
+body.menu-open #fullscreen-menu ul li:nth-child(9) { transition-delay: 0.76s; }
 
 
 .fullscreen-menu-link {
     font-family: 'Playfair Display', serif; /* Tipografia editorial */
     font-weight: 700; /* Bold */
-    /* font-size: 2.8rem; */ /* Tamanho anterior */
-    font-size: clamp(2.5rem, 7vw, 5.5rem); /* Tipografia responsiva: min, preferido (baseado em viewport width), max */
-    line-height: 1.2; /* Ajustar altura da linha para fontes grandes */
+    font-size: clamp(50px, 12vh, 100px); /* Aumentado significativamente, com vh como preferido */
+    line-height: 1.2; /* Altura da linha = 12vh * 1.2 = 14.4vh */
     color: var(--bege-quente);
     text-decoration: none;
-    display: inline-block; /* Mudar para inline-block para respeitar o text-align: right do pai */
-    padding: 5px 0; /* Espaçamento vertical ajustado */
-    margin: 8px 0; /* Espaçamento entre links ajustado */
-    transition: color 0.3s ease, transform 0.3s ease;
-    position: relative; /* Para pseudo-elementos se necessário */
+    display: inline-block;
+    padding: 5.3vh 0; /* Espaçamento vertical para totalizar ~25vh por item (14.4vh + 2*5.3vh = 25vh) */
+    margin: 0; /* Remover margem, padding controla o espaço */
+    transition: color 0.3s ease; /* Removida transição de transform */
+    position: relative;
 }
 
 .fullscreen-menu-link:hover {
     color: var(--verde-oliva); /* Destaque no hover */
-    /* transform: scale(1.05); */ /* Removido scale para evitar complexidade com alinhamento à direita e largura */
-    /* Adicionar um efeito de sublinhado sutil no hover, por exemplo */
 }
 
 .fullscreen-menu-link:hover::before {
     content: '';
     position: absolute;
     left: 0;
-    right: 0; /* Estende por toda a largura do texto */
-    bottom: -2px; /* Posição do sublinhado */
-    height: 2px; /* Espessura do sublinhado */
+    right: 0;
+    bottom: calc(5.3vh - 10px); /* Ajustar posição do sublinhado para dentro do padding inferior */
+    height: 3px; /* Espessura do sublinhado aumentada */
     background-color: var(--verde-oliva);
     animation: drawLine 0.3s ease-out forwards;
 }
 
 @keyframes drawLine {
-    from { width: 0; right: auto; left: 0; } /* Começa da esquerda */
-    to { width: 100%; right: auto; left: 0; }
+    from { width: 0; transform: translateX(50%); } /* Começa do centro para a direita */
+    to { width: 100%; transform: translateX(0%); }
+}
+/* Ajustar o padding-right do UL para dar espaço suficiente para os links grandes */
+.fullscreen-menu-content ul {
+    padding-right: 10vw; /* Aumentar padding para links grandes */
 }
 
 
