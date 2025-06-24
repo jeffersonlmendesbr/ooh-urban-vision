@@ -215,8 +215,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Scroll Horizontal Controlado por Scroll Vertical para #experiencias
     const experienciasSection = document.querySelector('#experiencias');
     const experienciasLinha = document.querySelector('.experiencias-linha-horizontal');
+    const selosGerais = document.querySelector('#experiencias .selos-gerais'); // Selecionar os selos
 
-    if (experienciasSection && experienciasLinha) {
+    if (experienciasSection && experienciasLinha && selosGerais) { // Adicionar selosGerais à condição
         let isExperienciasActive = false;
         let currentX = 0;
         let minX = 0;
@@ -247,7 +248,15 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault(); // Previne o scroll vertical da página
             currentX = newX;
             experienciasLinha.style.transform = `translateX(${currentX}px)`;
-            // console.log(`Wheeling: deltaY=${delta}, currentX=${currentX}`);
+
+            // Aplicar parallax aos selos gerais
+            // Mover os selos numa direção oposta ou numa fração da velocidade para dar profundidade
+            // Se currentX vai de 0 (início) a um valor negativo (fim),
+            // um parallaxFactor positivo fará os selos moverem menos na mesma direção.
+            // um parallaxFactor negativo fará os selos moverem na direção oposta.
+            const parallaxFactor = 0.2; // Selos movem 20% da distância dos cards, na mesma direção
+            selosGerais.style.transform = `translateX(${currentX * parallaxFactor}px)`;
+            // console.log(`Wheeling: deltaY=${delta}, currentX=${currentX}, selosX=${currentX * parallaxFactor}`);
         }
 
         const experienciasObserverOptions = {
