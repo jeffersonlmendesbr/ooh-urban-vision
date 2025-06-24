@@ -407,9 +407,21 @@ h1, h2, h3, h4, h5, h6 {
     padding-left: 0;
     padding-right: 0;
     max-width: none;
-    overflow: visible; /* Permitir que a linha de cards sangre para os lados */
-    height: auto; /* Altura definida pelo conteúdo interno (linha de cards) */
-    max-height: none; /* Remover restrição de max-height */
+    overflow: hidden; /* Alterado de visible para hidden para conter a linha de cards */
+    /* height: auto; */ /* Removido - altura será baseada no conteúdo flex centralizado */
+    /* max-height: none; */ /* Removido */
+    width: 100%; /* Garantir que o wrapper ocupe a largura da seção */
+    display: flex; /* Para ajudar a centralizar a linha de cards se ela for menor que a altura do wrapper */
+    flex-direction: column; /* Para empilhar título e linha de cards */
+    justify-content: center; /* Centralizar verticalmente o conteúdo (título + linha de cards) */
+}
+
+.experiencias-linha-horizontal {
+    /* ... outros estilos mantidos ... */
+    /* Adicionar min-height para garantir que o container tenha altura para os cards */
+    min-height: 460px; /* Altura do card (420px) + padding vertical da linha (20px*2) */
+    /* Ou, para ser mais flexível com a centralização vertical: */
+    /* align-self: center; */ /* Se o .content-wrapper for flex */
 }
 
 
