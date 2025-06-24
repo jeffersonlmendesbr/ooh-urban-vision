@@ -863,6 +863,14 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1001; /* Acima do header, mas abaixo do menu fullscreen */
 }
 
+/* Garantir que o botão X fique fixo na posição correta quando o menu está aberto */
+body.menu-open .menu-toggle {
+    position: fixed; /* Fixar explicitamente em relação à viewport */
+    top: 25px;  /* Alinhado com o padding-top do #main-nav */
+    right: 40px; /* Alinhado com o padding-right do .nav-container */
+    /* Os paddings internos do .menu-toggle (10px) já dão o espaçamento do ícone em si */
+}
+
 .hamburger-icon {
     display: block;
     position: relative;
@@ -950,12 +958,33 @@ body.menu-open #fullscreen-menu {
     transition-delay: 0s;
 }
 
+.fullscreen-menu-content { /* Aplicar scroll e max-height aqui */
+    width: 100%;
+    max-height: calc(100vh - 80px); /* Deixar 40px de respiro no topo e 40px na base, ou para o X */
+    overflow-y: auto;
+    padding-top: 80px; /* Espaço para o X e respiro no topo */
+    padding-bottom: 40px; /* Respiro na base */
+    /* O display:flex e align-items:center do #fullscreen-menu já centralizam este bloco se ele for menor que 100vh */
+}
+
 .fullscreen-menu-content ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto; /* Centralizar a lista se ela for mais estreita que o .fullscreen-menu-content */
     text-align: right; /* Alinhar texto dos LIs à direita */
-    padding-right: 5vw; /* Adicionar um padding à direita para não colar na borda */
+    padding-right: 10vw; /* Restaurar padding para links grandes */
+    max-width: 90%; /* Evitar que a lista fique muito larga em telas ultrawide */
+    box-sizing: border-box; /* Para que o padding não aumente a largura total da ul */
+}
+
+.fullscreen-menu-content { /* Aplicar scroll e max-height aqui */
+    width: 100%;
+    max-height: calc(100vh - 80px); /* Deixar 40px de respiro no topo e 40px na base, ou para o X */
+    overflow-y: auto;
+    padding-top: 80px; /* Espaço para o X e respiro no topo */
+    padding-bottom: 40px; /* Respiro na base */
+    box-sizing: border-box; /* Para que o padding não aumente a altura/largura total */
+    /* O display:flex e align-items:center do #fullscreen-menu já centralizam este bloco se ele for menor que 100vh */
 }
 
 .fullscreen-menu-content ul li {
