@@ -185,4 +185,30 @@ document.addEventListener('DOMContentLoaded', () => {
             headerColorObserver.observe(section);
         });
     }
+
+    // Animação de entrada para cards na seção "Experiências"
+    const experienciaSection = document.querySelector('#experiencias');
+    if (experienciaSection) {
+        const animatedCards = experienciaSection.querySelectorAll('[data-animate-card]');
+
+        const cardObserverOptions = {
+            root: null,
+            rootMargin: '0px 0px -15% 0px', // Começa a animar quando 15% da base do card está visível ou entra na tela por baixo
+            threshold: 0.1 // Pelo menos 10% do card visível
+        };
+
+        const cardObserverCallback = (entries, observer) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.transitionDelay = `${index * 0.12}s`; // Delay escalonado sutil (0.12s)
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                    observer.unobserve(entry.target); // Animar apenas uma vez
+                }
+            });
+        };
+
+        const cardObserver = new IntersectionObserver(cardObserverCallback, cardObserverOptions);
+        animatedCards.forEach(card => cardObserver.observe(card));
+    }
 });
