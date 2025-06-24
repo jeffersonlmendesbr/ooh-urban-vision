@@ -6,7 +6,8 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Para rolagem suave inicial, pode ser aprimorado com JS */
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory; /* Scroll snap no eixo Y, obrigatório */
 }
 
 body {
@@ -23,14 +24,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section {
-    padding: 80px 40px; /* Padding aumentado para maior respiro entre seções */
-    /* min-height: 70vh; */ /* REMOVIDO - Altura será mais baseada no conteúdo + padding, exceto casos específicos */
+    padding: 40px; /* Padding interno ajustado para seções 100vh */
+    height: 100vh; /* Cada seção ocupa a altura total da viewport */
+    width: 100%; /* Garantir que ocupe a largura toda */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
     align-items: center;
     text-align: center;
     position: relative; /* Necessário para alguns efeitos de animação/parallax futuros */
+    scroll-snap-align: start; /* Alinha o início da seção com o início da viewport */
+    overflow: hidden; /* Evitar que conteúdo interno muito grande crie scrollbars na seção que quebrem o snap */
 }
 
 /* Paleta de Cores */
@@ -167,9 +171,24 @@ h1, h2, h3, h4, h5, h6 {
 .content-wrapper {
     max-width: 800px; /* Limita a largura para melhor legibilidade */
     margin: 0 auto; /* Centraliza o wrapper */
-    padding: 20px;
+    padding: 20px; /* Padding interno do wrapper */
     text-align: left; /* Alinhamento à esquerda para textos longos */
+    width: 100%; /* Ocupar a largura disponível dentro do padding da seção */
+    overflow-y: auto; /* Permitir scroll vertical interno se o conteúdo exceder */
+    max-height: calc(100vh - 80px); /* Altura máxima considerando o padding da .section (40px top + 40px bottom) */
+    /* Adicionar um pequeno padding interno ao wrapper para o conteúdo não colar nas bordas quando o scroll estiver ativo */
+    padding: 20px;
 }
+/* Ajuste para wrappers que são mais largos */
+#presenca-nacional .content-wrapper,
+#experiencias .content-wrapper,
+#depoimentos .content-wrapper,
+#ferramentas .content-wrapper { /* Adicionar outros se necessário */
+    max-width: 1100px;
+    /* Garantir que o padding interno seja aplicado também */
+    padding: 20px;
+}
+
 
 .content-wrapper h2 {
     font-size: 3rem; /* Tamanho do título da seção */
@@ -188,21 +207,21 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto', sans-serif;
     font-weight: 300; /* Texto mais leve */
     font-size: 1.15rem; /* Tamanho de fonte confortável para leitura */
-    line-height: 1.8; /* Espaçamento entre linhas generoso */
+    line-height: 1.7; /* Levemente reduzido para economizar espaço */
     color: var(--preto-contraste);
-    margin-bottom: 1.5rem; /* Espaçamento entre parágrafos */
+    margin-bottom: 1.2rem; /* Espaçamento entre parágrafos reduzido */
 }
 
 .sobre-mim-texto .editorial-quote {
     font-family: 'Playfair Display', serif; /* Fonte editorial para a citação */
     font-weight: 700; /* Normal ou bold, dependendo da preferência */
     font-style: italic; /* Itálico para destaque */
-    font-size: 1.5rem; /* Tamanho maior para a citação */
+    font-size: 1.4rem; /* Levemente reduzido */
     color: var(--verde-oliva); /* Cor de destaque para a citação */
     text-align: center; /* Centralizar a citação */
-    margin-top: 2.5rem; /* Espaço acima da citação */
-    margin-bottom: 1rem; /* Espaço abaixo da citação */
-    padding: 1rem 0;
+    margin-top: 2rem; /* Espaço acima da citação reduzido */
+    margin-bottom: 0.8rem; /* Espaço abaixo da citação reduzido */
+    padding: 0.8rem 0; /* Padding reduzido */
     border-top: 1px solid var(--prata-fosco);
     border-bottom: 1px solid var(--prata-fosco);
 }
@@ -220,9 +239,9 @@ h1, h2, h3, h4, h5, h6 {
 .experiencias-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsivo */
-    gap: 30px; /* Espaçamento entre os cards */
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+    gap: 25px; /* Espaçamento entre os cards reduzido */
+    margin-top: 1.5rem; /* Margem reduzida */
+    margin-bottom: 1.5rem; /* Margem reduzida */
 }
 
 .card-experiencia {
@@ -387,8 +406,9 @@ h1, h2, h3, h4, h5, h6 {
 .ferramentas-categorias {
     display: flex;
     flex-wrap: wrap; /* Permite que as categorias quebrem para a próxima linha em telas menores */
-    justify-content: space-between; /* Distribui o espaço entre as categorias */
-    gap: 30px; /* Espaçamento entre as colunas de categoria */
+    justify-content: space-around; /* Alterado para space-around para melhor distribuição com menos padding */
+    gap: 20px; /* Espaçamento entre as colunas de categoria reduzido */
+    padding: 0 10px; /* Pequeno padding para não colar nas bordas do wrapper */
 }
 
 .categoria {
@@ -628,8 +648,8 @@ h1, h2, h3, h4, h5, h6 {
 .depoimentos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsivo para os depoimentos */
-    gap: 30px;
-    margin-bottom: 3rem;
+    gap: 25px; /* Espaçamento reduzido */
+    margin-bottom: 1.5rem; /* Margem reduzida */
 }
 
 .card-depoimento {
@@ -793,7 +813,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Novo Cabeçalho */
 #main-nav {
-    position: absolute; /* Ou fixed se quiser que sempre fique visível no scroll inicial, mas briefing sugere "estático no topo" e "sensação de não estar lá" */
+    position: fixed; /* Alterado para fixed para permanecer visível no scroll */
     top: 0;
     left: 0;
     width: 100%;
@@ -934,7 +954,8 @@ body.menu-open #fullscreen-menu {
     list-style: none;
     padding: 0;
     margin: 0;
-    text-align: center;
+    text-align: right; /* Alinhar texto dos LIs à direita */
+    padding-right: 5vw; /* Adicionar um padding à direita para não colar na borda */
 }
 
 .fullscreen-menu-content ul li {
@@ -964,19 +985,40 @@ body.menu-open #fullscreen-menu ul li:nth-child(9) { transition-delay: 0.6s; }
 .fullscreen-menu-link {
     font-family: 'Playfair Display', serif; /* Tipografia editorial */
     font-weight: 700; /* Bold */
-    font-size: 2.8rem; /* Tamanho grande */
+    /* font-size: 2.8rem; */ /* Tamanho anterior */
+    font-size: clamp(2.5rem, 7vw, 5.5rem); /* Tipografia responsiva: min, preferido (baseado em viewport width), max */
+    line-height: 1.2; /* Ajustar altura da linha para fontes grandes */
     color: var(--bege-quente);
     text-decoration: none;
-    display: block;
-    padding: 10px 0; /* Espaçamento vertical */
-    margin: 5px 0; /* Espaçamento entre links */
+    display: inline-block; /* Mudar para inline-block para respeitar o text-align: right do pai */
+    padding: 5px 0; /* Espaçamento vertical ajustado */
+    margin: 8px 0; /* Espaçamento entre links ajustado */
     transition: color 0.3s ease, transform 0.3s ease;
+    position: relative; /* Para pseudo-elementos se necessário */
 }
 
 .fullscreen-menu-link:hover {
     color: var(--verde-oliva); /* Destaque no hover */
-    transform: scale(1.05); /* Leve aumento no hover */
+    /* transform: scale(1.05); */ /* Removido scale para evitar complexidade com alinhamento à direita e largura */
+    /* Adicionar um efeito de sublinhado sutil no hover, por exemplo */
 }
+
+.fullscreen-menu-link:hover::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0; /* Estende por toda a largura do texto */
+    bottom: -2px; /* Posição do sublinhado */
+    height: 2px; /* Espessura do sublinhado */
+    background-color: var(--verde-oliva);
+    animation: drawLine 0.3s ease-out forwards;
+}
+
+@keyframes drawLine {
+    from { width: 0; right: auto; left: 0; } /* Começa da esquerda */
+    to { width: 100%; right: auto; left: 0; }
+}
+
 
 /* Ajustar o z-index do menu-toggle para ficar acima do blur do menu fullscreen quando este está fechado, mas o ícone X precisa ficar acima do menu aberto */
 .menu-toggle {
