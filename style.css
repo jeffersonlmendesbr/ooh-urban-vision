@@ -387,46 +387,47 @@ h1, h2, h3, h4, h5, h6 {
 
      /* Customização da barra de scroll (opcional, cross-browser pode ser chato) */
     scrollbar-width: thin;
-    scrollbar-color: var(--verde-oliva) rgba(237, 226, 209, 0.5); /* Cor do thumb e do track (com opacidade) */
+    scrollbar-color: var(--verde-oliva) rgba(237, 226, 209, 0.5);
+    /* overflow-x: auto; */ /* REMOVIDO - Scroll horizontal será via JS */
+    overflow-x: hidden; /* Prevenir barra de scroll nativa, já que JS controlará */
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Para suavizar movimento do JS */
 }
 #experiencias-linha-horizontal::-webkit-scrollbar {
-    height: 10px; /* Altura da barra de scroll */
+    /* height: 10px; */ /* Removido - não queremos scrollbar nativa */
+    display: none; /* Esconder scrollbar no Webkit */
 }
-#experiencias-linha-horizontal::-webkit-scrollbar-track {
-    background: rgba(237, 226, 209, 0.3); /* Bege quente com mais transparência */
-    border-radius: 5px;
-    margin: 0 30px; /* Margens laterais para a track não colar */
+#experiencias-linha-horizontal {
+    -ms-overflow-style: none;  /* IE e Edge */
+    scrollbar-width: none;  /* Firefox */
 }
-#experiencias-linha-horizontal::-webkit-scrollbar-thumb {
-    background-color: var(--verde-oliva);
-    border-radius: 5px;
-    border: 2px solid transparent; /* Borda para dar efeito de "flutuar" */
-    background-clip: content-box;
-}
-#experiencias .content-wrapper { /* Remover padding lateral do wrapper para esta seção */
+/* #experiencias-linha-horizontal::-webkit-scrollbar-track { ... } */ /* Removido */
+/* #experiencias-linha-horizontal::-webkit-scrollbar-thumb { ... } */ /* Removido */
+
+#experiencias .content-wrapper {
     padding-left: 0;
     padding-right: 0;
-    max-width: none; /* Permitir que a linha horizontal ocupe toda a largura */
+    max-width: none;
+    overflow: visible; /* Permitir que a linha de cards sangre para os lados */
+    height: auto; /* Altura definida pelo conteúdo interno (linha de cards) */
+    max-height: none; /* Remover restrição de max-height */
 }
 
 
 .card-experiencia {
     background-color: var(--bege-quente);
-    padding: 25px; /* Padding interno do card */
+    padding: 25px;
     border-radius: 8px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     border-left: 5px solid var(--verde-oliva);
-    opacity: 0;
-    transform: translateX(-40px); /* Animação de entrada horizontal */
+    opacity: 0; /* Mantido para animação de entrada individual, se desejado */
+    transform: translateX(-40px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease-in-out;
-    min-width: 320px; /* Largura mínima dos cards */
-    width: 350px;  /* Largura preferida dos cards */
-    /* max-width: 380px; */ /* Removido max-width para consistência */
-    /* height: auto; */ /* Altura baseada no conteúdo, mas o container flex com align-items:stretch ajudará */
-    height: calc(100vh - 220px); /* Altura experimental: 100vh - padding_secao_top/bottom - altura_titulo - margem_titulo - padding_linha_horizontal_top/bottom - altura_scrollbar */
+    min-width: 330px; /* Largura mínima dos cards */
+    width: 330px;  /* Largura preferida dos cards */
+    /* height: calc(100vh - 220px); */ /* Removida altura dinâmica complexa */
+    height: 420px; /* Altura fixa para os cards, ajustar conforme design */
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */ /* Ajustado para flex-start para priorizar conteúdo no topo */
     justify-content: flex-start;
 }
 
