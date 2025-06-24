@@ -965,8 +965,8 @@ body.menu-open #fullscreen-menu {
 /* Botão 'X' dedicado para fechar o menu fullscreen */
 .close-fullscreen-menu {
     position: absolute; /* Relativo ao #fullscreen-menu que é fixed */
-    top: 30px; /* Espaçamento do topo da viewport */
-    right: 45px; /* Espaçamento da direita da viewport (similar ao hamburger) */
+    top: 25px; /* Alinhado com o padding-top do #main-nav (posição do hamburger) */
+    right: 40px; /* Alinhado com o padding-right do .nav-container (posição do hamburger) */
     background: none;
     border: none;
     padding: 10px;
