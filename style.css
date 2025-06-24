@@ -861,15 +861,22 @@ h1, h2, h3, h4, h5, h6 {
     padding: 10px;
     cursor: pointer;
     z-index: 1001; /* Acima do header, mas abaixo do menu fullscreen */
+    /* O z-index do .menu-toggle quando o menu está aberto (body.menu-open) não precisa ser 1003 se ele não é mais o 'X' principal de fechar.
+       No entanto, manter 1001 é bom para garantir que ele esteja acima do conteúdo da página, mas abaixo do menu fullscreen.
+       Se ele for clicável para fechar o menu, precisaria de z-index maior que o menu, o que não é o caso aqui, pois o X dedicado fará isso.
+       Vamos deixar o z-index como está (1001) para o .menu-toggle no estado normal.
+       A regra `body.menu-open .menu-toggle` que o fixava foi removida para o novo botão X.
+    */
 }
 
-/* Garantir que o botão X fique fixo na posição correta quando o menu está aberto */
+/* REMOVIDO: Regra que fixava o .menu-toggle como X */
+/*
 body.menu-open .menu-toggle {
-    position: fixed; /* Fixar explicitamente em relação à viewport */
-    top: 25px;  /* Alinhado com o padding-top do #main-nav */
-    right: 40px; /* Alinhado com o padding-right do .nav-container */
-    /* Os paddings internos do .menu-toggle (10px) já dão o espaçamento do ícone em si */
+    position: fixed;
+    top: 25px;
+    right: 40px;
 }
+*/
 
 .hamburger-icon {
     display: block;
@@ -904,22 +911,10 @@ body.menu-open .menu-toggle {
     bottom: -8px;
 }
 
-/* Estilos para o hamburger quando o menu estiver aberto (classe 'menu-open' no body ou nav) */
-body.menu-open .hamburger-icon {
-    background-color: transparent; /* Linha do meio some */
-}
-
-body.menu-open .hamburger-icon::before {
-    top: 0;
-    transform: rotate(45deg);
-    background-color: var(--bege-quente); /* Cor do X quando menu aberto, geralmente cor clara */
-}
-
-body.menu-open .hamburger-icon::after {
-    bottom: 0;
-    transform: rotate(-45deg);
-    background-color: var(--bege-quente); /* Cor do X quando menu aberto */
-}
+/* REMOVIDO: Estilos para transformar o hamburger em X */
+/* body.menu-open .hamburger-icon { ... } */
+/* body.menu-open .hamburger-icon::before { ... } */
+/* body.menu-open .hamburger-icon::after { ... } */
 
 
 /* Ajuste de padding no body para compensar o menu fixo */
@@ -966,6 +961,33 @@ body.menu-open #fullscreen-menu {
     padding-bottom: 40px; /* Respiro na base */
     /* O display:flex e align-items:center do #fullscreen-menu já centralizam este bloco se ele for menor que 100vh */
 }
+
+/* Botão 'X' dedicado para fechar o menu fullscreen */
+.close-fullscreen-menu {
+    position: absolute; /* Relativo ao #fullscreen-menu que é fixed */
+    top: 30px; /* Espaçamento do topo da viewport */
+    right: 45px; /* Espaçamento da direita da viewport (similar ao hamburger) */
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1004; /* Acima do conteúdo do menu e do hamburger original */
+    line-height: 1; /* Para alinhar bem o &times; */
+}
+
+.close-fullscreen-menu span {
+    font-family: Arial, sans-serif; /* Uma fonte simples para o X */
+    font-size: 3rem; /* Tamanho do X */
+    font-weight: 300; /* Mais fino */
+    color: var(--bege-quente);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.close-fullscreen-menu:hover span {
+    color: var(--verde-oliva); /* Cor de hover */
+    transform: scale(1.1);
+}
+
 
 .fullscreen-menu-content ul {
     list-style: none;

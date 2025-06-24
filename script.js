@@ -15,30 +15,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const fullscreenMenu = document.getElementById('fullscreen-menu');
     const body = document.body;
     const fullscreenMenuLinks = document.querySelectorAll('.fullscreen-menu-link');
+    const closeMenuButton = document.querySelector('.close-fullscreen-menu'); // Novo botão X
+
+    function openMenu() {
+        body.classList.add('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        body.style.overflow = 'hidden'; // Bloquear scroll da página
+    }
+
+    function closeMenu() {
+        body.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = ''; // Restaurar scroll da página
+    }
 
     if (menuToggle && fullscreenMenu) {
         menuToggle.addEventListener('click', () => {
-            body.classList.toggle('menu-open');
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-
             if (body.classList.contains('menu-open')) {
-                body.style.overflow = 'hidden'; // Bloquear scroll da página
+                // Se o menu já está aberto, e o usuário clica no hamburger de novo,
+                // podemos optar por fechar ou não fazer nada (já que temos o X dedicado).
+                // Por enquanto, vamos manter o toggle, pode ser útil.
+                closeMenu();
             } else {
-                body.style.overflow = ''; // Restaurar scroll da página
+                openMenu();
             }
         });
+    }
+
+    if (closeMenuButton) {
+        closeMenuButton.addEventListener('click', closeMenu);
     }
 
     // Fechar o menu ao clicar em um link
     fullscreenMenuLinks.forEach(link => {
         link.addEventListener('click', () => {
+            // A navegação para a âncora ocorrerá por padrão.
+            // Apenas precisamos garantir que o menu feche.
             if (body.classList.contains('menu-open')) {
-                body.classList.remove('menu-open');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                body.style.overflow = ''; // Restaurar scroll da página
+                closeMenu();
             }
-            // A rolagem suave para a seção será tratada no próximo passo do plano
         });
     });
 
