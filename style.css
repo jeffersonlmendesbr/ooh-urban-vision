@@ -964,20 +964,27 @@ body.menu-open #fullscreen-menu {
 
 /* Botão 'X' dedicado para fechar o menu fullscreen */
 .close-fullscreen-menu {
-    position: absolute; /* Relativo ao #fullscreen-menu que é fixed */
-    top: 25px; /* Alinhado com o padding-top do #main-nav (posição do hamburger) */
-    right: 40px; /* Alinhado com o padding-right do .nav-container (posição do hamburger) */
+    position: fixed; /* Fixado na viewport, posição será definida por JS */
+    /* top: 25px; */ /* REMOVIDO - Será definido por JS */
+    /* right: 40px; */ /* REMOVIDO - Será definido por JS (ou left por JS) */
     background: none;
     border: none;
-    padding: 10px;
+    padding: 10px; /* Padding interno do botão */
     cursor: pointer;
     z-index: 1004; /* Acima do conteúdo do menu e do hamburger original */
     line-height: 1; /* Para alinhar bem o &times; */
+    opacity: 0; /* Inicialmente invisível */
+    pointer-events: none; /* Inicialmente não clicável */
+    transition: opacity 0.3s ease; /* Transição para aparecer suavemente */
+    /* As dimensões (width/height) serão definidas por JS para bater com o hamburger */
+    display: flex; /* Para centralizar o span do X se as dimensões forem setadas */
+    justify-content: center;
+    align-items: center;
 }
 
 .close-fullscreen-menu span {
     font-family: Arial, sans-serif; /* Uma fonte simples para o X */
-    font-size: 3rem; /* Tamanho do X */
+    font-size: 2.5rem; /* Tamanho do X - pode precisar de ajuste fino com width/height do botão */
     font-weight: 300; /* Mais fino */
     color: var(--bege-quente);
     transition: color 0.3s ease, transform 0.3s ease;
@@ -985,7 +992,7 @@ body.menu-open #fullscreen-menu {
 
 .close-fullscreen-menu:hover span {
     color: var(--verde-oliva); /* Cor de hover */
-    transform: scale(1.1);
+    transform: scale(1.1); /* Mantido, mas pode ser revisto dependendo do tamanho final */
 }
 
 
