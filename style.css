@@ -1011,14 +1011,32 @@ h1, h2, h3, h4, h5, h6 {
 #hero #main-nav .hamburger-icon,
 #hero #main-nav .hamburger-icon::before,
 #hero #main-nav .hamburger-icon::after {
-    color: var(--bege-quente); /* Para o logo */
-    background-color: var(--bege-quente); /* Para as linhas do hamburger */
+    color: var(--bege-quente) !important; /* Para o logo, !important para sobrepor regra base */
+    background-color: var(--bege-quente) !important; /* Para as linhas do hamburger, !important */
 }
 /* Garantir que o X do menu aberto sobre o Hero também seja bege */
+/* Esta regra pode ser simplificada ou integrada com .header-light-text se o X for o mesmo elemento .menu-toggle */
 #hero body.menu-open .hamburger-icon::before,
 #hero body.menu-open .hamburger-icon::after {
+    background-color: var(--bege-quente) !important; /* !important para garantir sobreposição */
+}
+
+/* Estilos para o cabeçalho com texto claro (quando sobre seções escuras) */
+#main-nav.header-light-text .nav-brand-logo {
+    color: var(--bege-quente);
+}
+
+#main-nav.header-light-text .hamburger-icon,
+#main-nav.header-light-text .hamburger-icon::before,
+#main-nav.header-light-text .hamburger-icon::after {
     background-color: var(--bege-quente);
 }
+
+/* Se o botão X dedicado também precisar mudar de cor (ele é .close-fullscreen-menu, não .menu-toggle)
+   e se a sua cor for baseada no tema da seção por trás do menu aberto,
+   isso exigiria uma lógica mais complexa, pois o X é sempre sobre o menu escuro.
+   Por enquanto, o X já é bege.
+*/
 
 
 .menu-toggle {
@@ -1066,7 +1084,7 @@ body.menu-open .menu-toggle {
     width: 100%;
     height: 2px;
     background-color: var(--preto-contraste); /* Cor do ícone */
-    transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
+    transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease, background-color 0.3s ease; /* Adicionada transição para background-color */
 }
 
 .hamburger-icon::before {
