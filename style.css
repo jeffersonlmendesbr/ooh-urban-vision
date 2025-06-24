@@ -1,0 +1,814 @@
+/* Reset básico e configurações globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Para rolagem suave inicial, pode ser aprimorado com JS */
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Fonte principal para corpo de texto */
+    background-color: #EDE2D1; /* Bege quente */
+    color: #1A1A1A; /* Preto 90% para contraste */
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif; /* Fonte de impacto para títulos */
+    color: #1A1A1A;
+    margin-bottom: 1rem;
+}
+
+.section {
+    padding: 60px 20px;
+    min-height: 70vh; /* Altura mínima para dar um efeito de "tela cheia" por seção */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Paleta de Cores */
+:root {
+    --bege-quente: #EDE2D1;
+    --verde-oliva: #7A8450;
+    --prata-fosco: #C0C0C0;
+    --preto-contraste: #1A1A1A;
+}
+
+/* Estilos Iniciais para as seções (apenas para visualização) */
+/* Hero Section */
+#hero {
+    background-color: var(--preto-contraste);
+    color: var(--bege-quente);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupar toda a altura da tela */
+    padding: 80px 40px; /* Aumentar padding para respiro */
+    text-align: left; /* Alinhar texto à esquerda para um estilo mais editorial */
+}
+
+.hero-content {
+    display: flex;
+    align-items: flex-start; /* Alinhar itens no topo */
+    gap: 40px; /* Espaço entre a imagem e o texto */
+    max-width: 1200px; /* Limitar a largura máxima do conteúdo */
+}
+
+.hero-image-placeholder {
+    width: 300px; /* Largura da imagem placeholder */
+    height: 400px; /* Altura da imagem placeholder */
+    background-color: var(--prata-fosco); /* Cor do placeholder */
+    border: 2px solid var(--verde-oliva); /* Borda sutil */
+    flex-shrink: 0; /* Impedir que o placeholder encolha */
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-text .impact-phrase {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem; /* Tamanho ajustado */
+    color: var(--prata-fosco); /* Prata fosco para a frase de impacto */
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+#hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900; /* Mais peso para o nome */
+    font-size: 4.5rem; /* Tamanho grande para impacto */
+    color: var(--bege-quente);
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+
+#hero h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1.75rem; /* Tamanho para o cargo */
+    color: var(--verde-oliva); /* Verde oliva para o cargo, criando contraste */
+    margin-bottom: 2rem;
+}
+
+.hero-links a {
+    color: var(--bege-quente);
+    text-decoration: none;
+    margin-right: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s ease;
+}
+
+.hero-links a:hover {
+    border-bottom: 1px solid var(--verde-oliva); /* Efeito hover sutil */
+}
+
+/* Content Wrapper para seções com muito texto */
+.content-wrapper {
+    max-width: 800px; /* Limita a largura para melhor legibilidade */
+    margin: 0 auto; /* Centraliza o wrapper */
+    padding: 20px;
+    text-align: left; /* Alinhamento à esquerda para textos longos */
+}
+
+.content-wrapper h2 {
+    font-size: 3rem; /* Tamanho do título da seção */
+    margin-bottom: 2rem;
+    text-align: center; /* Centralizar o título da seção */
+    color: var(--preto-contraste);
+}
+
+/* Sobre Mim Section */
+#sobre-mim {
+    background-color: var(--bege-quente);
+    padding: 80px 20px; /* Padding vertical e horizontal */
+}
+
+.sobre-mim-texto p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300; /* Texto mais leve */
+    font-size: 1.15rem; /* Tamanho de fonte confortável para leitura */
+    line-height: 1.8; /* Espaçamento entre linhas generoso */
+    color: var(--preto-contraste);
+    margin-bottom: 1.5rem; /* Espaçamento entre parágrafos */
+}
+
+.sobre-mim-texto .editorial-quote {
+    font-family: 'Playfair Display', serif; /* Fonte editorial para a citação */
+    font-weight: 700; /* Normal ou bold, dependendo da preferência */
+    font-style: italic; /* Itálico para destaque */
+    font-size: 1.5rem; /* Tamanho maior para a citação */
+    color: var(--verde-oliva); /* Cor de destaque para a citação */
+    text-align: center; /* Centralizar a citação */
+    margin-top: 2.5rem; /* Espaço acima da citação */
+    margin-bottom: 1rem; /* Espaço abaixo da citação */
+    padding: 1rem 0;
+    border-top: 1px solid var(--prata-fosco);
+    border-bottom: 1px solid var(--prata-fosco);
+}
+
+/* Experiencias Section */
+#experiencias {
+    background-color: var(--prata-fosco);
+    padding: 80px 20px;
+}
+
+#experiencias .content-wrapper h2 {
+    color: var(--preto-contraste); /* Título da seção Experiências */
+}
+
+.experiencias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsivo */
+    gap: 30px; /* Espaçamento entre os cards */
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.card-experiencia {
+    background-color: var(--bege-quente);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid var(--verde-oliva); /* Detalhe lateral */
+}
+
+.card-experiencia:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-experiencia.current-job {
+    border-left-color: var(--preto-contraste); /* Destaque para o emprego atual */
+    background-color: #f5efe2; /* Um tom ligeiramente diferente de bege */
+}
+
+.card-experiencia h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--preto-contraste);
+    margin-bottom: 0.5rem;
+}
+
+.card-experiencia .cargo {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--verde-oliva);
+    margin-bottom: 0.25rem;
+}
+
+.card-experiencia .periodo {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.card-experiencia p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.tags-experiencia {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tags-experiencia li {
+    background-color: var(--prata-fosco);
+    color: var(--preto-contraste);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.card-experiencia.current-job .tags-experiencia li {
+    background-color: var(--verde-oliva);
+    color: var(--bege-quente);
+}
+
+.selos-gerais {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--bege-quente); /* Separador */
+}
+
+.selos-gerais span {
+    display: inline-block;
+    margin: 0 15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--preto-contraste);
+}
+
+.selos-gerais i { /* Estilo básico para ícones, se usados com FontAwesome */
+    margin-right: 8px;
+    color: var(--verde-oliva);
+}
+
+/* Manifesto Section */
+#manifesto {
+    background-color: var(--verde-oliva);
+    color: var(--bege-quente);
+    padding: 100px 20px; /* Mais padding vertical para impacto */
+    text-align: center; /* Centralizar todo o conteúdo da seção */
+}
+
+#manifesto .content-wrapper {
+    max-width: 900px; /* Um pouco mais largo para o manifesto */
+}
+
+#manifesto .content-wrapper h2 {
+    color: var(--bege-quente); /* Título da seção Manifesto */
+    font-size: 3.5rem; /* Título maior */
+    margin-bottom: 2.5rem;
+}
+
+.manifesto-texto p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300; /* Leve para o corpo do manifesto */
+    font-size: 1.25rem; /* Tamanho de fonte bom para leitura e impacto */
+    line-height: 1.9;
+    color: var(--bege-quente);
+    margin-bottom: 2rem; /* Espaçamento entre parágrafos do manifesto */
+    text-align: left; /* Alinhar o texto do manifesto à esquerda para leitura */
+}
+
+/* Para dar um toque mais editorial, podemos justificar o texto e hifenizar.
+   Isso pode ser mais complexo de acertar cross-browser e responsivamente.
+   Por enquanto, manteremos alinhado à esquerda.
+.manifesto-texto p {
+    text-align: justify;
+    hyphens: auto;
+}
+*/
+
+.manifesto-encerramento {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; /* Bold */
+    font-style: normal; /* Normal, não itálico aqui para diferenciar da citação do sobre */
+    font-size: 2rem; /* Tamanho bem destacado */
+    color: var(--bege-quente);
+    text-align: center;
+    margin-top: 3rem; /* Espaço generoso acima */
+    padding: 1.5rem 1rem;
+    border-top: 2px solid var(--prata-fosco); /* Linha sutil acima, cor prata */
+    border-bottom: 2px solid var(--prata-fosco); /* Linha sutil abaixo, cor prata */
+    display: inline-block; /* Para que as bordas se ajustem ao texto */
+    max-width: 70%; /* Para não ocupar a largura toda se for muito curto */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ferramentas Section */
+#ferramentas {
+    background-color: var(--bege-quente);
+    padding: 80px 20px;
+}
+
+#ferramentas .content-wrapper h2 {
+    color: var(--preto-contraste);
+    margin-bottom: 3rem; /* Mais espaço após o título da seção */
+}
+
+.ferramentas-categorias {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as categorias quebrem para a próxima linha em telas menores */
+    justify-content: space-between; /* Distribui o espaço entre as categorias */
+    gap: 30px; /* Espaçamento entre as colunas de categoria */
+}
+
+.categoria {
+    flex: 1; /* Permite que as categorias cresçam igualmente */
+    min-width: 280px; /* Largura mínima para cada categoria antes de quebrar */
+    padding: 20px;
+    background-color: #fdfbf7; /* Um bege um pouco mais claro para os cards de categoria */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-top: 3px solid var(--verde-oliva); /* Detalhe no topo do card da categoria */
+}
+
+.categoria h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--preto-contraste);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--prata-fosco); /* Linha abaixo do título da categoria */
+}
+
+.categoria ul {
+    list-style: none; /* Remove marcadores padrão */
+    padding-left: 0;
+}
+
+.categoria ul li {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    color: #333; /* Cor de texto um pouco mais suave */
+    margin-bottom: 0.8rem;
+    padding-left: 1.5em; /* Espaço para o marcador personalizado */
+    position: relative;
+}
+
+.categoria ul li::before {
+    content: "✓"; /* Marcador personalizado de check */
+    color: var(--verde-oliva);
+    font-weight: bold;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* OOHPlanner Section */
+#ooh-planner {
+    background-color: var(--preto-contraste);
+    color: var(--bege-quente);
+    padding: 0; /* Remover padding da section para o wrapper interno controlar */
+    min-height: auto; /* Altura definida pelo conteúdo */
+}
+
+#ooh-planner .content-wrapper-full {
+    padding: 80px 40px; /* Padding interno do wrapper */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.oohplanner-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1100px;
+    width: 100%;
+}
+
+.oohplanner-text {
+    flex: 2; /* O texto ocupa mais espaço */
+    text-align: left;
+}
+
+.oohplanner-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--bege-quente);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: baseline; /* Alinha o subtítulo com a base do título */
+}
+
+.oohplanner-text h2 .subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--prata-fosco);
+    margin-left: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid var(--prata-fosco);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.oohplanner-text p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--prata-fosco); /* Texto geral em prata para suavizar */
+    margin-bottom: 1.5rem;
+}
+
+.oohplanner-text .teaser-highlight {
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: var(--bege-quente); /* Destaque em bege mais claro */
+    border-left: 3px solid var(--verde-oliva);
+    padding-left: 15px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.oohplanner-text .stay-tuned {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--verde-oliva); /* Verde para o "stay tuned" */
+    margin-top: 2rem;
+}
+
+.oohplanner-visual-placeholder {
+    flex: 1; /* O visual ocupa menos espaço */
+    height: 300px;
+    background-color: rgba(237, 226, 209, 0.1); /* Bege quente com muita transparência */
+    border: 2px dashed var(--verde-oliva);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.oohplanner-visual-placeholder p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--verde-oliva);
+}
+
+/* Presença Nacional Section */
+#presenca-nacional {
+    background-color: var(--prata-fosco); /* Fundo prata fosco para esta seção */
+    padding: 80px 20px;
+    min-height: auto; /* Ajustar altura conforme o conteúdo */
+}
+
+#presenca-nacional .content-wrapper {
+    max-width: 1100px; /* Wrapper um pouco maior para acomodar mapa e texto */
+}
+
+#presenca-nacional .content-wrapper h2 {
+    color: var(--preto-contraste);
+    margin-bottom: 3rem;
+}
+
+.presenca-conteudo {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar em telas menores */
+    align-items: flex-start; /* Alinhar itens no topo para melhor layout com alturas diferentes */
+    gap: 40px;
+}
+
+.mapa-placeholder {
+    flex: 1;
+    min-width: 320px; /* Largura mínima para o mapa */
+    max-width: 450px; /* Largura máxima para o mapa */
+    height: auto; /* Altura automática baseada no conteúdo ou aspecto */
+    aspect-ratio: 4/3; /* Proporção para o mapa, ajuste conforme necessário */
+    background-color: var(--bege-quente);
+    border: 2px dashed var(--verde-oliva);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 0 auto; /* Centralizar se estiver sozinho na linha */
+}
+
+.mapa-placeholder p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--verde-oliva);
+    margin-bottom: 10px;
+}
+
+.mapa-placeholder span {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.presenca-texto {
+    flex: 1.5; /* Texto ocupa um pouco mais de espaço que o mapa */
+    min-width: 320px; /* Largura mínima para o texto */
+    text-align: left;
+}
+
+.presenca-texto p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--preto-contraste);
+    margin-bottom: 1.5rem;
+}
+
+.presenca-texto .destaque-conhecimento {
+    font-family: 'Roboto', sans-serif; /* Manter Roboto para consistência */
+    font-weight: 500; /* Medium weight */
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--preto-contraste); /* Preto para bom contraste no prata */
+    margin-top: 1.5rem;
+    padding: 15px;
+    background-color: rgba(237, 226, 209, 0.6); /* Bege quente com mais opacidade */
+    border-left: 4px solid var(--verde-oliva);
+    border-radius: 0 8px 8px 0; /* Cantos arredondados à direita */
+    line-height: 1.6;
+}
+
+/* Depoimentos Section */
+#depoimentos {
+    background-color: var(--bege-quente); /* Fundo bege quente */
+    padding: 80px 20px;
+    min-height: auto;
+}
+
+#depoimentos .content-wrapper h2 {
+    color: var(--preto-contraste);
+    margin-bottom: 3rem;
+}
+
+.depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsivo para os depoimentos */
+    gap: 30px;
+    margin-bottom: 3rem;
+}
+
+.card-depoimento {
+    background-color: #fdfbf7; /* Bege um pouco mais claro, ou var(--bege-quente) se preferir menos contraste */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+    border-top: 4px solid var(--verde-oliva); /* Detalhe de cor no topo */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-depoimento .citacao {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Faz a citação ocupar o espaço disponível */
+    position: relative;
+    padding-left: 30px; /* Espaço para as aspas */
+}
+
+.card-depoimento .citacao::before {
+    content: '“'; /* Aspas de abertura */
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--verde-oliva);
+    position: absolute;
+    left: -5px;
+    top: -10px;
+    opacity: 0.8;
+}
+
+.card-depoimento .autor {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500; /* Medium */
+    font-size: 1.1rem;
+    color: var(--preto-contraste);
+    margin-bottom: 0.25rem;
+    text-align: right;
+}
+
+.card-depoimento .cargo-autor {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: right;
+}
+
+.link-linkedin-depoimentos {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-linkedin {
+    display: inline-block;
+    background-color: var(--verde-oliva);
+    color: var(--bege-quente);
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-linkedin:hover {
+    background-color: #616a40; /* Verde oliva um pouco mais escuro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Contato Section (Footer) */
+#contato {
+    background-color: var(--verde-oliva);
+    color: var(--bege-quente);
+    padding: 60px 20px; /* Aumentar padding para mais respiro */
+    min-height: auto;
+    text-align: center; /* Centralizar todo o conteúdo do footer */
+}
+
+#contato .content-wrapper {
+    max-width: 700px; /* Limitar largura para melhor leitura */
+}
+
+#contato h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; /* Tamanho do título */
+    color: var(--bege-quente);
+    margin-bottom: 1rem;
+}
+
+.contato-subtitulo {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--prata-fosco); /* Subtítulo em prata */
+    margin-bottom: 2.5rem;
+}
+
+.contato-links {
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column; /* Links um abaixo do outro */
+    align-items: center; /* Centralizar os links */
+    gap: 15px; /* Espaço entre os links */
+}
+
+.contato-link {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400; /* Regular */
+    font-size: 1.15rem;
+    color: var(--bege-quente);
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-flex; /* Para alinhar ícone e texto */
+    align-items: center;
+    gap: 10px; /* Espaço entre ícone e texto */
+    border: 1px solid transparent; /* Para efeito hover */
+}
+
+.contato-link .icon-placeholder {
+    font-size: 1.3rem; /* Tamanho do ícone placeholder */
+    /* Substituir por SVGs ou FontAwesome posteriormente */
+}
+
+.contato-link:hover {
+    background-color: rgba(237, 226, 209, 0.1); /* Bege quente com transparência no hover */
+    border-color: var(--prata-fosco);
+    color: var(--prata-fosco);
+}
+
+.copyright {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: var(--prata-fosco); /* Cor sutil para o copyright */
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(192, 192, 192, 0.3); /* Linha separadora sutil */
+}
+
+/* Menu de Navegação Fixo */
+#main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(26, 26, 26, 0.9); /* Preto 90% com leve transparência */
+    padding: 15px 0; /* Padding vertical, horizontal será no wrapper */
+    z-index: 1000; /* Para ficar sobre outros elementos */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito de mudança de fundo do menu ao rolar - a ser implementado com JS se necessário mais controle */
+/* #main-nav.scrolled {
+    background-color: rgba(26, 26, 26, 0.95);
+} */
+
+#main-nav .nav-content-wrapper {
+    max-width: 1200px; /* Mesma largura do hero-content para alinhamento */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Padding horizontal para o conteúdo do menu */
+}
+
+#main-nav .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--bege-quente);
+    text-decoration: none;
+}
+
+#main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Espaçamento entre os links */
+}
+
+#main-nav ul li a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: var(--prata-fosco); /* Links em prata fosco */
+    text-decoration: none;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent; /* Para animação no hover */
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+#main-nav ul li a:hover,
+#main-nav ul li a.active { /* Classe active a ser adicionada com JS */
+    color: var(--bege-quente); /* Cor de destaque no hover/ativo */
+    border-bottom-color: var(--verde-oliva);
+}
+
+/* Ajuste de padding no body para compensar o menu fixo */
+body {
+    padding-top: 70px; /* Altura aproximada do menu, ajuste conforme necessário */
+    overflow-x: hidden; /* Prevenir scroll horizontal caso alguma animação exceda limites */
+}
+
+/* Estilos para animação de entrada de seção */
+.section {
+    /* ... outros estilos .section ... */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
