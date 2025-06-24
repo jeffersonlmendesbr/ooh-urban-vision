@@ -86,11 +86,69 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroSection && heroBackground) {
         window.addEventListener('scroll', () => {
             const scrollPosition = window.pageYOffset;
-            // Move o fundo mais devagar que o scroll (ajuste o divisor para mudar a intensidade)
-            // Apenas aplicar se a seção Hero estiver visível para otimizar
-            if (scrollPosition < window.innerHeight) { // window.innerHeight é a altura da seção Hero
+            if (scrollPosition < window.innerHeight) {
                 heroBackground.style.transform = `translateY(${scrollPosition * 0.3}px)`;
             }
         });
+    }
+
+    // Animação de entrada para parágrafos na seção "Sobre Mim"
+    const sobreMimSection = document.querySelector('#sobre-mim');
+    if (sobreMimSection) {
+        const animatedLines = sobreMimSection.querySelectorAll('[data-animate-line]');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2 // Pelo menos 20% da linha/parágrafo visível
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Aplicar delay escalonado baseado no índice do elemento
+                    entry.target.style.transitionDelay = `${index * 0.15}s`; // 0.15s de delay entre cada linha
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target); // Animar apenas uma vez
+                }
+            });
+        };
+
+        const lineObserver = new IntersectionObserver(observerCallback, observerOptions);
+        animatedLines.forEach(line => lineObserver.observe(line));
+    }
+
+    // Animação para a seção Manifesto (aspas e texto)
+    const manifestoSection = document.querySelector('#manifesto');
+    if (manifestoSection) {
+        const animatedAspas = manifestoSection.querySelectorAll('[data-animate-aspas]');
+        const animatedManifestoText = manifestoSection.querySelectorAll('[data-animate-manifesto]');
+
+        const manifestoObserverOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.3 // Pelo menos 30% da seção visível para iniciar animação do manifesto
+        };
+
+        const manifestoCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animar aspas
+                    manifestoSection.classList.add('aspas-visiveis');
+
+                    // Animar texto do manifesto com delay escalonado
+                    animatedManifestoText.forEach((textElement, index) => {
+                        textElement.style.transitionDelay = `${0.3 + index * 0.2}s`; // Delay inicial + incremento
+                        textElement.style.opacity = '1';
+                        textElement.style.transform = 'translateY(0)';
+                    });
+                    observer.unobserve(entry.target); // Animar apenas uma vez
+                }
+            });
+        };
+
+        const manifestoObserver = new IntersectionObserver(manifestoCallback, manifestoObserverOptions);
+        manifestoObserver.observe(manifestoSection);
     }
 });

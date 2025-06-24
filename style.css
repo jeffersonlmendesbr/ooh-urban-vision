@@ -166,6 +166,102 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
 }
 
+/* Africa DDB Section */
+#africa-ddb {
+    background-color: #222222; /* Cinza grafite escuro, quase preto fosco */
+    color: var(--prata-fosco); /* Cor de texto base para esta seção */
+    /* A seção já é display:flex, flex-direction:column, justify-content:center, align-items:center por padrão */
+}
+
+#africa-ddb .content-wrapper.africa-layout {
+    display: flex;
+    flex-direction: row; /* Lado a lado */
+    align-items: center; /* Centralizar verticalmente as colunas */
+    justify-content: space-between; /* Espaço entre as colunas */
+    gap: 50px; /* Espaço entre as colunas */
+    max-width: 1200px; /* Um pouco mais largo para o layout de duas colunas */
+    width: 100%;
+    /* overflow-y: auto; max-height: calc(100vh - 80px); já definido, mas pode não ser necessário aqui se o conteúdo couber */
+}
+
+.africa-coluna {
+    flex: 1; /* Dividir espaço igualmente */
+    display: flex;
+    flex-direction: column;
+}
+
+.africa-coluna-esquerda {
+    align-items: flex-start; /* Alinhar conteúdo da coluna esquerda à esquerda */
+    justify-content: center; /* Centralizar verticalmente se houver espaço */
+    gap: 40px; /* Espaço entre logo e selos */
+}
+
+.africa-logo-placeholder {
+    width: 200px; /* Ajustar conforme o logo real */
+    height: 100px; /* Ajustar */
+    background-color: var(--preto-contraste); /* Fundo para o logo placeholder */
+    border: 1px solid var(--prata-fosco);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--bege-quente);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.africa-selos {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Espaço entre os selos */
+}
+
+.selo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo sutil para os selos */
+    border-radius: 6px;
+    border-left: 3px solid var(--verde-oliva);
+}
+
+.selo-icon {
+    font-size: 2rem; /* Tamanho do emoji/ícone placeholder */
+    color: var(--verde-oliva);
+}
+
+.selo-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    color: var(--prata-fosco);
+    line-height: 1.4;
+}
+
+.africa-coluna-direita {
+    align-items: flex-start; /* Alinhar texto à esquerda */
+    justify-content: center; /* Centralizar verticalmente o bloco de texto */
+}
+
+.africa-texto p {
+    font-family: 'DM Sans', sans-serif; /* Ou Roboto para um tom mais institucional */
+    font-weight: 400;
+    font-size: 1.15rem; /* Tamanho bom para leitura */
+    line-height: 1.8;
+    color: var(--prata-fosco);
+    margin-bottom: 1.5rem;
+}
+
+.africa-texto p:last-child {
+    margin-bottom: 0;
+}
+
+/* Ocultar o H2 padrão se não quisermos título visível na seção Africa DDB */
+#africa-ddb .content-wrapper > h2 {
+    display: none;
+}
+
 
 /* Content Wrapper para seções com muito texto */
 .content-wrapper {
@@ -199,32 +295,56 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Sobre Mim Section */
 #sobre-mim {
-    background-color: var(--bege-quente);
-    padding: 80px 20px; /* Padding vertical e horizontal */
+    /* background-color: var(--bege-quente); */ /* Removido para usar gradiente */
+    background: linear-gradient(to bottom, #F9F5F0, #EDE2D1, #FFFFFF);
+    /* padding: 80px 20px; */ /* Padding da .section geral já é 40px */
+    /* As seções já são display:flex, flex-direction:column, justify-content:center por padrão */
+}
+
+#sobre-mim .content-wrapper {
+    /* max-width já definido, text-align:left já definido */
+    /* overflow-y: auto; max-height: calc(100vh - 80px); já definido */
+    /* Ajustar para centralizar o conteúdo textual se ele for menor que max-height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o .sobre-mim-texto verticalmente se houver espaço */
+}
+
+.sobre-mim-texto {
+    /* Adicionar um max-width menor para o bloco de texto para melhor legibilidade e estética editorial */
+    max-width: 680px; /* Ou similar, para não ficar muito largo */
+    margin: 0 auto; /* Centraliza o bloco de texto dentro do content-wrapper */
 }
 
 .sobre-mim-texto p {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300; /* Texto mais leve */
-    font-size: 1.15rem; /* Tamanho de fonte confortável para leitura */
-    line-height: 1.7; /* Levemente reduzido para economizar espaço */
+    font-family: 'DM Sans', sans-serif; /* Nova fonte */
+    font-weight: 400; /* Regular */
+    font-size: 1.3rem; /* Tamanho aumentado para protagonismo */
+    line-height: 1.75;
     color: var(--preto-contraste);
-    margin-bottom: 1.2rem; /* Espaçamento entre parágrafos reduzido */
+    margin-bottom: 2rem; /* Espaçamento generoso entre parágrafos */
+    /* Estilos para animação linha a linha */
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.sobre-mim-texto .editorial-quote {
-    font-family: 'Playfair Display', serif; /* Fonte editorial para a citação */
-    font-weight: 700; /* Normal ou bold, dependendo da preferência */
-    font-style: italic; /* Itálico para destaque */
-    font-size: 1.4rem; /* Levemente reduzido */
-    color: var(--verde-oliva); /* Cor de destaque para a citação */
-    text-align: center; /* Centralizar a citação */
-    margin-top: 2rem; /* Espaço acima da citação reduzido */
-    margin-bottom: 0.8rem; /* Espaço abaixo da citação reduzido */
-    padding: 0.8rem 0; /* Padding reduzido */
-    border-top: 1px solid var(--prata-fosco);
-    border-bottom: 1px solid var(--prata-fosco);
+/* Remover a estilização de citação anterior, a última frase será um parágrafo normal, mas pode ter um destaque sutil se desejado */
+.sobre-mim-texto .sobre-final-quote {
+    font-family: 'Playfair Display', serif; /* Destaque com Playfair */
+    font-weight: 700;
+    font-size: 1.5rem; /* Um pouco maior */
+    color: var(--verde-oliva); /* Cor de destaque */
+    /* text-align: center; */ /* Manter alinhado à esquerda com o resto do texto */
+    margin-top: 2.5rem; /* Mais espaço antes da frase final */
+    /* Remover bordas */
 }
+
+/* Remover o H2 da seção Sobre Mim, pois foi removido do HTML */
+#sobre-mim .content-wrapper h2 {
+    display: none;
+}
+
 
 /* Experiencias Section */
 #experiencias {
@@ -340,57 +460,101 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Manifesto Section */
 #manifesto {
-    background-color: var(--verde-oliva);
+    /* background-color: var(--verde-oliva); */ /* Removido */
+    background-color: var(--preto-contraste); /* Cor base escura */
+    background-image: url('https://www.transparenttextures.com/patterns/nistri.png'); /* Textura sutil de linhas como placeholder */
+    background-blend-mode: overlay; /* Ou 'multiply', 'screen' - experimentar */
+    background-size: auto;
     color: var(--bege-quente);
-    padding: 100px 20px; /* Mais padding vertical para impacto */
-    text-align: center; /* Centralizar todo o conteúdo da seção */
+    /* padding: 100px 20px; */ /* Padding da .section geral já é 40px */
+    /* A seção já é display:flex, flex-direction:column, justify-content:center, align-items:center */
 }
 
 #manifesto .content-wrapper {
-    max-width: 900px; /* Um pouco mais largo para o manifesto */
+    max-width: 900px;
+    display: flex; /* Para alinhar aspas e texto */
+    align-items: center; /* Centralizar verticalmente aspas e texto */
+    justify-content: center; /* Centralizar horizontalmente */
+    position: relative; /* Para posicionamento absoluto das aspas se necessário, ou apenas para contexto */
+    /* overflow-y: auto; max-height: calc(100vh - 80px); já definido */
 }
 
-#manifesto .content-wrapper h2 {
-    color: var(--bege-quente); /* Título da seção Manifesto */
-    font-size: 3.5rem; /* Título maior */
-    margin-bottom: 2.5rem;
+.manifesto-content-textual {
+    text-align: center; /* Centralizar o texto do manifesto */
+    max-width: 700px; /* Limitar largura do texto para não encostar nas aspas */
 }
 
-.manifesto-texto p {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300; /* Leve para o corpo do manifesto */
-    font-size: 1.25rem; /* Tamanho de fonte bom para leitura e impacto */
-    line-height: 1.9;
+#manifesto .content-wrapper h2 { /* Título "Manifesto" */
     color: var(--bege-quente);
-    margin-bottom: 2rem; /* Espaçamento entre parágrafos do manifesto */
-    text-align: left; /* Alinhar o texto do manifesto à esquerda para leitura */
+    font-size: 2.5rem; /* Reduzido um pouco */
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-/* Para dar um toque mais editorial, podemos justificar o texto e hifenizar.
-   Isso pode ser mais complexo de acertar cross-browser e responsivamente.
-   Por enquanto, manteremos alinhado à esquerda.
 .manifesto-texto p {
-    text-align: justify;
-    hyphens: auto;
+    font-family: 'DM Sans', sans-serif; /* Usar DM Sans para consistência com "Sobre" ou Roboto */
+    font-weight: 400;
+    font-size: 1.2rem; /* Ajustar para legibilidade */
+    line-height: 1.8;
+    color: var(--prata-fosco); /* Cor mais suave para o corpo */
+    margin-bottom: 1.8rem;
+    text-align: center; /* Manter centralizado */
+    /* Animação */
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-*/
 
 .manifesto-encerramento {
     font-family: 'Playfair Display', serif;
-    font-weight: 700; /* Bold */
-    font-style: normal; /* Normal, não itálico aqui para diferenciar da citação do sobre */
-    font-size: 2rem; /* Tamanho bem destacado */
-    color: var(--bege-quente);
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.7rem; /* Ajustado */
+    color: var(--bege-quente); /* Cor de destaque */
     text-align: center;
-    margin-top: 3rem; /* Espaço generoso acima */
-    padding: 1.5rem 1rem;
-    border-top: 2px solid var(--prata-fosco); /* Linha sutil acima, cor prata */
-    border-bottom: 2px solid var(--prata-fosco); /* Linha sutil abaixo, cor prata */
-    display: inline-block; /* Para que as bordas se ajustem ao texto */
-    max-width: 70%; /* Para não ocupar a largura toda se for muito curto */
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 2.5rem;
+    padding: 1rem 0; /* Removido padding lateral, já que é centralizado */
+    /* border-top: 2px solid var(--prata-fosco); */ /* Bordas removidas para um visual mais limpo com as aspas */
+    /* border-bottom: 2px solid var(--prata-fosco); */
+    /* display: inline-block; */ /* Não mais necessário */
+    /* max-width: 70%; */
+    /* Animação */
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
+.aspas-decorativas {
+    font-family: 'Playfair Display', serif; /* Fonte serifada para aspas */
+    font-size: 8rem; /* Tamanho grande */
+    color: var(--verde-oliva); /* Cor de destaque, ou prata-fosco para mais sutileza */
+    opacity: 0; /* Inicialmente invisível para animação */
+    position: absolute; /* Posicionamento em relação ao content-wrapper */
+    /* Ajustar valores de top/left/right para posicionamento exato */
+}
+
+.aspas-esquerda {
+    left: -60px; /* Ajustar para não sobrepor o texto e ficar na lateral */
+    top: 50%;
+    transform: translateY(-50%) translateX(-100%); /* Começa fora da tela */
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Easing com "bounce" */
+}
+
+.aspas-direita {
+    right: -60px; /* Ajustar */
+    top: 50%;
+    transform: translateY(-50%) translateX(100%); /* Começa fora da tela */
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Quando a seção estiver visível e aspas animadas */
+#manifesto.aspas-visiveis .aspas-esquerda,
+#manifesto.aspas-visiveis .aspas-direita {
+    opacity: 0.3; /* Opacidade final das aspas, pode ser ajustada */
+    transform: translateY(-50%) translateX(0); /* Posição final */
+}
+
 
 /* Ferramentas Section */
 #ferramentas {
