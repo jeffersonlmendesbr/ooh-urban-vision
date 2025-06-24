@@ -168,7 +168,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Africa DDB Section */
 #africa-ddb {
-    background-color: #222222; /* Cinza grafite escuro, quase preto fosco */
+    background-color: var(--preto-contraste); /* Alterado para preto fosco */
     color: var(--prata-fosco); /* Cor de texto base para esta seção */
     /* A seção já é display:flex, flex-direction:column, justify-content:center, align-items:center por padrão */
 }
@@ -193,51 +193,59 @@ h1, h2, h3, h4, h5, h6 {
 .africa-coluna-esquerda {
     align-items: flex-start; /* Alinhar conteúdo da coluna esquerda à esquerda */
     justify-content: center; /* Centralizar verticalmente se houver espaço */
-    gap: 40px; /* Espaço entre logo e selos */
+    gap: 30px; /* Espaço ajustado entre continente e grupo de selos */
+    padding: 20px 0; /* Adicionar padding vertical para não colar no topo/base da seção */
 }
 
-.africa-logo-placeholder {
-    width: 200px; /* Ajustar conforme o logo real */
-    height: 100px; /* Ajustar */
-    background-color: var(--preto-contraste); /* Fundo para o logo placeholder */
-    border: 1px solid var(--prata-fosco);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--bege-quente);
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-align: center;
+.continente-africa-img {
+    width: 80%; /* Ocupar uma boa parte da coluna esquerda */
+    max-width: 350px; /* Limite máximo para não ficar gigante */
+    height: auto; /* Manter proporção */
+    object-fit: contain;
+    /* Para simular PNG branco/claro com placeholder colorido: */
+    /* filter: grayscale(100%) brightness(1.5) contrast(1.5); */ /* Ajustar para melhor visual */
+    /* Se for um SVG branco, não precisa de filtro */
+    margin-bottom: 20px; /* Espaço abaixo do continente */
 }
 
 .africa-selos {
     display: flex;
-    flex-direction: column;
-    gap: 25px; /* Espaço entre os selos */
+    flex-direction: row; /* Selos lado a lado */
+    justify-content: flex-start; /* Alinhar à esquerda da coluna */
+    align-items: center;
+    gap: 20px; /* Espaço entre os selos */
+    width: 100%; /* Para controle de alinhamento dos itens */
 }
 
 .selo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.05); /* Fundo sutil para os selos */
-    border-radius: 6px;
-    border-left: 3px solid var(--verde-oliva);
+    /* display: flex; */ /* Removido, pois a imagem será o conteúdo principal */
+    /* align-items: center; */
+    /* gap: 15px; */
+    /* padding: 10px; */ /* Removido, o placeholder de imagem terá suas dimensões */
+    /* background-color: rgba(255, 255, 255, 0.05); */ /* Removido */
+    /* border-radius: 6px; */
+    /* border-left: 3px solid var(--verde-oliva); */ /* Removido */
 }
 
-.selo-icon {
-    font-size: 2rem; /* Tamanho do emoji/ícone placeholder */
-    color: var(--verde-oliva);
+.selo img {
+    display: block; /* Para controle de layout */
+    /* object-fit: contain; */ /* Para garantir que o logo caiba */
+    background-color: var(--prata-fosco); /* Fundo para placeholders de imagem */
+    padding: 5px; /* Pequeno padding para o placeholder */
+    border-radius: 4px;
 }
 
-.selo-text {
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.95rem;
-    color: var(--prata-fosco);
-    line-height: 1.4;
+.selo-cannes-placeholder img {
+    width: 70px;
+    height: 70px;
 }
+
+.selo-vivo-placeholder img {
+    width: 100px;
+    height: 60px;
+}
+
+/* Remover .selo-icon e .selo-text pois foram removidos do HTML */
 
 .africa-coluna-direita {
     align-items: flex-start; /* Alinhar texto à esquerda */
@@ -484,12 +492,8 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 700px; /* Limitar largura do texto para não encostar nas aspas */
 }
 
-#manifesto .content-wrapper h2 { /* Título "Manifesto" */
-    color: var(--bege-quente);
-    font-size: 2.5rem; /* Reduzido um pouco */
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+#manifesto .manifesto-content-textual h2 { /* Título "Manifesto" */
+    display: none; /* Ocultar o título conforme solicitado */
 }
 
 .manifesto-texto p {
@@ -527,32 +531,30 @@ h1, h2, h3, h4, h5, h6 {
 
 .aspas-decorativas {
     font-family: 'Playfair Display', serif; /* Fonte serifada para aspas */
-    font-size: 8rem; /* Tamanho grande */
-    color: var(--verde-oliva); /* Cor de destaque, ou prata-fosco para mais sutileza */
+    font-size: 7rem; /* Reduzido um pouco para melhor encaixe */
+    color: var(--prata-fosco); /* Alterado para prata fosco para mais sutileza */
     opacity: 0; /* Inicialmente invisível para animação */
-    position: absolute; /* Posicionamento em relação ao content-wrapper */
-    /* Ajustar valores de top/left/right para posicionamento exato */
+    position: absolute;
+    top: 50%; /* Centralizar verticalmente */
 }
 
 .aspas-esquerda {
-    left: -60px; /* Ajustar para não sobrepor o texto e ficar na lateral */
-    top: 50%;
-    transform: translateY(-50%) translateX(-100%); /* Começa fora da tela */
-    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Easing com "bounce" */
+    left: 10px; /* Posicionar dentro do content-wrapper, no espaço lateral */
+    transform: translateY(-60%) translateX(-150%); /* Começa mais fora e um pouco acima */
+    transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(0.23, 1, 0.32, 1); /* Easing mais suave */
 }
 
 .aspas-direita {
-    right: -60px; /* Ajustar */
-    top: 50%;
-    transform: translateY(-50%) translateX(100%); /* Começa fora da tela */
-    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    right: 10px; /* Posicionar dentro do content-wrapper, no espaço lateral */
+    transform: translateY(-40%) translateX(150%); /* Começa mais fora e um pouco abaixo */
+    transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* Quando a seção estiver visível e aspas animadas */
 #manifesto.aspas-visiveis .aspas-esquerda,
 #manifesto.aspas-visiveis .aspas-direita {
-    opacity: 0.3; /* Opacidade final das aspas, pode ser ajustada */
-    transform: translateY(-50%) translateX(0); /* Posição final */
+    opacity: 0.8; /* Aumentada a opacidade final para maior visibilidade */
+    transform: translateY(-50%) translateX(0); /* Posição final centralizada verticalmente */
 }
 
 
