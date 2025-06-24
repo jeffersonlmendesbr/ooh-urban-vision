@@ -211,4 +211,76 @@ document.addEventListener('DOMContentLoaded', () => {
         const cardObserver = new IntersectionObserver(cardObserverCallback, cardObserverOptions);
         animatedCards.forEach(card => cardObserver.observe(card));
     }
+
+    // Scroll Horizontal Controlado por Scroll Vertical para #experiencias
+    const experienciasSection = document.querySelector('#experiencias');
+    const experienciasLinha = document.querySelector('.experiencias-linha-horizontal');
+
+    if (experienciasSection && experienciasLinha) {
+        let isExperienciasActive = false;
+        let currentX = 0;
+        let minX = 0;
+
+        function calculateScrollLimits() {
+            const containerWidth = experienciasLinha.offsetWidth;
+            const contentWidth = experienciasLinha.scrollWidth;
+            minX = containerWidth - contentWidth;
+            if (minX > 0) minX = 0; // Caso o conteúdo seja menor que o container
+            // console.log(`Container: ${containerWidth}, Content: ${contentWidth}, MinX: ${minX}`);
+        }
+
+        function handleWheelScroll(event) {
+            if (!isExperienciasActive) return;
+
+            const delta = event.deltaY;
+            let newX = currentX - delta * 0.7; // Fator de sensibilidade 0.7
+
+            // Clamp newX
+            newX = Math.max(minX, Math.min(0, newX));
+
+            // Se o scroll horizontal não mudou E estamos nos limites, permite o scroll vertical da página
+            if (newX === currentX && (newX === 0 && delta < 0 || newX === minX && delta > 0)) {
+                // console.log("Allowing page scroll");
+                return; // Não previne o default, permitindo snap para outra seção
+            }
+
+            event.preventDefault(); // Previne o scroll vertical da página
+            currentX = newX;
+            experienciasLinha.style.transform = `translateX(${currentX}px)`;
+            // console.log(`Wheeling: deltaY=${delta}, currentX=${currentX}`);
+        }
+
+        const experienciasObserverOptions = {
+            root: null,
+            threshold: 0.5 // Pelo menos 50% da seção visível para ativar
+        };
+
+        const experienciasObserverCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // console.log("Experiencias section active");
+                    isExperienciasActive = true;
+                    calculateScrollLimits(); // Calcular/recalcular limites quando a seção fica ativa
+                    window.addEventListener('wheel', handleWheelScroll, { passive: false });
+                } else {
+                    // console.log("Experiencias section inactive");
+                    isExperienciasActive = false;
+                    window.removeEventListener('wheel', handleWheelScroll);
+                }
+            });
+        };
+
+        const experienciasScrollObserver = new IntersectionObserver(experienciasObserverCallback, experienciasObserverOptions);
+        experienciasScrollObserver.observe(experienciasSection);
+
+        // Recalcular em resize
+        window.addEventListener('resize', () => {
+            if (isExperienciasActive) {
+                calculateScrollLimits();
+                // Opcional: ajustar currentX se o novo minX for menor que currentX
+                currentX = Math.max(minX, Math.min(0, currentX));
+                experienciasLinha.style.transform = `translateX(${currentX}px)`;
+            }
+        });
+    }
 });
