@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
-import { Menu, X, Mail, Phone, Linkedin } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { sections } from '../config/sections';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,14 +20,17 @@ const Navigation = () => {
           
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
-            <a href="#sobre" className="text-dark-charcoal hover:text-olive-green transition-colors font-medium">Sobre</a>
-            <a href="#africa" className="text-dark-charcoal hover:text-olive-green transition-colors font-medium">Africa DDB</a>
-            <a href="#experiencias" className="text-dark-charcoal hover:text-olive-green transition-colors font-medium">Experiências</a>
-            <a href="#presenca" className="text-dark-charcoal hover:text-olive-green transition-colors font-medium">Presença</a>
-            <a href="#manifesto" className="text-dark-charcoal hover:text-olive-green transition-colors font-medium">Manifesto</a>
-            <a href="#ferramentas" className="text-dark-charcoal hover:text-olive-green transition-colors font-medium">Ferramentas</a>
-            <a href="#oohplanner" className="text-dark-charcoal hover:text-olive-green transition-colors font-medium">OOHPlanner</a>
-            <a href="#contato" className="text-dark-charcoal hover:text-olive-green transition-colors font-medium">Contato</a>
+            {sections
+              .filter((s) => s.includeInNav)
+              .map((section) => (
+                <a
+                  key={section.id}
+                  href={`#${section.id}`}
+                  className="text-dark-charcoal hover:text-olive-green transition-colors font-medium"
+                >
+                  {section.label}
+                </a>
+              ))}
           </div>
 
           {/* Mobile Menu Button */}
@@ -41,14 +45,17 @@ const Navigation = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-soft-white border-t border-warm-beige animate-fade-in-up">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <a href="#sobre" className="block px-3 py-2 text-dark-charcoal hover:text-olive-green font-medium">Sobre</a>
-              <a href="#africa" className="block px-3 py-2 text-dark-charcoal hover:text-olive-green font-medium">Africa DDB</a>
-              <a href="#experiencias" className="block px-3 py-2 text-dark-charcoal hover:text-olive-green font-medium">Experiências</a>
-              <a href="#presenca" className="block px-3 py-2 text-dark-charcoal hover:text-olive-green font-medium">Presença</a>
-              <a href="#manifesto" className="block px-3 py-2 text-dark-charcoal hover:text-olive-green font-medium">Manifesto</a>
-              <a href="#ferramentas" className="block px-3 py-2 text-dark-charcoal hover:text-olive-green font-medium">Ferramentas</a>
-              <a href="#oohplanner" className="block px-3 py-2 text-dark-charcoal hover:text-olive-green font-medium">OOHPlanner</a>
-              <a href="#contato" className="block px-3 py-2 text-dark-charcoal hover:text-olive-green font-medium">Contato</a>
+              {sections
+                .filter((s) => s.includeInNav)
+                .map((section) => (
+                  <a
+                    key={section.id}
+                    href={`#${section.id}`}
+                    className="block px-3 py-2 text-dark-charcoal hover:text-olive-green font-medium"
+                  >
+                    {section.label}
+                  </a>
+                ))}
             </div>
           </div>
         )}
