@@ -151,4 +151,38 @@ document.addEventListener('DOMContentLoaded', () => {
         const manifestoObserver = new IntersectionObserver(manifestoCallback, manifestoObserverOptions);
         manifestoObserver.observe(manifestoSection);
     }
+
+    // Lógica para mudar cor do header baseado na seção visível
+    const header = document.getElementById('main-nav');
+    const allSections = document.querySelectorAll('.section'); // Inclui o footer se ele tiver a classe .section
+
+    if (header && allSections.length > 0) {
+        const headerColorObserverOptions = {
+            root: null, // viewport
+            rootMargin: "-10% 0px -85% 0px", // Observa uma faixa na parte superior da tela (abaixo do header)
+            threshold: 0.01 // Dispara assim que um pixel da seção entra na faixa
+        };
+
+        const headerColorCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // console.log(`Intersecting: ${entry.target.id}`);
+                    const currentSectionTheme = entry.target.getAttribute('data-theme');
+                    if (currentSectionTheme === 'dark') {
+                        header.classList.add('header-light-text');
+                    } else {
+                        // Se a seção não for 'dark', ou não tiver o atributo, remove a classe.
+                        // A seção Hero tem seu próprio CSS para o header claro, então remover
+                        // .header-light-text não afetará o estilo do header no Hero.
+                        header.classList.remove('header-light-text');
+                    }
+                }
+            });
+        };
+
+        const headerColorObserver = new IntersectionObserver(headerColorCallback, headerColorObserverOptions);
+        allSections.forEach(section => {
+            headerColorObserver.observe(section);
+        });
+    }
 });
