@@ -15,18 +15,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const fullscreenMenu = document.getElementById('fullscreen-menu');
     const body = document.body;
     const fullscreenMenuLinks = document.querySelectorAll('.fullscreen-menu-link');
-    const closeMenuButton = document.querySelector('.close-fullscreen-menu'); // Novo botão X
+    const closeMenuButton = document.querySelector('.close-fullscreen-menu');
 
     function openMenu() {
         body.classList.add('menu-open');
         menuToggle.setAttribute('aria-expanded', 'true');
         body.style.overflow = 'hidden'; // Bloquear scroll da página
+
+        if (closeMenuButton && menuToggle) {
+            const hamburgerRect = menuToggle.getBoundingClientRect();
+            closeMenuButton.style.top = `${hamburgerRect.top}px`;
+            closeMenuButton.style.left = `${hamburgerRect.left}px`;
+            closeMenuButton.style.width = `${hamburgerRect.width}px`;
+            closeMenuButton.style.height = `${hamburgerRect.height}px`;
+            closeMenuButton.style.opacity = '1';
+            closeMenuButton.style.pointerEvents = 'auto';
+        }
     }
 
     function closeMenu() {
         body.classList.remove('menu-open');
         menuToggle.setAttribute('aria-expanded', 'false');
         body.style.overflow = ''; // Restaurar scroll da página
+
+        if (closeMenuButton) {
+            closeMenuButton.style.opacity = '0';
+            closeMenuButton.style.pointerEvents = 'none';
+        }
     }
 
     if (menuToggle && fullscreenMenu) {
