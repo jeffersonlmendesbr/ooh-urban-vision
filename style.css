@@ -408,36 +408,36 @@ h1, h2, h3, h4, h5, h6 {
     padding-right: 0;
     max-width: none;
     overflow: hidden; /* Alterado de visible para hidden para conter a linha de cards */
-    /* height: auto; */ /* Removido - altura será baseada no conteúdo flex centralizado */
-    /* max-height: none; */ /* Removido */
-    width: 100%; /* Garantir que o wrapper ocupe a largura da seção */
-    display: flex; /* Para ajudar a centralizar a linha de cards se ela for menor que a altura do wrapper */
-    flex-direction: column; /* Para empilhar título e linha de cards */
-    justify-content: center; /* Centralizar verticalmente o conteúdo (título + linha de cards) */
+    /* height: auto; */
+    /* max-height: none; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribui espaço: título no topo, selos na base, cards no meio */
+    height: 100%; /* Para ocupar a altura do .section (que já tem padding) */
 }
 
 .experiencias-linha-horizontal {
     /* ... outros estilos mantidos ... */
-    /* Adicionar min-height para garantir que o container tenha altura para os cards */
-    min-height: 460px; /* Altura do card (420px) + padding vertical da linha (20px*2) */
-    /* Ou, para ser mais flexível com a centralização vertical: */
-    /* align-self: center; */ /* Se o .content-wrapper for flex */
+    min-height: 340px; /* Altura do card (300px) + padding vertical da linha (20px*2) */
+    flex-shrink: 0; /* Para não encolher se o conteúdo do wrapper for maior */
+    /* Adicionar um pouco de margin-top para separar do título */
+    margin-top: 1.5rem;
 }
 
 
 .card-experiencia {
     background-color: var(--bege-quente);
-    padding: 25px;
+    padding: 20px; /* Padding interno do card reduzido */
     border-radius: 8px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     border-left: 5px solid var(--verde-oliva);
-    opacity: 0; /* Mantido para animação de entrada individual, se desejado */
+    opacity: 0;
     transform: translateX(-40px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease-in-out;
-    min-width: 330px; /* Largura mínima dos cards */
-    width: 330px;  /* Largura preferida dos cards */
-    /* height: calc(100vh - 220px); */ /* Removida altura dinâmica complexa */
-    height: 420px; /* Altura fixa para os cards, ajustar conforme design */
+    min-width: 320px; /* Largura mínima dos cards */
+    width: 320px;  /* Largura preferida dos cards */
+    height: 300px; /* Altura dos cards REDUZIDA para caber com título e selos */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -504,7 +504,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1.2rem; /* Reduzido */
     flex-grow: 1;
     overflow-y: auto; /* Permitir scroll na descrição se necessário */
-    max-height: 200px; /* Limite para a descrição antes de scrollar, ajustar conforme necessário */
+    max-height: 120px; /* AJUSTADO: Limite para a descrição dentro do card de 300px */
 }
 
 .tags-experiencia {
@@ -528,6 +528,28 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.75rem; /* Reduzido */
     font-weight: 500;
 }
+
+/* Estilos para Selos Gerais (Competências) na seção Experiencias */
+.selos-gerais {
+    text-align: center;
+    margin-top: 1.5rem; /* Espaço acima dos selos, separando da linha de cards */
+    /* padding-bottom já vem do .section ou .content-wrapper se necessário, ou pode ser adicionado aqui */
+    width: 100%;
+    flex-shrink: 0; /* Para não encolher */
+}
+
+.selos-gerais span {
+    display: inline-block;
+    margin: 5px 10px; /* Margem vertical e horizontal entre os selos */
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #555; /* Cor cinza para discrição */
+    padding: 5px 10px;
+    background-color: rgba(237, 226, 209, 0.4); /* Bege quente bem sutil de fundo */
+    border-radius: 4px;
+}
+
 
 /* REMOVIDO: Competencias Marquee */
 /* .competencias-marquee-wrapper { ... } */
