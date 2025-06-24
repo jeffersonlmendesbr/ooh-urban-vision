@@ -34,6 +34,11 @@ npm i
 
 # Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
+
+# Step 5: Optionally run the linter to check for code issues.
+# Running `npm run lint` will automatically install dependencies
+# if they have not been installed yet.
+npm run lint
 ```
 
 **Edit a file directly in GitHub**
