@@ -3,7 +3,8 @@ import Navigation from '../components/Navigation';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Experience from '../components/Experience';
-import AfricaDDB from '../components/AfricaDDB';
+// import AfricaDDB from '../components/AfricaDDB'; // Comentado temporariamente se VemPraRua substitui ou vem antes/depois
+import VemPraRua from '../components/VemPraRua'; // Importa o novo componente
 import Manifesto from '../components/Manifesto';
 import Tools from '../components/Tools';
 import OOHPlanner from '../components/OOHPlanner';
@@ -19,7 +20,8 @@ const Index = () => {
       <Hero />
       <About />
       <Experience />
-      <AfricaDDB />
+      <VemPraRua />
+      {/* <AfricaDDB /> A seção AfricaDDB pode ser reposicionada ou removida conforme necessário */}
       <Manifesto />
       <Tools />
       <OOHPlanner />
