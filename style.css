@@ -364,13 +364,13 @@ h1, h2, h3, h4, h5, h6 {
 #experiencias .content-wrapper h2.section-title {
     color: var(--preto-contraste);
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 4vw, 2.8rem); /* Título responsivo */
-    margin-bottom: 2vh; /* Margem responsiva */
+    font-size: clamp(2.2rem, 4vw, 2.8rem);
+    margin-bottom: 2vh;
     text-align: center;
     flex-shrink: 0;
     position: relative;
     z-index: 10;
-    padding-top: 2vh; /* Adiciona um pouco de espaço acima do título dentro do wrapper */
+    padding-top: 2vh;
 }
 
 /* Removidos estilos de .experiencias-categorias-container, .experiencia-categoria, .categoria-titulo (já comentado) */
@@ -390,14 +390,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* NOVO CONTAINER PARA OS SLIDES HORIZONTAIS DE TELA CHEIA */
 .experiencias-slides-container {
-    display: flex;
-    flex-grow: 1;
-    /* height: 100%; */ /* A altura será determinada pelo flex-grow e pelo conteúdo do pai */
-    /* O container de slides em si não precisa de height: 100% se o .content-wrapper já tem e este é flex-grow:1 */
-    /* Isso permite que o container de slides tenha a altura correta após o título. */
-    width: fit-content; /* Para que a largura seja a soma dos filhos */
+    display: flex; /* Alinha os slides (cards) em linha */
+    flex-grow: 1; /* Ocupa o espaço vertical restante no .content-wrapper após o título */
+    /* A altura efetiva é o espaço que flex-grow concede. */
+    /* A largura será 100vw * número de slides, não precisa ser definida aqui no CSS. */
+    /* O JS controlará o transform translateX, a transição suaviza. */
     transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
-    will-change: transform;
+    will-change: transform; /* Otimização para animação de transform */
 }
 
 /* ANTIGOS ESTILOS DE .card-experiencia E SEUS FILHOS - COMENTADOS/REMOVIDOS (já comentado) */
