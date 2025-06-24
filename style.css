@@ -356,46 +356,117 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Experiencias Section */
 #experiencias {
-    background-color: var(--prata-fosco);
-    padding: 80px 20px;
+    /* background-color: var(--prata-fosco); */ /* Alterar para fundo claro */
+    background-color: #FFFFFF; /* Fundo branco ou bege bem claro */
+    /* padding: 80px 20px; */ /* Padding geral da .section já é 40px */
 }
 
-#experiencias .content-wrapper h2 {
-    color: var(--preto-contraste); /* Título da seção Experiências */
+#experiencias .content-wrapper h2.section-title { /* Estilo para o novo título da seção */
+    color: var(--preto-contraste);
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; /* Tamanho do título da seção */
+    margin-bottom: 2.5rem; /* Espaço abaixo do título da seção */
+    text-align: center;
+}
+
+.experiencias-categorias-container {
+    width: 100%;
+}
+
+.experiencia-categoria {
+    margin-bottom: 3rem; /* Espaço entre categorias */
+}
+
+.experiencia-categoria:last-child {
+    margin-bottom: 0;
+}
+
+.categoria-titulo { /* Estilo para H3 "Agências" e "Veículos" */
+    font-family: 'Playfair Display', serif; /* Ou Neue Montreal / Aeonik */
+    font-size: 2rem;
+    color: var(--preto-contraste);
+    text-align: left;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--verde-oliva);
+    display: inline-block; /* Para que a borda não ocupe a largura toda */
 }
 
 .experiencias-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsivo */
-    gap: 25px; /* Espaçamento entre os cards reduzido */
-    margin-top: 1.5rem; /* Margem reduzida */
-    margin-bottom: 1.5rem; /* Margem reduzida */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Ajustado minmax */
+    gap: 30px; /* Espaçamento entre os cards */
+    /* margin-top: 1.5rem; */ /* Removido, .categoria-titulo já tem margin-bottom */
+    /* margin-bottom: 1.5rem; */ /* Removido, .experiencia-categoria tem margin-bottom */
 }
+
+/* Competencias Marquee */
+.competencias-marquee-wrapper {
+    width: 100%;
+    background-color: var(--verde-oliva); /* Fundo oliva ou cinza */
+    padding: 15px 0;
+    overflow: hidden;
+    margin-top: 3rem; /* Espaço acima do marquee */
+    /* position: absolute; */ /* Se quiser que fique fixo na base da seção 100vh */
+    /* bottom: 0; */
+    /* left: 0; */
+}
+
+.competencias-marquee {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Itens em linha */
+    white-space: nowrap; /* Evitar quebra de linha dos itens */
+    animation: marquee-scroll 30s linear infinite;
+}
+
+.competencias-marquee li {
+    font-family: 'DM Sans', sans-serif; /* Ou Inter, etc. */
+    font-size: 1rem;
+    color: var(--prata-fosco);
+    padding: 0 25px; /* Espaçamento entre os itens do marquee */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%); /* Rola até a metade (assumindo que o conteúdo é duplicado) */
+    }
+}
+
 
 .card-experiencia {
     background-color: var(--bege-quente);
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-left: 5px solid var(--verde-oliva); /* Detalhe lateral */
+    padding: 25px 30px; /* Ajustado padding */
+    border-radius: 6px; /* Borda mais sutil */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); /* Sombra mais suave */
+    border-left: 4px solid var(--verde-oliva);
+    /* Animação de entrada */
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease-in-out;
 }
 
 .card-experiencia:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px) translateX(0); /* Mantém translateX(0) para não interferir com animação de entrada */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.card-experiencia.current-job {
-    border-left-color: var(--preto-contraste); /* Destaque para o emprego atual */
-    background-color: #f5efe2; /* Um tom ligeiramente diferente de bege */
-}
+/* .card-experiencia.current-job { */ /* Removido pois Africa DDB está em seção separada */
+    /* border-left-color: var(--preto-contraste);
+    background-color: #f5efe2;
+} */
 
-.card-experiencia h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
+.card-experiencia h4 { /* Alterado de h3 para h4 */
+    font-family: 'Playfair Display', serif; /* Ou DM Sans / Inter para um look mais moderno nos cards */
+    font-size: 1.4rem; /* Ajustado */
     color: var(--preto-contraste);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
 }
 
 .card-experiencia .cargo {
@@ -718,86 +789,100 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Presença Nacional Section */
 #presenca-nacional {
-    background-color: var(--prata-fosco); /* Fundo prata fosco para esta seção */
-    padding: 80px 20px;
-    min-height: auto; /* Ajustar altura conforme o conteúdo */
+    background-color: #D8D8D8; /* Cinza editorial claro */
+    /* padding: 80px 20px; */ /* Padding geral da .section já é 40px */
+    /* A seção já é display:flex, flex-direction:column, justify-content:center, align-items:center por padrão */
 }
 
-#presenca-nacional .content-wrapper {
-    max-width: 1100px; /* Wrapper um pouco maior para acomodar mapa e texto */
+#presenca-nacional .content-wrapper.presenca-layout {
+    /* max-width: 1100px; */ /* Removido para permitir que o mapa ocupe mais espaço se necessário */
+    /* Ajustar para que o conteúdo (título, intro, mapa) se organize bem */
+    padding-top: 60px; /* Espaço para o título e intro acima do mapa */
+    padding-bottom: 60px;
+    width: 100%;
+    justify-content: flex-start; /* Alinhar conteúdo no topo */
 }
 
-#presenca-nacional .content-wrapper h2 {
+#presenca-nacional .section-title {
     color: var(--preto-contraste);
-    margin-bottom: 3rem;
-}
-
-.presenca-conteudo {
-    display: flex;
-    flex-wrap: wrap; /* Permite quebrar em telas menores */
-    align-items: flex-start; /* Alinhar itens no topo para melhor layout com alturas diferentes */
-    gap: 40px;
-}
-
-.mapa-placeholder {
-    flex: 1;
-    min-width: 320px; /* Largura mínima para o mapa */
-    max-width: 450px; /* Largura máxima para o mapa */
-    height: auto; /* Altura automática baseada no conteúdo ou aspecto */
-    aspect-ratio: 4/3; /* Proporção para o mapa, ajuste conforme necessário */
-    background-color: var(--bege-quente);
-    border: 2px dashed var(--verde-oliva);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 0 auto; /* Centralizar se estiver sozinho na linha */
-}
-
-.mapa-placeholder p {
     font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    color: var(--verde-oliva);
-    margin-bottom: 10px;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
-.mapa-placeholder span {
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.9rem;
-    color: #555;
-}
-
-.presenca-texto {
-    flex: 1.5; /* Texto ocupa um pouco mais de espaço que o mapa */
-    min-width: 320px; /* Largura mínima para o texto */
-    text-align: left;
-}
-
-.presenca-texto p {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--preto-contraste);
-    margin-bottom: 1.5rem;
-}
-
-.presenca-texto .destaque-conhecimento {
-    font-family: 'Roboto', sans-serif; /* Manter Roboto para consistência */
-    font-weight: 500; /* Medium weight */
-    font-style: italic;
-    font-size: 1.15rem;
-    color: var(--preto-contraste); /* Preto para bom contraste no prata */
-    margin-top: 1.5rem;
-    padding: 15px;
-    background-color: rgba(237, 226, 209, 0.6); /* Bege quente com mais opacidade */
-    border-left: 4px solid var(--verde-oliva);
-    border-radius: 0 8px 8px 0; /* Cantos arredondados à direita */
+.texto-intro-presenca {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.2rem;
     line-height: 1.6;
+    color: #333333; /* Cinza escuro para o texto */
+    text-align: center;
+    max-width: 600px; /* Limitar largura do texto intro */
+    margin: 0 auto 2.5rem auto; /* Centralizar e dar espaço abaixo */
 }
+
+.mapa-container {
+    position: relative; /* Para posicionamento absoluto dos pontos */
+    width: 100%;
+    max-width: 900px; /* Limitar largura máxima do mapa */
+    margin: 0 auto; /* Centralizar o mapa */
+    /* aspect-ratio: 16/10; */ /* Proporção para o mapa, se necessário */
+}
+
+.mapa-brasil-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Estilos para o mapa em si (ex: filter: grayscale(1) contrast(0.8) brightness(1.2); para um visual estilizado) */
+}
+
+.capital-ponto {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--verde-oliva);
+    border-radius: 50%;
+    /* transform: translate(-50%, -50%); */ /* Para centralizar o ponto no top/left definidos */
+    cursor: pointer; /* Indicar que é clicável (mesmo que não interativo) */
+    transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+    /* box-shadow: 0 0 0 4px rgba(122, 132, 80, 0.3); */ /* Sombra/aura opcional */
+}
+
+.capital-ponto:hover {
+    transform: scale(1.5); /* Aumentar no hover */
+    /* background-color: #5a633a; */ /* Escurecer um pouco no hover */
+}
+
+/* Tooltip simples para os pontos (opcional) */
+.capital-ponto[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 150%; /* Acima do ponto */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--preto-contraste);
+    color: var(--bege-quente);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.capital-ponto[data-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.3s; /* Pequeno delay para aparecer */
+}
+
+
+/* Remover estilos antigos de .presenca-conteudo, .mapa-placeholder, .presenca-texto */
+.presenca-conteudo, .mapa-placeholder, .presenca-texto, .presenca-texto p, .presenca-texto .destaque-conhecimento {
+    display: none !important; /* Para garantir que não interfiram */
+}
+
 
 /* Depoimentos Section */
 #depoimentos {
