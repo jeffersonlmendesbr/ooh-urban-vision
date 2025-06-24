@@ -359,6 +359,7 @@ h1, h2, h3, h4, h5, h6 {
     /* background-color: var(--prata-fosco); */ /* Alterar para fundo claro */
     background-color: #FFFFFF; /* Fundo branco ou bege bem claro */
     /* padding: 80px 20px; */ /* Padding geral da .section já é 40px */
+    justify-content: flex-start; /* Alinhar conteúdo da seção ao topo */
 }
 
 #experiencias .content-wrapper h2.section-title {
@@ -370,7 +371,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-shrink: 0;
     position: relative;
     z-index: 10;
-    padding-top: 2vh;
+    padding-top: 0; /* título colado ao topo do wrapper */
 }
 
 /* Removidos estilos de .experiencias-categorias-container, .experiencia-categoria, .categoria-titulo (já comentado) */
