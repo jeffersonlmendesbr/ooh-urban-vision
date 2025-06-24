@@ -399,6 +399,52 @@ h1, h2, h3, h4, h5, h6 {
     will-change: transform; /* Otimização para animação de transform */
 }
 
+/* Cartões individuais no slideshow em tela cheia */
+.card-experiencia-fullscreen {
+    flex: 0 0 auto;
+    width: 40vw; /* Aproximadamente dois cards e meio cabem verticalmente */
+    height: calc(100vh / 2.5);
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    margin: 0; /* Remove espaçamentos verticais extras */
+}
+
+/* Conteúdo interno dos cartões */
+.card-fullscreen-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    gap: 0.5rem;
+}
+
+/* Lista de tags horizontal nos cartões */
+.tags-experiencia-fullscreen {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5rem;
+}
+
+/* Slide final de competências */
+.slide-competencias {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.slide-competencias .selos-gerais {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
 /* ANTIGOS ESTILOS DE .card-experiencia E SEUS FILHOS - COMENTADOS/REMOVIDOS (já comentado) */
 
 
