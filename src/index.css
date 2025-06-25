@@ -8,7 +8,7 @@
   :root {
     /* Jefferson Mendes Color Palette */
     --warm-beige: #EDE2D1;
-    --olive-green: #7A8450;
+    --olive-green: #6B7A47; /* Atualizado para o tom solicitado */
     --matte-silver: #C0C0C0;
     --dark-charcoal: #2A2A2A;
     --soft-white: #FEFEFE;
@@ -192,6 +192,31 @@ html {
 /* Custom hover effects */
 .hover-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Utility to hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Thin scrollbar for internal card content */
+.custom-scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+  border-radius: 2px;
+}
+.custom-scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent; /* thumb and track */
 }
 
 .hover-lift:hover {
