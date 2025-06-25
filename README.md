@@ -1,78 +1,119 @@
-# Welcome to your Lovable project
 
-## Project info
+# Jefferson Mendes - Página Pessoal
 
-**URL**: https://lovable.dev/projects/b0114ee5-a340-4874-8717-f0fb07301c7b
+Uma página pessoal one-page desenvolvida em React + TypeScript para Jefferson Mendes, especialista em Mídia OOH (Out-of-Home) estratégica e criativa.
 
-## How can I edit this code?
+## 🎯 Sobre o Projeto
 
-There are several ways of editing your application.
+Esta é uma página única (single-page application) que apresenta a trajetória, experiência e visão de Jefferson Mendes no mercado de mídia exterior. O projeto foi desenvolvido com foco em:
 
-**Use Lovable**
+- **Design Editorial**: Tipografia limpa e legível com hierarquia visual clara
+- **Experiência Fluida**: Navegação suave entre seções com scroll comportamento otimizado  
+- **Responsividade**: Layout adaptativo para desktop e mobile
+- **Performance**: Código otimizado e componentes modulares
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b0114ee5-a340-4874-8717-f0fb07301c7b) and start prompting.
+## 🛠 Tecnologias Utilizadas
 
-Changes made via Lovable will be committed automatically to this repo.
+- **React 18** - Biblioteca principal para UI
+- **TypeScript** - Tipagem estática para maior confiabilidade
+- **Tailwind CSS** - Framework CSS para estilização
+- **Vite** - Build tool moderna e rápida
+- **Lucide React** - Ícones SVG otimizados
+- **React Router DOM** - Navegação entre rotas
 
-**Use your preferred IDE**
+## 🎨 Design System
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Paleta de Cores
+- **Soft White**: `#FEFEFE` - Fundo principal
+- **Warm Beige**: `#EDE2D1` - Fundos secundários
+- **Olive Green**: `#6B7A47` - Cor de destaque/brand
+- **Dark Charcoal**: `#2A2A2A` - Texto principal
+- **Matte Silver**: `#C0C0C0` - Elementos secundários
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Tipografia
+- **Fonte Principal**: Inter (Google Fonts)
+- **Estilo Editorial**: Foco em legibilidade e hierarquia
+- **Responsiva**: Escalas adaptáveis para diferentes telas
 
-Follow these steps:
+## 📂 Estrutura do Projeto
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-
-# Step 5: Optionally run the linter to check for code issues.
-# Running `npm run lint` will automatically install dependencies
-# if they have not been installed yet.
-npm run lint
+```
+src/
+├── components/           # Componentes reutilizáveis
+│   ├── About.tsx        # Seção "Sobre"
+│   ├── Experience.tsx   # Seção "Experiências"  
+│   ├── Hero.tsx         # Seção inicial
+│   ├── Manifesto.tsx    # Seção "Manifesto"
+│   ├── Navigation.tsx   # Menu de navegação
+│   ├── VemPraRua.tsx    # Portfólio de projetos
+│   └── ui/              # Componentes UI base
+├── config/
+│   └── sections.tsx     # Configuração das seções
+├── pages/
+│   └── Index.tsx        # Página principal
+└── index.css           # Estilos globais
 ```
 
-**Edit a file directly in GitHub**
+## 🚀 Como Executar
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Pré-requisitos
+- Node.js 18+ 
+- npm ou yarn
 
-**Use GitHub Codespaces**
+### Instalação
+```bash
+# Clone o repositório
+git clone [url-do-repositorio]
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Entre no diretório
+cd jefferson-mendes-page
 
-## What technologies are used for this project?
+# Instale as dependências
+npm install
 
-This project is built with:
+# Execute em modo desenvolvimento
+npm run dev
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Build para Produção
+```bash
+# Gerar build otimizado
+npm run build
 
-## How can I deploy this project?
+# Preview do build
+npm run preview
+```
 
-Simply open [Lovable](https://lovable.dev/projects/b0114ee5-a340-4874-8717-f0fb07301c7b) and click on Share -> Publish.
+## 📱 Seções da Página
 
-## Can I connect a custom domain to my Lovable project?
+1. **Hero** - Apresentação inicial com informações de contato
+2. **Sobre** - Trajetória e filosofia profissional
+3. **África DDB** - Experiência atual na agência premiada
+4. **Experiências** - Histórico profissional completo
+5. **Vem Pra Rua** - Portfolio de projetos e campanhas
+6. **Manifesto** - Visão sobre o futuro da mídia OOH
+7. **Ferramentas** - Metodologias e tecnologias utilizadas
+8. **OOHPlanner** - Projeto autoral em desenvolvimento
+9. **Presença Nacional** - Mapa de atuação no Brasil
+10. **Depoimentos** - Recomendações profissionais
+11. **Contato** - Informações para contato
 
-Yes, you can!
+## 🔧 Funcionalidades
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- ✅ Navegação suave entre seções
+- ✅ Menu responsivo com overlay mobile
+- ✅ Animações CSS otimizadas
+- ✅ Links de contato funcionais (LinkedIn, Email, WhatsApp)
+- ✅ Layout adaptativo para múltiplas telas
+- ✅ Código modular e manutenível
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 📞 Contato
+
+**Jefferson Mendes**
+- LinkedIn: [jeffersonlmendes](https://www.linkedin.com/in/jeffersonlmendes/)
+- Email: jeffersonlmendes@gmail.com
+- WhatsApp: +55 11 99794-1150
+
+---
+
+*Desenvolvido com React + TypeScript + Tailwind CSS*

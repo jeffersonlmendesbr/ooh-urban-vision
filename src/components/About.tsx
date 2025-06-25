@@ -1,38 +1,28 @@
 
 const About = () => {
   return (
-    <section id="sobre" className="py-24 bg-soft-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-heading text-dark-charcoal mb-12 text-center">Sobre Mim</h2>
-        <div className="space-y-8 text-lg text-dark-charcoal leading-relaxed">
-          <p>
-            Sou um profissional híbrido que combina o rigor estratégico de um planejador de mídia 
-            com a sensibilidade criativa necessária para entender que cada campanha OOH é, antes de tudo, 
-            uma conversa entre marca e cidade.
+    <section id="sobre" className="min-h-screen flex items-center justify-center bg-warm-beige py-16 px-4">
+      <div className="max-w-4xl mx-auto">
+        <div className="space-y-8 text-lg text-dark-charcoal leading-relaxed font-editorial">
+          <p className="text-xl md:text-2xl leading-relaxed animate-fadeInSlightlyDelayed">
+            Sou publicitário com mais de 15 anos dedicados à mídia OOH. Atuei em agências como VML e Galeria, 
+            liderando campanhas nacionais para marcas como VIVO, e também em veículos como Eletromidia e Latcom, 
+            com projetos internacionais para Disney, ESPN e Spotify.
           </p>
-          <p>
-            Minha trajetória de mais de 15 anos me levou da operação tática aos corredores estratégicos 
-            de agências como Africa Creative DDB, sempre com uma obsessão: como transformar dados de 
-            deslocamento urbano em momentos de impacto real.
+          
+          <p className="text-xl md:text-2xl leading-relaxed animate-fadeInSlightlyDelayed" style={{ animationDelay: '0.2s' }}>
+            Acredito que a rua é muito mais do que um ponto de exibição – ela é território de disputa de atenção. 
+            E por isso, a mídia exterior precisa ser planejada com inteligência, sensibilidade e intenção.
           </p>
-          <p>
-            Acredito que o futuro da mídia exterior está na intersecção entre tecnologia, comportamento 
-            humano e a urgência de comunicar com propósito. Por isso, desenvolvo ferramentas como o 
-            OOHPlanner - para que estratégia deixe de ser privilégio e se torne acessível.
+          
+          <p className="text-xl md:text-2xl leading-relaxed animate-fadeInSlightlyDelayed" style={{ animationDelay: '0.4s' }}>
+            Tenho um pé na criação e outro na estratégia. Conheço as ferramentas, os números e os mapas – 
+            mas também caminho pelas ruas.
           </p>
-          <div className="flex items-center justify-center mt-12">
-            <div className="bg-olive-green text-soft-white px-6 py-2 rounded-full">
-              <span className="font-medium">+15 anos</span>
-            </div>
-            <div className="mx-6 text-matte-silver">•</div>
-            <div className="bg-olive-green text-soft-white px-6 py-2 rounded-full">
-              <span className="font-medium">Experiência Internacional</span>
-            </div>
-            <div className="mx-6 text-matte-silver">•</div>
-            <div className="bg-olive-green text-soft-white px-6 py-2 rounded-full">
-              <span className="font-medium">Gestão de Equipe</span>
-            </div>
-          </div>
+          
+          <p className="text-2xl md:text-3xl font-semibold text-olive-green leading-relaxed animate-fadeInSlightlyDelayed" style={{ animationDelay: '0.6s' }}>
+            Busco conectar marcas a contextos reais. E mais do que mídia, criar presença.
+          </p>
         </div>
       </div>
     </section>
