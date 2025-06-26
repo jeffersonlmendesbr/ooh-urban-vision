@@ -1,7 +1,7 @@
 
 const AfricaDDB = () => {
   return (
-    <section id="africa" className="py-24 bg-soft-white">
+    <section id="africa" className="min-h-screen flex items-center py-24 bg-soft-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-4xl font-heading text-dark-charcoal mb-8">Africa Creative DDB</h2>
         <div className="bg-dark-charcoal text-soft-white p-12 rounded-2xl">

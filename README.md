@@ -45,7 +45,7 @@ src/
 │   ├── Hero.tsx         # Seção inicial
 │   ├── Manifesto.tsx    # Seção "Manifesto"
 │   ├── Navigation.tsx   # Menu de navegação
-│   ├── VemPraRua.tsx    # Portfólio de projetos
+│   ├── Cases.tsx       # Portfólio de projetos
 │   └── ui/              # Componentes UI base
 ├── config/
 │   └── sections.tsx     # Configuração das seções

@@ -16,7 +16,7 @@ const Tools = () => {
   ];
 
   return (
-    <section id="ferramentas" className="py-24 bg-warm-beige">
+    <section id="ferramentas" className="min-h-screen flex items-center py-24 bg-warm-beige">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-heading text-dark-charcoal mb-16 text-center">Ferramentas e Plataformas</h2>
         <div className="grid md:grid-cols-3 gap-8">
