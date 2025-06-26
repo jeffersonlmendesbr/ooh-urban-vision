@@ -2,17 +2,6 @@
 import { Linkedin, Mail, Phone } from 'lucide-react';
 
 const Hero = () => {
-  const openLinkedIn = () => {
-    window.open('https://www.linkedin.com/in/jeffersonlmendes/', '_blank');
-  };
-
-  const openEmail = () => {
-    window.location.href = 'mailto:jeffersonlmendes@gmail.com';
-  };
-
-  const openWhatsApp = () => {
-    window.open('https://wa.me/5511997941150', '_blank');
-  };
 
   return (
     <section 
@@ -25,45 +14,52 @@ const Hero = () => {
     >
       <div className="text-center text-soft-white max-w-4xl mx-auto px-4">
         {/* Main Impact Phrase */}
-        <p className="text-xl md:text-2xl lg:text-3xl font-light mb-8 leading-relaxed animate-fadeInSlightlyDelayed">
+        <p className="text-xl md:text-2xl lg:text-3xl font-light mb-8 leading-relaxed animate-fadeInSlightlyDelayed motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none">
           Transformando o comum em extraordinário, uma campanha OOH por vez.
         </p>
         
         {/* Name */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading mb-6 animate-fadeInSlightlyDelayed" style={{ animationDelay: '0.3s' }}>
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading mb-6 animate-fadeInSlightlyDelayed motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none" style={{ animationDelay: '0.3s' }}>
           Jefferson Mendes
         </h1>
         
         {/* Title */}
-        <p className="text-xl md:text-2xl lg:text-3xl font-light mb-12 animate-fadeInSlightlyDelayed" style={{ animationDelay: '0.6s' }}>
+        <p className="text-xl md:text-2xl lg:text-3xl font-light mb-12 animate-fadeInSlightlyDelayed motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none" style={{ animationDelay: '0.6s' }}>
           Especialista em Mídia OOH Estratégica e Criativa
         </p>
         
         {/* Contact Links */}
-        <div className="flex justify-center space-x-8 animate-fadeInSlightlyDelayed" style={{ animationDelay: '0.9s' }}>
-          <button
-            onClick={openLinkedIn}
+        <div className="flex justify-center space-x-8 animate-fadeInSlightlyDelayed motion-reduce:animate-none" style={{ animationDelay: '0.9s' }}>
+          <a
+            href="https://www.linkedin.com/in/jeffersonlmendes/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center space-x-2 text-soft-white hover:text-olive-green transition-colors duration-300 group"
+            aria-label="Visitar LinkedIn de Jefferson Mendes"
           >
-            <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
+            <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
             <span className="text-lg font-medium">LinkedIn</span>
-          </button>
-          
-          <button
-            onClick={openEmail}
+          </a>
+
+          <a
+            href="mailto:jeffersonlmendes@gmail.com"
             className="flex items-center space-x-2 text-soft-white hover:text-olive-green transition-colors duration-300 group"
+            aria-label="Enviar email para Jefferson Mendes"
           >
-            <Mail className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
+            <Mail className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
             <span className="text-lg font-medium">E-mail</span>
-          </button>
-          
-          <button
-            onClick={openWhatsApp}
+          </a>
+
+          <a
+            href="https://wa.me/5511997941150"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center space-x-2 text-soft-white hover:text-olive-green transition-colors duration-300 group"
+            aria-label="Conversar no WhatsApp com Jefferson Mendes"
           >
-            <Phone className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
+            <Phone className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
             <span className="text-lg font-medium">WhatsApp</span>
-          </button>
+          </a>
         </div>
       </div>
     </section>
