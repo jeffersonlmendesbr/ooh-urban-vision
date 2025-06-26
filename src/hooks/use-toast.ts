@@ -6,7 +6,11 @@ import type {
 } from "@/components/ui/toast"
 
 const TOAST_LIMIT = 1
-const TOAST_REMOVE_DELAY = 1000000
+// Allow overriding the toast removal delay through a Vite environment
+// variable. Fall back to a shorter 5000 ms delay by default.
+export const TOAST_REMOVE_DELAY = Number(
+  import.meta.env.VITE_TOAST_REMOVE_DELAY ?? 5000
+)
 
 type ToasterToast = ToastProps & {
   id: string
