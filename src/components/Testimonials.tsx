@@ -14,7 +14,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 bg-warm-beige">
+    <section id="testemunhos" className="min-h-screen flex items-center py-24 bg-warm-beige">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-heading text-dark-charcoal mb-16 text-center">O que dizem sobre mim</h2>
         <div className="grid md:grid-cols-2 gap-8">

@@ -1,7 +1,7 @@
 
 const OOHPlanner = () => {
   return (
-    <section id="oohplanner" className="py-24 bg-dark-charcoal text-soft-white">
+    <section id="oohplanner" className="min-h-screen flex items-center py-24 bg-dark-charcoal text-soft-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-4xl font-heading mb-8">OOHPlanner</h2>
         <p className="text-xl mb-12 leading-relaxed">

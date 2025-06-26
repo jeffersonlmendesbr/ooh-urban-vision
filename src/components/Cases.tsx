@@ -30,19 +30,19 @@ const projectsData: Project[] = [
   { id: 'spotifyartistas', agency: 'LATCOM', client: 'SPOTIFY', name: 'ARTISTAS', mediaPlaceholderUrl: 'placeholder-spotifyartistas.jpg' },
 ];
 
-const VemPraRua: React.FC = () => {
+const Cases: React.FC = () => {
   if (process.env.NODE_ENV !== 'production') {
-    console.log('[VemPraRua] Component rendering...');
+    console.log('[Cases] Component rendering...');
   }
   const [hoveredProject, setHoveredProject] = useState<Project | null>(projectsData[0]); // Inicializa com o primeiro projeto
 
   if (process.env.NODE_ENV !== 'production') {
-    console.log('[VemPraRua] Initial hoveredProject:', hoveredProject);
+    console.log('[Cases] Initial hoveredProject:', hoveredProject);
   }
 
   return (
     <section
-      id="vem-pra-rua"
+      id="cases"
       // Ajuste para responsividade: min-h-screen e flex-col padrão, md:h-screen e md:flex-row para desktops
       className="min-h-screen md:h-screen flex flex-col justify-center items-center bg-warm-beige text-dark-charcoal p-4 md:p-8 font-editorial"
     >
@@ -60,13 +60,13 @@ const VemPraRua: React.FC = () => {
                 key={project.id}
                 onMouseEnter={() => {
                   if (process.env.NODE_ENV !== 'production') {
-                    console.log('[VemPraRua] MouseEnter:', project.id);
+                    console.log('[Cases] MouseEnter:', project.id);
                   }
                   setHoveredProject(project);
                 }}
                 onMouseLeave={() => {
                   if (process.env.NODE_ENV !== 'production') {
-                    console.log('[VemPraRua] MouseLeave, resetting to Wilson');
+                    console.log('[Cases] MouseLeave, resetting to Wilson');
                   }
                   setHoveredProject(projectsData[0]);
                 }}
@@ -108,7 +108,7 @@ const VemPraRua: React.FC = () => {
         {/* Ajuste para responsividade: w-full md:w-1/4 */}
         <div className="w-full md:w-1/4 p-4 md:pl-8 border-l-0">
           <h1 className="text-lg md:text-xl font-bold mb-6 md:mb-10 text-dark-charcoal opacity-0 animate-fadeInSlightlyDelayed motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none">
-            Vem pra Rua
+            Cases
           </h1>
           <p className="text-xs md:text-sm font-light leading-relaxed text-gray-700">
             Cada projeto listado aqui representa uma história real nas ruas.
@@ -123,4 +123,4 @@ const VemPraRua: React.FC = () => {
   );
 };
 
-export default VemPraRua;
+export default Cases;
