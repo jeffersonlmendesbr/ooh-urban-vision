@@ -19,14 +19,14 @@ export interface SectionConfig {
 }
 
 export const sections: SectionConfig[] = [
-  { id: 'sobre', label: 'Sobre', Component: About, includeInNav: true },
-  { id: 'africa', label: 'Africa DDB', Component: AfricaDDB, includeInNav: true },
-  { id: 'experiencias', label: 'Jornada', Component: Experience, includeInNav: true },
+  { id: 'about', label: 'Sobre', Component: About, includeInNav: true },
+  { id: 'africaddb', label: 'Africa DDB', Component: AfricaDDB, includeInNav: true },
+  { id: 'experience', label: 'Jornada', Component: Experience, includeInNav: true },
   { id: 'cases', label: 'Cases', Component: Cases, includeInNav: true },
   { id: 'manifesto', label: 'Manifesto', Component: Manifesto, includeInNav: true },
-  { id: 'presenca', label: 'Presença', Component: NationalPresence, includeInNav: true },
-  { id: 'ferramentas', label: 'Ferramentas', Component: Tools, includeInNav: true },
+  { id: 'nationalpresence', label: 'Presença', Component: NationalPresence, includeInNav: true },
+  { id: 'tools', label: 'Ferramentas', Component: Tools, includeInNav: true },
   { id: 'oohplanner', label: 'OOH Planner', Component: OOHPlanner, includeInNav: true },
-  { id: 'testemunhos', label: 'Testemunhos', Component: Testimonials, includeInNav: true },
-  { id: 'contato', label: 'Contato', Component: Contact, includeInNav: true },
+  { id: 'testimonials', label: 'Testemunhos', Component: Testimonials, includeInNav: true },
+  { id: 'contact', label: 'Contato', Component: Contact, includeInNav: true },
 ];
