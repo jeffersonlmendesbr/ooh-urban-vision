@@ -7,7 +7,7 @@ const NationalPresence = () => {
   ];
 
   return (
-    <section id="presenca" className="min-h-screen flex items-center py-24 bg-soft-white">
+    <section id="nationalpresence" className="min-h-screen flex items-center py-24 bg-soft-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-heading text-dark-charcoal mb-8 text-center">Presença Nacional</h2>
         <p className="text-xl text-center text-dark-charcoal mb-16 max-w-3xl mx-auto">

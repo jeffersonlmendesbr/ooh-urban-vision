@@ -129,45 +129,43 @@ const Navigation = () => {
         <div
           id="mobile-menu"
           ref={menuRef}
-          className="fixed inset-0 bg-dark-charcoal z-50 md:hidden"
+          className="fixed inset-0 z-50 md:hidden bg-dark-charcoal/80 backdrop-blur-sm flex animate-in fade-in"
           role="dialog"
           aria-modal="true"
           aria-labelledby="mobile-menu-title"
         >
-          {/* Close Button */}
-          <div className="absolute top-4 right-4">
-            <button
-              onClick={closeMenu}
-              className="text-soft-white p-2"
-              aria-label="Close menu"
-            >
-              <X size={32} aria-hidden="true" />
-            </button>
-          </div>
+          <button
+            onClick={closeMenu}
+            className="absolute top-4 right-4 text-soft-white p-2"
+            aria-label="Close menu"
+          >
+            <X size={32} aria-hidden="true" />
+          </button>
 
-          {/* Menu Content */}
           <h2 id="mobile-menu-title" className="sr-only">Navegação Principal</h2>
-          <div className="flex flex-col items-center justify-center h-full space-y-8">
-            <button
-              onClick={() => scrollToSection('hero')}
-              className={`text-3xl font-heading text-soft-white hover:text-olive-green transition-colors ${activeSection === 'hero' ? 'text-olive-green font-semibold' : ''}`}
-              aria-current={activeSection === 'hero' ? 'page' : undefined}
-            >
-              Início
-            </button>
-            
-            {sections
-              .filter((s) => s.includeInNav)
-              .map((section) => (
-                <button
-                  key={section.id}
-                  onClick={() => scrollToSection(section.id)}
-                  className={`text-3xl font-heading text-soft-white hover:text-olive-green transition-colors ${activeSection === section.id ? 'text-olive-green font-semibold' : ''}`}
-                  aria-current={activeSection === section.id ? 'page' : undefined}
-                >
-                  {section.label}
-                </button>
-              ))}
+          <div className="ml-auto flex flex-col justify-center pr-8 w-3/4 max-w-xs">
+            <div className="overflow-y-auto max-h-80 flex flex-col items-end space-y-8 pr-2">
+              <button
+                onClick={() => scrollToSection('hero')}
+                className={`text-4xl font-heading text-soft-white hover:text-olive-green transition-colors ${activeSection === 'hero' ? 'text-olive-green font-semibold' : ''}`}
+                aria-current={activeSection === 'hero' ? 'page' : undefined}
+              >
+                Início
+              </button>
+
+              {sections
+                .filter((s) => s.includeInNav)
+                .map((section) => (
+                  <button
+                    key={section.id}
+                    onClick={() => scrollToSection(section.id)}
+                    className={`text-4xl font-heading text-soft-white hover:text-olive-green transition-colors ${activeSection === section.id ? 'text-olive-green font-semibold' : ''}`}
+                    aria-current={activeSection === section.id ? 'page' : undefined}
+                  >
+                    {section.label}
+                  </button>
+                ))}
+            </div>
           </div>
         </div>
       )}

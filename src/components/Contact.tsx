@@ -3,7 +3,7 @@ import { Mail, Phone, Linkedin } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contato" className="min-h-screen flex items-center py-24 bg-dark-charcoal text-soft-white">
+    <section id="contact" className="min-h-screen flex items-center py-24 bg-dark-charcoal text-soft-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-4xl font-heading mb-8">Conecte-se comigo</h2>
         <p className="text-xl mb-12 leading-relaxed">

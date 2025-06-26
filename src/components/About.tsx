@@ -1,7 +1,7 @@
 
 const About = () => {
   return (
-    <section id="sobre" className="min-h-screen flex items-center justify-center bg-warm-beige py-16 px-4">
+    <section id="about" className="min-h-screen flex items-center justify-center bg-warm-beige py-16 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="space-y-8 text-lg text-dark-charcoal leading-relaxed font-editorial">
           <p className="text-xl md:text-2xl leading-relaxed animate-fadeInSlightlyDelayed motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none">

@@ -135,8 +135,8 @@ const Experience = () => {
   };
 
   return (
-    <section 
-      id="experiencias" 
+    <section
+      id="experience"
       className="h-screen bg-olive-green flex flex-col justify-center py-16 px-8"
     >
       {/* Header Section */}
