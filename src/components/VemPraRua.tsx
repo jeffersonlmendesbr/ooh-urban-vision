@@ -31,10 +31,14 @@ const projectsData: Project[] = [
 ];
 
 const VemPraRua: React.FC = () => {
-  console.log('[VemPraRua] Component rendering...');
+  if (process.env.NODE_ENV !== 'production') {
+    console.log('[VemPraRua] Component rendering...');
+  }
   const [hoveredProject, setHoveredProject] = useState<Project | null>(projectsData[0]); // Inicializa com o primeiro projeto
 
-  console.log('[VemPraRua] Initial hoveredProject:', hoveredProject);
+  if (process.env.NODE_ENV !== 'production') {
+    console.log('[VemPraRua] Initial hoveredProject:', hoveredProject);
+  }
 
   return (
     <section
@@ -55,11 +59,15 @@ const VemPraRua: React.FC = () => {
               <li
                 key={project.id}
                 onMouseEnter={() => {
-                  console.log('[VemPraRua] MouseEnter:', project.id);
+                  if (process.env.NODE_ENV !== 'production') {
+                    console.log('[VemPraRua] MouseEnter:', project.id);
+                  }
                   setHoveredProject(project);
                 }}
                 onMouseLeave={() => {
-                  console.log('[VemPraRua] MouseLeave, resetting to Wilson');
+                  if (process.env.NODE_ENV !== 'production') {
+                    console.log('[VemPraRua] MouseLeave, resetting to Wilson');
+                  }
                   setHoveredProject(projectsData[0]);
                 }}
                 className={`
