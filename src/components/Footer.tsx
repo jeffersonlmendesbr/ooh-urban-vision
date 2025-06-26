@@ -11,7 +11,7 @@ const Footer = () => {
           </p>
           <div className="border-t border-soft-white/30 pt-8">
             <p className="text-matte-silver">
-              © 2024 Jefferson Mendes. Todos os direitos reservados.
+              © {new Date().getFullYear()} Jefferson Mendes. Todos os direitos reservados.
             </p>
           </div>
         </div>
