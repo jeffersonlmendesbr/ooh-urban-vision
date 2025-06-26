@@ -1,10 +1,13 @@
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { sections } from '../config/sections';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
+  const menuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -13,6 +16,56 @@ const Navigation = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      const focusable = menuRef.current?.querySelectorAll<HTMLElement>('a, button');
+      if (focusable && focusable.length) {
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        first.focus();
+        const handleKeyDown = (e: KeyboardEvent) => {
+          if (e.key === 'Tab') {
+            if (e.shiftKey && document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
+          }
+        };
+        document.addEventListener('keydown', handleKeyDown);
+        return () => {
+          document.removeEventListener('keydown', handleKeyDown);
+          document.body.style.overflow = 'unset';
+        };
+      }
+    } else {
+      document.body.style.overflow = 'unset';
+      menuButtonRef.current?.focus();
+    }
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    const ids = ['hero', ...sections.filter((s) => s.includeInNav).map((s) => s.id)];
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-50% 0px -50% 0px' }
+    );
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -46,7 +99,8 @@ const Navigation = () => {
                   <button
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
-                    className="text-dark-charcoal hover:text-olive-green transition-colors font-medium cursor-pointer"
+                    className={`text-dark-charcoal hover:text-olive-green transition-colors font-medium cursor-pointer ${activeSection === section.id ? 'text-olive-green font-semibold' : ''}`}
+                    aria-current={activeSection === section.id ? 'page' : undefined}
                   >
                     {section.label}
                   </button>
@@ -55,12 +109,15 @@ const Navigation = () => {
 
             {/* Mobile Menu Button */}
             <div className="md:hidden">
-              <button 
-                onClick={toggleMenu} 
+              <button
+                ref={menuButtonRef}
+                onClick={toggleMenu}
                 className="text-dark-charcoal p-2"
                 aria-label="Toggle menu"
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
               >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
               </button>
             </div>
           </div>
@@ -69,23 +126,32 @@ const Navigation = () => {
 
       {/* Fullscreen Mobile Menu */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-dark-charcoal z-50 md:hidden">
+        <div
+          id="mobile-menu"
+          ref={menuRef}
+          className="fixed inset-0 bg-dark-charcoal z-50 md:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="mobile-menu-title"
+        >
           {/* Close Button */}
           <div className="absolute top-4 right-4">
-            <button 
+            <button
               onClick={closeMenu}
               className="text-soft-white p-2"
               aria-label="Close menu"
             >
-              <X size={32} />
+              <X size={32} aria-hidden="true" />
             </button>
           </div>
 
           {/* Menu Content */}
+          <h2 id="mobile-menu-title" className="sr-only">Navegação Principal</h2>
           <div className="flex flex-col items-center justify-center h-full space-y-8">
             <button
               onClick={() => scrollToSection('hero')}
-              className="text-3xl font-heading text-soft-white hover:text-olive-green transition-colors"
+              className={`text-3xl font-heading text-soft-white hover:text-olive-green transition-colors ${activeSection === 'hero' ? 'text-olive-green font-semibold' : ''}`}
+              aria-current={activeSection === 'hero' ? 'page' : undefined}
             >
               Início
             </button>
@@ -96,7 +162,8 @@ const Navigation = () => {
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
-                  className="text-3xl font-heading text-soft-white hover:text-olive-green transition-colors"
+                  className={`text-3xl font-heading text-soft-white hover:text-olive-green transition-colors ${activeSection === section.id ? 'text-olive-green font-semibold' : ''}`}
+                  aria-current={activeSection === section.id ? 'page' : undefined}
                 >
                   {section.label}
                 </button>

@@ -99,7 +99,7 @@ const VemPraRua: React.FC = () => {
         {/* Coluna Direita: Título da Seção e Descrição */}
         {/* Ajuste para responsividade: w-full md:w-1/4 */}
         <div className="w-full md:w-1/4 p-4 md:pl-8 border-l-0">
-          <h1 className="text-lg md:text-xl font-bold mb-6 md:mb-10 text-dark-charcoal opacity-0 animate-fadeInSlightlyDelayed">
+          <h1 className="text-lg md:text-xl font-bold mb-6 md:mb-10 text-dark-charcoal opacity-0 animate-fadeInSlightlyDelayed motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none">
             Vem pra Rua
           </h1>
           <p className="text-xs md:text-sm font-light leading-relaxed text-gray-700">

@@ -12,20 +12,26 @@ const Contact = () => {
         </p>
         <div className="space-y-6 max-w-md mx-auto">
           <div className="flex items-center justify-center space-x-4">
-            <Mail className="w-6 h-6 text-olive-green" />
+            <Mail className="w-6 h-6 text-olive-green" aria-hidden="true" />
             <a href="mailto:jeffersonlmendes@gmail.com" className="text-lg hover:text-olive-green transition-colors">
               jeffersonlmendes@gmail.com
             </a>
           </div>
           <div className="flex items-center justify-center space-x-4">
-            <Phone className="w-6 h-6 text-olive-green" />
+            <Phone className="w-6 h-6 text-olive-green" aria-hidden="true" />
             <a href="tel:+5511997941150" className="text-lg hover:text-olive-green transition-colors">
               +55 11 99794-1150
             </a>
           </div>
           <div className="flex items-center justify-center space-x-4">
-            <Linkedin className="w-6 h-6 text-olive-green" />
-            <a href="https://linkedin.com/in/jefferson-mendes" className="text-lg hover:text-olive-green transition-colors">
+            <Linkedin className="w-6 h-6 text-olive-green" aria-hidden="true" />
+            <a
+              href="https://linkedin.com/in/jefferson-mendes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lg hover:text-olive-green transition-colors"
+              aria-label="Acessar perfil no LinkedIn de Jefferson Mendes"
+            >
               LinkedIn
             </a>
           </div>

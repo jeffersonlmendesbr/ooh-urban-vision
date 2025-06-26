@@ -9,32 +9,32 @@ const Manifesto = () => {
       }}
     >
       {/* Aspas decorativas */}
-      <div className="absolute top-20 left-10 text-8xl text-soft-white opacity-20 font-serif animate-pulse">"</div>
-      <div className="absolute bottom-20 right-10 text-8xl text-soft-white opacity-20 font-serif animate-pulse">"</div>
+      <div className="absolute top-10 left-4 sm:top-20 sm:left-10 text-6xl sm:text-8xl text-soft-white opacity-20 font-serif animate-pulse motion-reduce:animate-none">"</div>
+      <div className="absolute bottom-10 right-4 sm:bottom-20 sm:right-10 text-6xl sm:text-8xl text-soft-white opacity-20 font-serif animate-pulse motion-reduce:animate-none">"</div>
       
       <div className="max-w-5xl mx-auto text-center relative z-10">
         <div className="space-y-12 text-xl md:text-2xl leading-relaxed font-editorial">
-          <p className="animate-fadeInSlightlyDelayed">
+          <p className="animate-fadeInSlightlyDelayed motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none">
             Acredito que a Mídia OOH não é apenas sobre o espaço físico. É também um reflexo do 
             comportamento urbano. Tem ritmo vivo. Da sociedade com suas escolhas e evoluções em meio 
             ao urbanismo, dos aspectos regionais íntimos e variações culturais que constroem uma 
             identidade própria em cada praça.
           </p>
           
-          <p className="animate-fadeInSlightlyDelayed" style={{ animationDelay: '0.3s' }}>
+          <p className="animate-fadeInSlightlyDelayed motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none" style={{ animationDelay: '0.3s' }}>
             O Brasil é gigante pela própria natureza e atuar com mídia exterior não é mais sobre 
             disputar atenção. É mais que transformar cotidiano em impacto ou criar presença onde 
             antes só havia passagem. A mídia exterior já deixou de ser apenas digital e seu futuro 
             é ser maior ainda: contextual, mensurável e inteligente.
           </p>
           
-          <p className="animate-fadeInSlightlyDelayed" style={{ animationDelay: '0.6s' }}>
+          <p className="animate-fadeInSlightlyDelayed motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none" style={{ animationDelay: '0.6s' }}>
             Estou pronto para essa visão. Faço parte dos profissionais que constroem essa história. 
             Não planejo apenas mídia em espaços fora de casa, o que faço é construir narrativas.
           </p>
           
           <div className="pt-8 border-t border-soft-white/30">
-            <p className="text-3xl md:text-4xl font-bold text-olive-green animate-fadeInSlightlyDelayed" style={{ animationDelay: '0.9s' }}>
+            <p className="text-3xl md:text-4xl font-bold text-olive-green animate-fadeInSlightlyDelayed motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none" style={{ animationDelay: '0.9s' }}>
               Se é pra estar na rua, que seja com propósito.
             </p>
           </div>

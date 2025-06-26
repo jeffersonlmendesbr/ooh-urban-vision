@@ -64,7 +64,7 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
         'warm-beige': '#EDE2D1',
-        'olive-green': '#6B7A47', // Atualizado para o tom solicitado
+        'olive-green': '#4A5436', // Atualizado para melhorar contraste
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

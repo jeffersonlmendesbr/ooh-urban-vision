@@ -8,7 +8,7 @@
   :root {
     /* Jefferson Mendes Color Palette */
     --warm-beige: #EDE2D1;
-    --olive-green: #6B7A47;
+    --olive-green: #4A5436;
     --matte-silver: #C0C0C0;
     --dark-charcoal: #2A2A2A;
     --soft-white: #FEFEFE;
@@ -121,6 +121,11 @@
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* Utility to hide scrollbars */

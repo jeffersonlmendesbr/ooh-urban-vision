@@ -20,9 +20,9 @@ const Testimonials = () => {
         <div className="grid md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-soft-white rounded-xl p-8">
-              <div className="flex mb-4">
+              <div className="flex mb-4" role="img" aria-label="Avaliação: 5 de 5 estrelas">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-olive-green fill-current" />
+                  <Star key={i} className="w-5 h-5 text-olive-green fill-current" aria-hidden="true" />
                 ))}
               </div>
               <p className="text-dark-charcoal mb-6 italic">
@@ -35,9 +35,15 @@ const Testimonials = () => {
           ))}
         </div>
         <div className="text-center mt-12">
-          <a href="https://linkedin.com/in/jefferson-mendes" className="inline-flex items-center text-olive-green font-medium hover:text-dark-charcoal transition-colors">
+          <a
+            href="https://linkedin.com/in/jefferson-mendes"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-olive-green font-medium hover:text-dark-charcoal transition-colors"
+            aria-label="Ver todos os depoimentos no LinkedIn de Jefferson Mendes"
+          >
             Ver todas no LinkedIn
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
           </a>
         </div>
       </div>
