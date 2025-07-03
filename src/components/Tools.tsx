@@ -1,24 +1,13 @@
 
+import { SectionContainer } from './ui/section-container';
+import { PageHeader } from './ui/page-header';
+import { toolsData } from '../data/tools';
+
 const Tools = () => {
-  const toolsData = [
-    {
-      category: "Planejamento",
-      tools: ['Sismidia', 'Kantar IBOPE', 'Nielsen', 'Target Group Index', 'Google Analytics']
-    },
-    {
-      category: "Mensuração",
-      tools: ['Power BI', 'Tableau', 'Google Data Studio', 'Excel Avançado', 'QGIS']
-    },
-    {
-      category: "Formação",
-      tools: ['Monday.com', 'Figma', 'Salesforce', 'HubSpot', 'Mapbox']
-    }
-  ];
 
   return (
-    <section id="tools" className="min-h-screen flex items-center py-24 bg-warm-beige">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-heading text-dark-charcoal mb-16 text-center">Ferramentas e Plataformas</h2>
+    <SectionContainer id="tools" className="bg-warm-beige">
+      <PageHeader title="Ferramentas e Plataformas">
         <div className="grid md:grid-cols-3 gap-8">
           {toolsData.map((category, index) => (
             <div key={index} className="bg-soft-white rounded-xl p-8">
@@ -33,8 +22,8 @@ const Tools = () => {
             </div>
           ))}
         </div>
-      </div>
-    </section>
+      </PageHeader>
+    </SectionContainer>
   );
 };
 
