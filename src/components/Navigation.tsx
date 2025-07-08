@@ -116,22 +116,25 @@ const Navigation = () => {
         </div>
       </nav>
 
-      {/* Menu Lateral - ALINHADO À DIREITA COM SCROLL */}
+      {/* Menu Lateral FULL SCREEN - LARGURA E ALTURA TOTAIS */}
       {isMenuOpen && (
         <div
           id="hamburger-menu"
           ref={menuRef}
-          className="fixed inset-0 z-40 bg-ink-black/95 backdrop-blur-lg flex animate-in fade-in"
+          className="fixed inset-0 w-screen h-screen z-40 bg-ink-black/95 backdrop-blur-lg flex animate-in fade-in overflow-hidden"
           role="dialog"
           aria-modal="true"
           aria-labelledby="hamburger-menu-title"
         >
           <h2 id="hamburger-menu-title" className="sr-only">Navegação Principal</h2>
-          <div className="w-full h-full overflow-y-auto">
-            <div className="min-h-full flex flex-col justify-start items-end pr-8 pt-20 pb-8 space-y-6">
+          
+          {/* Container com scroll ocupando toda a tela */}
+          <div className="w-full h-full overflow-y-auto flex flex-col justify-center items-end pr-8 py-8">
+            <div className="flex flex-col space-y-4 max-h-full overflow-y-auto no-scrollbar">
+              
               <button
                 onClick={() => scrollToSection('hero')}
-                className={`text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 text-right ${activeSection === 'hero' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right whitespace-nowrap ${activeSection === 'hero' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'hero' ? 'page' : undefined}
               >
                 Início
@@ -139,7 +142,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('about')}
-                className={`text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 text-right ${activeSection === 'about' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right whitespace-nowrap ${activeSection === 'about' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'about' ? 'page' : undefined}
               >
                 Sobre
@@ -147,7 +150,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('africaddb')}
-                className={`text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 text-right ${activeSection === 'africaddb' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right whitespace-nowrap ${activeSection === 'africaddb' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'africaddb' ? 'page' : undefined}
               >
                 Africa DDB
@@ -155,7 +158,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('experience')}
-                className={`text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 text-right ${activeSection === 'experience' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right whitespace-nowrap ${activeSection === 'experience' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'experience' ? 'page' : undefined}
               >
                 Jornada
@@ -163,7 +166,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('cases')}
-                className={`text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 text-right ${activeSection === 'cases' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right whitespace-nowrap ${activeSection === 'cases' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'cases' ? 'page' : undefined}
               >
                 Cases
@@ -171,7 +174,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('manifesto')}
-                className={`text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 text-right ${activeSection === 'manifesto' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right whitespace-nowrap ${activeSection === 'manifesto' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'manifesto' ? 'page' : undefined}
               >
                 Manifesto
@@ -179,15 +182,15 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('nationalpresence')}
-                className={`text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 text-right ${activeSection === 'nationalpresence' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right whitespace-nowrap ${activeSection === 'nationalpresence' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'nationalpresence' ? 'page' : undefined}
               >
-                Presença
+                Presença Nacional
               </button>
 
               <button
                 onClick={() => scrollToSection('tools')}
-                className={`text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 text-right ${activeSection === 'tools' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right whitespace-nowrap ${activeSection === 'tools' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'tools' ? 'page' : undefined}
               >
                 Ferramentas
@@ -195,7 +198,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('oohplanner')}
-                className={`text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 text-right ${activeSection === 'oohplanner' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right whitespace-nowrap ${activeSection === 'oohplanner' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'oohplanner' ? 'page' : undefined}
               >
                 OOH Planner
@@ -203,7 +206,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('testimonials')}
-                className={`text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 text-right ${activeSection === 'testimonials' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right whitespace-nowrap ${activeSection === 'testimonials' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'testimonials' ? 'page' : undefined}
               >
                 Testemunhos
@@ -211,11 +214,12 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className={`text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 text-right ${activeSection === 'contact' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right whitespace-nowrap ${activeSection === 'contact' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'contact' ? 'page' : undefined}
               >
                 Contato
               </button>
+
             </div>
           </div>
         </div>
