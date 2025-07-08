@@ -115,6 +115,16 @@
   .gradient-editorial { background: linear-gradient(135deg, var(--cream-editorial) 0%, var(--white-pure) 100%); }
   .gradient-dark { background: linear-gradient(135deg, var(--ink-black) 0%, var(--charcoal-deep) 100%); }
   .gradient-gold { background: linear-gradient(135deg, var(--gold-accent) 0%, #B8860B 100%); }
+  .gradient-about { 
+    background: linear-gradient(135deg, #F7F5F3 0%, #FFFFFF 25%, #F0EDE8 50%, #FFFFFF 75%, #F7F5F3 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease-in-out infinite;
+  }
+  
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
   
   /* Typography Utilities */
   .text-shadow-subtle { text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }

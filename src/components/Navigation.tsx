@@ -6,6 +6,7 @@ import { sections } from '../config/sections';
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [navTextColor, setNavTextColor] = useState('text-ink-black');
   const menuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -58,6 +59,14 @@ const Navigation = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
+            
+            // Define a cor do texto baseado na seção
+            const darkSections = ['africaddb', 'cases', 'manifesto', 'nationalpresence'];
+            if (darkSections.includes(entry.target.id)) {
+              setNavTextColor('text-white-pure');
+            } else {
+              setNavTextColor('text-ink-black');
+            }
           }
         });
       },
@@ -86,7 +95,7 @@ const Navigation = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div 
-              className="text-2xl font-heading text-ink-black cursor-pointer hover:text-gold-accent transition-colors"
+              className={`text-2xl font-heading cursor-pointer hover:text-gold-accent transition-colors ${navTextColor}`}
               onClick={() => scrollToSection('hero')}
             >
               Jefferson Mendes
@@ -96,7 +105,7 @@ const Navigation = () => {
             <button
               ref={menuButtonRef}
               onClick={toggleMenu}
-              className="text-ink-black p-2 hover:text-gold-accent transition-colors"
+              className={`p-2 hover:text-gold-accent transition-colors ${navTextColor}`}
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
               aria-controls="hamburger-menu"
@@ -107,22 +116,28 @@ const Navigation = () => {
         </div>
       </nav>
 
-      {/* Menu Lateral - Estilo CUSP */}
+      {/* Menu Lateral - Estilo CUSP com efeito blur */}
       {isMenuOpen && (
         <div
           id="hamburger-menu"
           ref={menuRef}
-          className="fixed inset-0 z-40 bg-ink-black/95 backdrop-blur-sm flex animate-in fade-in"
+          className="fixed inset-0 z-40 bg-ink-black/95 backdrop-blur-lg flex animate-in fade-in"
           role="dialog"
           aria-modal="true"
           aria-labelledby="hamburger-menu-title"
         >
+          {/* Efeito blur superior */}
+          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-ink-black via-ink-black/80 to-transparent pointer-events-none z-10"></div>
+          
+          {/* Efeito blur inferior */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-ink-black via-ink-black/80 to-transparent pointer-events-none z-10"></div>
+          
           <h2 id="hamburger-menu-title" className="sr-only">Navegação Principal</h2>
-          <div className="w-full h-full flex flex-col justify-center items-end pr-8">
-            <div className="overflow-y-auto h-full flex flex-col justify-center items-end space-y-12 no-scrollbar w-full">
+          <div className="w-full h-full flex flex-col justify-center items-end pr-8 relative z-0">
+            <div className="overflow-y-auto h-full flex flex-col justify-center items-end space-y-8 no-scrollbar w-full py-32">
               <button
                 onClick={() => scrollToSection('hero')}
-                className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-white-pure hover:text-gold-accent transition-colors ${activeSection === 'hero' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 ${activeSection === 'hero' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'hero' ? 'page' : undefined}
               >
                 Início
@@ -134,7 +149,7 @@ const Navigation = () => {
                   <button
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
-                    className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-white-pure hover:text-gold-accent transition-colors ${activeSection === section.id ? 'text-gold-accent font-semibold' : ''}`}
+                    className={`text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 ${activeSection === section.id ? 'text-gold-accent font-semibold' : ''}`}
                     aria-current={activeSection === section.id ? 'page' : undefined}
                   >
                     {section.label}

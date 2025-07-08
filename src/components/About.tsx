@@ -1,7 +1,7 @@
 
 const About = () => {
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center gradient-editorial py-20 px-6">
+    <section id="about" className="min-h-screen flex items-center justify-center gradient-about py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content Column */}

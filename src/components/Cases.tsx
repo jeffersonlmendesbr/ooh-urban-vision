@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { SectionContainer } from './ui/section-container';
 
 interface Project {
   id: string;
   agency: string;
   client: string;
   name: string;
-  mediaPlaceholderUrl: string; // Usaremos isso mais tarde
+  mediaPlaceholderUrl: string;
 }
 
 const projectsData: Project[] = [
@@ -30,96 +31,106 @@ const projectsData: Project[] = [
   { id: 'spotifyartistas', agency: 'LATCOM', client: 'SPOTIFY', name: 'ARTISTAS', mediaPlaceholderUrl: 'placeholder-spotifyartistas.jpg' },
 ];
 
-const Cases: React.FC = () => {
-  if (process.env.NODE_ENV !== 'production') {
-    console.log('[Cases] Component rendering...');
-  }
-  const [hoveredProject, setHoveredProject] = useState<Project | null>(projectsData[0]); // Inicializa com o primeiro projeto
-
-  if (process.env.NODE_ENV !== 'production') {
-    console.log('[Cases] Initial hoveredProject:', hoveredProject);
-  }
+const Cases = () => {
+  const [hoveredProject, setHoveredProject] = useState<Project | null>(projectsData[0]);
 
   return (
-    <section
-      id="cases"
-      // Ajuste para responsividade: min-h-screen e flex-col padrão, md:h-screen e md:flex-row para desktops
-      className="min-h-screen md:h-screen flex flex-col justify-center items-center bg-warm-beige text-dark-charcoal p-4 md:p-8 font-editorial"
-    >
-      {/* Ajuste para responsividade: flex-col padrão, md:flex-row para desktops */}
-      <div className="container mx-auto flex flex-col md:flex-row flex-1 max-w-7xl w-full md:h-full">
-        {/* Coluna Esquerda: Lista de Projetos */}
-        {/* Ajuste para responsividade: w-full md:w-1/4, h-64 md:h-auto, mb-4 md:mb-0 */}
-        <div
-            className="w-full md:w-1/4 p-4 md:pr-8 space-y-4 overflow-y-auto custom-scrollbar h-64 md:h-full mb-4 md:mb-0"
-            style={{ scrollBehavior: 'smooth' }}
-        >
-          <ul className="space-y-3">
+    <SectionContainer id="cases" className="gradient-dark">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Section Label */}
+        <div className="mb-12 text-center">
+          <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-4">
+            VEM PRA RUA
+          </span>
+          <div className="w-24 h-px bg-gold-accent mx-auto"></div>
+        </div>
+        
+        <h2 className="font-display text-5xl md:text-6xl lg:text-7xl text-white-pure mb-16 leading-none text-center">
+          Cases
+        </h2>
+
+        <div className="flex flex-col lg:flex-row gap-8 h-[70vh]">
+          {/* Lista de Projetos */}
+          <div className="lg:w-1/4 space-y-3 overflow-y-auto no-scrollbar">
             {projectsData.map((project) => (
-              <li
+              <div
                 key={project.id}
-                onMouseEnter={() => {
-                  if (process.env.NODE_ENV !== 'production') {
-                    console.log('[Cases] MouseEnter:', project.id);
-                  }
-                  setHoveredProject(project);
-                }}
-                onMouseLeave={() => {
-                  if (process.env.NODE_ENV !== 'production') {
-                    console.log('[Cases] MouseLeave, resetting to Wilson');
-                  }
-                  setHoveredProject(projectsData[0]);
-                }}
+                onMouseEnter={() => setHoveredProject(project)}
+                onMouseLeave={() => setHoveredProject(projectsData[0])}
                 className={`
-                  uppercase text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out
-                  hover:text-olive-green hover:pl-2
-                  ${project.id === 'wilson' ? 'border-l-2 border-gray-400 pl-2 text-base' : ''}
-                  ${hoveredProject?.id === project.id ? 'text-olive-green pl-2' : 'text-dark-charcoal'}
+                  uppercase text-sm font-accent cursor-pointer transition-all duration-300 hover-lift
+                  p-3 border-l-2 transition-colors
+                  ${hoveredProject?.id === project.id 
+                    ? 'text-gold-accent border-gold-accent bg-gold-accent/10' 
+                    : 'text-cream-editorial border-transparent hover:text-gold-accent hover:border-gold-accent/50'
+                  }
                 `}
               >
                 {project.agency} | {project.client} | {project.name}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Coluna Central: Mídia do Projeto */}
-        {/* Ajuste para responsividade: w-full md:w-1/2, h-96 md:h-auto, mb-4 md:mb-0 */}
-        <div className="w-full md:w-1/2 p-2 md:p-4 flex justify-center items-center relative overflow-hidden h-96 md:h-full mb-4 md:mb-0">
-          {projectsData.map((project) => (
-            <div
-              key={project.id}
-              className={`
-                absolute w-full h-full flex justify-center items-center transition-opacity duration-500 ease-in-out
-                ${hoveredProject?.id === project.id ? 'opacity-100' : 'opacity-0'}
-              `}
-            >
-              <div className="w-full h-full md:w-4/5 md:h-4/5 bg-gray-300 flex justify-center items-center text-center p-4">
-                <span className="text-lg md:text-xl text-gray-600">
-                  Placeholder Mídia Para: <br />
-                  {project.agency} | {project.client} | {project.name}
-                </span>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Coluna Direita: Título da Seção e Descrição */}
-        {/* Ajuste para responsividade: w-full md:w-1/4 */}
-        <div className="w-full md:w-1/4 p-4 md:pl-8 border-l-0">
-          <h1 className="text-lg md:text-xl font-bold mb-6 md:mb-10 text-dark-charcoal opacity-0 animate-fadeInSlightlyDelayed motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none">
-            Cases
-          </h1>
-          <p className="text-xs md:text-sm font-light leading-relaxed text-gray-700">
-            Cada projeto listado aqui representa uma história real nas ruas.
-            O desafio vai além da criação visual — ele está em entender o espaço,
-            o tempo, o público e o impacto. A mídia exterior pede mais do que presença:
-            ela exige propósito. É sobre criar relevância onde todos passam —
-            mas nem todos olham.
-          </p>
+          {/* Mídia Central */}
+          <div className="lg:w-1/2 relative overflow-hidden">
+            {projectsData.map((project) => (
+              <div
+                key={project.id}
+                className={`
+                  absolute inset-0 flex items-center justify-center transition-all duration-500
+                  ${hoveredProject?.id === project.id ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}
+                `}
+              >
+                <div className="w-full h-4/5 bg-slate-elegant/20 border border-gold-accent/20 flex items-center justify-center shadow-editorial hover-glow transition-all duration-300">
+                  <div className="text-center">
+                    <div className="text-2xl font-heading text-gold-accent mb-4">
+                      {project.agency}
+                    </div>
+                    <div className="text-lg font-editorial text-cream-editorial mb-2">
+                      {project.client}
+                    </div>
+                    <div className="text-xl font-accent text-white-pure">
+                      {project.name}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Descrição */}
+          <div className="lg:w-1/4 space-y-6">
+            <div className="space-y-4">
+              <h3 className="font-heading text-2xl text-gold-accent">
+                Histórias Reais nas Ruas
+              </h3>
+              <p className="text-cream-editorial font-editorial leading-relaxed">
+                Cada projeto representa uma história real nas ruas. O desafio vai além da criação visual — 
+                está em entender o espaço, o tempo, o público e o impacto.
+              </p>
+              <p className="text-cream-editorial font-editorial leading-relaxed">
+                A mídia exterior exige mais do que presença: ela pede propósito. É sobre criar relevância 
+                onde todos passam — mas nem todos olham.
+              </p>
+            </div>
+            
+            {hoveredProject && (
+              <div className="border-t border-gold-accent/30 pt-6 animate-fade-in">
+                <h4 className="font-accent text-gold-accent text-sm tracking-wide mb-2">
+                  PROJETO EM DESTAQUE
+                </h4>
+                <div className="text-white-pure font-heading text-lg">
+                  {hoveredProject.agency} × {hoveredProject.client}
+                </div>
+                <div className="text-cream-editorial font-editorial">
+                  {hoveredProject.name}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 };
 
