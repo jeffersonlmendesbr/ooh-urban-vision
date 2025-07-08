@@ -72,7 +72,8 @@ const Navigation = () => {
     if (element) {
       element.scrollIntoView({ 
         behavior: 'smooth',
-        block: 'start'
+        block: 'start',
+        inline: 'nearest'
       });
     }
     closeMenu();
@@ -80,8 +81,8 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Navigation Header */}
-      <nav className="fixed top-0 w-full bg-soft-white/95 backdrop-blur-sm border-b border-warm-beige z-50">
+      {/* Navigation Header - Estilo CUSP */}
+      <nav className="fixed top-0 w-full z-50 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div 
@@ -91,63 +92,37 @@ const Navigation = () => {
               Jefferson Mendes
             </div>
             
-            {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8">
-              {sections
-                .filter((s) => s.includeInNav)
-                .map((section) => (
-                  <button
-                    key={section.id}
-                    onClick={() => scrollToSection(section.id)}
-                    className={`text-dark-charcoal hover:text-olive-green transition-colors font-medium cursor-pointer ${activeSection === section.id ? 'text-olive-green font-semibold' : ''}`}
-                    aria-current={activeSection === section.id ? 'page' : undefined}
-                  >
-                    {section.label}
-                  </button>
-                ))}
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button
-                ref={menuButtonRef}
-                onClick={toggleMenu}
-                className="text-dark-charcoal p-2"
-                aria-label="Toggle menu"
-                aria-expanded={isMenuOpen}
-                aria-controls="mobile-menu"
-              >
-                {isMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
-              </button>
-            </div>
+            {/* Menu Hambúrguer - Sempre visível */}
+            <button
+              ref={menuButtonRef}
+              onClick={toggleMenu}
+              className="text-dark-charcoal p-2 hover:text-olive-green transition-colors"
+              aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
+              aria-controls="hamburger-menu"
+            >
+              {isMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+            </button>
           </div>
         </div>
       </nav>
 
-      {/* Fullscreen Mobile Menu */}
+      {/* Menu Lateral - Estilo CUSP */}
       {isMenuOpen && (
         <div
-          id="mobile-menu"
+          id="hamburger-menu"
           ref={menuRef}
-          className="fixed inset-0 z-50 md:hidden bg-dark-charcoal/80 backdrop-blur-sm flex animate-in fade-in"
+          className="fixed inset-0 z-40 bg-dark-charcoal/90 backdrop-blur-sm flex animate-in fade-in"
           role="dialog"
           aria-modal="true"
-          aria-labelledby="mobile-menu-title"
+          aria-labelledby="hamburger-menu-title"
         >
-          <button
-            onClick={closeMenu}
-            className="absolute top-4 right-4 text-soft-white p-2"
-            aria-label="Close menu"
-          >
-            <X size={32} aria-hidden="true" />
-          </button>
-
-          <h2 id="mobile-menu-title" className="sr-only">Navegação Principal</h2>
+          <h2 id="hamburger-menu-title" className="sr-only">Navegação Principal</h2>
           <div className="ml-auto flex flex-col justify-center pr-8 w-3/4 max-w-xs">
             <div className="overflow-y-auto max-h-80 flex flex-col items-end space-y-8 pr-2">
               <button
                 onClick={() => scrollToSection('hero')}
-                className={`text-4xl font-heading text-soft-white hover:text-olive-green transition-colors ${activeSection === 'hero' ? 'text-olive-green font-semibold' : ''}`}
+                className={`text-4xl font-heading text-soft-white hover:text-warm-beige transition-colors ${activeSection === 'hero' ? 'text-warm-beige font-semibold' : ''}`}
                 aria-current={activeSection === 'hero' ? 'page' : undefined}
               >
                 Início
@@ -159,7 +134,7 @@ const Navigation = () => {
                   <button
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
-                    className={`text-4xl font-heading text-soft-white hover:text-olive-green transition-colors ${activeSection === section.id ? 'text-olive-green font-semibold' : ''}`}
+                    className={`text-4xl font-heading text-soft-white hover:text-warm-beige transition-colors ${activeSection === section.id ? 'text-warm-beige font-semibold' : ''}`}
                     aria-current={activeSection === section.id ? 'page' : undefined}
                   >
                     {section.label}

@@ -1,5 +1,5 @@
 
-import { Linkedin, Mail, Phone } from 'lucide-react';
+import { Linkedin, Mail, MessageCircle } from 'lucide-react';
 
 const Hero = () => {
 
@@ -54,10 +54,10 @@ const Hero = () => {
             href="https://wa.me/5511997941150"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-2 text-soft-white hover:text-olive-green transition-colors duration-300 group"
+            className="flex items-center space-x-2 text-soft-white hover:text-green-500 transition-colors duration-300 group"
             aria-label="Conversar no WhatsApp com Jefferson Mendes"
           >
-            <Phone className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
+            <MessageCircle className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
             <span className="text-lg font-medium">WhatsApp</span>
           </a>
         </div>
