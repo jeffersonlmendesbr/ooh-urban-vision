@@ -116,7 +116,7 @@ const Navigation = () => {
         </div>
       </nav>
 
-      {/* Menu Lateral - Estilo CUSP com efeito blur */}
+      {/* Menu Lateral - Estilo CUSP restaurado ao tamanho original */}
       {isMenuOpen && (
         <div
           id="hamburger-menu"
@@ -126,15 +126,9 @@ const Navigation = () => {
           aria-modal="true"
           aria-labelledby="hamburger-menu-title"
         >
-          {/* Efeito blur superior */}
-          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-ink-black via-ink-black/80 to-transparent pointer-events-none z-10"></div>
-          
-          {/* Efeito blur inferior */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-ink-black via-ink-black/80 to-transparent pointer-events-none z-10"></div>
-          
           <h2 id="hamburger-menu-title" className="sr-only">Navegação Principal</h2>
-          <div className="w-full h-full flex flex-col justify-center items-end pr-8 relative z-0">
-            <div className="overflow-y-auto h-full flex flex-col justify-center items-end space-y-8 no-scrollbar w-full py-32">
+          <div className="w-full h-full flex flex-col justify-center items-end pr-8">
+            <div className="flex flex-col justify-center items-end space-y-8">
               <button
                 onClick={() => scrollToSection('hero')}
                 className={`text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 ${activeSection === 'hero' ? 'text-gold-accent font-semibold' : ''}`}

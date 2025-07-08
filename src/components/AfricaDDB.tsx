@@ -8,19 +8,12 @@ const AfricaDDB = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Imagem do Continente Africano - Esquerda */}
           <div className="relative">
-            <div className="bg-gold-accent/10 border border-gold-accent/30 p-12 h-[60vh] flex items-center justify-center shadow-editorial hover-glow transition-all duration-300">
-              <div className="text-center">
-                <div className="w-64 h-64 mx-auto mb-6 flex items-center justify-center">
-                  <img 
-                    src="/lovable-uploads/d2c3d440-d9a8-4970-bf0b-b4fbdc110f06.png" 
-                    alt="Continente Africano" 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <p className="text-cream-editorial font-editorial text-lg">
-                  Continente Africano
-                </p>
-              </div>
+            <div className="h-[60vh] flex items-center justify-center">
+              <img 
+                src="/lovable-uploads/d2c3d440-d9a8-4970-bf0b-b4fbdc110f06.png" 
+                alt="Logo África" 
+                className="max-w-full max-h-full object-contain"
+              />
             </div>
           </div>
 
