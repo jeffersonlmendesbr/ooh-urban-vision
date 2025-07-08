@@ -1,19 +1,12 @@
-
 import { SectionContainer } from './ui/section-container';
-
 const AfricaDDB = () => {
-  return (
-    <SectionContainer id="africaddb" className="gradient-dark">
+  return <SectionContainer id="africaddb" className="gradient-dark">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Imagem do Continente Africano - Esquerda */}
           <div className="relative">
             <div className="h-[60vh] flex items-center justify-center">
-              <img 
-                src="/lovable-uploads/d2c3d440-d9a8-4970-bf0b-b4fbdc110f06.png" 
-                alt="Logo África" 
-                className="max-w-full max-h-full object-contain"
-              />
+              <img src="/lovable-uploads/d2c3d440-d9a8-4970-bf0b-b4fbdc110f06.png" alt="Logo África" className="max-w-full max-h-full object-contain" />
             </div>
           </div>
 
@@ -45,9 +38,8 @@ const AfricaDDB = () => {
               </p>
               
               <div className="border-t border-gold-accent/30 pt-6">
-                <blockquote className="text-xl md:text-2xl font-heading text-gold-accent italic leading-tight">
-                  "Aqui, criatividade e dados não competem - eles dançam juntos."
-                </blockquote>
+                <blockquote className="text-xl md:text-2xl font-heading text-gold-accent italic leading-tight">"Aqui, criatividade e dados não competem,
+eles dançam juntos."</blockquote>
               </div>
 
               <div className="flex items-center space-x-4 pt-4">
@@ -62,8 +54,6 @@ const AfricaDDB = () => {
           </div>
         </div>
       </div>
-    </SectionContainer>
-  );
+    </SectionContainer>;
 };
-
 export default AfricaDDB;
