@@ -116,7 +116,7 @@ const Navigation = () => {
         </div>
       </nav>
 
-      {/* Menu Lateral - Estilo CUSP restaurado ao tamanho original */}
+      {/* Menu Lateral - OCUPANDO TELA TODA */}
       {isMenuOpen && (
         <div
           id="hamburger-menu"
@@ -127,28 +127,95 @@ const Navigation = () => {
           aria-labelledby="hamburger-menu-title"
         >
           <h2 id="hamburger-menu-title" className="sr-only">Navegação Principal</h2>
-          <div className="w-full h-full flex flex-col justify-center items-end pr-8">
-            <div className="flex flex-col justify-center items-end space-y-8">
+          <div className="w-full h-full flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center space-y-12">
               <button
                 onClick={() => scrollToSection('hero')}
-                className={`text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 ${activeSection === 'hero' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 ${activeSection === 'hero' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'hero' ? 'page' : undefined}
               >
                 Início
               </button>
 
-              {sections
-                .filter((s) => s.includeInNav)
-                .map((section) => (
-                  <button
-                    key={section.id}
-                    onClick={() => scrollToSection(section.id)}
-                    className={`text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 ${activeSection === section.id ? 'text-gold-accent font-semibold' : ''}`}
-                    aria-current={activeSection === section.id ? 'page' : undefined}
-                  >
-                    {section.label}
-                  </button>
-                ))}
+              <button
+                onClick={() => scrollToSection('about')}
+                className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 ${activeSection === 'about' ? 'text-gold-accent font-semibold' : ''}`}
+                aria-current={activeSection === 'about' ? 'page' : undefined}
+              >
+                Sobre
+              </button>
+
+              <button
+                onClick={() => scrollToSection('africaddb')}
+                className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 ${activeSection === 'africaddb' ? 'text-gold-accent font-semibold' : ''}`}
+                aria-current={activeSection === 'africaddb' ? 'page' : undefined}
+              >
+                Africa DDB
+              </button>
+
+              <button
+                onClick={() => scrollToSection('experience')}
+                className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 ${activeSection === 'experience' ? 'text-gold-accent font-semibold' : ''}`}
+                aria-current={activeSection === 'experience' ? 'page' : undefined}
+              >
+                Jornada
+              </button>
+
+              <button
+                onClick={() => scrollToSection('cases')}
+                className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 ${activeSection === 'cases' ? 'text-gold-accent font-semibold' : ''}`}
+                aria-current={activeSection === 'cases' ? 'page' : undefined}
+              >
+                Cases
+              </button>
+
+              <button
+                onClick={() => scrollToSection('manifesto')}
+                className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 ${activeSection === 'manifesto' ? 'text-gold-accent font-semibold' : ''}`}
+                aria-current={activeSection === 'manifesto' ? 'page' : undefined}
+              >
+                Manifesto
+              </button>
+
+              <button
+                onClick={() => scrollToSection('nationalpresence')}
+                className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 ${activeSection === 'nationalpresence' ? 'text-gold-accent font-semibold' : ''}`}
+                aria-current={activeSection === 'nationalpresence' ? 'page' : undefined}
+              >
+                Presença
+              </button>
+
+              <button
+                onClick={() => scrollToSection('tools')}
+                className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 ${activeSection === 'tools' ? 'text-gold-accent font-semibold' : ''}`}
+                aria-current={activeSection === 'tools' ? 'page' : undefined}
+              >
+                Ferramentas
+              </button>
+
+              <button
+                onClick={() => scrollToSection('oohplanner')}
+                className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 ${activeSection === 'oohplanner' ? 'text-gold-accent font-semibold' : ''}`}
+                aria-current={activeSection === 'oohplanner' ? 'page' : undefined}
+              >
+                OOH Planner
+              </button>
+
+              <button
+                onClick={() => scrollToSection('testimonials')}
+                className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 ${activeSection === 'testimonials' ? 'text-gold-accent font-semibold' : ''}`}
+                aria-current={activeSection === 'testimonials' ? 'page' : undefined}
+              >
+                Testemunhos
+              </button>
+
+              <button
+                onClick={() => scrollToSection('contact')}
+                className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-110 ${activeSection === 'contact' ? 'text-gold-accent font-semibold' : ''}`}
+                aria-current={activeSection === 'contact' ? 'page' : undefined}
+              >
+                Contato
+              </button>
             </div>
           </div>
         </div>
