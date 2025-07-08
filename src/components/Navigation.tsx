@@ -118,11 +118,11 @@ const Navigation = () => {
           aria-labelledby="hamburger-menu-title"
         >
           <h2 id="hamburger-menu-title" className="sr-only">Navegação Principal</h2>
-          <div className="ml-auto flex flex-col justify-center pr-8 w-3/4 max-w-xs">
-            <div className="overflow-y-auto max-h-80 flex flex-col items-end space-y-8 pr-2">
+          <div className="w-full flex flex-col justify-center px-8">
+            <div className="flex flex-col items-center space-y-8">
               <button
                 onClick={() => scrollToSection('hero')}
-                className={`text-4xl font-heading text-soft-white hover:text-warm-beige transition-colors ${activeSection === 'hero' ? 'text-warm-beige font-semibold' : ''}`}
+                className={`text-6xl md:text-7xl lg:text-8xl font-heading text-soft-white hover:text-warm-beige transition-colors ${activeSection === 'hero' ? 'text-warm-beige font-semibold' : ''}`}
                 aria-current={activeSection === 'hero' ? 'page' : undefined}
               >
                 Início
@@ -134,7 +134,7 @@ const Navigation = () => {
                   <button
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
-                    className={`text-4xl font-heading text-soft-white hover:text-warm-beige transition-colors ${activeSection === section.id ? 'text-warm-beige font-semibold' : ''}`}
+                    className={`text-6xl md:text-7xl lg:text-8xl font-heading text-soft-white hover:text-warm-beige transition-colors ${activeSection === section.id ? 'text-warm-beige font-semibold' : ''}`}
                     aria-current={activeSection === section.id ? 'page' : undefined}
                   >
                     {section.label}
