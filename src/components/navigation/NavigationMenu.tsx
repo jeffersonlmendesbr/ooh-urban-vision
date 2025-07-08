@@ -65,8 +65,8 @@ const NavigationMenu = ({ isMenuOpen, activeSection, onScrollToSection }: Naviga
     >
       <h2 id="hamburger-menu-title" className="sr-only">Navegação Principal</h2>
       
-      <div className="w-full h-full min-h-screen flex flex-col justify-center items-end px-8 py-8 overflow-y-auto">
-        <div className="flex flex-col space-y-4 w-full max-h-full overflow-y-auto no-scrollbar">
+      <div className="w-full h-full min-h-screen flex flex-col justify-center items-stretch px-4 py-8 overflow-y-auto">
+        <div className="flex flex-col space-y-6 w-full max-h-full overflow-y-auto no-scrollbar">
           {menuItems.map((item) => (
             <NavigationMenuItem
               key={item.sectionId}
