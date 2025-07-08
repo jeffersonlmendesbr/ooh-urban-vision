@@ -135,7 +135,7 @@ const Navigation = () => {
               
               <button
                 onClick={() => scrollToSection('hero')}
-                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'hero' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-2xl md:text-3xl lg:text-4xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'hero' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'hero' ? 'page' : undefined}
               >
                 Início
@@ -143,7 +143,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('about')}
-                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'about' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-2xl md:text-3xl lg:text-4xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'about' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'about' ? 'page' : undefined}
               >
                 Sobre
@@ -151,7 +151,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('africaddb')}
-                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'africaddb' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-2xl md:text-3xl lg:text-4xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'africaddb' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'africaddb' ? 'page' : undefined}
               >
                 Africa DDB
@@ -159,7 +159,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('experience')}
-                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'experience' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-2xl md:text-3xl lg:text-4xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'experience' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'experience' ? 'page' : undefined}
               >
                 Jornada
@@ -167,7 +167,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('cases')}
-                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'cases' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-2xl md:text-3xl lg:text-4xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'cases' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'cases' ? 'page' : undefined}
               >
                 Cases
@@ -175,7 +175,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('manifesto')}
-                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'manifesto' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-2xl md:text-3xl lg:text-4xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'manifesto' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'manifesto' ? 'page' : undefined}
               >
                 Manifesto
@@ -183,7 +183,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('nationalpresence')}
-                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'nationalpresence' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-2xl md:text-3xl lg:text-4xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'nationalpresence' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'nationalpresence' ? 'page' : undefined}
               >
                 Presença Nacional
@@ -191,7 +191,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('tools')}
-                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'tools' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-2xl md:text-3xl lg:text-4xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'tools' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'tools' ? 'page' : undefined}
               >
                 Ferramentas
@@ -199,7 +199,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('oohplanner')}
-                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'oohplanner' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-2xl md:text-3xl lg:text-4xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'oohplanner' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'oohplanner' ? 'page' : undefined}
               >
                 OOH Planner
@@ -207,7 +207,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('testimonials')}
-                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'testimonials' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-2xl md:text-3xl lg:text-4xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'testimonials' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'testimonials' ? 'page' : undefined}
               >
                 Testemunhos
@@ -215,7 +215,7 @@ const Navigation = () => {
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'contact' ? 'text-gold-accent font-semibold' : ''}`}
+                className={`text-2xl md:text-3xl lg:text-4xl font-heading text-white-pure hover:text-gold-accent transition-all duration-300 hover:scale-105 text-right w-full ${activeSection === 'contact' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'contact' ? 'page' : undefined}
               >
                 Contato
