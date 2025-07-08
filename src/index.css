@@ -3,15 +3,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Jefferson Mendes Design System - Color Palette */
+/* Jefferson Mendes Design System - Editorial & Bold Palette */
 @layer base {
   :root {
-    /* Jefferson Mendes Color Palette */
-    --warm-beige: #EDE2D1;
-    --olive-green: #4A5436;
-    --matte-silver: #C0C0C0;
-    --dark-charcoal: #2A2A2A;
-    --soft-white: #FEFEFE;
+    /* Jefferson Mendes Signature Palette */
+    --ink-black: #0A0A0A;
+    --charcoal-deep: #1A1A1A;
+    --slate-elegant: #2D2D2D;
+    --gold-accent: #D4AF37;
+    --cream-editorial: #F7F5F3;
+    --grey-sophisticated: #8A8A8A;
+    --white-pure: #FFFFFF;
+    --shadow-soft: #00000010;
     
     /* Shadcn Variables */
     --background: 0 0% 100%;
@@ -75,23 +78,54 @@
   }
 }
 
-/* Custom Jefferson Mendes Tailwind Classes */
+/* Custom Jefferson Mendes Design Tokens */
 @layer utilities {
-  .text-warm-beige { color: var(--warm-beige); }
-  .text-olive-green { color: var(--olive-green); }
-  .text-matte-silver { color: var(--matte-silver); }
-  .text-dark-charcoal { color: var(--dark-charcoal); }
-  .text-soft-white { color: var(--soft-white); }
+  /* Text Colors */
+  .text-ink-black { color: var(--ink-black); }
+  .text-charcoal-deep { color: var(--charcoal-deep); }
+  .text-slate-elegant { color: var(--slate-elegant); }
+  .text-gold-accent { color: var(--gold-accent); }
+  .text-cream-editorial { color: var(--cream-editorial); }
+  .text-grey-sophisticated { color: var(--grey-sophisticated); }
+  .text-white-pure { color: var(--white-pure); }
   
-  .bg-warm-beige { background-color: var(--warm-beige); }
-  .bg-olive-green { background-color: var(--olive-green); }
-  .bg-matte-silver { background-color: var(--matte-silver); }
-  .bg-dark-charcoal { background-color: var(--dark-charcoal); }
-  .bg-soft-white { background-color: var(--soft-white); }
+  /* Background Colors */
+  .bg-ink-black { background-color: var(--ink-black); }
+  .bg-charcoal-deep { background-color: var(--charcoal-deep); }
+  .bg-slate-elegant { background-color: var(--slate-elegant); }
+  .bg-gold-accent { background-color: var(--gold-accent); }
+  .bg-cream-editorial { background-color: var(--cream-editorial); }
+  .bg-grey-sophisticated { background-color: var(--grey-sophisticated); }
+  .bg-white-pure { background-color: var(--white-pure); }
   
-  .border-warm-beige { border-color: var(--warm-beige); }
-  .border-olive-green { border-color: var(--olive-green); }
-  .border-matte-silver { border-color: var(--matte-silver); }
+  /* Border Colors */
+  .border-ink-black { border-color: var(--ink-black); }
+  .border-charcoal-deep { border-color: var(--charcoal-deep); }
+  .border-slate-elegant { border-color: var(--slate-elegant); }
+  .border-gold-accent { border-color: var(--gold-accent); }
+  .border-cream-editorial { border-color: var(--cream-editorial); }
+  .border-grey-sophisticated { border-color: var(--grey-sophisticated); }
+  
+  /* Editorial Effects */
+  .shadow-editorial { box-shadow: 0 20px 60px -20px var(--shadow-soft); }
+  .shadow-gold { box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.3); }
+  .shadow-ink { box-shadow: 0 25px 80px -15px rgba(10, 10, 10, 0.4); }
+  
+  /* Gradients */
+  .gradient-editorial { background: linear-gradient(135deg, var(--cream-editorial) 0%, var(--white-pure) 100%); }
+  .gradient-dark { background: linear-gradient(135deg, var(--ink-black) 0%, var(--charcoal-deep) 100%); }
+  .gradient-gold { background: linear-gradient(135deg, var(--gold-accent) 0%, #B8860B 100%); }
+  
+  /* Typography Utilities */
+  .text-shadow-subtle { text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+  .text-shadow-bold { text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); }
+  
+  /* Interactive States */
+  .hover-lift { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 20px 60px -20px var(--shadow-soft); }
+  
+  .hover-glow { transition: all 0.3s ease; }
+  .hover-glow:hover { box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); transform: scale(1.02); }
 }
 
 @layer base {
@@ -104,18 +138,36 @@
   }
 }
 
-/* Typography - Editorial Style */
+/* Typography - Editorial & Bold System */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
 .font-editorial {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
 }
 
 .font-heading {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.font-accent {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 /* Scroll snap behavior - cada seção ocupa tela cheia */

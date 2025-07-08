@@ -6,59 +6,72 @@ const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="h-screen w-full flex items-center justify-center relative overflow-hidden bg-dark-charcoal"
-      style={{
-        backgroundImage: `linear-gradient(rgba(42, 42, 42, 0.7), rgba(42, 42, 42, 0.7)), url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        backgroundSize: '60px 60px'
-      }}
+      className="h-screen w-full flex items-center justify-center relative overflow-hidden bg-ink-black"
     >
-      <div className="text-center text-soft-white max-w-4xl mx-auto px-4">
+      {/* Video Background Placeholder */}
+      <div className="absolute inset-0 bg-gradient-to-br from-ink-black via-charcoal-deep to-slate-elegant opacity-90"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.02%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10zm10%200c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+      
+      <div className="relative z-10 text-center text-white-pure max-w-5xl mx-auto px-6">
+        {/* Editorial Quote */}
+        <div className="mb-8">
+          <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-4 animate-fadeInSlightlyDelayed">
+            CREATIVE • STRATEGIC • LEADERSHIP
+          </span>
+        </div>
+        
         {/* Main Impact Phrase */}
-        <p className="text-xl md:text-2xl lg:text-3xl font-light mb-8 leading-relaxed animate-fadeInSlightlyDelayed motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none">
+        <p className="text-2xl md:text-3xl lg:text-4xl font-editorial text-grey-sophisticated mb-12 leading-relaxed animate-fadeInSlightlyDelayed max-w-4xl mx-auto text-shadow-subtle" style={{ animationDelay: '0.2s' }}>
           Transformando o comum em extraordinário, uma campanha OOH por vez.
         </p>
         
         {/* Name */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading mb-6 animate-fadeInSlightlyDelayed motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none" style={{ animationDelay: '0.3s' }}>
-          Jefferson Mendes
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-display mb-8 animate-fadeInSlightlyDelayed text-shadow-bold" style={{ animationDelay: '0.4s' }}>
+          Jefferson
+          <span className="block text-gold-accent italic">Mendes</span>
         </h1>
         
         {/* Title */}
-        <p className="text-xl md:text-2xl lg:text-3xl font-light mb-12 animate-fadeInSlightlyDelayed motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none" style={{ animationDelay: '0.6s' }}>
-          Especialista em Mídia OOH Estratégica e Criativa
-        </p>
+        <div className="mb-16 animate-fadeInSlightlyDelayed" style={{ animationDelay: '0.6s' }}>
+          <p className="text-xl md:text-2xl font-editorial text-cream-editorial mb-2">
+            Especialista em Mídia OOH
+          </p>
+          <p className="text-lg md:text-xl font-accent text-gold-accent">
+            Estratégica & Criativa
+          </p>
+        </div>
         
         {/* Contact Links */}
-        <div className="flex justify-center space-x-8 animate-fadeInSlightlyDelayed motion-reduce:animate-none" style={{ animationDelay: '0.9s' }}>
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 animate-fadeInSlightlyDelayed" style={{ animationDelay: '0.8s' }}>
           <a
             href="https://www.linkedin.com/in/jeffersonlmendes/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-2 text-soft-white hover:text-olive-green transition-colors duration-300 group"
+            className="group flex items-center space-x-3 px-6 py-3 border border-grey-sophisticated hover:border-gold-accent transition-all duration-300 hover-lift"
             aria-label="Visitar LinkedIn de Jefferson Mendes"
           >
-            <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
-            <span className="text-lg font-medium">LinkedIn</span>
+            <Linkedin className="w-5 h-5 text-grey-sophisticated group-hover:text-gold-accent transition-colors" aria-hidden="true" />
+            <span className="font-accent text-sm text-grey-sophisticated group-hover:text-gold-accent transition-colors">LinkedIn</span>
           </a>
 
           <a
             href="mailto:jeffersonlmendes@gmail.com"
-            className="flex items-center space-x-2 text-soft-white hover:text-olive-green transition-colors duration-300 group"
+            className="group flex items-center space-x-3 px-6 py-3 border border-grey-sophisticated hover:border-gold-accent transition-all duration-300 hover-lift"
             aria-label="Enviar email para Jefferson Mendes"
           >
-            <Mail className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
-            <span className="text-lg font-medium">E-mail</span>
+            <Mail className="w-5 h-5 text-grey-sophisticated group-hover:text-gold-accent transition-colors" aria-hidden="true" />
+            <span className="font-accent text-sm text-grey-sophisticated group-hover:text-gold-accent transition-colors">E-mail</span>
           </a>
 
           <a
             href="https://wa.me/5511997941150"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-2 text-soft-white hover:text-green-500 transition-colors duration-300 group"
+            className="group flex items-center space-x-3 px-6 py-3 bg-gold-accent hover:bg-white-pure transition-all duration-300 hover-glow"
             aria-label="Conversar no WhatsApp com Jefferson Mendes"
           >
-            <MessageCircle className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
-            <span className="text-lg font-medium">WhatsApp</span>
+            <MessageCircle className="w-5 h-5 text-ink-black transition-colors" aria-hidden="true" />
+            <span className="font-accent text-sm text-ink-black">WhatsApp</span>
           </a>
         </div>
       </div>

@@ -86,7 +86,7 @@ const Navigation = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div 
-              className="text-2xl font-heading text-dark-charcoal cursor-pointer"
+              className="text-2xl font-heading text-ink-black cursor-pointer hover:text-gold-accent transition-colors"
               onClick={() => scrollToSection('hero')}
             >
               Jefferson Mendes
@@ -96,7 +96,7 @@ const Navigation = () => {
             <button
               ref={menuButtonRef}
               onClick={toggleMenu}
-              className="text-dark-charcoal p-2 hover:text-olive-green transition-colors"
+              className="text-ink-black p-2 hover:text-gold-accent transition-colors"
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
               aria-controls="hamburger-menu"
@@ -112,7 +112,7 @@ const Navigation = () => {
         <div
           id="hamburger-menu"
           ref={menuRef}
-          className="fixed inset-0 z-40 bg-dark-charcoal/95 backdrop-blur-sm flex animate-in fade-in"
+          className="fixed inset-0 z-40 bg-ink-black/95 backdrop-blur-sm flex animate-in fade-in"
           role="dialog"
           aria-modal="true"
           aria-labelledby="hamburger-menu-title"
@@ -122,7 +122,7 @@ const Navigation = () => {
             <div className="overflow-y-auto h-full flex flex-col justify-center items-end space-y-12 no-scrollbar w-full">
               <button
                 onClick={() => scrollToSection('hero')}
-                className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-soft-white hover:text-warm-beige transition-colors ${activeSection === 'hero' ? 'text-warm-beige font-semibold' : ''}`}
+                className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-white-pure hover:text-gold-accent transition-colors ${activeSection === 'hero' ? 'text-gold-accent font-semibold' : ''}`}
                 aria-current={activeSection === 'hero' ? 'page' : undefined}
               >
                 Início
@@ -134,7 +134,7 @@ const Navigation = () => {
                   <button
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
-                    className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-soft-white hover:text-warm-beige transition-colors ${activeSection === section.id ? 'text-warm-beige font-semibold' : ''}`}
+                    className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-white-pure hover:text-gold-accent transition-colors ${activeSection === section.id ? 'text-gold-accent font-semibold' : ''}`}
                     aria-current={activeSection === section.id ? 'page' : undefined}
                   >
                     {section.label}
