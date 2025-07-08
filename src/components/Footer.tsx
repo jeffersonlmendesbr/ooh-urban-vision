@@ -1,19 +1,20 @@
 
 const Footer = () => {
   return (
-    <footer className="bg-dark-charcoal text-soft-white py-12">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h3 className="text-2xl font-heading mb-4">Jefferson Mendes</h3>
-          <p className="text-matte-silver mb-8 max-w-2xl mx-auto">
+    <footer className="bg-ink-black text-cream-editorial py-16 border-t border-gold-accent/20">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        <div className="mb-8">
+          <h3 className="text-3xl font-display text-gold-accent mb-4">Jefferson Mendes</h3>
+          <p className="text-grey-sophisticated font-editorial mb-8 max-w-2xl mx-auto leading-relaxed">
             Especialista em Mídia OOH transformando a comunicação urbana através de estratégias 
             inovadoras baseadas em dados e comportamento.
           </p>
-          <div className="border-t border-soft-white/30 pt-8">
-            <p className="text-matte-silver">
-              © {new Date().getFullYear()} Jefferson Mendes. Todos os direitos reservados.
-            </p>
-          </div>
+        </div>
+        
+        <div className="border-t border-gold-accent/20 pt-8">
+          <p className="text-grey-sophisticated font-accent text-sm tracking-wide">
+            © {new Date().getFullYear()} Jefferson Mendes. Todos os direitos reservados.
+          </p>
         </div>
       </div>
     </footer>

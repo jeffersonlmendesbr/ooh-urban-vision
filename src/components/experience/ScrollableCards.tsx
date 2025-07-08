@@ -15,7 +15,7 @@ export const ScrollableCards = ({ children }: ScrollableCardsProps) => {
         <button
           onClick={() => scroll('left')}
           disabled={!canScrollLeft}
-          className={`absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 border border-soft-white/40 bg-olive-green/90 backdrop-blur-sm text-soft-white text-lg font-light transition-all duration-300 hover:bg-olive-green hover:border-soft-white/80 hover:scale-105 ${
+          className={`absolute left-4 top-1/2 -translate-y-1/2 z-20 w-14 h-14 border border-gold-accent/40 bg-ink-black/90 backdrop-blur-sm text-gold-accent text-xl font-light transition-all duration-300 hover:bg-gold-accent hover:text-ink-black hover:scale-105 ${
             !canScrollLeft ? 'opacity-30 cursor-not-allowed' : ''
           }`}
         >
@@ -25,7 +25,7 @@ export const ScrollableCards = ({ children }: ScrollableCardsProps) => {
         <button
           onClick={() => scroll('right')}
           disabled={!canScrollRight}
-          className={`absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 border border-soft-white/40 bg-olive-green/90 backdrop-blur-sm text-soft-white text-lg font-light transition-all duration-300 hover:bg-olive-green hover:border-soft-white/80 hover:scale-105 ${
+          className={`absolute right-4 top-1/2 -translate-y-1/2 z-20 w-14 h-14 border border-gold-accent/40 bg-ink-black/90 backdrop-blur-sm text-gold-accent text-xl font-light transition-all duration-300 hover:bg-gold-accent hover:text-ink-black hover:scale-105 ${
             !canScrollRight ? 'opacity-30 cursor-not-allowed' : ''
           }`}
         >
@@ -33,7 +33,7 @@ export const ScrollableCards = ({ children }: ScrollableCardsProps) => {
         </button>
 
         {/* Scrollable Cards Container */}
-        <div className="border-t border-b border-soft-white/20 py-8">
+        <div className="border-t border-b border-gold-accent/30 py-8">
           <div
             ref={scrollContainerRef}
             className="overflow-x-auto overflow-y-hidden no-scrollbar px-20"
@@ -45,7 +45,7 @@ export const ScrollableCards = ({ children }: ScrollableCardsProps) => {
             <div className="flex gap-0">
               {children}
               {/* Partial card at the end for visual continuity */}
-              <div className="min-w-[200px] w-[200px] h-[480px] bg-olive-green border-l border-soft-white/10"></div>
+              <div className="min-w-[200px] w-[200px] h-[480px] bg-gradient-to-r from-gold-accent/20 to-transparent border-l border-gold-accent/20"></div>
             </div>
           </div>
         </div>

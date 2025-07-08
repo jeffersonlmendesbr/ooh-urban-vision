@@ -6,7 +6,7 @@ import { sections } from '../config/sections';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-soft-white font-editorial">
+    <div className="min-h-screen bg-white-pure font-editorial">
       <Navigation />
       <Hero />
       {sections.map(({ id, Component }) => (
