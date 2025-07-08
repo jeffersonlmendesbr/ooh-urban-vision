@@ -112,17 +112,17 @@ const Navigation = () => {
         <div
           id="hamburger-menu"
           ref={menuRef}
-          className="fixed inset-0 z-40 bg-dark-charcoal/90 backdrop-blur-sm flex animate-in fade-in"
+          className="fixed inset-0 z-40 bg-dark-charcoal/95 backdrop-blur-sm flex animate-in fade-in"
           role="dialog"
           aria-modal="true"
           aria-labelledby="hamburger-menu-title"
         >
           <h2 id="hamburger-menu-title" className="sr-only">Navegação Principal</h2>
-          <div className="ml-auto flex flex-col justify-center pr-8 w-full max-w-2xl">
-            <div className="overflow-y-auto max-h-[60vh] flex flex-col items-end space-y-8 pr-2 no-scrollbar">
+          <div className="w-full h-full flex flex-col justify-center items-end pr-8">
+            <div className="overflow-y-auto h-full flex flex-col justify-center items-end space-y-12 no-scrollbar w-full">
               <button
                 onClick={() => scrollToSection('hero')}
-                className={`text-6xl md:text-7xl lg:text-8xl font-heading text-soft-white hover:text-warm-beige transition-colors ${activeSection === 'hero' ? 'text-warm-beige font-semibold' : ''}`}
+                className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-soft-white hover:text-warm-beige transition-colors ${activeSection === 'hero' ? 'text-warm-beige font-semibold' : ''}`}
                 aria-current={activeSection === 'hero' ? 'page' : undefined}
               >
                 Início
@@ -134,7 +134,7 @@ const Navigation = () => {
                   <button
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
-                    className={`text-6xl md:text-7xl lg:text-8xl font-heading text-soft-white hover:text-warm-beige transition-colors ${activeSection === section.id ? 'text-warm-beige font-semibold' : ''}`}
+                    className={`text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-heading text-soft-white hover:text-warm-beige transition-colors ${activeSection === section.id ? 'text-warm-beige font-semibold' : ''}`}
                     aria-current={activeSection === section.id ? 'page' : undefined}
                   >
                     {section.label}
