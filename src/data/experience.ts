@@ -1,4 +1,3 @@
-
 import type { ExperienceCardData } from '../types';
 
 export const experiencesData: ExperienceCardData[] = [
@@ -36,11 +35,11 @@ export const experiencesData: ExperienceCardData[] = [
   },
   {
     tagType: "VEÍCULO",
-    logoUrl: "/placeholder.svg",
+    logoUrl: "/lovable-uploads/9c3e7a8c-2ed0-412a-8465-f17bb05911f9.png",
     companyName: "Eletromidia",
-    title: "Sales & OOH Product Manager",
-    description: "Desenvolvimento e comercialização de produtos OOH inovadores, incluindo a plataforma NOALVO e a integração com DV360.",
-    period: "2017 - 2019"
+    title: "Gerente de Mídia",
+    description: "Atuei como elo entre produto e mercado, liderando estratégias OOH em sinergia com agências e anunciantes, e fortalecendo a inteligência comercial da Eletromidia em São Paulo.",
+    period: "11 meses"
   }
 ];
 
