@@ -19,7 +19,7 @@ export const ExperienceCard = ({ experience }: ExperienceCardProps) => (
   >
     {/* Tag Section */}
     <div className="text-center mb-8">
-      <span className="inline-block font-accent text-xs tracking-[0.2em] uppercase px-6 py-3 bg-ink-black text-gold-accent group-hover:bg-white-pure group-hover:text-gold-accent transition-all duration-300">
+      <span className="inline-block font-accent text-xs tracking-[0.2em] uppercase px-6 py-3 bg-white-pure text-ink-black font-bold">
         {experience.tagType}
       </span>
     </div>
@@ -37,13 +37,13 @@ export const ExperienceCard = ({ experience }: ExperienceCardProps) => (
 
     {/* Content Section */}
     <div className="text-center space-y-4">
-      <h3 className="font-heading text-2xl font-bold tracking-tight text-ink-black group-hover:text-white-pure transition-colors duration-300">
+      <h3 className="font-heading text-2xl font-bold tracking-tight text-white-pure">
         {experience.title}
       </h3>
-      <p className="text-ink-black text-sm font-accent tracking-wide opacity-80">
+      <p className="text-white-pure/80 text-sm font-accent tracking-wide">
         {experience.period}
       </p>
-      <p className="text-sm text-ink-black font-editorial leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+      <p className="text-sm text-white-pure/90 font-editorial leading-relaxed">
         {experience.description}
       </p>
     </div>
