@@ -1,3 +1,4 @@
+
 import type { ComponentType } from 'react';
 
 import About from '../components/About';
@@ -6,6 +7,7 @@ import Experience from '../components/Experience';
 import Cases from '../components/Cases';
 import Manifesto from '../components/Manifesto';
 import NationalPresence from '../components/NationalPresence';
+import PepeTribute from '../components/PepeTribute';
 import Tools from '../components/Tools';
 import OOHPlanner from '../components/OOHPlanner';
 import Testimonials from '../components/Testimonials';
@@ -25,6 +27,7 @@ export const sections: SectionConfig[] = [
   { id: 'cases', label: 'Cases', Component: Cases, includeInNav: true },
   { id: 'manifesto', label: 'Manifesto', Component: Manifesto, includeInNav: true },
   { id: 'nationalpresence', label: 'Presença', Component: NationalPresence, includeInNav: true },
+  { id: 'pepetribute', label: 'Homenagem', Component: PepeTribute, includeInNav: true },
   { id: 'tools', label: 'Ferramentas', Component: Tools, includeInNav: true },
   { id: 'oohplanner', label: 'OOH Planner', Component: OOHPlanner, includeInNav: true },
   { id: 'testimonials', label: 'Testemunhos', Component: Testimonials, includeInNav: true },
