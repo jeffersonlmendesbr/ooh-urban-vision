@@ -9,7 +9,7 @@ export const ScrollableCards = ({ children }: ScrollableCardsProps) => {
   const { scrollContainerRef, canScrollLeft, canScrollRight, scroll } = useScrollNavigation();
 
   return (
-    <div className="flex-1 flex items-center max-w-7xl mx-auto w-full">
+    <div className="flex-1 flex items-center max-w-7xl mx-auto w-full min-h-0">
       <div className="relative w-full">
         {/* Navigation Buttons */}
         <button
@@ -33,7 +33,7 @@ export const ScrollableCards = ({ children }: ScrollableCardsProps) => {
         </button>
 
         {/* Scrollable Cards Container */}
-        <div className="border-t border-b border-gold-accent/30 py-8">
+        <div className="border-t border-b border-gold-accent/30 py-4">
           <div
             ref={scrollContainerRef}
             className="overflow-x-auto overflow-y-hidden no-scrollbar px-20"
@@ -45,13 +45,13 @@ export const ScrollableCards = ({ children }: ScrollableCardsProps) => {
             <div className="flex gap-0">
               {children}
               {/* Partial card at the end for visual continuity */}
-              <div className="min-w-[200px] w-[200px] h-[680px] bg-gradient-to-r from-gold-accent/20 to-transparent border-l border-gold-accent/20"></div>
+              <div className="min-w-[200px] w-[200px] h-[400px] bg-gradient-to-r from-gold-accent/20 to-transparent border-l border-gold-accent/20"></div>
             </div>
           </div>
         </div>
         
         {/* Competences Ticker between two lines */}
-        <div className="border-t border-gold-accent/40 pt-8 pb-8">
+        <div className="border-t border-gold-accent/40 pt-4 pb-4">
           <div className="relative overflow-hidden">
             <div className="flex animate-ticker-scroll">
               {/* First set of tags */}
