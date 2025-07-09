@@ -15,7 +15,5 @@ export const ExperienceHeader = ({ title }: ExperienceHeaderProps) => (
     <h2 className="font-display text-6xl md:text-7xl lg:text-8xl text-white-pure mb-12 leading-none text-shadow-bold">
       {title}
     </h2>
-    
-    <div className="border-t border-gold-accent/40 w-full"></div>
   </div>
 );

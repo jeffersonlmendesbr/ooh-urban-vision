@@ -33,7 +33,7 @@ export const ScrollableCards = ({ children }: ScrollableCardsProps) => {
         </button>
 
         {/* Scrollable Cards Container */}
-        <div className="border-t border-b border-gold-accent/30 py-8">
+        <div className="border-b border-gold-accent/30 py-8">
           <div
             ref={scrollContainerRef}
             className="overflow-x-auto overflow-y-hidden no-scrollbar px-20"
@@ -45,7 +45,7 @@ export const ScrollableCards = ({ children }: ScrollableCardsProps) => {
             <div className="flex gap-0">
               {children}
               {/* Partial card at the end for visual continuity */}
-              <div className="min-w-[200px] w-[200px] h-[480px] bg-gradient-to-r from-gold-accent/20 to-transparent border-l border-gold-accent/20"></div>
+              <div className="min-w-[200px] w-[200px] h-[580px] bg-gradient-to-r from-gold-accent/20 to-transparent border-l border-gold-accent/20"></div>
             </div>
           </div>
         </div>
