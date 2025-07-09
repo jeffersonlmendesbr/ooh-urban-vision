@@ -33,7 +33,7 @@ export const ScrollableCards = ({ children }: ScrollableCardsProps) => {
         </button>
 
         {/* Scrollable Cards Container */}
-        <div className="border-b border-gold-accent/30 py-8">
+        <div className="border-t border-b border-gold-accent/30 py-8">
           <div
             ref={scrollContainerRef}
             className="overflow-x-auto overflow-y-hidden no-scrollbar px-20"
