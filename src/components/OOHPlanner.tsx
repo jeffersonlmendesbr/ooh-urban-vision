@@ -12,7 +12,7 @@ const OOHPlanner = () => {
           <div className="w-24 h-px bg-[#CB2166] mx-auto"></div>
         </div>
         
-        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#FFFFFF] mb-8 leading-none drop-shadow-lg">
+        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#4B82F8] mb-8 leading-none drop-shadow-lg">
           OOHPlanner
         </h2>
         
@@ -25,9 +25,6 @@ const OOHPlanner = () => {
           <p className="text-base md:text-lg font-editorial leading-relaxed text-[#FFFFFF]">
             Uma ferramenta que democratiza o acesso ao planejamento profissional de mídia OOH, 
             eliminando a barreira entre grandes agências e pequenos anunciantes. 
-            <span className="block mt-4 text-[#FFFFFF] font-heading text-lg">
-              Porque estratégia não deveria ser privilégio.
-            </span>
           </p>
         </div>
         
@@ -35,10 +32,14 @@ const OOHPlanner = () => {
           href="https://oohplanner.com" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="inline-block bg-[#4B82F8] hover:bg-[#3968E5] text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-lg"
+          className="inline-block bg-[#4B82F8] hover:bg-[#3968E5] text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-lg mb-8"
         >
           Conhecer
         </a>
+        
+        <p className="text-xl md:text-2xl font-heading text-[#080808] leading-relaxed">
+          Porque estratégia não deveria ser privilégio.
+        </p>
       </div>
     </section>
   );
