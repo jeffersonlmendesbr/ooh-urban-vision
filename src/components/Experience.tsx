@@ -16,8 +16,6 @@ const Experience = () => {
           <ExperienceCard key={index} experience={experience} />
         ))}
       </ScrollableCards>
-
-      <CompetencesTicker tags={competenceTags} />
     </ExperienceSection>
   );
 };
