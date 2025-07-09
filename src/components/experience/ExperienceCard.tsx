@@ -26,24 +26,24 @@ export const ExperienceCard = ({ experience }: ExperienceCardProps) => (
 
     {/* Logo Section */}
     <div className="flex-1 flex items-center justify-center mb-8">
-      <div className="w-[400px] h-[400px] flex items-center justify-center p-4 bg-white-pure/10 group-hover:bg-gold-accent/10 transition-colors duration-300">
+      <div className="w-[200px] h-[100px] flex items-center justify-center p-4 bg-white-pure/20 group-hover:bg-gold-accent/10 transition-colors duration-300 rounded-lg">
         <img
           src={experience.logoUrl}
           alt={`${experience.companyName} logo`}
-          className="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+          className="max-w-full max-h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
         />
       </div>
     </div>
 
     {/* Content Section */}
-    <div className="text-center">
-      <h3 className="font-heading text-2xl mb-4 tracking-tight text-ink-black group-hover:text-white-pure transition-colors duration-300">
+    <div className="text-center space-y-4">
+      <h3 className="font-heading text-2xl font-bold tracking-tight text-ink-black group-hover:text-white-pure transition-colors duration-300">
         {experience.title}
       </h3>
-      <p className="text-ink-black text-sm mb-6 font-accent tracking-wide">
+      <p className="text-ink-black text-sm font-accent tracking-wide opacity-80">
         {experience.period}
       </p>
-      <p className="text-sm text-ink-black font-editorial leading-relaxed">
+      <p className="text-sm text-ink-black font-editorial leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity duration-300">
         {experience.description}
       </p>
     </div>
