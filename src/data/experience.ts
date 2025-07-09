@@ -2,12 +2,12 @@ import type { ExperienceCardData } from '../types';
 
 export const experiencesData: ExperienceCardData[] = [
   {
-    tagType: "AGÊNCIA",
-    logoUrl: "/src/assets/africa-ddb-logo.png",
-    companyName: "África DDB",
-    title: "Gerente de Mídia",
-    description: "Liderança das estratégias de mídia OOH para a VIVO, um dos clientes mais consistentes do meu portfólio. Responsável por campanhas premiadas como 'Wilson', vencedora em Cannes 2025.",
-    period: "2023 - atual"
+    tagType: "VEÍCULO",
+    logoUrl: "/lovable-uploads/5bf1055e-408b-4fd2-9a8c-68bb02edd87d.png",
+    companyName: "Kallas",
+    title: "Analista de Produto Sr",
+    description: "Na Kallas, evoluí de analista a coordenador de mídia OOH, aprofundando minha atuação técnica e estratégica. Foram mais de três anos integrando operação, planejamento e execução de campanias nas ruas.",
+    period: "3 anos e 4 meses"
   },
   {
     tagType: "AGÊNCIA",
