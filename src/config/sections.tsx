@@ -1,7 +1,7 @@
 import type { ComponentType } from 'react';
 
 import About from '../components/About';
-import AfricaDDB from '../components/AfricaDDB';
+import HighlightsCarousel from '../components/HighlightsCarousel';
 import Experience from '../components/Experience';
 import Cases from '../components/Cases';
 import Manifesto from '../components/Manifesto';
@@ -20,7 +20,7 @@ export interface SectionConfig {
 
 export const sections: SectionConfig[] = [
   { id: 'about', label: 'Sobre', Component: About, includeInNav: true },
-  { id: 'africaddb', label: 'Africa DDB', Component: AfricaDDB, includeInNav: true },
+  { id: 'highlights', label: 'Destaques', Component: HighlightsCarousel, includeInNav: true },
   { id: 'experience', label: 'Jornada', Component: Experience, includeInNav: true },
   { id: 'cases', label: 'Cases', Component: Cases, includeInNav: true },
   { id: 'manifesto', label: 'Manifesto', Component: Manifesto, includeInNav: true },
