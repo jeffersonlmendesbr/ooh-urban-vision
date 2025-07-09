@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import AfricaDDB from './AfricaDDB';
 import Vivo from './Vivo';
+import Eletromidia from './Eletromidia';
 
 const HighlightsCarousel = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -70,7 +71,7 @@ const HighlightsCarousel = () => {
 
       {/* Dots Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-2">
-        {[0, 1].map((index) => (
+        {[0, 1, 2].map((index) => (
           <button
             key={index}
             onClick={() => {
@@ -105,6 +106,9 @@ const HighlightsCarousel = () => {
         </div>
         <div className="min-w-full snap-start">
           <Vivo />
+        </div>
+        <div className="min-w-full snap-start">
+          <Eletromidia />
         </div>
       </div>
     </section>
