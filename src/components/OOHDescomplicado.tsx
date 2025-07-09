@@ -18,23 +18,23 @@ const OOHDescomplicado = () => {
     <SectionContainer id="oohdescomplicado" className="bg-white-pure">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-heading text-ink-black mb-6">
+          <h2 className="text-3xl md:text-4xl font-heading text-gold-accent mb-4">
             OOH Descomplicado
           </h2>
           
-          <h4 className="text-xl md:text-2xl text-ink-light font-editorial mb-8">
+          <h4 className="text-lg md:text-xl text-ink-light font-editorial mb-6">
             Do básico ao avançado, descomplicando a mídia que movimenta as ruas.
           </h4>
           
-          <p className="text-lg text-ink-light font-editorial mb-16 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base text-ink-light font-editorial mb-8 max-w-4xl mx-auto leading-relaxed">
             Você já se confundiu com os termos do OOH? Meio, formato, grupo, categoria… Calma, respira.<br />
             Neste espaço, compartilho vídeos onde explico, com simplicidade e profundidade, como o Out-of-Home funciona de verdade. Um conteúdo que já ajudou muita gente — e espero que ajude você também.
           </p>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {videos.map((video, index) => (
-              <div key={index} className="bg-white-pure rounded-2xl shadow-lg p-6 border border-sage-light/20">
-                <div className="aspect-video mb-6 rounded-xl overflow-hidden">
+              <div key={index} className="bg-white-pure rounded-2xl shadow-lg p-4 border border-sage-light/20">
+                <div className="aspect-video mb-4 rounded-xl overflow-hidden">
                   <iframe
                     src={`https://www.youtube.com/embed/${video.id}`}
                     title={video.title}
@@ -45,11 +45,11 @@ const OOHDescomplicado = () => {
                   />
                 </div>
                 
-                <h3 className="text-xl font-heading text-ink-black mb-4">
+                <h3 className="text-lg font-heading text-gold-accent mb-3">
                   {video.title}
                 </h3>
                 
-                <p className="text-ink-light font-editorial leading-relaxed">
+                <p className="text-sm text-ink-light font-editorial leading-relaxed">
                   {video.description}
                 </p>
               </div>
