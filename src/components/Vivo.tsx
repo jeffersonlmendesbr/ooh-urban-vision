@@ -9,7 +9,7 @@ const Vivo = () => {
           <div className="relative">
             <div className="h-[60vh] flex items-center justify-center">
               <img 
-                src="/lovable-uploads/a6965dab-5318-43ee-b079-33e83e63af3a.png" 
+                src="/lovable-uploads/f2c837a9-61c0-43b8-85af-ccbe5c6c392a.png" 
                 alt="Logo VIVO" 
                 className="max-w-full max-h-full object-contain" 
               />
@@ -53,10 +53,7 @@ const Vivo = () => {
 
               <div className="flex items-center space-x-4 pt-4">
                 <div className="bg-gold-accent/20 border border-gold-accent/50 px-4 py-2">
-                  <span className="text-gold-accent font-accent text-xs tracking-wide">CANNES LIONS 2025</span>
-                </div>
-                <div className="bg-gold-accent/20 border border-gold-accent/50 px-4 py-2">
-                  <span className="text-gold-accent font-accent text-xs tracking-wide">INDICAÇÃO VIVO</span>
+                  <span className="text-gold-accent font-accent text-xs tracking-wide">DESDE 2019</span>
                 </div>
               </div>
             </div>
