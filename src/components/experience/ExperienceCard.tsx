@@ -5,7 +5,7 @@ interface ExperienceCardProps {
 }
 
 export const ExperienceCard = ({ experience }: ExperienceCardProps) => (
-  <div className="min-w-[420px] w-[420px] h-[580px] bg-white-pure text-ink-black border border-grey-sophisticated/20 flex flex-col justify-between p-8 transition-all duration-500 hover:shadow-gold hover:border-gold-accent group hover-lift">
+  <div className="min-w-[420px] w-[420px] h-[680px] bg-white-pure text-ink-black border border-grey-sophisticated/20 flex flex-col justify-between p-8 transition-all duration-500 hover:shadow-gold hover:border-gold-accent group hover-lift">
     {/* Tag Section */}
     <div className="text-center mb-8">
       <span className="inline-block font-accent text-xs tracking-[0.2em] uppercase border border-gold-accent px-6 py-3 text-gold-accent bg-gold-accent/5 group-hover:bg-gold-accent group-hover:text-ink-black transition-all duration-300">
