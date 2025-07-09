@@ -45,7 +45,7 @@ export const ScrollableCards = ({ children }: ScrollableCardsProps) => {
             <div className="flex gap-0">
               {children}
               {/* Partial card at the end for visual continuity */}
-              <div className="min-w-[200px] w-[200px] h-[600px] bg-gradient-to-r from-gold-accent/20 to-transparent border-l border-gold-accent/20"></div>
+              <div className="min-w-[200px] w-[200px] h-[600px] bg-gradient-to-r from-gold-accent/10 to-transparent"></div>
             </div>
           </div>
         </div>
