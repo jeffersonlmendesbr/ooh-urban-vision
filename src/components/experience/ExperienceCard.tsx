@@ -18,32 +18,32 @@ export const ExperienceCard = ({ experience }: ExperienceCardProps) => (
     }}
   >
     {/* Tag Section */}
-    <div className="text-center mb-8">
+    <div className="text-center mb-6">
       <span className="inline-block font-accent text-xs tracking-[0.2em] uppercase px-6 py-3 bg-ink-black text-gold-accent group-hover:bg-white-pure group-hover:text-gold-accent transition-all duration-300">
         {experience.tagType}
       </span>
     </div>
 
-    {/* Logo Section */}
-    <div className="flex-1 flex items-center justify-center mb-8">
-      <div className="w-[400px] h-[400px] flex items-center justify-center p-4 bg-white-pure/20 group-hover:bg-gold-accent/10 transition-colors duration-300 rounded-lg">
+    {/* Logo Section - Reduzido e padronizado */}
+    <div className="flex-1 flex items-center justify-center mb-6">
+      <div className="w-[200px] h-[200px] flex items-center justify-center p-4 bg-white-pure/20 group-hover:bg-gold-accent/10 transition-colors duration-300 rounded-lg">
         <img
           src={experience.logoUrl}
           alt={`${experience.companyName} logo`}
-          className="max-w-full max-h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+          className="max-w-[180px] max-h-[180px] object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
         />
       </div>
     </div>
 
-    {/* Content Section */}
-    <div className="text-center space-y-4">
+    {/* Content Section - Expandido */}
+    <div className="text-center space-y-3 flex-1 flex flex-col justify-end">
       <h3 className="font-heading text-2xl font-bold tracking-tight text-ink-black group-hover:text-white-pure transition-colors duration-300">
         {experience.title}
       </h3>
       <p className="text-ink-black text-sm font-accent tracking-wide opacity-80">
         {experience.period}
       </p>
-      <p className="text-sm text-ink-black font-editorial leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+      <p className="text-sm text-ink-black font-editorial leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity duration-300 px-2">
         {experience.description}
       </p>
     </div>
