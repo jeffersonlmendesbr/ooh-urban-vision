@@ -3,7 +3,7 @@ import type { ExperienceCardData } from '../types';
 export const experiencesData: ExperienceCardData[] = [
   {
     tagType: "AGÊNCIA",
-    logoUrl: "/placeholder.svg",
+    logoUrl: "/src/assets/africa-ddb-logo.png",
     companyName: "África DDB",
     title: "Gerente de Mídia",
     description: "Liderança das estratégias de mídia OOH para a VIVO, um dos clientes mais consistentes do meu portfólio. Responsável por campanhas premiadas como 'Wilson', vencedora em Cannes 2025.",
