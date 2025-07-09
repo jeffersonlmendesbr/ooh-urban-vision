@@ -28,11 +28,11 @@ export const experiencesData: ExperienceCardData[] = [
   },
   {
     tagType: "AGÊNCIA",
-    logoUrl: "/placeholder.svg",
+    logoUrl: "/lovable-uploads/06cda96a-298f-4b0c-9b28-6aea0cb6a1a9.png",
     companyName: "Galeria",
     title: "Gerente de Mídia",
-    description: "Continuidade da atuação com a conta da VIVO, liderando frentes de mídia exterior em projetos institucionais, segmentados e de cobertura nacional.",
-    period: "2022 - 2023"
+    description: "Estruturei o atendimento de OOH para a Vivo na Galeria, consolidando processos e assegurando performance e excelência desde o início da operação.",
+    period: "8 meses"
   },
   {
     tagType: "VEÍCULO",
