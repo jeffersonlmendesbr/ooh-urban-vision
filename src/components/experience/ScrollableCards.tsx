@@ -75,8 +75,6 @@ export const ScrollableCards = ({ children }: ScrollableCardsProps) => {
             </div>
           </div>
         </div>
-        
-        <div className="border-b border-gold-accent/40"></div>
       </div>
     </div>
   );
