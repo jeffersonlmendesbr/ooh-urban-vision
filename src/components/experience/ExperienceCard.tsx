@@ -6,7 +6,17 @@ interface ExperienceCardProps {
 }
 
 export const ExperienceCard = ({ experience }: ExperienceCardProps) => (
-  <div className="min-w-[420px] w-[420px] h-[600px] bg-white-pure/10 backdrop-blur-sm text-ink-black shadow-[0_8px_30px_rgba(255,255,255,0.2),0_-8px_30px_rgba(255,255,255,0.2),8px_0_30px_rgba(255,255,255,0.2),-8px_0_30px_rgba(255,255,255,0.2)] flex flex-col justify-between p-8 transition-all duration-500 hover:shadow-[0_12px_40px_rgba(255,255,255,0.3),0_-12px_40px_rgba(255,255,255,0.3),12px_0_40px_rgba(255,255,255,0.3),-12px_0_40px_rgba(255,255,255,0.3)] group hover-lift">
+  <div 
+    className="min-w-[420px] w-[420px] h-[600px] bg-white-pure/10 backdrop-blur-sm text-ink-black flex flex-col justify-between p-8 transition-all duration-500 group hover-lift"
+    style={{
+      boxShadow: `
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        0 4px 20px rgba(255, 255, 255, 0.15),
+        0 8px 40px rgba(255, 255, 255, 0.1),
+        0 16px 60px rgba(255, 255, 255, 0.05)
+      `
+    }}
+  >
     {/* Tag Section */}
     <div className="text-center mb-8">
       <span className="inline-block font-accent text-xs tracking-[0.2em] uppercase border border-gold-accent px-6 py-3 text-gold-accent bg-gold-accent/5 group-hover:bg-gold-accent group-hover:text-ink-black transition-all duration-300">
