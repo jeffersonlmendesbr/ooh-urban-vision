@@ -7,7 +7,7 @@ interface ExperienceSectionProps {
 export const ExperienceSection = ({ children }: ExperienceSectionProps) => (
   <section
     id="experience"
-    className="h-screen gradient-gold-subtle flex flex-col justify-center py-12 px-8 relative overflow-hidden"
+    className="h-screen bg-gold-accent flex flex-col justify-center py-12 px-8 relative overflow-hidden"
   >
     {/* Decorative Elements */}
     <div className="absolute top-0 left-0 w-96 h-96 bg-gold-accent opacity-5 rounded-full -translate-x-48 -translate-y-48"></div>
