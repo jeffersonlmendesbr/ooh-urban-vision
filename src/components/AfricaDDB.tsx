@@ -38,7 +38,7 @@ const AfricaDDB = () => {
               </p>
               
               <div className="border-t border-gold-accent/30 pt-6">
-                <blockquote className="text-xl md:text-2xl font-heading text-gold-accent italic leading-tight">"Aqui, criatividade e dados não competem,
+                <blockquote className="text-xl md:text-2xl font-heading text-gold-accent italic leading-tight">"Aqui, criatividade e dados não competem, 
 eles dançam juntos."</blockquote>
               </div>
 
