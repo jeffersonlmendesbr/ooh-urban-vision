@@ -7,14 +7,14 @@
 @layer base {
   :root {
     /* Jefferson Mendes Signature Palette */
-    --ink-black: #0A0A0A;
-    --charcoal-deep: #1A1A1A;
-    --slate-elegant: #2D2D2D;
-    --gold-accent: #D4AF37;
-    --cream-editorial: #F7F5F3;
-    --grey-sophisticated: #8A8A8A;
-    --white-pure: #FFFFFF;
-    --shadow-soft: #00000010;
+    --ink-black: 0 0% 4%;
+    --charcoal-deep: 0 0% 10%;
+    --slate-elegant: 0 0% 18%;
+    --gold-accent: 45 67% 52%;
+    --cream-editorial: 42 35% 96%;
+    --grey-sophisticated: 0 0% 54%;
+    --white-pure: 0 0% 100%;
+    --shadow-soft: 0 0% 0%;
     
     /* Shadcn Variables */
     --background: 0 0% 100%;
@@ -81,30 +81,30 @@
 /* Custom Jefferson Mendes Design Tokens */
 @layer utilities {
   /* Text Colors */
-  .text-ink-black { color: var(--ink-black); }
-  .text-charcoal-deep { color: var(--charcoal-deep); }
-  .text-slate-elegant { color: var(--slate-elegant); }
-  .text-gold-accent { color: var(--gold-accent); }
-  .text-cream-editorial { color: var(--cream-editorial); }
-  .text-grey-sophisticated { color: var(--grey-sophisticated); }
-  .text-white-pure { color: var(--white-pure); }
+  .text-ink-black { color: hsl(var(--ink-black)); }
+  .text-charcoal-deep { color: hsl(var(--charcoal-deep)); }
+  .text-slate-elegant { color: hsl(var(--slate-elegant)); }
+  .text-gold-accent { color: hsl(var(--gold-accent)); }
+  .text-cream-editorial { color: hsl(var(--cream-editorial)); }
+  .text-grey-sophisticated { color: hsl(var(--grey-sophisticated)); }
+  .text-white-pure { color: hsl(var(--white-pure)); }
   
   /* Background Colors */
-  .bg-ink-black { background-color: var(--ink-black); }
-  .bg-charcoal-deep { background-color: var(--charcoal-deep); }
-  .bg-slate-elegant { background-color: var(--slate-elegant); }
-  .bg-gold-accent { background-color: var(--gold-accent); }
-  .bg-cream-editorial { background-color: var(--cream-editorial); }
-  .bg-grey-sophisticated { background-color: var(--grey-sophisticated); }
-  .bg-white-pure { background-color: var(--white-pure); }
+  .bg-ink-black { background-color: hsl(var(--ink-black)); }
+  .bg-charcoal-deep { background-color: hsl(var(--charcoal-deep)); }
+  .bg-slate-elegant { background-color: hsl(var(--slate-elegant)); }
+  .bg-gold-accent { background-color: hsl(var(--gold-accent)); }
+  .bg-cream-editorial { background-color: hsl(var(--cream-editorial)); }
+  .bg-grey-sophisticated { background-color: hsl(var(--grey-sophisticated)); }
+  .bg-white-pure { background-color: hsl(var(--white-pure)); }
   
   /* Border Colors */
-  .border-ink-black { border-color: var(--ink-black); }
-  .border-charcoal-deep { border-color: var(--charcoal-deep); }
-  .border-slate-elegant { border-color: var(--slate-elegant); }
-  .border-gold-accent { border-color: var(--gold-accent); }
-  .border-cream-editorial { border-color: var(--cream-editorial); }
-  .border-grey-sophisticated { border-color: var(--grey-sophisticated); }
+  .border-ink-black { border-color: hsl(var(--ink-black)); }
+  .border-charcoal-deep { border-color: hsl(var(--charcoal-deep)); }
+  .border-slate-elegant { border-color: hsl(var(--slate-elegant)); }
+  .border-gold-accent { border-color: hsl(var(--gold-accent)); }
+  .border-cream-editorial { border-color: hsl(var(--cream-editorial)); }
+  .border-grey-sophisticated { border-color: hsl(var(--grey-sophisticated)); }
   
   /* Editorial Effects */
   .shadow-editorial { box-shadow: 0 20px 60px -20px var(--shadow-soft); }
@@ -112,9 +112,9 @@
   .shadow-ink { box-shadow: 0 25px 80px -15px rgba(10, 10, 10, 0.4); }
   
   /* Gradients */
-  .gradient-editorial { background: linear-gradient(135deg, var(--cream-editorial) 0%, var(--white-pure) 100%); }
-  .gradient-dark { background: linear-gradient(135deg, var(--ink-black) 0%, var(--charcoal-deep) 100%); }
-  .gradient-gold { background: linear-gradient(135deg, var(--gold-accent) 0%, #B8860B 100%); }
+  .gradient-editorial { background: linear-gradient(135deg, hsl(var(--cream-editorial)) 0%, hsl(var(--white-pure)) 100%); }
+  .gradient-dark { background: linear-gradient(135deg, hsl(var(--ink-black)) 0%, hsl(var(--charcoal-deep)) 100%); }
+  .gradient-gold { background: linear-gradient(135deg, hsl(var(--gold-accent)) 0%, #B8860B 100%); }
   .gradient-about { 
     background: linear-gradient(135deg, #F7F5F3 0%, #FFFFFF 25%, #F0EDE8 50%, #FFFFFF 75%, #F7F5F3 100%);
     background-size: 200% 200%;
