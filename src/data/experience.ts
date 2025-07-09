@@ -1,3 +1,4 @@
+
 import type { ExperienceCardData } from '../types';
 
 export const experiencesData: ExperienceCardData[] = [
@@ -8,6 +9,14 @@ export const experiencesData: ExperienceCardData[] = [
     title: "Analista de Produto Sr",
     description: "Na Kallas, evoluí de analista a coordenador de mídia OOH, aprofundando minha atuação técnica e estratégica. Foram mais de três anos integrando operação, planejamento e execução de campanias nas ruas.",
     period: "3 anos e 4 meses"
+  },
+  {
+    tagType: "VEÍCULO",
+    logoUrl: "/lovable-uploads/36fbefb8-5c9e-408e-a3df-41bdace8dabc.png",
+    companyName: "LATCOM",
+    title: "Head de Mercado",
+    description: "Atuação internacional em mídia exterior, com foco em Disney e Spotify. Experiência em campanhas multiplataforma, fortalecendo minha visão estratégica além do Brasil.",
+    period: "5 anos e 6 meses"
   },
   {
     tagType: "AGÊNCIA",
@@ -24,14 +33,6 @@ export const experiencesData: ExperienceCardData[] = [
     title: "Gerente de Mídia",
     description: "Continuidade da atuação com a conta da VIVO, liderando frentes de mídia exterior em projetos institucionais, segmentados e de cobertura nacional.",
     period: "2022 - 2023"
-  },
-  {
-    tagType: "VEÍCULO",
-    logoUrl: "/placeholder.svg",
-    companyName: "LATCOM",
-    title: "Media Coordinator",
-    description: "Coordenação de campanhas OOH para players globais como Disney e Spotify em múltiplos mercados da América Latina.",
-    period: "2014 - 2017"
   },
   {
     tagType: "VEÍCULO",

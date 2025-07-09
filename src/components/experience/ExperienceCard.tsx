@@ -26,7 +26,7 @@ export const ExperienceCard = ({ experience }: ExperienceCardProps) => (
 
     {/* Logo Section */}
     <div className="flex-1 flex items-center justify-center mb-8">
-      <div className="w-[200px] h-[100px] flex items-center justify-center p-4 bg-white-pure/20 group-hover:bg-gold-accent/10 transition-colors duration-300 rounded-lg">
+      <div className="w-[400px] h-[400px] flex items-center justify-center p-4 bg-white-pure/20 group-hover:bg-gold-accent/10 transition-colors duration-300 rounded-lg">
         <img
           src={experience.logoUrl}
           alt={`${experience.companyName} logo`}
