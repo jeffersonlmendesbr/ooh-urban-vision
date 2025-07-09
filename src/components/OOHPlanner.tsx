@@ -1,7 +1,7 @@
 
 const OOHPlanner = () => {
   return (
-    <section id="oohplanner" className="min-h-screen flex items-center py-12 bg-gradient-to-br from-[#4B82F8] via-[#F0F0F0] to-[#D0B0DF] text-[#080808] relative overflow-hidden">
+    <section id="oohplanner" className="min-h-screen flex items-center py-12 bg-gradient-to-br from-[#D0B0DF] via-[#F0F0F0] to-[#4B82F8] text-[#080808] relative overflow-hidden">
       
       <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
         {/* Section Label */}
