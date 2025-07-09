@@ -9,6 +9,7 @@ import Manifesto from '../components/Manifesto';
 import NationalPresence from '../components/NationalPresence';
 import PepeTribute from '../components/PepeTribute';
 import Tools from '../components/Tools';
+import OOHDescomplicado from '../components/OOHDescomplicado';
 import OOHPlanner from '../components/OOHPlanner';
 import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
@@ -29,6 +30,7 @@ export const sections: SectionConfig[] = [
   { id: 'nationalpresence', label: 'Presença', Component: NationalPresence, includeInNav: true },
   { id: 'pepetribute', label: 'Homenagem', Component: PepeTribute, includeInNav: true },
   { id: 'tools', label: 'Ferramentas', Component: Tools, includeInNav: true },
+  { id: 'oohdescomplicado', label: 'OOH Descomplicado', Component: OOHDescomplicado, includeInNav: true },
   { id: 'oohplanner', label: 'OOH Planner', Component: OOHPlanner, includeInNav: true },
   { id: 'testimonials', label: 'Testemunhos', Component: Testimonials, includeInNav: true },
   { id: 'contact', label: 'Contato', Component: Contact, includeInNav: true },
