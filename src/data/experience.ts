@@ -20,11 +20,11 @@ export const experiencesData: ExperienceCardData[] = [
   },
   {
     tagType: "AGÊNCIA",
-    logoUrl: "/placeholder.svg",
+    logoUrl: "/lovable-uploads/24ed59c5-69fa-4711-a6e4-5ef3c2e5a9cd.png",
     companyName: "VML",
-    title: "Coordenador de Mídia",
-    description: "Coordenação das campanhas OOH da VIVO, incluindo estratégia, execução e acompanhamento de grandes lançamentos, ativações e varejo em todo o Brasil.",
-    period: "2021 - 2022"
+    title: "Gerente de Mídia",
+    description: "Liderei frentes OOH para a VIVO. Planejamento criativo, consistência estratégica e presença nacional marcaram o inicio da minha atuação com a maior marca de telecomunicação do país.",
+    period: "2 anos e 1 mês"
   },
   {
     tagType: "AGÊNCIA",
