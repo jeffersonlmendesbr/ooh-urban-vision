@@ -7,7 +7,7 @@ interface ExperienceCardProps {
 
 export const ExperienceCard = ({ experience }: ExperienceCardProps) => (
   <div 
-    className="min-w-[420px] w-[420px] h-[600px] bg-white-pure/10 backdrop-blur-sm flex flex-col justify-between p-8 transition-all duration-500 group hover-lift"
+    className="min-w-[420px] w-[420px] h-[600px] bg-white/10 backdrop-blur-sm flex flex-col justify-between p-8 transition-all duration-500 group hover:shadow-2xl"
     style={{
       boxShadow: `
         0 0 0 1px rgba(255, 255, 255, 0.1),
@@ -19,7 +19,7 @@ export const ExperienceCard = ({ experience }: ExperienceCardProps) => (
   >
     {/* Tag Section */}
     <div className="text-center mb-8">
-      <span className="inline-block font-accent text-xs tracking-[0.2em] uppercase px-6 py-3 bg-white-pure text-ink-black font-bold">
+      <span className="inline-block text-xs tracking-[0.2em] uppercase px-6 py-3 bg-white text-black font-bold">
         {experience.tagType}
       </span>
     </div>
@@ -37,13 +37,13 @@ export const ExperienceCard = ({ experience }: ExperienceCardProps) => (
 
     {/* Content Section */}
     <div className="text-center space-y-4">
-      <h3 className="font-heading text-2xl font-bold tracking-tight text-white-pure">
+      <h3 className="text-2xl font-bold tracking-tight text-white">
         {experience.title}
       </h3>
-      <p className="text-white-pure/80 text-sm font-accent tracking-wide">
+      <p className="text-white/80 text-sm tracking-wide">
         {experience.period}
       </p>
-      <p className="text-sm text-white-pure/90 font-editorial leading-relaxed">
+      <p className="text-sm text-white/90 leading-relaxed">
         {experience.description}
       </p>
     </div>
