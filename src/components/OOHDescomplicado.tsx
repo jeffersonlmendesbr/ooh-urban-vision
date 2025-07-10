@@ -1,3 +1,4 @@
+
 import { SectionContainer } from './ui/section-container';
 
 const OOHDescomplicado = () => {
@@ -5,7 +6,7 @@ const OOHDescomplicado = () => {
     {
       id: "PxgN1cCxosM",
       title: "Como funciona o OOH?",
-      description: "Uma introdução completa sobre o universo do Out-of-Home. Entenda como o meio se organiza, o que são grupos, categorias e formatos."
+      description: "Uma introdução completa sobre o universo do OOH. Entenda como o meio se organiza, o que são grupos, categorias e formatos."
     },
     {
       id: "8x1cw5gPRc4", 
@@ -18,6 +19,14 @@ const OOHDescomplicado = () => {
     <SectionContainer id="oohdescomplicado" className="bg-white-pure">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
+          {/* Section Label */}
+          <div className="mb-8">
+            <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-3">
+              EDUCAÇÃO
+            </span>
+            <div className="w-24 h-px bg-gold-accent mx-auto"></div>
+          </div>
+          
           <h2 className="text-3xl md:text-4xl font-heading text-gold-accent mb-4">
             OOH Descomplicado
           </h2>
@@ -28,12 +37,12 @@ const OOHDescomplicado = () => {
           
           <p className="text-base text-ink-light font-editorial mb-8 max-w-4xl mx-auto leading-relaxed">
             Você já se confundiu com os termos do OOH? Meio, formato, grupo, categoria… Calma, respira.<br />
-            Neste espaço, compartilho vídeos onde explico, com simplicidade e profundidade, como o Out-of-Home funciona de verdade. Um conteúdo que já ajudou muita gente — e espero que ajude você também.
+            Neste espaço, compartilho vídeos onde explico, com simplicidade e profundidade, como o OOH funciona de verdade. Um conteúdo que já ajudou muita gente — e espero que ajude você também.
           </p>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {videos.map((video, index) => (
-              <div key={index} className="bg-white-pure rounded-2xl shadow-lg p-4 border border-sage-light/20">
+              <div key={index} className="bg-gold-accent rounded-2xl shadow-lg p-4 border border-sage-light/20">
                 <div className="aspect-video mb-4 rounded-xl overflow-hidden">
                   <iframe
                     src={`https://www.youtube.com/embed/${video.id}`}
@@ -45,7 +54,7 @@ const OOHDescomplicado = () => {
                   />
                 </div>
                 
-                <h3 className="text-lg font-heading text-gold-accent mb-3">
+                <h3 className="text-lg font-heading text-white-pure mb-3">
                   {video.title}
                 </h3>
                 

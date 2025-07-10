@@ -22,7 +22,7 @@ const OOHPlanner = () => {
           deslocamento e inventário urbano em decisões estratégicas.
         </p>
         
-        <div className="bg-gradient-to-r from-[#660099] via-[#CB2166] to-[#D0B0DF] p-8 md:p-10 rounded-xl shadow-lg hover-lift backdrop-blur-sm mb-6">
+        <div className="bg-gradient-to-r from-[#660099] via-[#CB2166] to-[#660099] p-8 md:p-10 rounded-xl shadow-lg hover-lift backdrop-blur-sm mb-6">
           <p className="text-base md:text-lg font-editorial leading-relaxed text-[#FFFFFF]">
             Uma ferramenta que democratiza o acesso ao planejamento profissional de mídia OOH, 
             eliminando a barreira entre grandes agências e pequenos anunciantes. 
