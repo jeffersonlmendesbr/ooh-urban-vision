@@ -17,29 +17,20 @@ const OOHDescomplicado = () => {
 
   return (
     <SectionContainer id="oohdescomplicado" className="bg-white-pure">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto text-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+        <div className="max-w-6xl mx-auto text-center w-full">
           {/* Title with same styling as the previous EDUCAÇÃO label */}
-          <div className="mb-8">
-            <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-3">
+          <div className="mb-6">
+            <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-2">
               OOH DESCOMPLICADO
             </span>
             <div className="w-24 h-px bg-gold-accent mx-auto"></div>
           </div>
           
-          <h4 className="text-lg md:text-xl text-ink-light font-editorial mb-6">
-            Do básico ao avançado, descomplicando a mídia que movimenta as ruas.
-          </h4>
-          
-          <p className="text-base text-ink-light font-editorial mb-8 max-w-4xl mx-auto leading-relaxed">
-            Você já se confundiu com os termos do OOH? Meio, formato, grupo, categoria… Calma, respira.<br />
-            Neste espaço, compartilho vídeos onde explico, com simplicidade e profundidade, como o OOH funciona de verdade. Um conteúdo que já ajudou muita gente — e espero que ajude você também.
-          </p>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {videos.map((video, index) => (
               <div key={index} className="bg-gold-accent rounded-2xl shadow-lg p-4 border border-sage-light/20">
-                <div className="aspect-video mb-4 rounded-xl overflow-hidden">
+                <div className="aspect-video mb-3 rounded-xl overflow-hidden">
                   <iframe
                     src={`https://www.youtube.com/embed/${video.id}`}
                     title={video.title}
@@ -50,7 +41,7 @@ const OOHDescomplicado = () => {
                   />
                 </div>
                 
-                <h3 className="text-lg font-heading text-white-pure mb-3">
+                <h3 className="text-lg font-heading text-white-pure mb-2">
                   {video.title}
                 </h3>
                 
