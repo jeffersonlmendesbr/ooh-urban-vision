@@ -19,14 +19,6 @@ const OOHDescomplicado = () => {
     <SectionContainer id="oohdescomplicado" className="bg-white-pure">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
-          {/* Section Label */}
-          <div className="mb-8">
-            <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-3">
-              EDUCAÇÃO
-            </span>
-            <div className="w-24 h-px bg-gold-accent mx-auto"></div>
-          </div>
-          
           <h2 className="text-3xl md:text-4xl font-heading text-gold-accent mb-4">
             OOH Descomplicado
           </h2>
