@@ -19,9 +19,13 @@ const OOHDescomplicado = () => {
     <SectionContainer id="oohdescomplicado" className="bg-white-pure">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-heading text-gold-accent mb-4">
-            OOH Descomplicado
-          </h2>
+          {/* Title with same styling as the previous EDUCAÇÃO label */}
+          <div className="mb-8">
+            <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-3">
+              OOH DESCOMPLICADO
+            </span>
+            <div className="w-24 h-px bg-gold-accent mx-auto"></div>
+          </div>
           
           <h4 className="text-lg md:text-xl text-ink-light font-editorial mb-6">
             Do básico ao avançado, descomplicando a mídia que movimenta as ruas.
