@@ -47,12 +47,12 @@ const Cases = () => {
       }}
     >
       <div className="max-w-7xl mx-auto px-6 h-full">
-        {/* Section Header - Mais compacto */}
-        <div className="mb-8 text-center">
+        {/* Section Header - Alinhado à esquerda */}
+        <div className="mb-8 text-left">
           <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-3">
             VEM PRA RUA
           </span>
-          <div className="w-24 h-px bg-gold-accent mx-auto"></div>
+          <div className="w-24 h-px bg-gold-accent"></div>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6 h-[calc(100vh-200px)]">
@@ -77,31 +77,33 @@ const Cases = () => {
             ))}
           </div>
 
-          {/* Mídia Central - Ajustada */}
-          <div className="lg:w-1/2 relative overflow-hidden max-h-[60vh]">
-            {projectsData.map((project) => (
-              <div
-                key={project.id}
-                className={`
-                  absolute inset-0 flex items-center justify-center transition-all duration-500
-                  ${hoveredProject?.id === project.id ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}
-                `}
-              >
-                <div className="w-full h-full bg-slate-elegant/20 border border-gold-accent/20 flex items-center justify-center shadow-editorial hover-glow transition-all duration-300">
-                  <div className="text-center">
-                    <div className="text-xl font-heading text-gold-accent mb-3">
-                      {project.agency}
-                    </div>
-                    <div className="text-base font-editorial text-cream-editorial mb-2">
-                      {project.client}
-                    </div>
-                    <div className="text-lg font-accent text-white-pure">
-                      {project.name}
+          {/* Mídia Central - Dimensões fixas 625x890px */}
+          <div className="lg:w-1/2 relative overflow-hidden flex items-center justify-center">
+            <div className="w-[625px] h-[890px] relative">
+              {projectsData.map((project) => (
+                <div
+                  key={project.id}
+                  className={`
+                    absolute inset-0 flex items-center justify-center transition-all duration-500
+                    ${hoveredProject?.id === project.id ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}
+                  `}
+                >
+                  <div className="w-full h-full bg-slate-elegant/20 border border-gold-accent/20 flex items-center justify-center shadow-editorial hover-glow transition-all duration-300">
+                    <div className="text-center">
+                      <div className="text-xl font-heading text-gold-accent mb-3">
+                        {project.agency}
+                      </div>
+                      <div className="text-base font-editorial text-cream-editorial mb-2">
+                        {project.client}
+                      </div>
+                      <div className="text-lg font-accent text-white-pure">
+                        {project.name}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           {/* Descrição - Mais compacta */}
