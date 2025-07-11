@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { SectionContainer } from './ui/section-container';
 
@@ -35,31 +36,36 @@ const Cases = () => {
   const [hoveredProject, setHoveredProject] = useState<Project | null>(projectsData[0]);
 
   return (
-    <SectionContainer id="cases" className="gradient-dark">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section Label */}
-        <div className="mb-12 text-center">
-          <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-4">
+    <SectionContainer 
+      id="cases" 
+      className="relative"
+      style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/lovable-uploads/644eaac9-68cc-48a8-9622-817a05e2cf81.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-6 h-full">
+        {/* Section Header - Mais compacto */}
+        <div className="mb-8 text-center">
+          <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-3">
             VEM PRA RUA
           </span>
           <div className="w-24 h-px bg-gold-accent mx-auto"></div>
         </div>
-        
-        <h2 className="font-display text-5xl md:text-6xl lg:text-7xl text-white-pure mb-16 leading-none text-center">
-          Cases
-        </h2>
 
-        <div className="flex flex-col lg:flex-row gap-8 h-[70vh]">
-          {/* Lista de Projetos */}
-          <div className="lg:w-1/4 space-y-3 overflow-y-auto no-scrollbar">
+        <div className="flex flex-col lg:flex-row gap-6 h-[calc(100vh-200px)]">
+          {/* Lista de Projetos - Mais compacta */}
+          <div className="lg:w-1/4 space-y-2 overflow-y-auto no-scrollbar max-h-[60vh]">
             {projectsData.map((project) => (
               <div
                 key={project.id}
                 onMouseEnter={() => setHoveredProject(project)}
                 onMouseLeave={() => setHoveredProject(projectsData[0])}
                 className={`
-                  uppercase text-sm font-accent cursor-pointer transition-all duration-300 hover-lift
-                  p-3 border-l-2 transition-colors
+                  uppercase text-xs font-accent cursor-pointer transition-all duration-300 hover-lift
+                  p-2 border-l-2 transition-colors
                   ${hoveredProject?.id === project.id 
                     ? 'text-gold-accent border-gold-accent bg-gold-accent/10' 
                     : 'text-cream-editorial border-transparent hover:text-gold-accent hover:border-gold-accent/50'
@@ -71,8 +77,8 @@ const Cases = () => {
             ))}
           </div>
 
-          {/* Mídia Central */}
-          <div className="lg:w-1/2 relative overflow-hidden">
+          {/* Mídia Central - Ajustada */}
+          <div className="lg:w-1/2 relative overflow-hidden max-h-[60vh]">
             {projectsData.map((project) => (
               <div
                 key={project.id}
@@ -81,15 +87,15 @@ const Cases = () => {
                   ${hoveredProject?.id === project.id ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}
                 `}
               >
-                <div className="w-full h-4/5 bg-slate-elegant/20 border border-gold-accent/20 flex items-center justify-center shadow-editorial hover-glow transition-all duration-300">
+                <div className="w-full h-full bg-slate-elegant/20 border border-gold-accent/20 flex items-center justify-center shadow-editorial hover-glow transition-all duration-300">
                   <div className="text-center">
-                    <div className="text-2xl font-heading text-gold-accent mb-4">
+                    <div className="text-xl font-heading text-gold-accent mb-3">
                       {project.agency}
                     </div>
-                    <div className="text-lg font-editorial text-cream-editorial mb-2">
+                    <div className="text-base font-editorial text-cream-editorial mb-2">
                       {project.client}
                     </div>
-                    <div className="text-xl font-accent text-white-pure">
+                    <div className="text-lg font-accent text-white-pure">
                       {project.name}
                     </div>
                   </div>
@@ -98,31 +104,31 @@ const Cases = () => {
             ))}
           </div>
 
-          {/* Descrição */}
-          <div className="lg:w-1/4 space-y-6">
-            <div className="space-y-4">
-              <h3 className="font-heading text-2xl text-gold-accent">
+          {/* Descrição - Mais compacta */}
+          <div className="lg:w-1/4 space-y-4 max-h-[60vh] overflow-y-auto no-scrollbar">
+            <div className="space-y-3">
+              <h3 className="font-heading text-xl text-gold-accent">
                 Histórias Reais nas Ruas
               </h3>
-              <p className="text-cream-editorial font-editorial leading-relaxed">
+              <p className="text-cream-editorial font-editorial leading-relaxed text-sm">
                 Cada projeto representa uma história real nas ruas. O desafio vai além da criação visual — 
                 está em entender o espaço, o tempo, o público e o impacto.
               </p>
-              <p className="text-cream-editorial font-editorial leading-relaxed">
+              <p className="text-cream-editorial font-editorial leading-relaxed text-sm">
                 A mídia exterior exige mais do que presença: ela pede propósito. É sobre criar relevância 
                 onde todos passam — mas nem todos olham.
               </p>
             </div>
             
             {hoveredProject && (
-              <div className="border-t border-gold-accent/30 pt-6 animate-fade-in">
-                <h4 className="font-accent text-gold-accent text-sm tracking-wide mb-2">
+              <div className="border-t border-gold-accent/30 pt-4 animate-fade-in">
+                <h4 className="font-accent text-gold-accent text-xs tracking-wide mb-2">
                   PROJETO EM DESTAQUE
                 </h4>
-                <div className="text-white-pure font-heading text-lg">
+                <div className="text-white-pure font-heading text-base">
                   {hoveredProject.agency} × {hoveredProject.client}
                 </div>
-                <div className="text-cream-editorial font-editorial">
+                <div className="text-cream-editorial font-editorial text-sm">
                   {hoveredProject.name}
                 </div>
               </div>
