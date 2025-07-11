@@ -1,4 +1,5 @@
-import { ReactNode } from 'react';
+
+import { ReactNode, CSSProperties } from 'react';
 import { cn } from '@/lib/utils';
 
 interface SectionContainerProps {
@@ -6,13 +7,15 @@ interface SectionContainerProps {
   className?: string;
   children: ReactNode;
   fullHeight?: boolean;
+  style?: CSSProperties;
 }
 
 export const SectionContainer = ({ 
   id, 
   className, 
   children, 
-  fullHeight = true 
+  fullHeight = true,
+  style 
 }: SectionContainerProps) => {
   return (
     <section 
@@ -22,6 +25,7 @@ export const SectionContainer = ({
         'flex items-center py-24',
         className
       )}
+      style={style}
     >
       {children}
     </section>
