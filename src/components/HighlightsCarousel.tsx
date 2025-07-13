@@ -19,33 +19,44 @@ const HighlightsCarousel = () => {
         setIsScrolling(true);
 
         const direction = event.deltaY > 0 ? 1 : -1;
-        const newIndex = Math.max(0, Math.min(2, currentIndex + direction));
-
-        if (newIndex !== currentIndex) {
-          setCurrentIndex(newIndex);
-          const sectionWidth = scrollContainerRef.current.clientWidth;
-          scrollContainerRef.current.scrollTo({
-            left: newIndex * sectionWidth,
-            behavior: 'smooth'
-          });
-        }
-
-        // Reset scrolling flag with longer delay for better control
-        setTimeout(() => {
-          setIsScrolling(false);
-          
-          // If we're at the last slide and scrolling down, scroll to experience section
-          if (newIndex === 2 && direction === 1) {
+        
+        if (direction === 1) {
+          // Scrolling down - advance through slides
+          if (currentIndex < 2) {
+            const newIndex = currentIndex + 1;
+            setCurrentIndex(newIndex);
+            const sectionWidth = scrollContainerRef.current.clientWidth;
+            scrollContainerRef.current.scrollTo({
+              left: newIndex * sectionWidth,
+              behavior: 'smooth'
+            });
+          } else {
+            // At last slide, go to next section
             const experienceSection = document.getElementById('experience');
             if (experienceSection) {
               experienceSection.scrollIntoView({ behavior: 'smooth' });
             }
           }
-          // If we're at the first slide and scrolling up, allow normal scroll up
-          else if (newIndex === 0 && direction === -1) {
+        } else {
+          // Scrolling up - go back through slides
+          if (currentIndex > 0) {
+            const newIndex = currentIndex - 1;
+            setCurrentIndex(newIndex);
+            const sectionWidth = scrollContainerRef.current.clientWidth;
+            scrollContainerRef.current.scrollTo({
+              left: newIndex * sectionWidth,
+              behavior: 'smooth'
+            });
+          } else {
+            // At first slide, allow normal scroll up
             window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
           }
-        }, 800); // Increased delay for more controlled behavior
+        }
+
+        // Reset scrolling flag
+        setTimeout(() => {
+          setIsScrolling(false);
+        }, 1000);
       }
     };
 
