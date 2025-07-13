@@ -1,21 +1,12 @@
 
-import { useRef, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useScrollNavigation } from '../hooks/useScrollNavigation';
 
 const HighlightsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const { scrollContainerRef, canScrollLeft, canScrollRight, scroll } = useScrollNavigation();
 
   const navigateToSlide = (index: number) => {
     setCurrentIndex(index);
-    if (scrollContainerRef.current) {
-      const sectionWidth = scrollContainerRef.current.clientWidth;
-      scrollContainerRef.current.scrollTo({
-        left: index * sectionWidth,
-        behavior: 'smooth'
-      });
-    }
   };
 
   const handlePrevious = () => {
@@ -29,6 +20,20 @@ const HighlightsCarousel = () => {
       navigateToSlide(currentIndex + 1);
     }
   };
+
+  // Handle keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowLeft') {
+        handlePrevious();
+      } else if (event.key === 'ArrowRight') {
+        handleNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentIndex]);
 
   return (
     <section id="highlights" className="relative h-screen overflow-hidden">
@@ -72,22 +77,15 @@ const HighlightsCarousel = () => {
         ))}
       </div>
 
-      {/* Scrollable Container */}
-      <div
-        ref={scrollContainerRef}
-        className="flex h-full overflow-x-hidden overflow-y-hidden no-scrollbar snap-x snap-mandatory"
-        style={{
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
-        }}
-      >
-        <div className="min-w-full snap-start">
+      {/* Content Container - Sem scroll horizontal */}
+      <div className="relative h-full">
+        <div className={`absolute inset-0 transition-opacity duration-500 ${currentIndex === 0 ? 'opacity-100' : 'opacity-0'}`}>
           <AfricaDDB />
         </div>
-        <div className="min-w-full snap-start">
+        <div className={`absolute inset-0 transition-opacity duration-500 ${currentIndex === 1 ? 'opacity-100' : 'opacity-0'}`}>
           <Vivo />
         </div>
-        <div className="min-w-full snap-start">
+        <div className={`absolute inset-0 transition-opacity duration-500 ${currentIndex === 2 ? 'opacity-100' : 'opacity-0'}`}>
           <Eletromidia />
         </div>
       </div>

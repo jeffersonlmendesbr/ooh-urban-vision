@@ -77,8 +77,8 @@ const Cases = () => {
             ))}
           </div>
 
-          {/* Mídia Central - Aumentada em mais 5% (de 343x490 para 360x515) e subida em mais 5% */}
-          <div className="lg:w-1/2 relative overflow-hidden flex items-start justify-center -mt-[10vh]">
+          {/* Mídia Central - Subida em mais 5% (de -10vh para -15vh) */}
+          <div className="lg:w-1/2 relative overflow-hidden flex items-start justify-center -mt-[15vh]">
             <div className="w-[360px] h-[515px] relative">
               {projectsData.map((project) => (
                 <div
