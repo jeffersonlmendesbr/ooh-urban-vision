@@ -30,19 +30,22 @@ const HighlightsCarousel = () => {
           });
         }
 
-        // Reset scrolling flag after animation
+        // Reset scrolling flag with longer delay for better control
         setTimeout(() => {
           setIsScrolling(false);
           
-          // If we're at the last slide and scrolling down, allow normal scroll
+          // If we're at the last slide and scrolling down, scroll to experience section
           if (newIndex === 2 && direction === 1) {
-            window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+            const experienceSection = document.getElementById('experience');
+            if (experienceSection) {
+              experienceSection.scrollIntoView({ behavior: 'smooth' });
+            }
           }
-          // If we're at the first slide and scrolling up, allow normal scroll
+          // If we're at the first slide and scrolling up, allow normal scroll up
           else if (newIndex === 0 && direction === -1) {
             window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
           }
-        }, 500);
+        }, 800); // Increased delay for more controlled behavior
       }
     };
 
