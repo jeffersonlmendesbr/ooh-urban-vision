@@ -20,7 +20,7 @@ const cityGroups = [
   {
     region: 'SUDESTE',
     cities: ['São Paulo', 'Rio de Janeiro', 'Belo Horizonte', 'Vitória'],
-    position: 'absolute bottom-32 right-8 md:right-16'
+    position: 'absolute top-1/2 right-8 md:right-16 transform -translate-y-1/2'
   },
   {
     region: 'SUL',
@@ -66,7 +66,7 @@ const NationalPresence = () => {
                   {group.cities.map((city, cityIndex) => (
                     <span 
                       key={cityIndex}
-                      className="bg-white-pure text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm hover:shadow-md transition-shadow duration-200"
+                      className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm hover:shadow-md transition-shadow duration-200"
                     >
                       {city}
                     </span>
