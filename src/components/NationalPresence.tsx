@@ -48,106 +48,103 @@ const NationalPresence = () => {
         </p>
       </div>
 
-      {/* Layout com regiões distribuídas tendo Sudeste como centro */}
-      <div className="w-full h-full relative flex items-center justify-center">
-        <div className="relative w-full max-w-6xl h-full">
-          
-          {/* Norte - Topo esquerdo */}
-          <div className="absolute top-24 left-8">
-            <div className="bg-gold-accent/95 rounded-lg p-4 shadow-lg">
-              <h3 className="font-accent text-sm font-bold text-white mb-3 tracking-wide border-b border-white/20 pb-2">
-                NORTE
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {cityGroups[0].cities.map((city, cityIndex) => (
-                  <span 
-                    key={cityIndex}
-                    className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm"
-                  >
-                    {city}
-                  </span>
-                ))}
-              </div>
+      {/* Layout em duas colunas deixando o centro livre para o mapa */}
+      <div className="w-full h-full flex justify-between items-center px-8">
+        
+        {/* Coluna esquerda - Norte e Centro-Oeste */}
+        <div className="flex flex-col space-y-12 w-1/3">
+          {/* Norte */}
+          <div className="bg-gold-accent/95 rounded-lg p-4 shadow-lg">
+            <h3 className="font-accent text-sm font-bold text-white mb-3 tracking-wide border-b border-white/20 pb-2">
+              NORTE
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {cityGroups[0].cities.map((city, cityIndex) => (
+                <span 
+                  key={cityIndex}
+                  className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm"
+                >
+                  {city}
+                </span>
+              ))}
             </div>
           </div>
 
-          {/* Centro-Oeste - Topo centro */}
-          <div className="absolute top-24 left-1/2 transform -translate-x-1/2">
-            <div className="bg-gold-accent/95 rounded-lg p-4 shadow-lg">
-              <h3 className="font-accent text-sm font-bold text-white mb-3 tracking-wide border-b border-white/20 pb-2">
-                CENTRO-OESTE
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {cityGroups[1].cities.map((city, cityIndex) => (
-                  <span 
-                    key={cityIndex}
-                    className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm"
-                  >
-                    {city}
-                  </span>
-                ))}
-              </div>
+          {/* Centro-Oeste */}
+          <div className="bg-gold-accent/95 rounded-lg p-4 shadow-lg">
+            <h3 className="font-accent text-sm font-bold text-white mb-3 tracking-wide border-b border-white/20 pb-2">
+              CENTRO-OESTE
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {cityGroups[1].cities.map((city, cityIndex) => (
+                <span 
+                  key={cityIndex}
+                  className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm"
+                >
+                  {city}
+                </span>
+              ))}
             </div>
           </div>
-
-          {/* Nordeste - Topo direito */}
-          <div className="absolute top-24 right-8">
-            <div className="bg-gold-accent/95 rounded-lg p-4 shadow-lg">
-              <h3 className="font-accent text-sm font-bold text-white mb-3 tracking-wide border-b border-white/20 pb-2">
-                NORDESTE
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {cityGroups[2].cities.map((city, cityIndex) => (
-                  <span 
-                    key={cityIndex}
-                    className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm"
-                  >
-                    {city}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Sudeste - Centro (referência) */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="bg-gold-accent/95 rounded-lg p-4 shadow-lg">
-              <h3 className="font-accent text-sm font-bold text-white mb-3 tracking-wide border-b border-white/20 pb-2">
-                SUDESTE
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {cityGroups[3].cities.map((city, cityIndex) => (
-                  <span 
-                    key={cityIndex}
-                    className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm"
-                  >
-                    {city}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Sul - Parte inferior */}
-          <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2">
-            <div className="bg-gold-accent/95 rounded-lg p-4 shadow-lg">
-              <h3 className="font-accent text-sm font-bold text-white mb-3 tracking-wide border-b border-white/20 pb-2">
-                SUL
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {cityGroups[4].cities.map((city, cityIndex) => (
-                  <span 
-                    key={cityIndex}
-                    className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm"
-                  >
-                    {city}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
         </div>
+
+        {/* Espaço central livre para o mapa */}
+        <div className="w-1/3"></div>
+
+        {/* Coluna direita - Nordeste, Sudeste e Sul */}
+        <div className="flex flex-col space-y-8 w-1/3">
+          {/* Nordeste */}
+          <div className="bg-gold-accent/95 rounded-lg p-4 shadow-lg">
+            <h3 className="font-accent text-sm font-bold text-white mb-3 tracking-wide border-b border-white/20 pb-2">
+              NORDESTE
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {cityGroups[2].cities.map((city, cityIndex) => (
+                <span 
+                  key={cityIndex}
+                  className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm"
+                >
+                  {city}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Sudeste */}
+          <div className="bg-gold-accent/95 rounded-lg p-4 shadow-lg">
+            <h3 className="font-accent text-sm font-bold text-white mb-3 tracking-wide border-b border-white/20 pb-2">
+              SUDESTE
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {cityGroups[3].cities.map((city, cityIndex) => (
+                <span 
+                  key={cityIndex}
+                  className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm"
+                >
+                  {city}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Sul */}
+          <div className="bg-gold-accent/95 rounded-lg p-4 shadow-lg">
+            <h3 className="font-accent text-sm font-bold text-white mb-3 tracking-wide border-b border-white/20 pb-2">
+              SUL
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {cityGroups[4].cities.map((city, cityIndex) => (
+                <span 
+                  key={cityIndex}
+                  className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm"
+                >
+                  {city}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
       </div>
     </SectionContainer>
   );
