@@ -1,42 +1,28 @@
-
 import { SectionContainer } from './ui/section-container';
-
-const cityGroups = [
-  {
-    region: 'NORTE',
-    cities: ['Manaus', 'Belém']
-  },
-  {
-    region: 'CENTRO-OESTE',
-    cities: ['Brasília', 'Goiânia', 'Campo Grande', 'Cuiabá']
-  },
-  {
-    region: 'NORDESTE', 
-    cities: ['Salvador', 'Recife', 'Maceió', 'Fortaleza', 'João Pessoa', 'Natal', 'São Luís']
-  },
-  {
-    region: 'SUDESTE',
-    cities: ['São Paulo', 'Rio de Janeiro', 'Belo Horizonte', 'Vitória']
-  },
-  {
-    region: 'SUL',
-    cities: ['Porto Alegre', 'Florianópolis', 'Curitiba']
-  }
-];
-
+const cityGroups = [{
+  region: 'NORTE',
+  cities: ['Manaus', 'Belém']
+}, {
+  region: 'CENTRO-OESTE',
+  cities: ['Brasília', 'Goiânia', 'Campo Grande', 'Cuiabá']
+}, {
+  region: 'NORDESTE',
+  cities: ['Salvador', 'Recife', 'Maceió', 'Fortaleza', 'João Pessoa', 'Natal', 'São Luís']
+}, {
+  region: 'SUDESTE',
+  cities: ['São Paulo', 'Rio de Janeiro', 'Belo Horizonte', 'Vitória']
+}, {
+  region: 'SUL',
+  cities: ['Porto Alegre', 'Florianópolis', 'Curitiba']
+}];
 const NationalPresence = () => {
-  return (
-    <SectionContainer 
-      id="nationalpresence" 
-      className="relative overflow-hidden flex items-center justify-center"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/lovable-uploads/597d1cf2-94e0-4cff-8e85-a903c1a11fe4.png')`,
-        backgroundSize: 'contain',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundColor: '#1a1a1a'
-      }}
-    >
+  return <SectionContainer id="nationalpresence" className="relative overflow-hidden flex items-center justify-center" style={{
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/lovable-uploads/597d1cf2-94e0-4cff-8e85-a903c1a11fe4.png')`,
+    backgroundSize: 'contain',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor: '#1a1a1a'
+  }}>
       {/* Título centralizado no topo */}
       <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-10 text-center">
         <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-4">
@@ -56,8 +42,7 @@ const NationalPresence = () => {
               Planejar é mais do que escolher espaços — é entender as ruas
             </p>
             <p className="text-lg font-editorial leading-relaxed">
-              — e estas são as praças que eu já estive em visita técnica.
-            </p>
+          </p>
           </div>
 
           {/* Norte */}
@@ -66,14 +51,9 @@ const NationalPresence = () => {
               NORTE
             </h3>
             <div className="flex flex-wrap gap-2">
-              {cityGroups[0].cities.map((city, cityIndex) => (
-                <span 
-                  key={cityIndex}
-                  className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm"
-                >
+              {cityGroups[0].cities.map((city, cityIndex) => <span key={cityIndex} className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm">
                   {city}
-                </span>
-              ))}
+                </span>)}
             </div>
           </div>
 
@@ -83,14 +63,9 @@ const NationalPresence = () => {
               CENTRO-OESTE
             </h3>
             <div className="flex flex-wrap gap-2">
-              {cityGroups[1].cities.map((city, cityIndex) => (
-                <span 
-                  key={cityIndex}
-                  className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm"
-                >
+              {cityGroups[1].cities.map((city, cityIndex) => <span key={cityIndex} className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm">
                   {city}
-                </span>
-              ))}
+                </span>)}
             </div>
           </div>
         </div>
@@ -106,14 +81,9 @@ const NationalPresence = () => {
               NORDESTE
             </h3>
             <div className="flex flex-wrap gap-2">
-              {cityGroups[2].cities.map((city, cityIndex) => (
-                <span 
-                  key={cityIndex}
-                  className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm"
-                >
+              {cityGroups[2].cities.map((city, cityIndex) => <span key={cityIndex} className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm">
                   {city}
-                </span>
-              ))}
+                </span>)}
             </div>
           </div>
 
@@ -123,14 +93,9 @@ const NationalPresence = () => {
               SUDESTE
             </h3>
             <div className="flex flex-wrap gap-2">
-              {cityGroups[3].cities.map((city, cityIndex) => (
-                <span 
-                  key={cityIndex}
-                  className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm"
-                >
+              {cityGroups[3].cities.map((city, cityIndex) => <span key={cityIndex} className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm">
                   {city}
-                </span>
-              ))}
+                </span>)}
             </div>
           </div>
 
@@ -140,21 +105,14 @@ const NationalPresence = () => {
               SUL
             </h3>
             <div className="flex flex-wrap gap-2">
-              {cityGroups[4].cities.map((city, cityIndex) => (
-                <span 
-                  key={cityIndex}
-                  className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm"
-                >
+              {cityGroups[4].cities.map((city, cityIndex) => <span key={cityIndex} className="bg-gold-accent text-ink-black px-3 py-1 rounded-full text-xs font-heading font-medium shadow-sm">
                   {city}
-                </span>
-              ))}
+                </span>)}
             </div>
           </div>
         </div>
 
       </div>
-    </SectionContainer>
-  );
+    </SectionContainer>;
 };
-
 export default NationalPresence;
