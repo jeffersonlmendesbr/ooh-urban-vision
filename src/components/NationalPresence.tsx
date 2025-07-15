@@ -30,11 +30,15 @@ const NationalPresence = () => {
       id="nationalpresence" 
       className="relative overflow-hidden flex-col"
       style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/lovable-uploads/597d1cf2-94e0-4cff-8e85-a903c1a11fe4.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
         backgroundColor: '#1a1a1a'
       }}
     >
-      {/* Título e subtítulo no topo */}
-      <div className="w-full text-center mb-12 pt-8">
+      {/* Título e subtítulo sobrepostos */}
+      <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-10 text-center">
         <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-4">
           ALCANCE NACIONAL
         </span>
@@ -45,15 +49,7 @@ const NationalPresence = () => {
       </div>
 
       {/* Seção do mapa com grupos de cidades */}
-      <div 
-        className="flex-1 w-full relative"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/lovable-uploads/597d1cf2-94e0-4cff-8e85-a903c1a11fe4.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      <div className="flex-1 w-full relative">
         <div className="max-w-7xl mx-auto px-6 relative h-full flex">
           {/* Coluna esquerda - Norte e Centro-Oeste */}
           <div className="w-1/3 flex flex-col justify-center space-y-6 pr-8">
