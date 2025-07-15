@@ -37,22 +37,29 @@ const NationalPresence = () => {
         backgroundColor: '#1a1a1a'
       }}
     >
-      {/* Título e subtítulo sobrepostos */}
+      {/* Título centralizado no topo */}
       <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-10 text-center">
         <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-4">
           ALCANCE NACIONAL
         </span>
         <div className="w-24 h-px bg-gold-accent mx-auto mb-6"></div>
-        <p className="text-xl font-editorial text-cream-editorial max-w-lg mx-auto leading-relaxed whitespace-nowrap">
-          Planejar mídia é mais do que escolher espaços — é entender as ruas.
-        </p>
       </div>
 
       {/* Layout em duas colunas deixando o centro livre para o mapa */}
       <div className="w-full h-full flex justify-between items-center px-8">
         
-        {/* Coluna esquerda - Norte e Centro-Oeste */}
+        {/* Coluna esquerda - Subtítulo, Norte e Centro-Oeste */}
         <div className="flex flex-col space-y-12 w-1/3">
+          {/* Subtítulo */}
+          <div className="text-cream-editorial">
+            <p className="text-lg font-editorial leading-relaxed mb-3">
+              Planejar é mais do que escolher espaços — é entender as ruas
+            </p>
+            <p className="text-lg font-editorial leading-relaxed">
+              — e estas são as praças que eu já estive em visita técnica.
+            </p>
+          </div>
+
           {/* Norte */}
           <div className="bg-gold-accent/95 rounded-lg p-4 shadow-lg">
             <h3 className="font-accent text-sm font-bold text-white mb-3 tracking-wide border-b border-white/20 pb-2">
