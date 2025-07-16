@@ -7,15 +7,15 @@ import { Badge } from './ui/badge';
 import { cn } from '@/lib/utils';
 
 const Tools = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('strong');
+  const [selectedCategory, setSelectedCategory] = useState<string>('academic');
 
   // Organizar dados por categoria
   const categorizedData = {
     academic: timelineData.filter(item => 
-      item.id === 'unifieo' || item.id === 'eca-usp' || item.id === 'ooh-fgv'
+      item.id === 'unifieo' || item.id === 'eca-usp' || item.id === 'ooh-fgv' || item.id === 'idiomas'
     ),
     strong: timelineData.filter(item => 
-      item.category === 'strong' && !['unifieo', 'eca-usp', 'ooh-fgv'].includes(item.id)
+      item.category === 'strong' && !['unifieo', 'eca-usp', 'ooh-fgv', 'idiomas'].includes(item.id)
     ),
     certifications: timelineData.filter(item => item.category === 'certification'),
     tools: timelineData.filter(item => item.category === 'illustrative'),
