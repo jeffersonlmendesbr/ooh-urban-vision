@@ -7,7 +7,7 @@ import { Badge } from './ui/badge';
 import { cn } from '@/lib/utils';
 
 const Tools = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>('strong');
 
   // Organizar dados por categoria
   const categorizedData = {
@@ -22,228 +22,151 @@ const Tools = () => {
     future: timelineData.filter(item => item.category === 'future')
   };
 
-  const getCategoryConfig = (categoryKey: string) => {
-    const configs = {
-      academic: {
-        title: 'Formação Acadêmica',
-        subtitle: 'Base sólida para especialização',
-        gridCols: 'grid-cols-1 md:grid-cols-3',
-        cardStyle: 'bg-gradient-to-br from-gold-accent/5 to-gold-accent/10 border-gold-accent/30',
-        iconStyle: 'text-gold-accent bg-gold-accent/10'
-      },
-      strong: {
-        title: 'Domínio Forte',
-        subtitle: 'Ferramentas com expertise avançada',
-        gridCols: 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4',
-        cardStyle: 'bg-white-pure border-ink-black/10 hover:border-gold-accent/40',
-        iconStyle: 'text-ink-black bg-ink-black/5'
-      },
-      certifications: {
-        title: 'Certificações',
-        subtitle: 'Credenciais profissionais validadas',
-        gridCols: 'grid-cols-1 md:grid-cols-2',
-        cardStyle: 'bg-gradient-to-br from-ink-black/5 to-ink-black/10 border-ink-black/20',
-        iconStyle: 'text-ink-black bg-white-pure'
-      },
-      tools: {
-        title: 'Conhecimento Aplicado',
-        subtitle: 'Ferramentas complementares',
-        gridCols: 'grid-cols-2 md:grid-cols-3 lg:grid-cols-5',
-        cardStyle: 'bg-grey-sophisticated/5 border-grey-sophisticated/20',
-        iconStyle: 'text-grey-sophisticated bg-white-pure'
-      },
-      future: {
-        title: 'Planejamento Futuro',
-        subtitle: 'Próximos passos estratégicos',
-        gridCols: 'grid-cols-1 md:grid-cols-2',
-        cardStyle: 'bg-gradient-to-br from-gold-accent/10 to-gold-accent/5 border-gold-accent/20 border-dashed',
-        iconStyle: 'text-gold-accent/70 bg-gold-accent/5'
-      }
-    };
-    return configs[categoryKey as keyof typeof configs];
+  const categories = [
+    { key: 'academic', title: 'Formação', count: categorizedData.academic.length },
+    { key: 'strong', title: 'Domínio Forte', count: categorizedData.strong.length },
+    { key: 'certifications', title: 'Certificações', count: categorizedData.certifications.length },
+    { key: 'tools', title: 'Ferramentas', count: categorizedData.tools.length },
+    { key: 'future', title: 'Em Breve', count: categorizedData.future.length }
+  ];
+
+  const getCurrentItems = () => {
+    return categorizedData[selectedCategory as keyof typeof categorizedData] || [];
   };
 
-  const renderCategorySection = (categoryKey: string, items: TimelineItem[]) => {
-    if (items.length === 0) return null;
+  const renderToolCard = (item: TimelineItem) => {
+    const isECA = item.id === 'eca-usp';
     
-    const config = getCategoryConfig(categoryKey);
-    const isECAHighlight = categoryKey === 'academic';
-
     return (
-      <div key={categoryKey} className="mb-16">
-        {/* Category Header */}
-        <div className="text-center mb-8">
-          <h3 className="font-display text-2xl md:text-3xl text-ink-black mb-2">
-            {config.title}
-          </h3>
-          <p className="text-grey-sophisticated font-editorial text-sm">
-            {config.subtitle}
-          </p>
-          <div className="w-16 h-px bg-gold-accent mx-auto mt-4"></div>
-        </div>
+      <HoverCard key={item.id}>
+        <HoverCardTrigger asChild>
+          <div className={cn(
+            'group relative p-3 rounded-lg border transition-all duration-300 cursor-pointer bg-white-pure border-ink-black/10 hover:border-gold-accent/40 hover:shadow-md hover:-translate-y-1',
+            isECA && 'ring-2 ring-gold-accent/30 bg-gradient-to-br from-gold-accent/5 to-gold-accent/10'
+          )}>
+            {/* Icon */}
+            <div className={cn(
+              'w-8 h-8 rounded-full flex items-center justify-center mb-2 transition-transform group-hover:scale-110',
+              isECA ? 'bg-gold-accent text-ink-black' : 'text-ink-black bg-ink-black/5'
+            )}>
+              <item.icon className="w-4 h-4" />
+            </div>
 
-        {/* Items Grid */}
-        <div className={cn('grid gap-4', config.gridCols)}>
-          {items.map((item) => {
-            const isECA = item.id === 'eca-usp';
-            
-            return (
-              <HoverCard key={item.id}>
-                <HoverCardTrigger asChild>
-                  <div className={cn(
-                    'group relative p-4 rounded-lg border transition-all duration-300 cursor-pointer',
-                    config.cardStyle,
-                    isECA && 'ring-2 ring-gold-accent/30 scale-105',
-                    'hover:shadow-lg hover:-translate-y-1'
-                  )}>
-                    {/* Icon */}
-                    <div className={cn(
-                      'w-10 h-10 rounded-full flex items-center justify-center mb-3 transition-transform group-hover:scale-110',
-                      config.iconStyle,
-                      isECA && 'w-12 h-12 bg-gold-accent text-ink-black'
-                    )}>
-                      <item.icon className={cn(
-                        'transition-all duration-300',
-                        isECA ? 'w-6 h-6' : 'w-5 h-5'
-                      )} />
-                    </div>
+            {/* Content */}
+            <div>
+              <h4 className={cn(
+                'font-heading text-xs font-medium text-ink-black mb-1 group-hover:text-gold-accent transition-colors leading-tight',
+                isECA && 'text-sm'
+              )}>
+                {item.title}
+              </h4>
+              
+              {item.subtitle && (
+                <p className="text-xs text-gold-accent font-accent mb-1">
+                  {item.subtitle}
+                </p>
+              )}
+              
+              {item.year && (
+                <Badge className={cn(
+                  'text-xs px-1 py-0',
+                  isECA ? 'bg-gold-accent text-ink-black' : 'bg-ink-black/10 text-ink-black'
+                )}>
+                  {item.year}
+                </Badge>
+              )}
 
-                    {/* Content */}
-                    <div>
-                      <h4 className={cn(
-                        'font-heading text-sm font-medium text-ink-black mb-1 group-hover:text-gold-accent transition-colors',
-                        isECA && 'text-base'
-                      )}>
-                        {item.title}
-                      </h4>
-                      
-                      {item.subtitle && (
-                        <p className="text-xs text-gold-accent font-accent mb-2">
-                          {item.subtitle}
-                        </p>
-                      )}
-                      
-                      {item.year && (
-                        <Badge className={cn(
-                          'text-xs',
-                          isECA ? 'bg-gold-accent text-ink-black' : 'bg-ink-black/10 text-ink-black'
-                        )}>
-                          {item.year}
-                        </Badge>
-                      )}
-
-                      {/* ECA Special Badge */}
-                      {isECA && (
-                        <div className="absolute -top-2 -right-2">
-                          <div className="w-4 h-4 bg-gold-accent rounded-full animate-pulse"></div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </HoverCardTrigger>
-                
-                <HoverCardContent className="w-80 p-4 bg-white-pure border border-gold-accent/20 shadow-editorial">
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <div className={cn(
-                        'p-2 rounded-full',
-                        item.category === 'strong' ? 'bg-gold-accent/10' :
-                        item.category === 'certification' ? 'bg-ink-black/10' :
-                        item.category === 'future' ? 'bg-gold-accent/5' :
-                        'bg-grey-sophisticated/10'
-                      )}>
-                        <item.icon className={cn(
-                          'w-4 h-4',
-                          item.category === 'strong' ? 'text-gold-accent' :
-                          item.category === 'certification' ? 'text-ink-black' :
-                          item.category === 'future' ? 'text-gold-accent/70' :
-                          'text-grey-sophisticated'
-                        )} />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-heading text-ink-black text-sm mb-1">
-                          {item.title}
-                        </h4>
-                        {item.subtitle && (
-                          <p className="text-xs text-gold-accent font-accent mb-2">
-                            {item.subtitle}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                    <p className="text-grey-sophisticated text-sm font-editorial leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </HoverCardContent>
-              </HoverCard>
-            );
-          })}
-        </div>
-      </div>
+              {/* ECA Special Badge */}
+              {isECA && (
+                <div className="absolute -top-1 -right-1">
+                  <div className="w-3 h-3 bg-gold-accent rounded-full animate-pulse"></div>
+                </div>
+              )}
+            </div>
+          </div>
+        </HoverCardTrigger>
+        
+        <HoverCardContent className="w-80 p-4 bg-white-pure border border-gold-accent/20 shadow-editorial">
+          <div className="space-y-3">
+            <div className="flex items-start gap-3">
+              <div className="p-2 rounded-full bg-gold-accent/10">
+                <item.icon className="w-4 h-4 text-gold-accent" />
+              </div>
+              <div className="flex-1">
+                <h4 className="font-heading text-ink-black text-sm mb-1">
+                  {item.title}
+                </h4>
+                {item.subtitle && (
+                  <p className="text-xs text-gold-accent font-accent mb-2">
+                    {item.subtitle}
+                  </p>
+                )}
+              </div>
+            </div>
+            <p className="text-grey-sophisticated text-sm font-editorial leading-relaxed">
+              {item.description}
+            </p>
+          </div>
+        </HoverCardContent>
+      </HoverCard>
     );
   };
 
   return (
     <SectionContainer id="tools" className="bg-gradient-editorial">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-4">
+      <div className="max-w-7xl mx-auto px-6 w-full">
+        {/* Header Compacto */}
+        <div className="text-center mb-8">
+          <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-2">
             ARSENAL PROFISSIONAL
           </span>
-          <div className="w-24 h-px bg-gold-accent mx-auto mb-8"></div>
-          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl text-ink-black mb-6 leading-none">
+          <h2 className="font-display text-4xl md:text-5xl text-ink-black mb-3 leading-none">
             Ferramentas e Plataformas
           </h2>
-          <p className="text-grey-sophisticated text-lg max-w-3xl mx-auto font-editorial">
-            Uma trajetória de especialização contínua, desde a formação acadêmica até as ferramentas mais avançadas do mercado OOH.
+          <p className="text-grey-sophisticated text-base max-w-2xl mx-auto font-editorial">
+            Especialização contínua em ferramentas estratégicas do mercado OOH
           </p>
         </div>
 
-        {/* Categories Sections */}
-        {renderCategorySection('academic', categorizedData.academic)}
-        {renderCategorySection('strong', categorizedData.strong)}
-        {renderCategorySection('certifications', categorizedData.certifications)}
-        {renderCategorySection('tools', categorizedData.tools)}
-        {renderCategorySection('future', categorizedData.future)}
+        {/* Navigation Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 mb-6">
+          {categories.map((category) => (
+            <button
+              key={category.key}
+              onClick={() => setSelectedCategory(category.key)}
+              className={cn(
+                'px-4 py-2 rounded-full text-sm font-accent transition-all duration-300',
+                selectedCategory === category.key
+                  ? 'bg-gold-accent text-ink-black shadow-md'
+                  : 'bg-white-pure text-grey-sophisticated hover:bg-gold-accent/10 border border-ink-black/10'
+              )}
+            >
+              {category.title}
+              <span className="ml-2 text-xs opacity-70">({category.count})</span>
+            </button>
+          ))}
+        </div>
 
-        {/* Summary Stats */}
-        <div className="mt-16 pt-8 border-t border-gold-accent/20">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-              <div className="text-2xl font-display text-gold-accent mb-1">
-                {categorizedData.academic.length}
+        {/* Tools Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-6">
+          {getCurrentItems().map(renderToolCard)}
+        </div>
+
+        {/* Summary Stats Compacto */}
+        <div className="grid grid-cols-5 gap-4 text-center pt-4 border-t border-gold-accent/20">
+          {categories.map((category) => (
+            <div key={category.key} className="cursor-pointer" onClick={() => setSelectedCategory(category.key)}>
+              <div className={cn(
+                "text-xl font-display mb-1 transition-colors",
+                selectedCategory === category.key ? "text-gold-accent" : "text-grey-sophisticated"
+              )}>
+                {category.count}
               </div>
-              <div className="text-sm text-grey-sophisticated font-accent">
-                Formações
-              </div>
-            </div>
-            <div>
-              <div className="text-2xl font-display text-gold-accent mb-1">
-                {categorizedData.strong.length}
-              </div>
-              <div className="text-sm text-grey-sophisticated font-accent">
-                Domínio Forte
-              </div>
-            </div>
-            <div>
-              <div className="text-2xl font-display text-gold-accent mb-1">
-                {categorizedData.certifications.length}
-              </div>
-              <div className="text-sm text-grey-sophisticated font-accent">
-                Certificações
+              <div className="text-xs text-grey-sophisticated font-accent">
+                {category.title}
               </div>
             </div>
-            <div>
-              <div className="text-2xl font-display text-gold-accent mb-1">
-                {categorizedData.future.length}
-              </div>
-              <div className="text-sm text-grey-sophisticated font-accent">
-                Em Breve
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </SectionContainer>
