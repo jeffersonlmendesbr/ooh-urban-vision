@@ -1,4 +1,3 @@
-
 import { LucideIcon } from 'lucide-react';
 import { GraduationCap, Monitor, Smartphone, MapPin, Database, Tv, BookOpen, Globe, Flag, Shield, Camera, Zap, Calendar, BarChart3 } from 'lucide-react';
 
@@ -37,6 +36,7 @@ export const timelineData: TimelineItem[] = [
   {
     id: 'ooh-fgv',
     title: 'OOH pela FGV',
+    subtitle: 'FGV',
     description: 'Especialização tática focada no meio Out-of-Home. Aprofundamento em estratégias e métricas específicas do segmento.',
     category: 'strong',
     icon: BookOpen,
@@ -46,9 +46,11 @@ export const timelineData: TimelineItem[] = [
   {
     id: 'idiomas',
     title: 'Idiomas: Inglês e Espanhol',
+    subtitle: 'Fluência Avançada',
     description: 'Fluência em inglês e espanhol, facilitando colaborações internacionais e acesso a conteúdos especializados globais.',
     category: 'strong',
     icon: Flag,
+    year: '2014',
     order: 4
   },
   {

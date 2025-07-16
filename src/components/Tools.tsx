@@ -41,7 +41,7 @@ const Tools = () => {
       <HoverCard key={item.id}>
         <HoverCardTrigger asChild>
           <div className={cn(
-            'group relative p-3 rounded-lg border transition-all duration-300 cursor-pointer bg-white-pure border-ink-black/10 hover:border-gold-accent/40 hover:shadow-md hover:-translate-y-1',
+            'group relative p-4 rounded-lg border transition-all duration-300 cursor-pointer bg-white-pure border-ink-black/10 hover:border-gold-accent/40 hover:shadow-md hover:-translate-y-1 h-32 flex flex-col justify-between',
             isECA && 'ring-2 ring-gold-accent/30 bg-gradient-to-br from-gold-accent/5 to-gold-accent/10'
           )}>
             {/* Icon */}
@@ -53,23 +53,25 @@ const Tools = () => {
             </div>
 
             {/* Content */}
-            <div>
-              <h4 className={cn(
-                'font-heading text-xs font-medium text-ink-black mb-1 group-hover:text-gold-accent transition-colors leading-tight',
-                isECA && 'text-sm'
-              )}>
-                {item.title}
-              </h4>
-              
-              {item.subtitle && (
-                <p className="text-xs text-gold-accent font-accent mb-1">
-                  {item.subtitle}
-                </p>
-              )}
+            <div className="flex-1 flex flex-col justify-between">
+              <div>
+                <h4 className={cn(
+                  'font-heading text-sm font-medium text-ink-black mb-1 group-hover:text-gold-accent transition-colors leading-tight line-clamp-2',
+                  isECA && 'text-sm'
+                )}>
+                  {item.title}
+                </h4>
+                
+                {item.subtitle && (
+                  <p className="text-xs text-gold-accent font-accent mb-2 line-clamp-1">
+                    {item.subtitle}
+                  </p>
+                )}
+              </div>
               
               {item.year && (
                 <Badge className={cn(
-                  'text-xs px-1 py-0',
+                  'text-xs px-2 py-1 w-fit',
                   isECA ? 'bg-gold-accent text-ink-black' : 'bg-ink-black/10 text-ink-black'
                 )}>
                   {item.year}
@@ -147,9 +149,11 @@ const Tools = () => {
           ))}
         </div>
 
-        {/* Tools Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-6">
-          {getCurrentItems().map(renderToolCard)}
+        {/* Tools Grid - Centralizado e com tamanhos padronizados */}
+        <div className="flex justify-center mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-w-6xl">
+            {getCurrentItems().map(renderToolCard)}
+          </div>
         </div>
 
         {/* Summary Stats Compacto */}
