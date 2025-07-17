@@ -16,7 +16,7 @@ const Footer = () => {
           </div>
           
           <h2 className="font-display text-4xl md:text-5xl text-gold-accent mb-6 leading-none">
-            Conecte-se comigo
+            Jefferson Mendes
           </h2>
           
           <p className="text-lg font-editorial text-grey-sophisticated mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -60,7 +60,6 @@ const Footer = () => {
         {/* Footer Info */}
         <div className="text-center">
           <div className="mb-6">
-            <h3 className="text-xl font-display text-gold-accent mb-3">Jefferson Mendes</h3>
             <p className="text-grey-sophisticated font-editorial mb-6 max-w-2xl mx-auto leading-relaxed">
               Especialista em Mídia OOH transformando a comunicação urbana através de estratégias 
               inovadoras baseadas em dados e comportamento.
