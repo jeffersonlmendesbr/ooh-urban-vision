@@ -101,7 +101,7 @@ const Tools = () => {
         <div className="text-center mb-8">
           <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-2">FERRAMENTAS E PLATAFORMAS</span>
           
-          <p className="text-grey-sophisticated text-base max-w-2xl mx-auto font-editorial">
+          <p className="text-grey-sophisticated text-base max-w-2xl mx-auto font-editorial text-black">
             Especialização contínua em ferramentas estratégicas do mercado OOH
           </p>
         </div>
@@ -127,7 +127,7 @@ const Tools = () => {
               <div className={cn("text-xl font-display mb-1 transition-colors", selectedCategory === category.key ? "text-gold-accent" : "text-grey-sophisticated")}>
                 {category.count}
               </div>
-              <div className="text-xs text-grey-sophisticated font-accent">
+              <div className="text-xs text-grey-sophisticated font-accent bg-transparent">
                 {category.title}
               </div>
             </div>)}
