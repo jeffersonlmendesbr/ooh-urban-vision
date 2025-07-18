@@ -63,7 +63,7 @@ const Contact = () => {
           </div>
 
           {/* Icons Column - Center */}
-          <div className="flex flex-col items-center space-y-12 mx-20">
+          <div className="flex flex-col items-center space-y-8 mx-20">
             {professionalPillars.map((pillar, index) => {
               const IconComponent = pillar.icon;
               
@@ -90,7 +90,7 @@ const Contact = () => {
           </div>
 
           {/* Descriptions Column - Right */}
-          <div className="flex flex-col space-y-12 flex-1 max-w-lg">
+          <div className="flex flex-col space-y-8 flex-1 max-w-lg">
             {professionalPillars.map((pillar, index) => (
               <div key={index} className="bg-white-pure border border-gold-accent/20 p-6 rounded-lg shadow-sm hover:shadow-editorial transition-shadow duration-300">
                 <h3 className="font-heading text-base font-bold text-gold-accent mb-3 tracking-wide">
