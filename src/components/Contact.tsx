@@ -31,20 +31,20 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="h-screen flex items-center justify-center bg-cream-editorial text-ink-black relative overflow-hidden">
+    <section id="contact" className="h-screen flex flex-col bg-cream-editorial text-ink-black relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23D4AF37%22%20fill-opacity%3D%220.04%22%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%224%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full h-full flex items-center">
-        {/* Section Header */}
-        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 text-center">
-          <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-4">
-            PILARES DE ATUAÇÃO
-          </span>
-          <div className="w-24 h-px bg-gold-accent mx-auto"></div>
-        </div>
+      {/* Section Header */}
+      <div className="relative z-10 text-center pt-12 pb-8">
+        <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-4">
+          PILARES DE ATUAÇÃO
+        </span>
+        <div className="w-24 h-px bg-gold-accent mx-auto"></div>
+      </div>
 
-        {/* Main Layout Container */}
+      {/* Main Content */}
+      <div className="flex-1 flex items-center justify-center px-6 relative z-10">
         <div className="relative flex items-center justify-between w-full max-w-6xl mx-auto">
           {/* Jefferson Mendes Circle - Left */}
           <div className="flex-shrink-0">
