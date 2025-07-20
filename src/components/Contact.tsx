@@ -36,67 +36,78 @@ const Contact = () => {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23D4AF37%22%20fill-opacity%3D%220.04%22%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%224%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
       
       {/* Section Header */}
-      <div className="relative z-10 text-center pt-12 pb-8">
-        <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-4">
+      <div className="relative z-10 text-center pt-6 pb-4">
+        <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-2">
           PILARES DE ATUAÇÃO
         </span>
         <div className="w-24 h-px bg-gold-accent mx-auto"></div>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex items-center justify-center px-6 relative z-10">
-        <div className="relative flex items-center justify-between w-full max-w-6xl mx-auto">
+      <div className="flex-1 flex items-center justify-center px-8 relative z-10 min-h-0">
+        <div className="relative flex items-center justify-between w-full max-w-7xl mx-auto h-full">
           {/* Jefferson Mendes Circle - Left */}
-          <div className="flex-shrink-0">
-            <div className="bg-white-pure border-2 border-gold-accent rounded-full w-72 h-72 flex flex-col items-center justify-center shadow-gold relative">
-              <h2 className="font-display text-3xl lg:text-4xl text-ink-black mb-2 leading-none">
+          <div className="flex-shrink-0 relative">
+            <div className="bg-white-pure border-2 border-gold-accent rounded-full w-56 h-56 flex flex-col items-center justify-center shadow-gold relative">
+              <h2 className="font-display text-2xl text-ink-black mb-1 leading-none">
                 Jefferson
               </h2>
-              <h2 className="font-display text-3xl lg:text-4xl text-gold-accent mb-4 leading-none">
+              <h2 className="font-display text-2xl text-gold-accent mb-3 leading-none">
                 Mendes
               </h2>
-              <div className="w-16 h-px bg-gold-accent mb-3"></div>
-              <p className="font-accent text-sm text-slate-elegant tracking-wider">
+              <div className="w-12 h-px bg-gold-accent mb-2"></div>
+              <p className="font-accent text-xs text-slate-elegant tracking-wider text-center">
                 RESUMO PROFISSIONAL
               </p>
             </div>
+            
+            {/* Central connection lines from Jefferson to each icon */}
+            {professionalPillars.map((_, index) => (
+              <div 
+                key={`line-${index}`}
+                className="absolute w-24 h-px bg-gold-accent opacity-60"
+                style={{
+                  left: '100%',
+                  top: '50%',
+                  transformOrigin: 'left center',
+                  transform: `translateY(-50%) rotate(${(index - 2) * 15}deg)`
+                }}
+              />
+            ))}
           </div>
 
           {/* Icons Column - Center */}
-          <div className="flex flex-col items-center space-y-8 mx-20">
+          <div className="flex flex-col items-center justify-center space-y-5 mx-12 h-full">
             {professionalPillars.map((pillar, index) => {
               const IconComponent = pillar.icon;
               
               return (
                 <div key={index} className="relative flex flex-col items-center">
-                  {/* Connection Line to Jefferson (Left) */}
-                  <div className="absolute right-full w-20 h-px bg-gold-accent/40 mr-6 top-1/2 transform -translate-y-1/2"></div>
-                  
                   {/* Icon Circle */}
-                  <div className="bg-white-pure border-2 border-gold-accent rounded-full w-20 h-20 flex items-center justify-center shadow-editorial hover:scale-110 transition-transform duration-300 relative z-10 mb-3">
-                    <IconComponent className="w-8 h-8 text-gold-accent" />
+                  <div className="bg-white-pure border-2 border-gold-accent rounded-full w-16 h-16 flex items-center justify-center shadow-editorial hover:scale-110 transition-transform duration-300 relative z-10">
+                    <IconComponent className="w-7 h-7 text-gold-accent" />
                   </div>
                   
-                  {/* Connection Line to Description (Right) */}
-                  <div className="absolute left-full w-20 h-px bg-gold-accent/40 ml-6 top-1/2 transform -translate-y-1/2"></div>
-                  
-                  {/* Title centered below icon */}
-                  <h3 className="font-heading text-sm font-bold text-gold-accent tracking-wide text-center">
+                  {/* Title below icon */}
+                  <h3 className="font-heading text-xs font-bold text-gold-accent tracking-wide text-center mt-1">
                     {pillar.title}
                   </h3>
+                  
+                  {/* Connection Line to Description (Right) */}
+                  <div className="absolute left-full w-16 h-px bg-gold-accent opacity-60 ml-4 top-1/2 transform -translate-y-1/2"></div>
                 </div>
               );
             })}
           </div>
 
           {/* Descriptions Column - Right */}
-          <div className="flex flex-col space-y-8 flex-1 max-w-lg">
+          <div className="flex flex-col justify-center space-y-5 flex-1 max-w-md h-full">
             {professionalPillars.map((pillar, index) => (
-              <div key={index} className="bg-white-pure border border-gold-accent/20 p-6 rounded-lg shadow-sm hover:shadow-editorial transition-shadow duration-300">
-                <h3 className="font-heading text-base font-bold text-gold-accent mb-3 tracking-wide">
+              <div key={index} className="bg-white-pure border border-gold-accent/20 p-4 rounded-lg shadow-sm hover:shadow-editorial transition-shadow duration-300">
+                <h3 className="font-heading text-sm font-bold text-gold-accent mb-2 tracking-wide">
                   {pillar.title}
                 </h3>
-                <p className="text-slate-elegant font-editorial text-sm leading-relaxed">
+                <p className="text-slate-elegant font-editorial text-xs leading-relaxed">
                   {pillar.description}
                 </p>
               </div>
