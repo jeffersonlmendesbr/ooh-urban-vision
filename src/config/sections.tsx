@@ -14,6 +14,7 @@ import OOHPlanner from '../components/OOHPlanner';
 import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 import Analytics from '../components/Analytics';
+import FAQ from '../components/FAQ';
 
 export interface SectionConfig {
   id: string;
@@ -35,5 +36,6 @@ export const sections: SectionConfig[] = [
   { id: 'oohplanner', label: 'OOH Planner', Component: OOHPlanner, includeInNav: true },
   { id: 'testimonials', label: 'Testemunhos', Component: Testimonials, includeInNav: true },
   { id: 'analytics', label: 'Analytics', Component: Analytics, includeInNav: true },
+  { id: 'faq', label: 'FAQ', Component: FAQ, includeInNav: true },
   { id: 'contact', label: 'Contato', Component: Contact, includeInNav: true },
 ];
