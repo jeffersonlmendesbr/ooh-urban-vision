@@ -13,6 +13,7 @@ import OOHDescomplicado from '../components/OOHDescomplicado';
 import OOHPlanner from '../components/OOHPlanner';
 import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
+import Analytics from '../components/Analytics';
 
 export interface SectionConfig {
   id: string;
@@ -33,5 +34,6 @@ export const sections: SectionConfig[] = [
   { id: 'oohdescomplicado', label: 'OOH Descomplicado', Component: OOHDescomplicado, includeInNav: true },
   { id: 'oohplanner', label: 'OOH Planner', Component: OOHPlanner, includeInNav: true },
   { id: 'testimonials', label: 'Testemunhos', Component: Testimonials, includeInNav: true },
+  { id: 'analytics', label: 'Analytics', Component: Analytics, includeInNav: true },
   { id: 'contact', label: 'Contato', Component: Contact, includeInNav: true },
 ];
