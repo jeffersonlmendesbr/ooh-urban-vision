@@ -1,3 +1,4 @@
+
 import { SectionContainer } from './ui/section-container';
 
 const Vivo = () => {
@@ -33,7 +34,7 @@ const Vivo = () => {
             <div className="space-y-6">
               <div className="mb-6">
                 <div className="inline-block bg-gold-accent text-ink-black px-4 py-2 font-accent text-sm tracking-wide mb-4">
-                  CLIENTE
+                  CONTA QUE ATENDO
                 </div>
               </div>
               

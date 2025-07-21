@@ -1,3 +1,4 @@
+
 import { SectionContainer } from './ui/section-container';
 const AfricaDDB = () => {
   return <SectionContainer id="africaddb" className="gradient-dark">
@@ -38,8 +39,8 @@ const AfricaDDB = () => {
               </p>
               
               <div className="border-t border-gold-accent/30 pt-6">
-                <blockquote className="text-xl md:text-2xl font-heading text-gold-accent italic leading-tight">"Aqui, criatividade e dados não competem, 
-eles dançam juntos."</blockquote>
+                <blockquote className="text-xl md:text-2xl font-heading text-gold-accent italic leading-tight">"Aqui, criatividade e dados não competem, 
+eles convivem juntos."</blockquote>
               </div>
 
               <div className="flex items-center space-x-4 pt-4">
@@ -47,7 +48,7 @@ eles dançam juntos."</blockquote>
                   <span className="text-gold-accent font-accent text-xs tracking-wide">CANNES LIONS 2025</span>
                 </div>
                 <div className="bg-gold-accent/20 border border-gold-accent/50 px-4 py-2">
-                  <span className="text-gold-accent font-accent text-xs tracking-wide">INDICAÇÃO VIVO</span>
+                  <span className="text-gold-accent font-accent text-xs tracking-wide">DESDE 2024</span>
                 </div>
               </div>
             </div>

@@ -1,3 +1,4 @@
+
 import { SectionContainer } from './ui/section-container';
 const cityGroups = [{
   region: 'NORTE',
@@ -16,12 +17,11 @@ const cityGroups = [{
   cities: ['Porto Alegre', 'Florianópolis', 'Curitiba']
 }];
 const NationalPresence = () => {
-  return <SectionContainer id="nationalpresence" className="relative overflow-hidden flex items-center justify-center" style={{
+  return <SectionContainer id="nationalpresence" className="relative overflow-hidden flex items-center justify-center bg-black" style={{
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/lovable-uploads/597d1cf2-94e0-4cff-8e85-a903c1a11fe4.png')`,
     backgroundSize: 'contain',
     backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor: '#1a1a1a'
+    backgroundRepeat: 'no-repeat'
   }}>
       {/* Título centralizado no topo */}
       <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-10 text-center">
@@ -38,7 +38,7 @@ const NationalPresence = () => {
         <div className="flex flex-col space-y-12 w-1/3">
           {/* Subtítulo */}
           <div className="text-cream-editorial">
-            <p className="text-lg font-editorial leading-relaxed mb-3">Planejar é mais do que escolher espaços — é entender as ruas — e essas são as praças em que eu já estive em visita técnica</p>
+            <p className="text-lg font-editorial leading-relaxed mb-3">Planejar é mais do que escolher espaços — é entender as ruas — e essas são as praças em que eu já estive em visita técnica</p>
             <p className="text-lg font-editorial leading-relaxed">
           </p>
           </div>

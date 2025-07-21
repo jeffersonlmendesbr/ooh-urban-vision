@@ -11,17 +11,17 @@ const Manifesto = () => {
         <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M20%2010L80%2015L85%2040L75%2070L60%2085L25%2080L15%2050Z%22%20fill%3D%22none%22%20stroke%3D%22%234A5436%22%20stroke-width%3D%220.5%22%20opacity%3D%220.3%22/%3E%3C/svg%3E')]"></div>
       </div>
       
-      {/* Clean Quote Marks */}
-      <div className="absolute top-16 left-8 text-6xl text-olive-green opacity-30 font-serif">"</div>
-      <div className="absolute bottom-16 right-8 text-6xl text-olive-green opacity-30 font-serif">"</div>
+      {/* Clean Quote Marks - agora douradas */}
+      <div className="absolute top-16 left-8 text-6xl text-gold-accent opacity-70 font-serif">"</div>
+      <div className="absolute bottom-16 right-8 text-6xl text-gold-accent opacity-70 font-serif">"</div>
       
       <div className="max-w-4xl mx-auto text-center relative z-10 px-6 py-20">
-        {/* Clean Section Label */}
+        {/* Clean Section Label - agora dourada */}
         <div className="mb-12">
-          <span className="inline-block text-olive-green font-medium text-sm tracking-widest mb-4 uppercase">
+          <span className="inline-block text-gold-accent font-medium text-sm tracking-widest mb-4 uppercase">
             MANIFESTO
           </span>
-          <div className="w-16 h-px bg-olive-green mx-auto"></div>
+          <div className="w-16 h-px bg-gold-accent mx-auto"></div>
         </div>
         
         <div className="space-y-8 text-gray-800">
@@ -44,8 +44,8 @@ const Manifesto = () => {
             Não planejo apenas mídia em espaços fora de casa, o que faço é construir narrativas.
           </p>
           
-          <div className="pt-8 mt-12 border-t border-olive-green/30">
-            <blockquote className="text-3xl md:text-4xl font-serif text-olive-green leading-tight italic">
+          <div className="pt-8 mt-12 border-t border-gold-accent/50">
+            <blockquote className="text-3xl md:text-4xl font-serif text-gold-accent leading-tight italic">
               "Se é pra estar na rua, que seja com propósito."
             </blockquote>
           </div>

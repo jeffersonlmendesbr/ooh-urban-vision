@@ -8,18 +8,10 @@ interface ExperienceCardProps {
 export const ExperienceCard = ({ experience }: ExperienceCardProps) => (
   <div 
     className="min-w-[420px] w-[420px] h-[600px] bg-white-pure/10 flex flex-col p-8 transition-all duration-500 group hover-lift"
-    style={{
-      boxShadow: `
-        0 0 0 1px rgba(255, 255, 255, 0.1),
-        0 4px 20px rgba(255, 255, 255, 0.15),
-        0 8px 40px rgba(255, 255, 255, 0.1),
-        0 16px 60px rgba(255, 255, 255, 0.05)
-      `
-    }}
   >
     {/* Tag Section - Altura fixa */}
     <div className="text-center h-[60px] flex items-center justify-center">
-      <span className="inline-block font-accent text-xs tracking-[0.2em] uppercase px-6 py-3 bg-ink-black text-gold-accent group-hover:bg-white-pure group-hover:text-gold-accent transition-all duration-300">
+      <span className="inline-block font-accent text-xs tracking-[0.2em] uppercase px-6 py-3 bg-ink-black text-gold-accent group-hover:bg-white-pure group-hover:text-gold-accent transition-all duration-300 font-bold">
         {experience.tagType}
       </span>
     </div>
@@ -44,14 +36,14 @@ export const ExperienceCard = ({ experience }: ExperienceCardProps) => (
 
     {/* Period Section - Altura fixa */}
     <div className="h-[40px] flex items-start justify-center text-center">
-      <p className="text-ink-black text-sm font-accent tracking-wide opacity-80">
+      <p className="text-ink-black text-sm font-accent tracking-wide opacity-80 font-bold">
         {experience.period}
       </p>
     </div>
 
     {/* Description Section - Altura restante */}
     <div className="flex-1 flex items-start justify-center text-center pt-2">
-      <p className="text-sm text-ink-black font-editorial leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity duration-300 px-2">
+      <p className="text-sm text-ink-black font-editorial leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity duration-300 px-2 font-bold">
         {experience.description}
       </p>
     </div>
