@@ -3,7 +3,15 @@ import type { ExperienceCardData } from '../types';
 
 export const experiencesData: ExperienceCardData[] = [
   {
-    tagType: "VEÍCULO",
+    tagType: "AGÊNCIA",
+    logoUrl: "/lovable-uploads/d2c3d440-d9a8-4970-bf0b-b4fbdc110f06.png",
+    companyName: "Africa Creative",
+    title: "Gerente de Mídia",
+    description: "Na Africa Creative, encontrei o ambiente perfeito para combinar criatividade e estratégia. Trabalhando ao lado dos melhores profissionais do mercado, desenvolvi campanhas que não apenas entregaram resultados, mas também elevaram o padrão de excelência da agência.",
+    period: "Desde 2024"
+  },
+  {
+    tagType: "AGÊNCIA",
     logoUrl: "/lovable-uploads/5bf1055e-408b-4fd2-9a8c-68bb02edd87d.png",
     companyName: "Kallas",
     title: "Analista de Produto Sr",
