@@ -1,7 +1,5 @@
-
 const About = () => {
-  return (
-    <section id="about" className="min-h-screen flex items-center justify-center gradient-about py-20 px-6">
+  return <section id="about" className="min-h-screen flex items-center justify-center gradient-about py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content Column */}
@@ -15,18 +13,20 @@ const About = () => {
             </div>
             
             <div className="space-y-8 text-slate-elegant font-editorial">
-              <p className="text-lg md:text-xl leading-relaxed animate-fadeInSlightlyDelayed" style={{ animationDelay: '0.1s' }}>
-                Sou publicitário com mais de 15 anos dedicados à mídia OOH. Atuei em agências como VML e Galeria, 
-                liderando campanhas nacionais para marcas como VIVO, e também em veículos como Eletromidia e Latcom, 
-                com projetos internacionais para Disney, ESPN e Spotify.
-              </p>
+              <p className="text-lg md:text-xl leading-relaxed animate-fadeInSlightlyDelayed" style={{
+              animationDelay: '0.1s'
+            }}>Sou publicitário com mais de 15 anos dedicados à mídia OOH. Atuei em agências como VML e Galeria, liderando campanhas nacionais para marcas como VIVO, e também em veículos como Eletromidia e Kallas. Na agência de planejamento LATCOM trabalhei com projetos internacionais para Disney, ESPN e Spotify.</p>
               
-              <p className="text-lg md:text-xl leading-relaxed animate-fadeInSlightlyDelayed" style={{ animationDelay: '0.2s' }}>
+              <p className="text-lg md:text-xl leading-relaxed animate-fadeInSlightlyDelayed" style={{
+              animationDelay: '0.2s'
+            }}>
                 Acredito que a rua é muito mais do que um ponto de exibição – ela é território de disputa de atenção. 
                 E por isso, a mídia exterior precisa ser planejada com inteligência, sensibilidade e intenção.
               </p>
               
-              <p className="text-lg md:text-xl leading-relaxed animate-fadeInSlightlyDelayed" style={{ animationDelay: '0.3s' }}>
+              <p className="text-lg md:text-xl leading-relaxed animate-fadeInSlightlyDelayed" style={{
+              animationDelay: '0.3s'
+            }}>
                 Tenho um pé na criação e outro na estratégia. Conheço as ferramentas, os números e os mapas – 
                 mas também caminho pelas ruas.
               </p>
@@ -35,7 +35,9 @@ const About = () => {
           
           {/* Quote Column */}
           <div className="relative">
-            <div className="bg-white-pure shadow-editorial p-12 relative z-10 animate-fadeInSlightlyDelayed" style={{ animationDelay: '0.4s' }}>
+            <div className="bg-white-pure shadow-editorial p-12 relative z-10 animate-fadeInSlightlyDelayed" style={{
+            animationDelay: '0.4s'
+          }}>
               {/* Quote Marks */}
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-gold-accent flex items-center justify-center">
                 <span className="text-white-pure font-display text-2xl">"</span>
@@ -55,8 +57,6 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
