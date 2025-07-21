@@ -37,14 +37,14 @@ const HighlightsCarousel = () => {
 
   return (
     <section id="highlights" className="relative h-screen overflow-hidden">
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows - sempre douradas */}
       <button
         onClick={handlePrevious}
         disabled={currentIndex === 0}
         className={`absolute left-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transition-all duration-300 ${
           currentIndex === 0
             ? 'bg-gold-accent/20 text-gold-accent/40 cursor-not-allowed'
-            : 'bg-gold-accent/80 text-white-pure hover:bg-gold-accent hover-scale'
+            : 'bg-gold-accent text-white-pure hover:bg-gold-accent/90 hover-scale'
         }`}
       >
         <ChevronLeft size={24} />
@@ -56,7 +56,7 @@ const HighlightsCarousel = () => {
         className={`absolute right-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transition-all duration-300 ${
           currentIndex === 2
             ? 'bg-gold-accent/20 text-gold-accent/40 cursor-not-allowed'
-            : 'bg-gold-accent/80 text-white-pure hover:bg-gold-accent hover-scale'
+            : 'bg-gold-accent text-white-pure hover:bg-gold-accent/90 hover-scale'
         }`}
       >
         <ChevronRight size={24} />

@@ -1,3 +1,4 @@
+
 import { ReactNode } from 'react';
 import { useScrollNavigation } from '../../hooks/useScrollNavigation';
 
@@ -11,12 +12,12 @@ export const ScrollableCards = ({ children }: ScrollableCardsProps) => {
   return (
     <div className="flex-1 flex items-center max-w-7xl mx-auto w-full min-h-0">
       <div className="relative w-full">
-        {/* Navigation Buttons */}
+        {/* Navigation Buttons - sempre visíveis, sem bordas, brancos com ícone dourado */}
         <button
           onClick={() => scroll('left')}
           disabled={!canScrollLeft}
-          className={`absolute left-4 top-1/2 -translate-y-1/2 z-20 w-14 h-14 border border-gold-accent/40 bg-ink-black/90 backdrop-blur-sm text-gold-accent text-xl font-light transition-all duration-300 hover:bg-gold-accent hover:text-ink-black hover:scale-105 ${
-            !canScrollLeft ? 'opacity-30 cursor-not-allowed' : ''
+          className={`absolute left-4 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white-pure text-gold-accent text-xl font-light transition-all duration-300 hover:scale-105 ${
+            !canScrollLeft ? 'opacity-30 cursor-not-allowed' : 'opacity-100'
           }`}
         >
           ←
@@ -25,8 +26,8 @@ export const ScrollableCards = ({ children }: ScrollableCardsProps) => {
         <button
           onClick={() => scroll('right')}
           disabled={!canScrollRight}
-          className={`absolute right-4 top-1/2 -translate-y-1/2 z-20 w-14 h-14 border border-gold-accent/40 bg-ink-black/90 backdrop-blur-sm text-gold-accent text-xl font-light transition-all duration-300 hover:bg-gold-accent hover:text-ink-black hover:scale-105 ${
-            !canScrollRight ? 'opacity-30 cursor-not-allowed' : ''
+          className={`absolute right-4 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white-pure text-gold-accent text-xl font-light transition-all duration-300 hover:scale-105 ${
+            !canScrollRight ? 'opacity-30 cursor-not-allowed' : 'opacity-100'
           }`}
         >
           →
@@ -42,7 +43,7 @@ export const ScrollableCards = ({ children }: ScrollableCardsProps) => {
               msOverflowStyle: 'none',
             }}
           >
-            <div className="flex gap-0">
+            <div className="flex gap-6">
               {children}
               {/* Partial card at the end for visual continuity */}
               <div className="min-w-[200px] w-[200px] h-[600px] bg-gradient-to-r from-gold-accent/10 to-transparent"></div>

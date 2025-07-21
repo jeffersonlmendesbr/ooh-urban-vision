@@ -7,7 +7,7 @@ interface ExperienceCardProps {
 
 export const ExperienceCard = ({ experience }: ExperienceCardProps) => (
   <div 
-    className="min-w-[420px] w-[420px] h-[600px] bg-white-pure/10 backdrop-blur-sm flex flex-col p-8 transition-all duration-500 group hover-lift"
+    className="min-w-[420px] w-[420px] h-[600px] bg-white-pure/10 flex flex-col p-8 transition-all duration-500 group hover-lift"
     style={{
       boxShadow: `
         0 0 0 1px rgba(255, 255, 255, 0.1),
