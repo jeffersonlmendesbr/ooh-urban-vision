@@ -1,17 +1,8 @@
-
 import type { ExperienceCardData } from '../types';
 
 export const experiencesData: ExperienceCardData[] = [
   {
-    tagType: "AGÊNCIA",
-    logoUrl: "/lovable-uploads/d2c3d440-d9a8-4970-bf0b-b4fbdc110f06.png",
-    companyName: "Africa Creative",
-    title: "Gerente de Mídia",
-    description: "Na Africa Creative, encontrei o ambiente perfeito para combinar criatividade e estratégia. Trabalhando ao lado dos melhores profissionais do mercado, desenvolvi campanhas que não apenas entregaram resultados, mas também elevaram o padrão de excelência da agência.",
-    period: "Desde 2024"
-  },
-  {
-    tagType: "AGÊNCIA",
+    tagType: "VEÍCULO",
     logoUrl: "/lovable-uploads/5bf1055e-408b-4fd2-9a8c-68bb02edd87d.png",
     companyName: "Kallas",
     title: "Analista de Produto Sr",
@@ -19,7 +10,7 @@ export const experiencesData: ExperienceCardData[] = [
     period: "3 anos e 4 meses"
   },
   {
-    tagType: "AGÊNCIA",
+    tagType: "VEÍCULO",
     logoUrl: "/lovable-uploads/36fbefb8-5c9e-408e-a3df-41bdace8dabc.png",
     companyName: "LATCOM",
     title: "Head de Mercado",

@@ -6,7 +6,7 @@ import { timelineData, TimelineItem } from '../data/timeline';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from './ui/hover-card';
 import { Badge } from './ui/badge';
 import { cn } from '@/lib/utils';
-import { GraduationCap, Star, Shield, Wrench, Clock } from 'lucide-react';
+import { GraduationCap, Monitor, Shield, Wrench, Clock } from 'lucide-react';
 
 const Tools = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('academic');
@@ -23,7 +23,7 @@ const Tools = () => {
   // Ícones padronizados por categoria
   const categoryIcons = {
     academic: GraduationCap,
-    strong: Star,
+    strong: Monitor,
     certifications: Shield,
     tools: Wrench,
     future: Clock
@@ -156,15 +156,16 @@ const Tools = () => {
   return (
     <SectionContainer id="tools" className="bg-gradient-editorial">
       <div className="max-w-7xl mx-auto px-6 w-full">
-        {/* Header no padrão da seção National Presence - SEM a linha de cima */}
+        {/* Header Compacto com linha divisória */}
         <div className="text-center mb-8">
           <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-4">
             FERRAMENTAS E PLATAFORMAS
           </span>
           
-          <div className="w-24 h-px bg-gold-accent mx-auto mb-6"></div>
+          {/* Linha divisória padrão */}
+          <Separator className="w-24 mx-auto mb-4 bg-gold-accent/30" />
           
-          <p className="text-black text-base max-w-2xl mx-auto font-editorial">
+          <p className="text-grey-sophisticated text-base max-w-2xl mx-auto font-editorial text-black">
             Especialização contínua em ferramentas estratégicas do mercado OOH
           </p>
         </div>
