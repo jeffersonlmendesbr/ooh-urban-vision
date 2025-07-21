@@ -156,10 +156,8 @@ const Tools = () => {
   return (
     <SectionContainer id="tools" className="bg-gradient-editorial">
       <div className="max-w-7xl mx-auto px-6 w-full">
-        {/* Header no padrão da seção National Presence */}
+        {/* Header no padrão da seção National Presence - SEM a linha de cima */}
         <div className="text-center mb-8">
-          <div className="w-24 h-px bg-gold-accent mx-auto mb-4"></div>
-          
           <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-4">
             FERRAMENTAS E PLATAFORMAS
           </span>

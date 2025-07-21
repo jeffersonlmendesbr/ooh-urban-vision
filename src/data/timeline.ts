@@ -10,7 +10,7 @@ export interface TimelineItem {
 }
 
 export const timelineData: TimelineItem[] = [
-  // FORMAÇÃO ACADÊMICA - ordem alterada, FGV por último
+  // FORMAÇÃO ACADÊMICA
   {
     id: 'unifieo',
     title: 'Comunicação Social',
@@ -29,13 +29,6 @@ export const timelineData: TimelineItem[] = [
     highlighted: true
   },
   {
-    id: 'idiomas',
-    title: 'Idiomas',
-    subtitle: 'Inglês e Espanhol',
-    description: 'Fluência intermediário a avançado em inglês e espanhol, essencial para atuação em mercados internacionais e projetos globais de mídia exterior.',
-    category: 'academic'
-  },
-  {
     id: 'ooh-fgv',
     title: 'Curso Gestão de Mídia Exterior',
     subtitle: 'FGV Educação Executiva',
@@ -43,8 +36,16 @@ export const timelineData: TimelineItem[] = [
     year: '2023',
     category: 'academic'
   },
+  {
+    id: 'idiomas',
+    title: 'Idiomas',
+    subtitle: 'Inglês e Espanhol',
+    description: 'Fluência intermediário a avançado em inglês e espanhol, essencial para atuação em mercados internacionais e projetos globais de mídia exterior.',
+    year: '2024',
+    category: 'academic'
+  },
 
-  // DOMÍNIO FORTE - Ferramentas de uso diário
+  // DOMÍNIO FORTE
   {
     id: 'sismidia',
     title: 'Sismidia',
@@ -58,15 +59,9 @@ export const timelineData: TimelineItem[] = [
     category: 'strong'
   },
   {
-    id: 'power-bi',
-    title: 'Power BI',
-    description: 'Ferramenta de business intelligence para criação de dashboards, análise de dados de campanha e relatórios de performance em mídia OOH.',
-    category: 'strong'
-  },
-  {
-    id: 'excel-avancado',
-    title: 'Excel Avançado',
-    description: 'Domínio completo em Excel para análise de dados complexos, modelagem financeira e criação de ferramentas de planejamento de mídia.',
+    id: 'target-group-index',
+    title: 'Target Group Index',
+    description: 'Base de dados comportamentais e demográficos para segmentação precisa de audiência em campanhas de mídia exterior.',
     category: 'strong'
   },
   {
@@ -76,21 +71,33 @@ export const timelineData: TimelineItem[] = [
     category: 'strong'
   },
   {
+    id: 'power-bi',
+    title: 'Power BI',
+    description: 'Ferramenta de business intelligence para criação de dashboards, análise de dados de campanha e relatórios de performance em mídia OOH.',
+    category: 'strong'
+  },
+  {
     id: 'tableau',
     title: 'Tableau',
     description: 'Visualização avançada de dados para criação de relatórios executivos e análise de performance de campanhas de mídia exterior.',
     category: 'strong'
   },
   {
-    id: 'qgis',
-    title: 'QGIS',
-    description: 'Sistema de informação geográfica para análise espacial, mapeamento de pontos de mídia e otimização de rotas em campanhas OOH.',
+    id: 'google-data-studio',
+    title: 'Google Data Studio',
+    description: 'Plataforma de visualização de dados do Google para criação de relatórios automatizados e dashboards de campanha.',
     category: 'strong'
   },
   {
-    id: 'nielsen',
-    title: 'Nielsen',
-    description: 'Dados de mercado e audiência para complementar análises de mídia OOH e criar estratégias integradas de comunicação.',
+    id: 'excel-avancado',
+    title: 'Excel Avançado',
+    description: 'Domínio completo em Excel para análise de dados complexos, modelagem financeira e criação de ferramentas de planejamento de mídia.',
+    category: 'strong'
+  },
+  {
+    id: 'qgis',
+    title: 'QGIS',
+    description: 'Sistema de informação geográfica para análise espacial, mapeamento de pontos de mídia e otimização de rotas em campanhas OOH.',
     category: 'strong'
   },
 
@@ -114,7 +121,19 @@ export const timelineData: TimelineItem[] = [
     category: 'certification'
   },
 
-  // FERRAMENTAS ILUSTRATIVAS - Uso esporádico mas relevante
+  // FERRAMENTAS ILUSTRATIVAS
+  {
+    id: 'monday',
+    title: 'Monday.com',
+    description: 'Plataforma de gestão de projetos para organização de campanhas, prazos e acompanhamento de entregas em mídia exterior.',
+    category: 'illustrative'
+  },
+  {
+    id: 'figma',
+    title: 'Figma',
+    description: 'Ferramenta de design colaborativo para criação de apresentações, mockups e materiais visuais para campanhas OOH.',
+    category: 'illustrative'
+  },
   {
     id: 'salesforce',
     title: 'Salesforce',
@@ -128,25 +147,13 @@ export const timelineData: TimelineItem[] = [
     category: 'illustrative'
   },
   {
-    id: 'figma',
-    title: 'Figma',
-    description: 'Ferramenta de design colaborativo para criação de apresentações, mockups e materiais visuais para campanhas OOH.',
-    category: 'illustrative'
-  },
-  {
-    id: 'monday',
-    title: 'Monday.com',
-    description: 'Plataforma de gestão de projetos para organização de campanhas, prazos e acompanhamento de entregas em mídia exterior.',
-    category: 'illustrative'
-  },
-  {
     id: 'mapbox',
     title: 'Mapbox',
     description: 'APIs de mapeamento para desenvolvimento de soluções customizadas de visualização geográfica em projetos OOH.',
     category: 'illustrative'
   },
 
-  // FUTURO - Em desenvolvimento
+  // FUTURO
   {
     id: 'python',
     title: 'Python',
