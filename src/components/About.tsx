@@ -19,10 +19,7 @@ const About = () => {
               
               <p className="text-lg md:text-xl leading-relaxed animate-fadeInSlightlyDelayed" style={{
               animationDelay: '0.2s'
-            }}>
-                Acredito que a rua é muito mais do que um ponto de exibição – ela é território de disputa de atenção. 
-                E por isso, a mídia exterior precisa ser planejada com inteligência, sensibilidade e intenção.
-              </p>
+            }}>Acredito que a rua é muito mais do que um ponto de exibição – ela é território de disputa onde a mídia exterior precisa ser planejada com inteligência, sensibilidade e intenção.</p>
               
               <p className="text-lg md:text-xl leading-relaxed animate-fadeInSlightlyDelayed" style={{
               animationDelay: '0.3s'
