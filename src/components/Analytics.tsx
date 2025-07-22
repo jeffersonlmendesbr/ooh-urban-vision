@@ -1,6 +1,5 @@
-
 import { TrendingUp, Users, Building2, Target, BarChart3 } from 'lucide-react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, LabelList } from 'recharts';
 
 const Analytics = () => {
   // Dados para o gráfico de comparação de tempo em liderança
@@ -31,6 +30,42 @@ const Analytics = () => {
   ];
 
   const COLORS = ['#D4AF37', '#B8860B', '#E5D4A1', '#94A3B8'];
+
+  // Função customizada para renderizar labels nas barras
+  const renderCustomizedLabel = (props: any) => {
+    const { x, y, width, height, value } = props;
+    return (
+      <text 
+        x={x + width / 2} 
+        y={y + height / 2} 
+        fill="#ffffff" 
+        textAnchor="middle" 
+        dominantBaseline="middle"
+        fontSize="12"
+        fontWeight="bold"
+      >
+        {value}%
+      </text>
+    );
+  };
+
+  // Função customizada para renderizar labels nas barras de permanência
+  const renderTenureLabel = (props: any) => {
+    const { x, y, width, height, value } = props;
+    return (
+      <text 
+        x={x + width / 2} 
+        y={y + height / 2} 
+        fill="#ffffff" 
+        textAnchor="middle" 
+        dominantBaseline="middle"
+        fontSize="12"
+        fontWeight="bold"
+      >
+        {value}
+      </text>
+    );
+  };
 
   return (
     <section id="analytics" className="h-screen flex flex-col bg-white text-slate-800 relative overflow-hidden">
@@ -70,7 +105,9 @@ const Analytics = () => {
                   <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
                   <XAxis dataKey="name" stroke="#64748B" fontSize={12} />
                   <YAxis stroke="#64748B" fontSize={12} />
-                  <Bar dataKey="value" fill="#D4AF37" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="value" fill="#D4AF37" radius={[4, 4, 0, 0]}>
+                    <LabelList dataKey="value" content={renderCustomizedLabel} />
+                  </Bar>
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -94,7 +131,9 @@ const Analytics = () => {
                   <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
                   <XAxis dataKey="name" stroke="#64748B" fontSize={12} />
                   <YAxis stroke="#64748B" fontSize={12} />
-                  <Bar dataKey="years" fill="#B8860B" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="years" fill="#B8860B" radius={[4, 4, 0, 0]}>
+                    <LabelList dataKey="years" content={renderTenureLabel} />
+                  </Bar>
                 </BarChart>
               </ResponsiveContainer>
             </div>
