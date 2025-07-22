@@ -1,3 +1,4 @@
+
 import type { ExperienceCardData } from '../types';
 
 export const experiencesData: ExperienceCardData[] = [
@@ -10,7 +11,7 @@ export const experiencesData: ExperienceCardData[] = [
     period: "3 anos e 4 meses"
   },
   {
-    tagType: "VEÍCULO",
+    tagType: "AGÊNCIA",
     logoUrl: "/lovable-uploads/36fbefb8-5c9e-408e-a3df-41bdace8dabc.png",
     companyName: "LATCOM",
     title: "Head de Mercado",
