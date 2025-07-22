@@ -74,15 +74,29 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="h-screen flex items-center bg-warm-beige">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 h-full items-center">
+    <section id="testimonials" className="h-screen flex flex-col bg-warm-beige">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col">
+        {/* Header com título e link do LinkedIn */}
+        <div className="flex justify-between items-center py-8">
+          <h2 className="text-4xl font-heading text-dark-charcoal">O que dizem sobre mim</h2>
+          <a
+            href="https://www.linkedin.com/in/jeffersonlmendes/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-olive-green font-medium hover:text-dark-charcoal transition-colors"
+            aria-label="Ver todas as recomendações no LinkedIn de Jefferson Mendes"
+          >
+            Ver todas no LinkedIn
+            <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+          </a>
+        </div>
+
+        {/* Conteúdo principal */}
+        <div className="grid lg:grid-cols-2 gap-12 flex-1 items-center min-h-0">
           {/* Lado Esquerdo - Testemunhos */}
-          <div className="relative">
-            <h2 className="text-4xl font-heading text-dark-charcoal mb-8">O que dizem sobre mim</h2>
-            
-            <div className="relative bg-soft-white rounded-xl p-8 min-h-[400px] flex flex-col justify-between">
-              <div>
+          <div className="relative h-full flex flex-col justify-center">
+            <div className="relative bg-soft-white rounded-xl p-8 flex flex-col justify-between" style={{ minHeight: '400px', maxHeight: '500px' }}>
+              <div className="overflow-y-auto flex-1">
                 <div className="flex mb-6" role="img" aria-label="Avaliação: 5 de 5 estrelas">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" aria-hidden="true" />
@@ -94,7 +108,7 @@ const Testimonials = () => {
                 </p>
               </div>
               
-              <div>
+              <div className="mt-4">
                 <div className="font-semibold text-dark-charcoal text-lg">
                   {testimonials[currentTestimonial].author}
                 </div>
@@ -102,98 +116,83 @@ const Testimonials = () => {
                   {testimonials[currentTestimonial].role}
                 </div>
               </div>
-
-              {/* Navegação dos testemunhos */}
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
-                <button
-                  onClick={prevTestimonial}
-                  className="bg-olive-green text-white p-2 rounded-full hover:bg-opacity-80 transition-colors"
-                  aria-label="Testemunho anterior"
-                >
-                  <ArrowLeft className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={nextTestimonial}
-                  className="bg-olive-green text-white p-2 rounded-full hover:bg-opacity-80 transition-colors"
-                  aria-label="Próximo testemunho"
-                >
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-
-              {/* Indicadores */}
-              <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentTestimonial(index)}
-                    className={`w-2 h-2 rounded-full transition-colors ${
-                      index === currentTestimonial ? 'bg-olive-green' : 'bg-gray-300'
-                    }`}
-                    aria-label={`Ir para testemunho ${index + 1}`}
-                  />
-                ))}
-              </div>
             </div>
 
-            <div className="text-center mt-20">
-              <a
-                href="https://www.linkedin.com/in/jeffersonlmendes/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-olive-green font-medium hover:text-dark-charcoal transition-colors"
-                aria-label="Ver todas as recomendações no LinkedIn de Jefferson Mendes"
+            {/* Navegação dos testemunhos - posição fixa */}
+            <div className="flex justify-center space-x-4 mt-6">
+              <button
+                onClick={prevTestimonial}
+                className="bg-olive-green text-white p-2 rounded-full hover:bg-opacity-80 transition-colors"
+                aria-label="Testemunho anterior"
               >
-                Ver todas no LinkedIn
-                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-              </a>
+                <ArrowLeft className="w-4 h-4" />
+              </button>
+              <button
+                onClick={nextTestimonial}
+                className="bg-olive-green text-white p-2 rounded-full hover:bg-opacity-80 transition-colors"
+                aria-label="Próximo testemunho"
+              >
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Indicadores */}
+            <div className="flex justify-center space-x-2 mt-4">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    index === currentTestimonial ? 'bg-olive-green' : 'bg-gray-300'
+                  }`}
+                  aria-label={`Ir para testemunho ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
 
           {/* Lado Direito - Imagens de Mídia */}
-          <div className="relative">
-            <h3 className="text-2xl font-heading text-dark-charcoal mb-8 text-center">Na Mídia</h3>
-            
-            <div className="relative bg-soft-white rounded-xl p-6 min-h-[400px] flex items-center justify-center">
+          <div className="relative h-full flex flex-col justify-center">
+            <div className="relative bg-soft-white rounded-xl p-6 flex items-center justify-center" style={{ minHeight: '400px', maxHeight: '500px' }}>
               <div className="relative w-full h-full">
                 <img
                   src={mediaImages[currentImage].src}
                   alt={mediaImages[currentImage].alt}
                   className="w-full h-full object-cover rounded-lg"
                 />
-                
-                {/* Navegação das imagens */}
-                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
-                  <button
-                    onClick={prevImage}
-                    className="bg-olive-green text-white p-2 rounded-full hover:bg-opacity-80 transition-colors"
-                    aria-label="Imagem anterior"
-                  >
-                    <ArrowLeft className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={nextImage}
-                    className="bg-olive-green text-white p-2 rounded-full hover:bg-opacity-80 transition-colors"
-                    aria-label="Próxima imagem"
-                  >
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-
-                {/* Indicadores das imagens */}
-                <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                  {mediaImages.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImage(index)}
-                      className={`w-2 h-2 rounded-full transition-colors ${
-                        index === currentImage ? 'bg-olive-green' : 'bg-gray-300'
-                      }`}
-                      aria-label={`Ir para imagem ${index + 1}`}
-                    />
-                  ))}
-                </div>
               </div>
+            </div>
+            
+            {/* Navegação das imagens - posição fixa */}
+            <div className="flex justify-center space-x-4 mt-6">
+              <button
+                onClick={prevImage}
+                className="bg-olive-green text-white p-2 rounded-full hover:bg-opacity-80 transition-colors"
+                aria-label="Imagem anterior"
+              >
+                <ArrowLeft className="w-4 h-4" />
+              </button>
+              <button
+                onClick={nextImage}
+                className="bg-olive-green text-white p-2 rounded-full hover:bg-opacity-80 transition-colors"
+                aria-label="Próxima imagem"
+              >
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Indicadores das imagens */}
+            <div className="flex justify-center space-x-2 mt-4">
+              {mediaImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImage(index)}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    index === currentImage ? 'bg-olive-green' : 'bg-gray-300'
+                  }`}
+                  aria-label={`Ir para imagem ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
