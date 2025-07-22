@@ -1,4 +1,3 @@
-
 import { SectionContainer } from './ui/section-container';
 const cityGroups = [{
   region: 'NORTE',
@@ -38,7 +37,8 @@ const NationalPresence = () => {
         <div className="flex flex-col space-y-12 w-1/3">
           {/* Subtítulo */}
           <div className="text-cream-editorial">
-            <p className="text-lg font-editorial leading-relaxed mb-3">Planejar é mais do que escolher espaços — é entender as ruas — e essas são as praças em que eu já estive em visita técnica</p>
+            <p className="text-lg font-editorial leading-relaxed mb-3">Planejar é mais do que escolher espaços, é entender as ruas
+Essas são as praças em que eu já estive em visita técnica</p>
             <p className="text-lg font-editorial leading-relaxed">
           </p>
           </div>
