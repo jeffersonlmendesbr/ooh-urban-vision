@@ -1,147 +1,203 @@
+
 import { TrendingUp, Users, Building2, Target, BarChart3 } from 'lucide-react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
 
 const Analytics = () => {
-  const kpis = [
-    {
-      icon: Users,
-      title: "Tempo em Cargos de Liderança",
-      personalData: "52%",
-      marketData: "28%",
-      description: "do tempo de carreira com gestão de equipe",
-      comparison: "vs média do mercado",
-      source: "LinkedIn Workforce Insights e dados setoriais da Aberje",
-      percentage: 65 // (52/80) * 100 for visual bar
-    },
-    {
-      icon: Building2,
-      title: "Tempo Médio por Empresa",
-      personalData: "2,4",
-      marketData: "1,9",
-      description: "anos de permanência média",
-      comparison: "vs média do setor",
-      source: "LinkedIn Brasil, 2023",
-      percentage: 75 // (2.4/3.2) * 100 for visual bar
-    },
-    {
-      icon: Target,
-      title: "Especialização em OOH",
-      personalData: "+12",
-      marketData: "<5",
-      description: "anos de experiência acumulada",
-      comparison: "vs média do mercado",
-      source: "Estimativa com base em amostragens do setor OOH (MaxMídia, Eletromidia, LinkedIn)",
-      percentage: 90 // visual representation of expertise level
-    },
-    {
-      icon: BarChart3,
-      title: "Distribuição Agência vs Veículo",
-      personalData: "47% | 25%",
-      marketData: "60% | 15%",
-      description: "experiência balanceada entre segmentos",
-      comparison: "vs padrão do mercado",
-      source: "GP e Meio&Mensagem",
-      percentage: 80 // balanced experience indicator
-    }
+  // Dados para o gráfico de comparação de tempo em liderança
+  const leadershipData = [
+    { name: 'Jefferson', value: 52, color: '#D4AF37' },
+    { name: 'Mercado', value: 28, color: '#94A3B8' }
   ];
 
+  // Dados para o gráfico de permanência por empresa
+  const tenureData = [
+    { name: 'Jefferson', years: 2.4 },
+    { name: 'Mercado', years: 1.9 }
+  ];
+
+  // Dados para o radar de competências
+  const skillsData = [
+    { skill: 'Experiência OOH', Jefferson: 90, Mercado: 45 },
+    { skill: 'Liderança', Jefferson: 85, Mercado: 60 },
+    { skill: 'Permanência', Jefferson: 75, Mercado: 50 },
+    { skill: 'Versatilidade', Jefferson: 80, Mercado: 55 }
+  ];
+
+  // Dados para distribuição de experiência
+  const distributionData = [
+    { name: 'Agência', value: 47, color: '#D4AF37' },
+    { name: 'Veículo', value: 25, color: '#B8860B' },
+    { name: 'Outros', value: 28, color: '#E5D4A1' }
+  ];
+
+  const COLORS = ['#D4AF37', '#B8860B', '#E5D4A1', '#94A3B8'];
+
   return (
-    <section id="analytics" className="h-screen flex flex-col bg-white-pure text-ink-black relative overflow-hidden">
+    <section id="analytics" className="h-screen flex flex-col bg-white text-slate-800 relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23D4AF37%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-50/30 to-amber-100/20"></div>
       
       {/* Section Header */}
       <div className="relative z-10 text-center pt-8 pb-6">
-        <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-3">
+        <span className="inline-block text-amber-600 font-semibold text-sm tracking-widest mb-3">
           ANÁLISE PROFISSIONAL
         </span>
-        <h2 className="font-display text-4xl lg:text-5xl text-ink-black mb-4">
+        <h2 className="font-serif text-4xl lg:text-5xl text-slate-800 mb-4 font-bold">
           Analytics da Carreira
         </h2>
-        <div className="w-32 h-px bg-gold-accent mx-auto mb-4"></div>
-        <p className="font-editorial text-slate-elegant max-w-2xl mx-auto leading-relaxed">
+        <div className="w-32 h-px bg-amber-600 mx-auto mb-4"></div>
+        <p className="text-slate-600 max-w-2xl mx-auto leading-relaxed">
           Dados objetivos que demonstram consistência, maturidade e especialização 
-          na área de mídia OOH comparados às médias do mercado brasileiro.
+          comparados às médias do mercado brasileiro.
         </p>
       </div>
 
-      {/* KPIs Grid */}
-      <div className="flex-1 flex items-center justify-center px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto w-full">
-          {kpis.map((kpi, index) => {
-            const IconComponent = kpi.icon;
-            
-            return (
-              <div 
-                key={index} 
-                className="bg-white-pure border border-gold-accent/20 rounded-lg p-6 shadow-editorial hover:shadow-gold transition-all duration-300 group"
-              >
-                {/* Header with Icon and Title */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="bg-gold-accent/10 rounded-full p-3 group-hover:bg-gold-accent/20 transition-colors duration-300">
-                      <IconComponent className="w-6 h-6 text-gold-accent" />
-                    </div>
-                    <h3 className="font-heading text-lg font-bold text-ink-black leading-tight">
-                      {kpi.title}
-                    </h3>
-                  </div>
-                </div>
+      {/* Charts Grid */}
+      <div className="flex-1 px-8 relative z-10 pb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto h-full">
+          {/* Tempo em Liderança - Bar Chart */}
+          <div className="bg-white/80 backdrop-blur-sm border border-amber-200 rounded-xl p-6 shadow-lg">
+            <div className="flex items-center mb-4">
+              <Users className="w-6 h-6 text-amber-600 mr-3" />
+              <div>
+                <h3 className="font-bold text-lg text-slate-800">Tempo em Liderança</h3>
+                <p className="text-sm text-slate-600">% do tempo de carreira</p>
+              </div>
+            </div>
+            <div className="h-40">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={leadershipData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                  <XAxis dataKey="name" stroke="#64748B" fontSize={12} />
+                  <YAxis stroke="#64748B" fontSize={12} />
+                  <Bar dataKey="value" fill="#D4AF37" radius={[4, 4, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            <p className="text-xs text-slate-500 mt-2">
+              <span className="font-medium text-amber-600">Fonte:</span> LinkedIn Workforce Insights
+            </p>
+          </div>
 
-                {/* Main Data Comparison */}
-                <div className="mb-4">
-                  <div className="flex items-end justify-between mb-2">
-                    <div className="text-center">
-                      <div className="font-display text-3xl font-bold text-gold-accent mb-1">
-                        {kpi.personalData}
-                      </div>
-                      <div className="font-accent text-xs text-slate-elegant tracking-wide">
-                        JEFFERSON
-                      </div>
-                    </div>
-                    
-                    <div className="text-center text-slate-elegant">
-                      <div className="font-heading text-sm mb-1">vs</div>
-                    </div>
-                    
-                    <div className="text-center">
-                      <div className="font-display text-2xl font-semibold text-slate-elegant mb-1">
-                        {kpi.marketData}
-                      </div>
-                      <div className="font-accent text-xs text-slate-elegant tracking-wide">
-                        MERCADO
-                      </div>
-                    </div>
-                  </div>
+          {/* Permanência Média - Line Chart */}
+          <div className="bg-white/80 backdrop-blur-sm border border-amber-200 rounded-xl p-6 shadow-lg">
+            <div className="flex items-center mb-4">
+              <Building2 className="w-6 h-6 text-amber-600 mr-3" />
+              <div>
+                <h3 className="font-bold text-lg text-slate-800">Permanência Média</h3>
+                <p className="text-sm text-slate-600">Anos por empresa</p>
+              </div>
+            </div>
+            <div className="h-40">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={tenureData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                  <XAxis dataKey="name" stroke="#64748B" fontSize={12} />
+                  <YAxis stroke="#64748B" fontSize={12} />
+                  <Bar dataKey="years" fill="#B8860B" radius={[4, 4, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            <p className="text-xs text-slate-500 mt-2">
+              <span className="font-medium text-amber-600">Fonte:</span> LinkedIn Brasil, 2023
+            </p>
+          </div>
 
-                  {/* Visual Progress Bar */}
-                  <div className="w-full bg-slate-elegant/20 rounded-full h-2 mb-3">
+          {/* Radar de Competências */}
+          <div className="bg-white/80 backdrop-blur-sm border border-amber-200 rounded-xl p-6 shadow-lg">
+            <div className="flex items-center mb-4">
+              <Target className="w-6 h-6 text-amber-600 mr-3" />
+              <div>
+                <h3 className="font-bold text-lg text-slate-800">Radar de Competências</h3>
+                <p className="text-sm text-slate-600">Comparativo multidimensional</p>
+              </div>
+            </div>
+            <div className="h-40">
+              <ResponsiveContainer width="100%" height="100%">
+                <RadarChart data={skillsData} margin={{ top: 20, right: 30, bottom: 20, left: 30 }}>
+                  <PolarGrid stroke="#E5E7EB" />
+                  <PolarAngleAxis dataKey="skill" tick={{ fontSize: 10, fill: '#64748B' }} />
+                  <PolarRadiusAxis tick={{ fontSize: 10, fill: '#64748B' }} domain={[0, 100]} />
+                  <Radar
+                    name="Jefferson"
+                    dataKey="Jefferson"
+                    stroke="#D4AF37"
+                    fill="#D4AF37"
+                    fillOpacity={0.3}
+                    strokeWidth={2}
+                  />
+                  <Radar
+                    name="Mercado"
+                    dataKey="Mercado"
+                    stroke="#94A3B8"
+                    fill="#94A3B8"
+                    fillOpacity={0.1}
+                    strokeWidth={2}
+                  />
+                </RadarChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="flex justify-center gap-4 mt-2">
+              <div className="flex items-center">
+                <div className="w-3 h-3 bg-amber-600 rounded-full mr-2"></div>
+                <span className="text-xs text-slate-600">Jefferson</span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-3 h-3 bg-slate-400 rounded-full mr-2"></div>
+                <span className="text-xs text-slate-600">Mercado</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Distribuição de Experiência - Pie Chart */}
+          <div className="bg-white/80 backdrop-blur-sm border border-amber-200 rounded-xl p-6 shadow-lg">
+            <div className="flex items-center mb-4">
+              <BarChart3 className="w-6 h-6 text-amber-600 mr-3" />
+              <div>
+                <h3 className="font-bold text-lg text-slate-800">Distribuição da Experiência</h3>
+                <p className="text-sm text-slate-600">Segmentos de atuação</p>
+              </div>
+            </div>
+            <div className="h-40">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={distributionData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={30}
+                    outerRadius={60}
+                    paddingAngle={2}
+                    dataKey="value"
+                  >
+                    {distributionData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="grid grid-cols-3 gap-2 mt-2">
+              {distributionData.map((item, index) => (
+                <div key={index} className="text-center">
+                  <div className="flex items-center justify-center mb-1">
                     <div 
-                      className="bg-gradient-to-r from-gold-accent to-gold-accent/80 h-2 rounded-full transition-all duration-700 ease-out"
-                      style={{ width: `${kpi.percentage}%` }}
+                      className="w-3 h-3 rounded-full mr-2" 
+                      style={{ backgroundColor: item.color }}
                     ></div>
                   </div>
+                  <div className="text-xs font-medium text-slate-800">{item.name}</div>
+                  <div className="text-xs text-slate-600">{item.value}%</div>
                 </div>
-
-                {/* Description */}
-                <p className="font-editorial text-sm text-slate-elegant mb-3 leading-relaxed">
-                  {kpi.description} <span className="text-gold-accent font-medium">{kpi.comparison}</span>
-                </p>
-
-                {/* Source */}
-                <div className="border-t border-gold-accent/10 pt-3">
-                  <p className="font-accent text-xs text-slate-elegant/80 leading-relaxed">
-                    <span className="font-medium text-gold-accent">Fonte:</span> {kpi.source}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Bottom Note */}
-      <div className="relative z-10 text-center pb-8">
-        <p className="font-accent text-xs text-slate-elegant/60 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center pb-6">
+        <p className="text-xs text-slate-500 max-w-4xl mx-auto">
           * Dados compilados com base em fontes públicas e análises setoriais. 
           Comparativos refletem médias observadas no mercado brasileiro de mídia e publicidade.
         </p>
