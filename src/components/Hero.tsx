@@ -4,11 +4,11 @@ import { Linkedin, Mail, MessageCircle } from 'lucide-react';
 const Hero = () => {
   return (
     <section id="hero" className="h-screen w-full flex items-center justify-center relative overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image - usando a foto do Jefferson */}
       <div className="absolute inset-0">
         <img 
-          src="https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=1920&q=80" 
-          alt="Jefferson Mendes - Background" 
+          src="/lovable-uploads/214736ae-a6c9-4c22-8290-099d5e531c50.png" 
+          alt="Jefferson Mendes" 
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
