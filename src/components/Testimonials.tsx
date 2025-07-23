@@ -34,11 +34,11 @@ const Testimonials = () => {
     }
   ];
 
-  // Imagens placeholder para o lado direito (serão substituídas pelas reais)
+  // Imagens fornecidas pelo usuário
   const mediaImages = [
-    { src: "/placeholder.svg", alt: "Menção em portal de notícias 1" },
-    { src: "/placeholder.svg", alt: "Post em rede social 2" },
-    { src: "/placeholder.svg", alt: "Artigo em mídia especializada 3" }
+    { src: "/lovable-uploads/dec3fb29-745f-4680-b554-9517f53b9241.png", alt: "Edição Extra - Publicidade em transporte público" },
+    { src: "/lovable-uploads/74901c2f-77b9-4e9a-ae45-d368d7d1b97a.png", alt: "Democrático OOH - Jefferson Mendes" },
+    { src: "/lovable-uploads/6b759b3c-4321-40e8-a1d8-526191189e37.png", alt: "Campanha Wilson - Meio & Mensagem" }
   ];
 
   // Auto-scroll para testemunhos (8 segundos para leitura confortável)
@@ -76,19 +76,22 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="h-screen flex flex-col bg-warm-beige">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col">
-        {/* Header com título e link do LinkedIn */}
-        <div className="flex justify-between items-center py-8">
-          <h2 className="text-4xl font-heading text-dark-charcoal">O que dizem sobre mim</h2>
-          <a
-            href="https://www.linkedin.com/in/jeffersonlmendes/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center text-olive-green font-medium hover:text-dark-charcoal transition-colors"
-            aria-label="Ver todas as recomendações no LinkedIn de Jefferson Mendes"
-          >
-            Ver todas no LinkedIn
-            <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-          </a>
+        {/* Header com título centralizado e botão LinkedIn */}
+        <div className="flex justify-between items-center py-12 mt-4">
+          <div className="flex-1"></div>
+          <h2 className="text-4xl font-heading text-dark-charcoal text-center">O que dizem sobre mim</h2>
+          <div className="flex-1 flex justify-end">
+            <a
+              href="https://www.linkedin.com/in/jeffersonlmendes/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-olive-green font-medium hover:text-dark-charcoal transition-colors"
+              aria-label="Ver todas as recomendações no LinkedIn de Jefferson Mendes"
+            >
+              Ver todas no LinkedIn
+              <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+            </a>
+          </div>
         </div>
 
         {/* Conteúdo principal */}
@@ -158,7 +161,7 @@ const Testimonials = () => {
                 <img
                   src={mediaImages[currentImage].src}
                   alt={mediaImages[currentImage].alt}
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full object-contain rounded-lg"
                 />
               </div>
             </div>
