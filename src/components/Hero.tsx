@@ -1,16 +1,9 @@
-
 import { Linkedin, Mail, MessageCircle } from 'lucide-react';
-
 const Hero = () => {
-  return (
-    <section id="hero" className="h-screen w-full flex items-center justify-center relative overflow-hidden">
+  return <section id="hero" className="h-screen w-full flex items-center justify-center relative overflow-hidden">
       {/* Background Image - usando a foto do Jefferson */}
       <div className="absolute inset-0">
-        <img 
-          src="/lovable-uploads/214736ae-a6c9-4c22-8290-099d5e531c50.png" 
-          alt="Jefferson Mendes" 
-          className="w-full h-full object-cover"
-        />
+        <img src="/lovable-uploads/214736ae-a6c9-4c22-8290-099d5e531c50.png" alt="Jefferson Mendes" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       </div>
       
@@ -29,35 +22,35 @@ const Hero = () => {
             
             {/* Main Impact Phrase */}
             <p className="text-xl sm:text-2xl lg:text-3xl font-light text-gray-200 mb-8 leading-relaxed animate-fadeInSlightlyDelayed" style={{
-              animationDelay: '0.2s'
-            }}>
+            animationDelay: '0.2s'
+          }}>
               Transformando o comum em extraordinário, uma campanha OOH por vez.
             </p>
             
             {/* Name */}
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 animate-fadeInSlightlyDelayed" style={{
-              animationDelay: '0.4s'
-            }}>
+            animationDelay: '0.4s'
+          }}>
               Jefferson
               <span className="block text-yellow-400 italic">Mendes</span>
             </h1>
             
             {/* Title */}
             <div className="mb-8 animate-fadeInSlightlyDelayed" style={{
-              animationDelay: '0.6s'
-            }}>
+            animationDelay: '0.6s'
+          }}>
               <p className="text-lg sm:text-xl font-light text-gray-100 mb-2">
                 Especialista em Mídia OOH
               </p>
-              <p className="text-sm sm:text-base font-medium text-yellow-400">HÁ 15 ANOS TRADUZINDO DESAFIOS DE MÍDIA EM SOLUÇÕES QUE IMPACTAM</p>
+              <p className="text-sm sm:text-base font-medium text-yellow-400">HÁ 15 ANOS TRADUZINDO DESAFIOS DE MÍDIA EM SOLUÇÕES DE IMPACTO</p>
             </div>
           </div>
 
           {/* Right Column - Contact Links */}
           <div className="flex flex-col justify-center items-center lg:items-start lg:pl-8">
             <div className="flex flex-col gap-4 animate-fadeInSlightlyDelayed" style={{
-              animationDelay: '0.8s'
-            }}>
+            animationDelay: '0.8s'
+          }}>
               <a href="https://www.linkedin.com/in/jeffersonlmendes/" target="_blank" rel="noopener noreferrer" className="group flex items-center space-x-3 px-6 py-3 border border-gray-400 hover:border-yellow-400 transition-all duration-300 bg-black bg-opacity-20 backdrop-blur-sm" aria-label="Visitar LinkedIn de Jefferson Mendes">
                 <Linkedin className="w-5 h-5 text-gray-400 group-hover:text-yellow-400 transition-colors" aria-hidden="true" />
                 <span className="font-medium text-sm text-gray-400 group-hover:text-yellow-400 transition-colors">LinkedIn</span>
@@ -76,8 +69,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
