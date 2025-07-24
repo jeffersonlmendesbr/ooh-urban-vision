@@ -75,7 +75,7 @@ const Testimonials = () => {
 
   return (
     <section id="testimonials" className="h-screen flex flex-col bg-warm-beige">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col">
+      <div className="max-w-7xl mx-auto padding-responsive w-full flex-1 flex flex-col">
         {/* Header com título centralizado e botão LinkedIn */}
         <div className="flex justify-between items-center py-12 mt-4">
           <div className="flex-1"></div>
