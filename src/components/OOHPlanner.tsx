@@ -2,9 +2,9 @@
 
 const OOHPlanner = () => {
   return (
-    <section id="oohplanner" className="min-h-screen flex items-center bg-gradient-to-br from-[#D0B0DF] via-[#F0F0F0] to-[#4B82F8] text-[#080808] relative overflow-hidden">
+    <section id="oohplanner" className="min-h-screen flex items-center py-12 bg-gradient-to-br from-[#D0B0DF] via-[#F0F0F0] to-[#4B82F8] text-[#080808] relative overflow-hidden">
       
-      <div className="max-w-6xl mx-auto padding-responsive text-center relative z-10">
+      <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
         {/* Section Label */}
         <div className="mb-8">
           <span className="inline-block text-[#080808] font-accent text-sm tracking-widest mb-3">
@@ -13,11 +13,11 @@ const OOHPlanner = () => {
           <div className="w-24 h-px bg-[#080808] mx-auto"></div>
         </div>
         
-        <h2 className="font-display text-responsive-4xl lg:text-responsive-5xl text-[#4B82F8] mb-6 lg:mb-8 leading-none text-shadow-bold">
+        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#4B82F8] mb-8 leading-none drop-shadow-lg">
           OOHPlanner
         </h2>
         
-        <p className="text-responsive-xl font-editorial text-[#080808] mb-8 lg:mb-12 max-w-4xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl font-editorial text-[#080808] mb-12 max-w-4xl mx-auto leading-relaxed">
           OOHPlanner é um projeto em construção que nasce da urgência de transformar dados, 
           deslocamento e inventário urbano em decisões estratégicas.
         </p>
