@@ -15,37 +15,37 @@ const Manifesto = () => {
       <div className="absolute top-16 left-8 text-6xl text-gold-accent opacity-70 font-serif">"</div>
       <div className="absolute bottom-16 right-8 text-6xl text-gold-accent opacity-70 font-serif">"</div>
       
-      <div className="max-w-4xl mx-auto text-center relative z-10 px-6 py-20">
+      <div className="max-w-4xl mx-auto text-center relative z-10 px-4 md:px-6 py-12 md:py-20">
         {/* Clean Section Label - agora dourada */}
-        <div className="mb-12">
-          <span className="inline-block text-gold-accent font-medium text-sm tracking-widest mb-4 uppercase">
+        <div className="mb-8 md:mb-12">
+          <span className="inline-block text-gold-accent font-medium text-xs md:text-sm tracking-widest mb-3 md:mb-4 uppercase">
             MANIFESTO
           </span>
-          <div className="w-16 h-px bg-gold-accent mx-auto"></div>
+          <div className="w-12 md:w-16 h-px bg-gold-accent mx-auto"></div>
         </div>
         
-        <div className="space-y-8 text-gray-800">
-          <p className="text-xl md:text-2xl leading-relaxed">
+        <div className="space-y-6 md:space-y-8 text-gray-800">
+          <p className="text-base md:text-xl lg:text-2xl leading-relaxed">
             Acredito que a Mídia OOH não é apenas sobre o espaço físico. É também um reflexo do 
             comportamento urbano. Tem ritmo vivo. Da sociedade com suas escolhas e evoluções em meio 
             ao urbanismo, dos aspectos regionais íntimos e variações culturais que constroem uma 
             identidade própria em cada praça.
           </p>
           
-          <p className="text-xl md:text-2xl leading-relaxed">
+          <p className="text-base md:text-xl lg:text-2xl leading-relaxed">
             O Brasil é gigante pela própria natureza e atuar com mídia exterior não é mais sobre 
             disputar atenção. É mais que transformar cotidiano em impacto ou criar presença onde 
             antes só havia passagem. A mídia exterior já deixou de ser apenas digital e seu futuro 
             é ser maior ainda: contextual, mensurável e inteligente.
           </p>
           
-          <p className="text-xl md:text-2xl leading-relaxed">
+          <p className="text-base md:text-xl lg:text-2xl leading-relaxed">
             Estou pronto para essa visão. Faço parte dos profissionais que constroem essa história. 
             Não planejo apenas mídia em espaços fora de casa, o que faço é construir narrativas.
           </p>
           
-          <div className="pt-8 mt-12 border-t border-gold-accent/50">
-            <blockquote className="text-3xl md:text-4xl font-serif text-gold-accent leading-tight italic">
+          <div className="pt-6 md:pt-8 mt-8 md:mt-12 border-t border-gold-accent/50">
+            <blockquote className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-serif text-gold-accent leading-tight italic">
               "Se é pra estar na rua, que seja com propósito."
             </blockquote>
           </div>

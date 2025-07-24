@@ -46,18 +46,18 @@ const Cases = () => {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 h-full">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 h-full">
         {/* Section Header - Alinhado à esquerda */}
-        <div className="mb-8 text-left">
-          <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-3">
+        <div className="mb-6 md:mb-8 text-left">
+          <span className="inline-block text-gold-accent font-accent text-xs md:text-sm tracking-widest mb-2 md:mb-3">
             VEM PRA RUA
           </span>
-          <div className="w-24 h-px bg-gold-accent"></div>
+          <div className="w-20 md:w-24 h-px bg-gold-accent"></div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-6 h-[calc(100vh-200px)]">
+        <div className="flex flex-col lg:flex-row gap-4 md:gap-6 h-[calc(100vh-160px)] md:h-[calc(100vh-200px)]">
           {/* Lista de Projetos - Mais compacta */}
-          <div className="lg:w-1/4 space-y-2 overflow-y-auto no-scrollbar max-h-[60vh]">
+          <div className="lg:w-1/4 space-y-1 md:space-y-2 overflow-y-auto no-scrollbar max-h-[40vh] md:max-h-[60vh]">
             {projectsData.map((project) => (
               <div
                 key={project.id}
@@ -65,7 +65,7 @@ const Cases = () => {
                 onMouseLeave={() => setHoveredProject(projectsData[0])}
                 className={`
                   uppercase text-xs font-accent cursor-pointer transition-all duration-300 hover-lift
-                  p-2 border-l-2 transition-colors
+                  p-1.5 md:p-2 border-l-2 transition-colors
                   ${hoveredProject?.id === project.id 
                     ? 'text-gold-accent border-gold-accent bg-gold-accent/10' 
                     : 'text-cream-editorial border-transparent hover:text-gold-accent hover:border-gold-accent/50'
@@ -77,9 +77,9 @@ const Cases = () => {
             ))}
           </div>
 
-          {/* Mídia Central - Subida em mais 5% (de -10vh para -15vh) */}
-          <div className="lg:w-1/2 relative overflow-hidden flex items-start justify-center -mt-[15vh]">
-            <div className="w-[360px] h-[515px] relative">
+          {/* Mídia Central - Adaptado para mobile */}
+          <div className="lg:w-1/2 relative overflow-hidden flex items-start justify-center -mt-[5vh] md:-mt-[10vh] lg:-mt-[15vh]">
+            <div className="w-[280px] h-[400px] md:w-[320px] md:h-[460px] lg:w-[360px] lg:h-[515px] relative">
               {projectsData.map((project) => (
                 <div
                   key={project.id}
@@ -89,14 +89,14 @@ const Cases = () => {
                   `}
                 >
                   <div className="w-full h-full bg-slate-elegant/20 border border-gold-accent/20 flex items-center justify-center shadow-editorial hover-glow transition-all duration-300">
-                    <div className="text-center">
-                      <div className="text-xl font-heading text-gold-accent mb-3">
+                    <div className="text-center px-4">
+                      <div className="text-lg md:text-xl font-heading text-gold-accent mb-2 md:mb-3">
                         {project.agency}
                       </div>
-                      <div className="text-base font-editorial text-cream-editorial mb-2">
+                      <div className="text-sm md:text-base font-editorial text-cream-editorial mb-1 md:mb-2">
                         {project.client}
                       </div>
-                      <div className="text-lg font-accent text-white-pure">
+                      <div className="text-base md:text-lg font-accent text-white-pure">
                         {project.name}
                       </div>
                     </div>
@@ -107,30 +107,30 @@ const Cases = () => {
           </div>
 
           {/* Descrição - Mais compacta */}
-          <div className="lg:w-1/4 space-y-4 max-h-[60vh] overflow-y-auto no-scrollbar">
-            <div className="space-y-3">
-              <h3 className="font-heading text-xl text-gold-accent">
+          <div className="lg:w-1/4 space-y-3 md:space-y-4 max-h-[50vh] md:max-h-[60vh] overflow-y-auto no-scrollbar">
+            <div className="space-y-2 md:space-y-3">
+              <h3 className="font-heading text-lg md:text-xl text-gold-accent">
                 Histórias Reais nas Ruas
               </h3>
-              <p className="text-cream-editorial font-editorial leading-relaxed text-sm">
+              <p className="text-cream-editorial font-editorial leading-relaxed text-xs md:text-sm">
                 Cada projeto representa uma história real nas ruas. O desafio vai além da criação visual — 
                 está em entender o espaço, o tempo, o público e o impacto.
               </p>
-              <p className="text-cream-editorial font-editorial leading-relaxed text-sm">
+              <p className="text-cream-editorial font-editorial leading-relaxed text-xs md:text-sm">
                 A mídia exterior exige mais do que presença: ela pede propósito. É sobre criar relevância 
                 onde todos passam — mas nem todos olham.
               </p>
             </div>
             
             {hoveredProject && (
-              <div className="border-t border-gold-accent/30 pt-4 animate-fade-in">
-                <h4 className="font-accent text-gold-accent text-xs tracking-wide mb-2">
+              <div className="border-t border-gold-accent/30 pt-3 md:pt-4 animate-fade-in">
+                <h4 className="font-accent text-gold-accent text-xs tracking-wide mb-1 md:mb-2">
                   PROJETO EM DESTAQUE
                 </h4>
-                <div className="text-white-pure font-heading text-base">
+                <div className="text-white-pure font-heading text-sm md:text-base">
                   {hoveredProject.agency} × {hoveredProject.client}
                 </div>
-                <div className="text-cream-editorial font-editorial text-sm">
+                <div className="text-cream-editorial font-editorial text-xs md:text-sm">
                   {hoveredProject.name}
                 </div>
               </div>

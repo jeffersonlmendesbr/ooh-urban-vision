@@ -74,18 +74,18 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="h-screen flex flex-col bg-warm-beige">
+    <section id="testimonials" className="min-h-screen flex flex-col bg-warm-beige py-8 md:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col">
         {/* Header com título centralizado e botão LinkedIn */}
-        <div className="flex justify-between items-center py-12 mt-4">
-          <div className="flex-1"></div>
-          <h2 className="text-4xl font-heading text-dark-charcoal text-center">O que dizem sobre mim</h2>
-          <div className="flex-1 flex justify-end">
+        <div className="flex flex-col md:flex-row justify-between items-center py-6 md:py-12 mt-2 md:mt-4 gap-4 md:gap-0">
+          <div className="flex-1 md:block hidden"></div>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading text-dark-charcoal text-center">O que dizem sobre mim</h2>
+          <div className="flex-1 flex justify-center md:justify-end">
             <a
               href="https://www.linkedin.com/in/jeffersonlmendes/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-olive-green font-medium hover:text-dark-charcoal transition-colors"
+              className="inline-flex items-center text-olive-green font-medium hover:text-dark-charcoal transition-colors text-sm md:text-base"
               aria-label="Ver todas as recomendações no LinkedIn de Jefferson Mendes"
             >
               Ver todas no LinkedIn
@@ -95,27 +95,27 @@ const Testimonials = () => {
         </div>
 
         {/* Conteúdo principal */}
-        <div className="grid lg:grid-cols-2 gap-12 flex-1 items-center min-h-0">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 flex-1 items-center min-h-0">
           {/* Lado Esquerdo - Testemunhos */}
           <div className="relative h-full flex flex-col justify-center">
-            <div className="relative bg-soft-white rounded-xl p-8 flex flex-col justify-between" style={{ minHeight: '400px', maxHeight: '500px' }}>
+            <div className="relative bg-soft-white rounded-xl p-4 md:p-6 lg:p-8 flex flex-col justify-between" style={{ minHeight: '350px', maxHeight: '500px' }}>
               <div className="overflow-y-auto flex-1">
-                <div className="flex mb-6" role="img" aria-label="Avaliação: 5 de 5 estrelas">
+                <div className="flex mb-4 md:mb-6" role="img" aria-label="Avaliação: 5 de 5 estrelas">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" aria-hidden="true" />
+                    <Star key={i} className="w-4 md:w-5 h-4 md:h-5 text-yellow-500 fill-current" aria-hidden="true" />
                   ))}
                 </div>
                 
-                <p className="text-dark-charcoal mb-6 italic text-lg leading-relaxed">
+                <p className="text-dark-charcoal mb-4 md:mb-6 italic text-sm md:text-base lg:text-lg leading-relaxed">
                   "{testimonials[currentTestimonial].quote}"
                 </p>
               </div>
               
-              <div className="mt-4">
-                <div className="font-semibold text-dark-charcoal text-lg">
+              <div className="mt-3 md:mt-4">
+                <div className="font-semibold text-dark-charcoal text-base md:text-lg">
                   {testimonials[currentTestimonial].author}
                 </div>
-                <div className="text-slate-600 mt-1">
+                <div className="text-slate-600 mt-1 text-sm md:text-base">
                   {testimonials[currentTestimonial].role}
                 </div>
               </div>
@@ -156,7 +156,7 @@ const Testimonials = () => {
 
           {/* Lado Direito - Imagens de Mídia */}
           <div className="relative h-full flex flex-col justify-center">
-            <div className="relative bg-soft-white rounded-xl p-6 flex items-center justify-center" style={{ minHeight: '400px', maxHeight: '500px' }}>
+            <div className="relative bg-soft-white rounded-xl p-4 md:p-6 flex items-center justify-center" style={{ minHeight: '300px', maxHeight: '500px' }}>
               <div className="relative w-full h-full">
                 <img
                   src={mediaImages[currentImage].src}

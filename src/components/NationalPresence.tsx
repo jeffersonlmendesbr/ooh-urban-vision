@@ -23,18 +23,45 @@ const NationalPresence = () => {
     backgroundRepeat: 'no-repeat'
   }}>
       {/* Título centralizado no topo */}
-      <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-10 text-center">
-        <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-4">
+      <div className="absolute top-6 md:top-8 left-1/2 transform -translate-x-1/2 z-10 text-center">
+        <span className="inline-block text-gold-accent font-accent text-xs md:text-sm tracking-widest mb-3 md:mb-4">
           ALCANCE NACIONAL
         </span>
-        <div className="w-24 h-px bg-gold-accent mx-auto mb-6"></div>
+        <div className="w-20 md:w-24 h-px bg-gold-accent mx-auto mb-4 md:mb-6"></div>
       </div>
 
-      {/* Layout em duas colunas deixando o centro livre para o mapa */}
-      <div className="w-full h-full flex justify-between items-center px-8">
+      {/* Layout adaptativo - coluna única em mobile, duas colunas em desktop */}
+      <div className="w-full h-full flex flex-col lg:flex-row lg:justify-between items-center px-4 md:px-8 pt-20 md:pt-0 gap-6 lg:gap-0">
         
-        {/* Coluna esquerda - Subtítulo, Norte e Centro-Oeste */}
-        <div className="flex flex-col space-y-12 w-1/3">
+        {/* Mobile: Layout em coluna única */}
+        <div className="flex flex-col lg:hidden space-y-4 w-full max-w-md">
+          {/* Subtítulo */}
+          <div className="text-cream-editorial text-center">
+            <p className="text-sm md:text-base font-editorial leading-relaxed mb-3">Planejar é mais do que escolher espaços, é entender as ruas</p>
+            <p className="text-sm md:text-base font-editorial leading-relaxed">Essas são as praças em que eu já estive em visita técnica</p>
+          </div>
+
+          {/* Todas as regiões em mobile */}
+          {cityGroups.map((group, groupIndex) => (
+            <div key={groupIndex} className="bg-gold-accent/95 rounded-lg p-3 shadow-lg">
+              <h3 className="font-accent text-xs font-bold text-white mb-2 tracking-wide border-b border-white/20 pb-1">
+                {group.region}
+              </h3>
+              <div className="flex flex-wrap gap-1.5">
+                {group.cities.map((city, cityIndex) => (
+                  <span key={cityIndex} className="bg-gold-accent text-ink-black px-2 py-1 rounded-full text-xs font-heading font-medium shadow-sm">
+                    {city}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: Layout original em duas colunas */}
+        <div className="hidden lg:flex w-full h-full justify-between items-center">
+          {/* Coluna esquerda - Subtítulo, Norte e Centro-Oeste */}
+          <div className="flex flex-col space-y-12 w-1/3">
           {/* Subtítulo */}
           <div className="text-cream-editorial">
             <p className="text-lg font-editorial leading-relaxed mb-3">Planejar é mais do que escolher espaços, é entender as ruas
@@ -108,6 +135,7 @@ Essas são as praças em que eu já estive em visita técnica</p>
                 </span>)}
             </div>
           </div>
+        </div>
         </div>
 
       </div>

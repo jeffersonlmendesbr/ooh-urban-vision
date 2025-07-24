@@ -155,49 +155,49 @@ const Tools = () => {
 
   return (
     <SectionContainer id="tools" className="bg-gradient-editorial">
-      <div className="max-w-7xl mx-auto px-6 w-full">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
         {/* Header Compacto com linha divisória */}
-        <div className="text-center mb-8">
-          <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-4">
+        <div className="text-center mb-6 md:mb-8">
+          <span className="inline-block text-gold-accent font-accent text-xs md:text-sm tracking-widest mb-3 md:mb-4">
             FERRAMENTAS E PLATAFORMAS
           </span>
           
           {/* Linha divisória padrão */}
-          <Separator className="w-24 mx-auto mb-4 bg-gold-accent/30" />
+          <Separator className="w-20 md:w-24 mx-auto mb-3 md:mb-4 bg-gold-accent/30" />
           
-          <p className="text-grey-sophisticated text-base max-w-2xl mx-auto font-editorial text-black">
+          <p className="text-grey-sophisticated text-sm md:text-base max-w-2xl mx-auto font-editorial text-black">
             Especialização contínua em ferramentas estratégicas do mercado OOH
           </p>
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-6">
+        <div className="flex flex-wrap justify-center gap-1.5 md:gap-2 mb-4 md:mb-6">
           {categories.map(category => (
             <button
               key={category.key}
               onClick={() => setSelectedCategory(category.key)}
               className={cn(
-                'px-4 py-2 rounded-full text-sm font-accent transition-all duration-300',
+                'px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-accent transition-all duration-300',
                 selectedCategory === category.key
                   ? 'bg-gold-accent text-ink-black shadow-md'
                   : 'bg-white-pure text-grey-sophisticated hover:bg-gold-accent/10 border border-ink-black/10'
               )}
             >
               {category.title}
-              <span className="ml-2 text-xs opacity-70">({category.count})</span>
+              <span className="ml-1 md:ml-2 text-xs opacity-70">({category.count})</span>
             </button>
           ))}
         </div>
 
         {/* Tools Grid - Centralizado e responsivo */}
-        <div className="flex justify-center mb-6">
-          <div className={cn('grid gap-4 max-w-6xl w-full', getGridColumns())}>
+        <div className="flex justify-center mb-4 md:mb-6">
+          <div className={cn('grid gap-3 md:gap-4 max-w-6xl w-full', getGridColumns())}>
             {getCurrentItems().map(renderToolCard)}
           </div>
         </div>
 
         {/* Summary Stats Compacto */}
-        <div className="grid grid-cols-5 gap-4 text-center pt-4 border-t border-gold-accent/20">
+        <div className="grid grid-cols-5 gap-2 md:gap-4 text-center pt-3 md:pt-4 border-t border-gold-accent/20">
           {categories.map(category => (
             <div
               key={category.key}
@@ -205,7 +205,7 @@ const Tools = () => {
               onClick={() => setSelectedCategory(category.key)}
             >
               <div className={cn(
-                "text-xl font-display mb-1 transition-colors",
+                "text-lg md:text-xl font-display mb-1 transition-colors",
                 selectedCategory === category.key ? "text-gold-accent" : "text-grey-sophisticated"
               )}>
                 {category.count}
