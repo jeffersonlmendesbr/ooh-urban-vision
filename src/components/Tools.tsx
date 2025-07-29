@@ -2,11 +2,12 @@
 import { useState } from 'react';
 import { SectionContainer } from './ui/section-container';
 import { Separator } from './ui/separator';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from './ui/tabs';
 import { timelineData, TimelineItem } from '../data/timeline';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from './ui/hover-card';
 import { Badge } from './ui/badge';
 import { cn } from '@/lib/utils';
-import { GraduationCap, Monitor, Shield, Wrench, Clock } from 'lucide-react';
+import { GraduationCap, Monitor, Shield, Wrench, Clock, Sparkles, ArrowUpRight } from 'lucide-react';
 
 const Tools = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('academic');
@@ -55,75 +56,110 @@ const Tools = () => {
     return categorizedData[selectedCategory as keyof typeof categorizedData] || [];
   };
 
-  const renderToolCard = (item: TimelineItem) => {
+  const renderToolCard = (item: TimelineItem, index: number) => {
     const isECA = item.id === 'eca-usp';
     const CategoryIcon = categoryIcons[selectedCategory as keyof typeof categoryIcons];
     
     return (
       <HoverCard key={item.id}>
         <HoverCardTrigger asChild>
-          <div className={cn(
-            'group relative p-4 rounded-lg border transition-all duration-300 cursor-pointer bg-white/10 backdrop-blur-sm border-white/20 hover:border-gold-accent/40 hover:shadow-md hover:-translate-y-1 h-32 flex flex-col justify-between',
-            isECA && 'ring-2 ring-gold-accent/30 bg-gradient-to-br from-gold-accent/5 to-gold-accent/10'
-          )}>
-            {/* Icon */}
-            <div className={cn(
-              'w-8 h-8 rounded-full flex items-center justify-center mb-2 transition-transform group-hover:scale-110',
-              isECA ? 'bg-gold-accent text-ink-black' : 'text-white bg-white/10'
-            )}>
-              <CategoryIcon className="w-4 h-4" />
+          <div 
+            className={cn(
+              'group relative p-5 rounded-xl border transition-all duration-500 cursor-pointer h-36 flex flex-col justify-between',
+              'bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md border-white/10',
+              'hover:border-gold-accent/50 hover:shadow-2xl hover:shadow-gold-accent/10 hover:-translate-y-2',
+              'hover:bg-gradient-to-br hover:from-gold-accent/5 hover:to-gold-accent/10',
+              'animate-fade-in',
+              isECA && 'ring-1 ring-gold-accent/40 bg-gradient-to-br from-gold-accent/10 to-gold-accent/5 shadow-lg shadow-gold-accent/20'
+            )}
+            style={{
+              animationDelay: `${index * 100}ms`
+            }}
+          >
+            {/* Modern gradient overlay */}
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-transparent via-white/[0.02] to-white/[0.05] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            {/* Enhanced icon */}
+            <div className="relative z-10 flex items-start justify-between mb-3">
+              <div className={cn(
+                'w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300',
+                'group-hover:scale-110 group-hover:rotate-3',
+                isECA 
+                  ? 'bg-gradient-to-br from-gold-accent to-gold-accent/80 text-ink-black shadow-md' 
+                  : 'bg-gradient-to-br from-white/20 to-white/10 text-white backdrop-blur-sm border border-white/10'
+              )}>
+                <CategoryIcon className="w-5 h-5" />
+              </div>
+              
+              {/* Hover indicator */}
+              <ArrowUpRight className="w-4 h-4 text-white/40 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:text-gold-accent" />
             </div>
 
-            {/* Content */}
-            <div className="flex-1 flex flex-col justify-between">
-              <div>
+            {/* Enhanced content */}
+            <div className="relative z-10 flex-1 flex flex-col justify-between">
+              <div className="space-y-2">
                 <h4 className={cn(
-                  'font-heading text-sm font-medium text-white mb-1 group-hover:text-gold-accent transition-colors leading-tight line-clamp-2',
-                  isECA && 'text-sm'
+                  'font-heading text-sm font-semibold leading-tight line-clamp-2',
+                  'text-white group-hover:text-gold-accent transition-colors duration-300',
+                  isECA && 'text-white'
                 )}>
                   {item.title}
                 </h4>
                 
                 {item.subtitle && (
-                  <p className="text-xs text-gold-accent font-accent mb-2 line-clamp-1">
+                  <p className="text-xs text-gold-accent/90 font-accent line-clamp-1 group-hover:text-gold-accent transition-colors duration-300">
                     {item.subtitle}
                   </p>
                 )}
               </div>
               
-              {item.year && (
-                <Badge className={cn(
-                  'text-xs px-2 py-1 w-fit',
-                  isECA ? 'bg-gold-accent text-ink-black' : 'bg-white/20 text-white'
-                )}>
-                  {item.year}
-                </Badge>
-              )}
+              <div className="flex items-center justify-between mt-3">
+                {item.year && (
+                  <Badge className={cn(
+                    'text-xs px-2.5 py-1 font-medium transition-all duration-300',
+                    isECA 
+                      ? 'bg-gold-accent/90 text-ink-black hover:bg-gold-accent' 
+                      : 'bg-white/15 text-white hover:bg-white/25 border border-white/10'
+                  )}>
+                    {item.year}
+                  </Badge>
+                )}
+                
+                {/* Future category sparkle effect */}
+                {selectedCategory === 'future' && (
+                  <Sparkles className="w-3 h-3 text-gold-accent animate-pulse" />
+                )}
+              </div>
 
-              {/* ECA Special Badge */}
+              {/* ECA premium indicator */}
               {isECA && (
-                <div className="absolute -top-1 -right-1">
-                  <div className="w-3 h-3 bg-gold-accent rounded-full animate-pulse"></div>
+                <div className="absolute -top-2 -right-2">
+                  <div className="w-4 h-4 bg-gradient-to-br from-gold-accent to-gold-accent/80 rounded-full animate-pulse shadow-lg shadow-gold-accent/50" />
                 </div>
               )}
             </div>
           </div>
         </HoverCardTrigger>
         
-        <HoverCardContent className="w-80 p-4 bg-white-pure border border-gold-accent/20 shadow-editorial">
-          <div className="space-y-3">
-            <div className="flex items-start gap-3">
-              <div className="p-2 rounded-full bg-gold-accent/10">
-                <CategoryIcon className="w-4 h-4 text-gold-accent" />
+        <HoverCardContent className="w-80 p-5 bg-gradient-to-br from-white to-white/95 border border-gold-accent/30 shadow-2xl shadow-gold-accent/10 backdrop-blur-sm">
+          <div className="space-y-4">
+            <div className="flex items-start gap-4">
+              <div className="p-2.5 rounded-xl bg-gradient-to-br from-gold-accent/10 to-gold-accent/5 border border-gold-accent/20">
+                <CategoryIcon className="w-5 h-5 text-gold-accent" />
               </div>
               <div className="flex-1">
-                <h4 className="font-heading text-ink-black text-sm mb-1">
+                <h4 className="font-heading text-ink-black text-base font-semibold mb-1">
                   {item.title}
                 </h4>
                 {item.subtitle && (
-                  <p className="text-xs text-gold-accent font-accent mb-2">
+                  <p className="text-sm text-gold-accent font-accent mb-2">
                     {item.subtitle}
                   </p>
+                )}
+                {item.year && (
+                  <Badge className="text-xs bg-gold-accent/10 text-gold-accent border border-gold-accent/20">
+                    {item.year}
+                  </Badge>
                 )}
               </div>
             </div>
@@ -168,65 +204,113 @@ const Tools = () => {
       <div className="absolute inset-0 bg-black/70"></div>
       
       <div className="max-w-7xl mx-auto px-4 md:px-6 w-full relative z-10">
-        {/* Header Compacto com linha divisória */}
-        <div className="text-center mb-6 md:mb-8">
-          <span className="inline-block text-gold-accent font-accent text-xs md:text-sm tracking-widest mb-3 md:mb-4">
-            FERRAMENTAS E PLATAFORMAS
-          </span>
-          
-          {/* Linha divisória padrão */}
-          <Separator className="w-20 md:w-24 mx-auto mb-3 md:mb-4 bg-gold-accent/30" />
-          
-          <p className="text-white/90 text-sm md:text-base max-w-2xl mx-auto font-editorial">
-            Especialização contínua em ferramentas estratégicas do mercado OOH
-          </p>
-        </div>
-
-        {/* Navigation Tabs */}
-        <div className="flex flex-wrap justify-center gap-1.5 md:gap-2 mb-4 md:mb-6">
-          {categories.map(category => (
-            <button
-              key={category.key}
-              onClick={() => setSelectedCategory(category.key)}
-              className={cn(
-                'px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-accent transition-all duration-300',
-                selectedCategory === category.key
-                  ? 'bg-gold-accent text-ink-black shadow-md'
-                  : 'bg-white/10 text-white/90 hover:bg-gold-accent/20 border border-white/20 backdrop-blur-sm'
-              )}
-            >
-              {category.title}
-              <span className="ml-1 md:ml-2 text-xs opacity-70">({category.count})</span>
-            </button>
-          ))}
-        </div>
-
-        {/* Tools Grid - Centralizado e responsivo */}
-        <div className="flex justify-center mb-4 md:mb-6">
-          <div className={cn('grid gap-3 md:gap-4 max-w-6xl w-full', getGridColumns())}>
-            {getCurrentItems().map(renderToolCard)}
+        {/* Enhanced header with modern styling */}
+        <div className="text-center mb-8 md:mb-12">
+          <div className="inline-flex items-center gap-2 mb-4">
+            <div className="w-8 h-px bg-gradient-to-r from-transparent to-gold-accent"></div>
+            <span className="text-gold-accent font-accent text-xs md:text-sm tracking-[0.2em] uppercase">
+              Ferramentas e Plataformas
+            </span>
+            <div className="w-8 h-px bg-gradient-to-l from-transparent to-gold-accent"></div>
           </div>
+          
+          <h2 className="text-white text-lg md:text-xl font-heading mb-4 max-w-2xl mx-auto leading-relaxed">
+            Especialização contínua em ferramentas estratégicas do mercado OOH
+          </h2>
         </div>
 
-        {/* Summary Stats Compacto */}
-        <div className="grid grid-cols-5 gap-2 md:gap-4 text-center pt-3 md:pt-4 border-t border-white/20">
-          {categories.map(category => (
-            <div
-              key={category.key}
-              className="cursor-pointer"
-              onClick={() => setSelectedCategory(category.key)}
-            >
-              <div className={cn(
-                "text-lg md:text-xl font-display mb-1 transition-colors",
-                selectedCategory === category.key ? "text-gold-accent" : "text-white/70"
-              )}>
-                {category.count}
-              </div>
-              <div className="text-xs text-white/70 font-accent bg-transparent">
-                {category.title}
-              </div>
-            </div>
-          ))}
+        {/* Modern Tabs Navigation */}
+        <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="w-full mb-8">
+          <TabsList className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-1 h-auto flex-wrap justify-center gap-1 mx-auto w-fit">
+            {categories.map(category => {
+              const CategoryIcon = categoryIcons[category.key as keyof typeof categoryIcons];
+              return (
+                <TabsTrigger
+                  key={category.key}
+                  value={category.key}
+                  className={cn(
+                    'px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-2',
+                    'data-[state=active]:bg-gold-accent data-[state=active]:text-ink-black data-[state=active]:shadow-lg',
+                    'data-[state=inactive]:text-white/80 data-[state=inactive]:hover:text-white data-[state=inactive]:hover:bg-white/10'
+                  )}
+                >
+                  <CategoryIcon className="w-4 h-4" />
+                  <span>{category.title}</span>
+                  <Badge 
+                    variant="secondary" 
+                    className={cn(
+                      'text-xs px-2 py-0.5 ml-1',
+                      selectedCategory === category.key 
+                        ? 'bg-ink-black/20 text-ink-black' 
+                        : 'bg-white/20 text-white/70'
+                    )}
+                  >
+                    {category.count}
+                  </Badge>
+                </TabsTrigger>
+              );
+            })}
+          </TabsList>
+
+          {/* Animated content area */}
+          <div className="mt-8">
+            {categories.map(category => (
+              <TabsContent 
+                key={category.key} 
+                value={category.key}
+                className="animate-fade-in"
+              >
+                <div className="flex justify-center">
+                  <div className={cn('grid gap-4 md:gap-5 max-w-7xl w-full', getGridColumns())}>
+                    {categorizedData[category.key as keyof typeof categorizedData].map((item, index) => 
+                      renderToolCard(item, index)
+                    )}
+                  </div>
+                </div>
+              </TabsContent>
+            ))}
+          </div>
+        </Tabs>
+
+        {/* Enhanced Summary Stats */}
+        <div className="mt-12 pt-8 border-t border-gradient-to-r from-transparent via-white/20 to-transparent">
+          <div className="grid grid-cols-5 gap-3 md:gap-6 max-w-4xl mx-auto">
+            {categories.map(category => {
+              const CategoryIcon = categoryIcons[category.key as keyof typeof categoryIcons];
+              return (
+                <div
+                  key={category.key}
+                  className={cn(
+                    "group cursor-pointer p-3 rounded-xl transition-all duration-300 text-center",
+                    "hover:bg-white/5 hover:scale-105",
+                    selectedCategory === category.key 
+                      ? "bg-gradient-to-br from-gold-accent/10 to-gold-accent/5 border border-gold-accent/30" 
+                      : "hover:border-white/20 border border-transparent"
+                  )}
+                  onClick={() => setSelectedCategory(category.key)}
+                >
+                  <div className="flex flex-col items-center space-y-2">
+                    <CategoryIcon className={cn(
+                      "w-5 h-5 transition-colors duration-300",
+                      selectedCategory === category.key ? "text-gold-accent" : "text-white/60 group-hover:text-white/80"
+                    )} />
+                    <div className={cn(
+                      "text-xl md:text-2xl font-display font-bold transition-colors duration-300",
+                      selectedCategory === category.key ? "text-gold-accent" : "text-white/80 group-hover:text-white"
+                    )}>
+                      {category.count}
+                    </div>
+                    <div className={cn(
+                      "text-xs font-accent transition-colors duration-300 leading-tight",
+                      selectedCategory === category.key ? "text-gold-accent/80" : "text-white/60 group-hover:text-white/70"
+                    )}>
+                      {category.title}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </SectionContainer>
