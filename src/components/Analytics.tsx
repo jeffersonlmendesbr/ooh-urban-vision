@@ -69,8 +69,15 @@ const Analytics = () => {
 
   return (
     <section id="analytics" className="h-screen flex flex-col bg-white text-slate-800 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-amber-50/30 to-amber-100/20"></div>
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/lovable-uploads/dc602ce6-63c0-4c69-bdfe-7d0b12f1b478.png)'
+        }}
+      ></div>
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/30"></div>
       
       {/* Section Header */}
       <div className="relative z-10 text-center pt-8 pb-6">
