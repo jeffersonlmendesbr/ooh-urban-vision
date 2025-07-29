@@ -81,14 +81,14 @@ const Analytics = () => {
       
       {/* Section Header */}
       <div className="relative z-10 text-center pt-8 pb-6">
-        <span className="inline-block text-amber-600 font-semibold text-sm tracking-widest mb-3">
+        <span className="inline-block text-amber-400 font-semibold text-sm tracking-widest mb-3">
           ANÁLISE PROFISSIONAL
         </span>
-        <h2 className="font-serif text-4xl lg:text-5xl text-slate-800 mb-4 font-bold">
+        <h2 className="font-serif text-4xl lg:text-5xl text-white mb-4 font-bold">
           Analytics da Carreira
         </h2>
-        <div className="w-32 h-px bg-amber-600 mx-auto mb-4"></div>
-        <p className="text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        <div className="w-32 h-px bg-amber-400 mx-auto mb-4"></div>
+        <p className="text-white/90 max-w-2xl mx-auto leading-relaxed">
           Dados objetivos que demonstram consistência, maturidade e especialização 
           comparados às médias do mercado brasileiro.
         </p>
@@ -243,7 +243,7 @@ const Analytics = () => {
 
       {/* Bottom Note */}
       <div className="relative z-10 text-center pb-6">
-        <p className="text-xs text-slate-500 max-w-4xl mx-auto">
+        <p className="text-xs text-white/70 max-w-4xl mx-auto">
           * Dados compilados com base em fontes públicas e análises setoriais. 
           Comparativos refletem médias observadas no mercado brasileiro de mídia e publicidade.
         </p>
