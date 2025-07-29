@@ -1,7 +1,16 @@
 
 import { SectionContainer } from './ui/section-container';
 const AfricaDDB = () => {
-  return <SectionContainer id="africaddb" className="gradient-dark">
+  return <SectionContainer 
+    id="africaddb" 
+    className="relative overflow-hidden"
+    style={{
+      backgroundImage: 'url(/lovable-uploads/09861dfd-7dd8-4613-b85a-455a319b75f1.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}
+  >
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Imagem do Continente Africano - Esquerda */}
