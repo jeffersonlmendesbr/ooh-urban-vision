@@ -63,13 +63,13 @@ const Tools = () => {
       <HoverCard key={item.id}>
         <HoverCardTrigger asChild>
           <div className={cn(
-            'group relative p-4 rounded-lg border transition-all duration-300 cursor-pointer bg-white-pure border-ink-black/10 hover:border-gold-accent/40 hover:shadow-md hover:-translate-y-1 h-32 flex flex-col justify-between',
+            'group relative p-4 rounded-lg border transition-all duration-300 cursor-pointer bg-white/10 backdrop-blur-sm border-white/20 hover:border-gold-accent/40 hover:shadow-md hover:-translate-y-1 h-32 flex flex-col justify-between',
             isECA && 'ring-2 ring-gold-accent/30 bg-gradient-to-br from-gold-accent/5 to-gold-accent/10'
           )}>
             {/* Icon */}
             <div className={cn(
               'w-8 h-8 rounded-full flex items-center justify-center mb-2 transition-transform group-hover:scale-110',
-              isECA ? 'bg-gold-accent text-ink-black' : 'text-ink-black bg-ink-black/5'
+              isECA ? 'bg-gold-accent text-ink-black' : 'text-white bg-white/10'
             )}>
               <CategoryIcon className="w-4 h-4" />
             </div>
@@ -78,7 +78,7 @@ const Tools = () => {
             <div className="flex-1 flex flex-col justify-between">
               <div>
                 <h4 className={cn(
-                  'font-heading text-sm font-medium text-ink-black mb-1 group-hover:text-gold-accent transition-colors leading-tight line-clamp-2',
+                  'font-heading text-sm font-medium text-white mb-1 group-hover:text-gold-accent transition-colors leading-tight line-clamp-2',
                   isECA && 'text-sm'
                 )}>
                   {item.title}
@@ -94,7 +94,7 @@ const Tools = () => {
               {item.year && (
                 <Badge className={cn(
                   'text-xs px-2 py-1 w-fit',
-                  isECA ? 'bg-gold-accent text-ink-black' : 'bg-ink-black/10 text-ink-black'
+                  isECA ? 'bg-gold-accent text-ink-black' : 'bg-white/20 text-white'
                 )}>
                   {item.year}
                 </Badge>
@@ -154,8 +154,20 @@ const Tools = () => {
   };
 
   return (
-    <SectionContainer id="tools" className="bg-gradient-editorial">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
+    <SectionContainer 
+      id="tools" 
+      className="relative overflow-hidden"
+      style={{
+        backgroundImage: 'url(/lovable-uploads/35691327-dd57-4eac-8565-719797073f46.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Dark overlay for text contrast */}
+      <div className="absolute inset-0 bg-black/70"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 md:px-6 w-full relative z-10">
         {/* Header Compacto com linha divisória */}
         <div className="text-center mb-6 md:mb-8">
           <span className="inline-block text-gold-accent font-accent text-xs md:text-sm tracking-widest mb-3 md:mb-4">
@@ -165,7 +177,7 @@ const Tools = () => {
           {/* Linha divisória padrão */}
           <Separator className="w-20 md:w-24 mx-auto mb-3 md:mb-4 bg-gold-accent/30" />
           
-          <p className="text-grey-sophisticated text-sm md:text-base max-w-2xl mx-auto font-editorial text-black">
+          <p className="text-white/90 text-sm md:text-base max-w-2xl mx-auto font-editorial">
             Especialização contínua em ferramentas estratégicas do mercado OOH
           </p>
         </div>
@@ -180,7 +192,7 @@ const Tools = () => {
                 'px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-accent transition-all duration-300',
                 selectedCategory === category.key
                   ? 'bg-gold-accent text-ink-black shadow-md'
-                  : 'bg-white-pure text-grey-sophisticated hover:bg-gold-accent/10 border border-ink-black/10'
+                  : 'bg-white/10 text-white/90 hover:bg-gold-accent/20 border border-white/20 backdrop-blur-sm'
               )}
             >
               {category.title}
@@ -197,7 +209,7 @@ const Tools = () => {
         </div>
 
         {/* Summary Stats Compacto */}
-        <div className="grid grid-cols-5 gap-2 md:gap-4 text-center pt-3 md:pt-4 border-t border-gold-accent/20">
+        <div className="grid grid-cols-5 gap-2 md:gap-4 text-center pt-3 md:pt-4 border-t border-white/20">
           {categories.map(category => (
             <div
               key={category.key}
@@ -206,11 +218,11 @@ const Tools = () => {
             >
               <div className={cn(
                 "text-lg md:text-xl font-display mb-1 transition-colors",
-                selectedCategory === category.key ? "text-gold-accent" : "text-grey-sophisticated"
+                selectedCategory === category.key ? "text-gold-accent" : "text-white/70"
               )}>
                 {category.count}
               </div>
-              <div className="text-xs text-grey-sophisticated font-accent bg-transparent">
+              <div className="text-xs text-white/70 font-accent bg-transparent">
                 {category.title}
               </div>
             </div>
