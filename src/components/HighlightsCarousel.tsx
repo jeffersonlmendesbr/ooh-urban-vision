@@ -8,6 +8,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Button } from './ui/button';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 import AfricaDDB from './AfricaDDB';
 import Vivo from './Vivo';
@@ -25,13 +27,23 @@ const HighlightsCarousel = () => {
   );
 
   return (
-    <section id="highlights" className="relative w-full overflow-hidden py-16 sm:py-20 md:py-24 bg-cream-editorial">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 md:mb-12">
-            <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-3">
-              DESTAQUE PROFISSIONAL
+    <section
+      id="highlights"
+      className="relative w-full overflow-hidden py-24 lg:py-32"
+      style={{
+        backgroundImage: 'url(/lovable-uploads/09861dfd-7dd8-4613-b85a-455a319b75f1.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      <div className="absolute inset-0 bg-background/80" />
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+            <span className="text-sm font-bold tracking-widest uppercase text-primary">
+              Destaque Profissional
             </span>
-            <div className="w-24 h-px bg-gold-accent mx-auto"></div>
+            <div className="w-20 h-0.5 mt-2 bg-primary mx-auto" />
         </div>
 
         <Carousel
@@ -41,23 +53,28 @@ const HighlightsCarousel = () => {
             loop: true,
           }}
         >
-          <CarouselContent>
+          <CarouselContent className="-ml-4">
             {slides.map(({ id, Component }) => (
-              <CarouselItem key={id}>
-                <div className="p-1">
-                  <Card className="border-none shadow-none bg-transparent">
-                    <CardContent className="flex items-center justify-center p-0">
-                      <Component />
-                    </CardContent>
-                  </Card>
-                </div>
+              <CarouselItem key={id} className="pl-4">
+                <Card>
+                  <CardContent className="flex items-center justify-center p-8 lg:p-12 min-h-[500px]">
+                    <Component />
+                  </CardContent>
+                </Card>
               </CarouselItem>
             ))}
           </CarouselContent>
 
-          {/* Custom Navigation Buttons */}
-          <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transition-all duration-300 bg-gold-accent text-white-pure hover:bg-gold-accent/90 hover:scale-105 disabled:bg-gold-accent/20 disabled:text-gold-accent/40 disabled:cursor-not-allowed" />
-          <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transition-all duration-300 bg-gold-accent text-white-pure hover:bg-gold-accent/90 hover:scale-105 disabled:bg-gold-accent/20 disabled:text-gold-accent/40 disabled:cursor-not-allowed" />
+          <CarouselPrevious asChild>
+            <Button variant="secondary" size="icon" className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
+              <ArrowLeft />
+            </Button>
+          </CarouselPrevious>
+          <CarouselNext asChild>
+            <Button variant="secondary" size="icon" className="absolute right-0 top-1/2 -translate-y-1/2 z-10">
+              <ArrowRight />
+            </Button>
+          </CarouselNext>
         </Carousel>
       </div>
     </section>

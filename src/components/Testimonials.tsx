@@ -1,6 +1,9 @@
 
 import { Star, ArrowLeft, ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { Card, CardContent, CardFooter, CardHeader } from './ui/card';
+import { Button } from './ui/button';
+import { cn } from '@/lib/utils';
 
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -25,7 +28,7 @@ const Testimonials = () => {
       role: "Diretora de Mídia"
     },
     {
-      quote: "Trabaje junto con Jefferson varios años y siempre se ha destacado por su proactividad, responsabilidad y trabajo en equipo. Hemos tenido grandes desafíos y en cada uno de éstos logró superar los obstáculos para obtener los mejores resultados. Lo que más destaco de él es su iniciativa y creatividad para dar valor al trabajo de todos los días.",
+      quote: "Trabaje junto con Jefferson varios años y siempre se ha destacado por su proactividad, responsabilidad y trabajo en equipo. Hemos tenido grandes desafíos y en cada uno de éstos logró superar los obstáculos para obtener los mejores resultados. Lo que más destaco de él es su iniciativa y creatividad para dar valor al trabalho de todos los días.",
       author: "Nicolas Matera",
       role: "Business Development en TDT Global"
     },
@@ -36,179 +39,106 @@ const Testimonials = () => {
     }
   ];
 
-  // Imagens fornecidas pelo usuário
   const mediaImages = [
     { src: "/lovable-uploads/dec3fb29-745f-4680-b554-9517f53b9241.png", alt: "Edição Extra - Publicidade em transporte público" },
     { src: "/lovable-uploads/74901c2f-77b9-4e9a-ae45-d368d7d1b97a.png", alt: "Democrático OOH - Jefferson Mendes" },
     { src: "/lovable-uploads/6b759b3c-4321-40e8-a1d8-526191189e37.png", alt: "Campanha Wilson - Meio & Mensagem" }
   ];
 
-  // Auto-scroll para testemunhos (8 segundos para leitura confortável)
   useEffect(() => {
     if (isTestimonialPaused) return;
-    const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 8000);
+    const interval = setInterval(() => setCurrentTestimonial(prev => (prev + 1) % testimonials.length), 8000);
     return () => clearInterval(interval);
   }, [testimonials.length, isTestimonialPaused]);
 
-  // Auto-scroll para imagens (5 segundos)
   useEffect(() => {
     if (isImagePaused) return;
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % mediaImages.length);
-    }, 5000);
+    const interval = setInterval(() => setCurrentImage(prev => (prev + 1) % mediaImages.length), 5000);
     return () => clearInterval(interval);
   }, [mediaImages.length, isImagePaused]);
 
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const nextImage = () => {
-    setCurrentImage((prev) => (prev + 1) % mediaImages.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImage((prev) => (prev - 1 + mediaImages.length) % mediaImages.length);
-  };
+  const CarouselControls = ({ onPrev, onNext, count, currentIndex, onIndicatorClick }: any) => (
+    <div className="flex flex-col items-center mt-6 space-y-4">
+      <div className="flex space-x-3">
+        <Button variant="secondary" size="icon" onClick={onPrev} aria-label="Anterior">
+          <ArrowLeft className="w-5 h-5" />
+        </Button>
+        <Button variant="secondary" size="icon" onClick={onNext} aria-label="Próximo">
+          <ArrowRight className="w-5 h-5" />
+        </Button>
+      </div>
+      <div className="flex space-x-2">
+        {[...Array(count)].map((_, index) => (
+          <button
+            key={index}
+            onClick={() => onIndicatorClick(index)}
+            className={cn(
+              'w-2.5 h-2.5 rounded-full transition-all duration-300',
+              currentIndex === index ? 'bg-primary scale-125' : 'bg-primary/30 hover:bg-primary/50'
+            )}
+            aria-label={`Ir para o item ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
 
   return (
-    <section id="testimonials" className="flex flex-col bg-warm-beige py-16 sm:py-20 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col">
-        {/* Header com título centralizado e botão LinkedIn */}
-        <div className="flex flex-col md:flex-row justify-between items-center py-6 md:py-12 mt-2 md:mt-4 gap-4 md:gap-0">
-          <div className="flex-1 md:block hidden"></div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading text-dark-charcoal text-center">O que dizem sobre mim</h2>
-          <div className="flex-1 flex justify-center md:justify-end">
-            <a
-              href="https://www.linkedin.com/in/jeffersonlmendes/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-olive-green font-medium hover:text-dark-charcoal transition-colors text-sm md:text-base"
-              aria-label="Ver todas as recomendações no LinkedIn de Jefferson Mendes"
-            >
-              Ver todas no LinkedIn
-              <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+    <section id="testimonials" className="py-24 lg:py-32">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-12 text-center md:text-left">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 md:mb-0">
+            O que dizem sobre mim
+          </h2>
+          <Button asChild variant="link" className="text-base text-primary">
+            <a href="https://www.linkedin.com/in/jeffersonlmendes/" target="_blank" rel="noopener noreferrer">
+              Ver todas no LinkedIn <ArrowRight className="ml-2 h-4 w-4" />
             </a>
-          </div>
+          </Button>
         </div>
 
-        {/* Conteúdo principal */}
-        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 flex-1 items-center min-h-0">
-          {/* Lado Esquerdo - Testemunhos */}
-          <div
-            className="relative h-full flex flex-col justify-center"
-            onMouseEnter={() => setIsTestimonialPaused(true)}
-            onMouseLeave={() => setIsTestimonialPaused(false)}
-          >
-            <div className="relative bg-soft-white rounded-xl p-4 md:p-6 lg:p-8 flex flex-col justify-between">
-              <div className="overflow-y-auto flex-1">
-                <div className="flex mb-4 md:mb-6" role="img" aria-label="Avaliação: 5 de 5 estrelas">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 md:w-5 h-4 md:h-5 text-yellow-500 fill-current" aria-hidden="true" />
-                  ))}
+        <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+          <div onMouseEnter={() => setIsTestimonialPaused(true)} onMouseLeave={() => setIsTestimonialPaused(false)} className="flex flex-col">
+            <Card className="flex-1 flex flex-col min-h-[450px] hover:border-primary/50 hover:-translate-y-1">
+              <CardHeader>
+                <div className="flex" role="img" aria-label="Avaliação: 5 de 5 estrelas">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 text-primary fill-primary" />)}
                 </div>
-                
-                <p className="text-dark-charcoal mb-4 md:mb-6 italic text-sm md:text-base lg:text-lg leading-relaxed">
+              </CardHeader>
+              <CardContent className="flex-1">
+                <blockquote className="italic text-lg text-foreground/80">
                   "{testimonials[currentTestimonial].quote}"
-                </p>
-              </div>
-              
-              <div className="mt-3 md:mt-4">
-                <div className="font-semibold text-dark-charcoal text-base md:text-lg">
-                  {testimonials[currentTestimonial].author}
-                </div>
-                <div className="text-slate-600 mt-1 text-sm md:text-base">
-                  {testimonials[currentTestimonial].role}
-                </div>
-              </div>
-            </div>
-
-            {/* Navegação dos testemunhos - posição fixa */}
-            <div className="flex justify-center space-x-4 mt-6">
-              <button
-                onClick={prevTestimonial}
-                className="bg-olive-green text-white p-2 rounded-full hover:bg-opacity-80 transition-colors"
-                aria-label="Testemunho anterior"
-              >
-                <ArrowLeft className="w-4 h-4" />
-              </button>
-              <button
-                onClick={nextTestimonial}
-                className="bg-olive-green text-white p-2 rounded-full hover:bg-opacity-80 transition-colors"
-                aria-label="Próximo testemunho"
-              >
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Indicadores */}
-            <div className="flex justify-center space-x-2 mt-4">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentTestimonial ? 'bg-olive-green' : 'bg-gray-300'
-                  }`}
-                  aria-label={`Ir para testemunho ${index + 1}`}
-                />
-              ))}
-            </div>
+                </blockquote>
+              </CardContent>
+              <CardFooter className="flex-col items-start">
+                <p className="font-bold text-foreground text-lg">{testimonials[currentTestimonial].author}</p>
+                <p className="text-foreground/70">{testimonials[currentTestimonial].role}</p>
+              </CardFooter>
+            </Card>
+            <CarouselControls
+              onPrev={() => setCurrentTestimonial(prev => (prev - 1 + testimonials.length) % testimonials.length)}
+              onNext={() => setCurrentTestimonial(prev => (prev + 1) % testimonials.length)}
+              count={testimonials.length}
+              currentIndex={currentTestimonial}
+              onIndicatorClick={setCurrentTestimonial}
+            />
           </div>
 
-          {/* Lado Direito - Imagens de Mídia */}
-          <div
-            className="relative h-full flex flex-col justify-center"
-            onMouseEnter={() => setIsImagePaused(true)}
-            onMouseLeave={() => setIsImagePaused(false)}
-          >
-            <div className="relative bg-soft-white rounded-xl p-4 md:p-6 flex items-center justify-center">
-              <div className="relative w-full h-full">
-                <img
-                  src={mediaImages[currentImage].src}
-                  alt={mediaImages[currentImage].alt}
-                  className="w-full h-full object-contain rounded-lg"
-                />
-              </div>
-            </div>
-            
-            {/* Navegação das imagens - posição fixa */}
-            <div className="flex justify-center space-x-4 mt-6">
-              <button
-                onClick={prevImage}
-                className="bg-olive-green text-white p-2 rounded-full hover:bg-opacity-80 transition-colors"
-                aria-label="Imagem anterior"
-              >
-                <ArrowLeft className="w-4 h-4" />
-              </button>
-              <button
-                onClick={nextImage}
-                className="bg-olive-green text-white p-2 rounded-full hover:bg-opacity-80 transition-colors"
-                aria-label="Próxima imagem"
-              >
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Indicadores das imagens */}
-            <div className="flex justify-center space-x-2 mt-4">
-              {mediaImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImage(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentImage ? 'bg-olive-green' : 'bg-gray-300'
-                  }`}
-                  aria-label={`Ir para imagem ${index + 1}`}
-                />
-              ))}
-            </div>
+          <div onMouseEnter={() => setIsImagePaused(true)} onMouseLeave={() => setIsImagePaused(false)} className="flex flex-col">
+            <Card className="flex-1 flex items-center justify-center p-4 min-h-[450px] hover:border-primary/50 hover:-translate-y-1">
+              <img
+                src={mediaImages[currentImage].src}
+                alt={mediaImages[currentImage].alt}
+                className="max-w-full max-h-full object-contain rounded-md"
+              />
+            </Card>
+            <CarouselControls
+              onPrev={() => setCurrentImage(prev => (prev - 1 + mediaImages.length) % mediaImages.length)}
+              onNext={() => setCurrentImage(prev => (prev + 1) % mediaImages.length)}
+              count={mediaImages.length}
+              currentIndex={currentImage}
+              onIndicatorClick={setCurrentImage}
+            />
           </div>
         </div>
       </div>

@@ -14,10 +14,9 @@ const NavigationMenuItem = ({
   return (
     <button
       onClick={() => onScrollToSection(sectionId)}
-      className={`text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading text-white-pure hover:text-gold-accent transition-colors duration-300 text-right w-full block leading-none ${
-        isActive ? 'text-gold-accent font-semibold' : ''
-      }`}
-      style={{ fontSize: 'clamp(3rem, 12vw, 10rem)' }}
+      className={`w-full block text-right font-extrabold leading-none transition-colors duration-300
+        ${isActive ? 'text-primary' : 'text-muted-foreground hover:text-primary'}`}
+      style={{ fontSize: 'clamp(3rem, 10vw, 8rem)' }}
       aria-current={isActive ? 'page' : undefined}
     >
       {label}

@@ -1,66 +1,48 @@
 
-import { SectionContainer } from './ui/section-container';
-
 const Vivo = () => (
-  <SectionContainer
-    id="vivo"
-    className="relative overflow-hidden w-full py-12 md:py-16"
-    style={{
-      backgroundImage:
-        'url(/lovable-uploads/09861dfd-7dd8-4613-b85a-455a319b75f1.png)',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat'
-    }}
-  >
-    <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
-          {/* Logo VIVO - Esquerda */}
-          <div className="relative flex items-center justify-center">
-            <img
-              src="/lovable-uploads/f2c837a9-61c0-43b8-85af-ccbe5c6c392a.png"
-              alt="Logo VIVO"
-              className="w-full h-auto max-w-sm lg:max-w-md object-contain"
-            />
-          </div>
+  <div className="grid lg:grid-cols-2 gap-12 items-center">
+    {/* Image Column */}
+    <div className="flex items-center justify-center">
+      <img
+        src="/lovable-uploads/f2c837a9-61c0-43b8-85af-ccbe5c6c392a.png"
+        alt="Logo VIVO"
+        className="w-full h-auto max-w-md object-contain"
+      />
+    </div>
 
-          {/* Conteúdo - Direita */}
-          <div className="space-y-6 md:space-y-8">
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-white-pure mb-8 leading-none">
-              VIVO
-            </h2>
-            
-            <div className="space-y-6">
-              <div className="mb-6">
-                <div className="inline-block bg-gold-accent text-ink-black px-4 py-2 font-accent text-sm tracking-wide mb-4">
-                  CONTA QUE ATENDO
-                </div>
-              </div>
-              
-              <p className="text-lg md:text-xl font-editorial leading-relaxed text-cream-editorial">
-                Na VIVO, encontrei um parceiro que valoriza estratégia, inovação e consistência. 
-                Atender uma das maiores marcas do país me desafiou a pensar grande, a planejar com 
-                profundidade e a buscar impacto real em cada campanha. Estar ao lado da VIVO em 
-                diferentes agências, por tantos anos, não é apenas um reconhecimento — é um selo de 
-                confiança que impulsiona minha jornada profissional.
-              </p>
-              
-              <div className="border-t border-gold-accent/30 pt-6">
-                <blockquote className="text-xl md:text-2xl font-heading text-gold-accent italic leading-tight">
-                  "Ao lado da VIVO, aprendi que presença não é estar em todos os lugares — é estar certo no momento certo."
-                </blockquote>
-              </div>
+    {/* Content Column */}
+    <div className="space-y-6">
+      <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+        VIVO
+      </h2>
 
-              <div className="flex items-center space-x-4 pt-4">
-                <div className="bg-gold-accent/20 border border-gold-accent/50 px-4 py-2">
-                  <span className="text-gold-accent font-accent text-xs tracking-wide">DESDE 2019</span>
-                </div>
-              </div>
-            </div>
+      <div className="space-y-4">
+        <div className="inline-block bg-primary text-primary-foreground px-4 py-1 rounded-full font-semibold text-sm tracking-wide">
+          CONTA QUE ATENDO
+        </div>
+
+        <p className="text-lg text-foreground/80">
+          Na VIVO, encontrei um parceiro que valoriza estratégia, inovação e consistência.
+          Atender uma das maiores marcas do país me desafiou a pensar grande, a planejar com
+          profundidade e a buscar impacto real em cada campanha. Estar ao lado da VIVO em
+          diferentes agências, por tantos anos, não é apenas um reconhecimento — é um selo de
+          confiança que impulsiona minha jornada profissional.
+        </p>
+
+        <div className="border-t border-primary/20 pt-4">
+          <blockquote className="text-xl font-medium italic text-primary">
+            "Ao lado da VIVO, aprendi que presença não é estar em todos os lugares — é estar certo no momento certo."
+          </blockquote>
+        </div>
+
+        <div className="flex flex-wrap gap-2 pt-2">
+          <div className="bg-primary/10 border border-primary/30 px-3 py-1 rounded-full">
+            <span className="text-primary font-semibold text-xs tracking-wide">DESDE 2019</span>
           </div>
         </div>
       </div>
-    </SectionContainer>
-  );
+    </div>
+  </div>
+);
 
 export default Vivo;
