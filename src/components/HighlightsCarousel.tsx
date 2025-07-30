@@ -1,101 +1,67 @@
+import React from 'react';
+import Autoplay from "embla-carousel-autoplay";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
-import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import AfricaDDB from './AfricaDDB';
+import Vivo from './Vivo';
+import Eletromidia from './Eletromidia';
+
+const slides = [
+  { id: 'africa', Component: AfricaDDB },
+  { id: 'vivo', Component: Vivo },
+  { id: 'eletromidia', Component: Eletromidia },
+];
 
 const HighlightsCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const navigateToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
-
-  const handlePrevious = () => {
-    if (currentIndex > 0) {
-      navigateToSlide(currentIndex - 1);
-    }
-  };
-
-  const handleNext = () => {
-    if (currentIndex < 2) {
-      navigateToSlide(currentIndex + 1);
-    }
-  };
-
-  // Handle keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'ArrowLeft') {
-        handlePrevious();
-      } else if (event.key === 'ArrowRight') {
-        handleNext();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentIndex]);
+  const plugin = React.useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true, stopOnMouseEnter: true })
+  );
 
   return (
-    <section id="highlights" className="relative h-screen overflow-hidden">
-      {/* Navigation Arrows - sempre douradas */}
-      <button
-        onClick={handlePrevious}
-        disabled={currentIndex === 0}
-        className={`absolute left-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transition-all duration-300 ${
-          currentIndex === 0
-            ? 'bg-gold-accent/20 text-gold-accent/40 cursor-not-allowed'
-            : 'bg-gold-accent text-white-pure hover:bg-gold-accent/90 hover-scale'
-        }`}
-      >
-        <ChevronLeft size={24} />
-      </button>
-
-      <button
-        onClick={handleNext}
-        disabled={currentIndex === 2}
-        className={`absolute right-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transition-all duration-300 ${
-          currentIndex === 2
-            ? 'bg-gold-accent/20 text-gold-accent/40 cursor-not-allowed'
-            : 'bg-gold-accent text-white-pure hover:bg-gold-accent/90 hover-scale'
-        }`}
-      >
-        <ChevronRight size={24} />
-      </button>
-
-      {/* Dots Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-2">
-        {[0, 1, 2].map((index) => (
-          <button
-            key={index}
-            onClick={() => navigateToSlide(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              currentIndex === index 
-                ? 'bg-gold-accent scale-125' 
-                : 'bg-gold-accent/40 hover:bg-gold-accent/60'
-            }`}
-          />
-        ))}
-      </div>
-
-      {/* Content Container - Sem scroll horizontal */}
-      <div className="relative h-full">
-        <div className={`absolute inset-0 transition-opacity duration-500 ${currentIndex === 0 ? 'opacity-100' : 'opacity-0'}`}>
-          <AfricaDDB />
+    <section id="highlights" className="relative w-full overflow-hidden py-16 sm:py-20 md:py-24 bg-cream-editorial">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 md:mb-12">
+            <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-3">
+              DESTAQUE PROFISSIONAL
+            </span>
+            <div className="w-24 h-px bg-gold-accent mx-auto"></div>
         </div>
-        <div className={`absolute inset-0 transition-opacity duration-500 ${currentIndex === 1 ? 'opacity-100' : 'opacity-0'}`}>
-          <Vivo />
-        </div>
-        <div className={`absolute inset-0 transition-opacity duration-500 ${currentIndex === 2 ? 'opacity-100' : 'opacity-0'}`}>
-          <Eletromidia />
-        </div>
+
+        <Carousel
+          plugins={[plugin.current]}
+          className="w-full"
+          opts={{
+            loop: true,
+          }}
+        >
+          <CarouselContent>
+            {slides.map(({ id, Component }) => (
+              <CarouselItem key={id}>
+                <div className="p-1">
+                  <Card className="border-none shadow-none bg-transparent">
+                    <CardContent className="flex items-center justify-center p-0">
+                      <Component />
+                    </CardContent>
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+
+          {/* Custom Navigation Buttons */}
+          <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transition-all duration-300 bg-gold-accent text-white-pure hover:bg-gold-accent/90 hover:scale-105 disabled:bg-gold-accent/20 disabled:text-gold-accent/40 disabled:cursor-not-allowed" />
+          <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full transition-all duration-300 bg-gold-accent text-white-pure hover:bg-gold-accent/90 hover:scale-105 disabled:bg-gold-accent/20 disabled:text-gold-accent/40 disabled:cursor-not-allowed" />
+        </Carousel>
       </div>
     </section>
   );
 };
-
-// Import components
-import AfricaDDB from './AfricaDDB';
-import Vivo from './Vivo';
-import Eletromidia from './Eletromidia';
 
 export default HighlightsCarousel;

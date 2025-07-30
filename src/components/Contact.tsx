@@ -1,5 +1,11 @@
 
 import { Brain, Target, Users, Settings, BarChart3 } from 'lucide-react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 const Contact = () => {
   const professionalPillars = [
@@ -31,12 +37,12 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="h-screen flex flex-col bg-cream-editorial text-ink-black relative overflow-hidden">
+    <section id="contact" className="flex flex-col bg-cream-editorial text-ink-black relative overflow-hidden py-16 sm:py-20 md:py-24">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23D4AF37%22%20fill-opacity%3D%220.04%22%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2220%22%20r%3D%224%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
       
       {/* Section Header */}
-      <div className="relative z-10 text-center pt-6 pb-4">
+      <div className="relative z-10 text-center mb-10 md:mb-12">
         <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-2">
           PILARES DE ATUAÇÃO
         </span>
@@ -44,8 +50,10 @@ const Contact = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex items-center justify-center px-8 relative z-10 min-h-0">
-        <div className="relative flex items-center justify-between w-full max-w-7xl mx-auto h-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* Desktop Layout: hidden below lg */}
+        <div className="hidden lg:flex items-center justify-between w-full max-w-7xl mx-auto">
           {/* Jefferson Mendes Circle - Left */}
           <div className="flex-shrink-0 relative">
             <div className="bg-white-pure border-2 border-gold-accent rounded-full w-56 h-56 flex flex-col items-center justify-center shadow-gold relative">
@@ -77,23 +85,17 @@ const Contact = () => {
           </div>
 
           {/* Icons Column - Center */}
-          <div className="flex flex-col items-center justify-center space-y-5 mx-12 h-full">
+          <div className="flex flex-col items-center justify-center space-y-5 mx-12">
             {professionalPillars.map((pillar, index) => {
               const IconComponent = pillar.icon;
-              
               return (
                 <div key={index} className="relative flex flex-col items-center">
-                  {/* Icon Circle */}
                   <div className="bg-white-pure border-2 border-gold-accent rounded-full w-16 h-16 flex items-center justify-center shadow-editorial hover:scale-110 transition-transform duration-300 relative z-10">
                     <IconComponent className="w-7 h-7 text-gold-accent" />
                   </div>
-                  
-                  {/* Title below icon */}
                   <h3 className="font-heading text-xs font-bold text-gold-accent tracking-wide text-center mt-1">
                     {pillar.title}
                   </h3>
-                  
-                  {/* Connection Line to Description (Right) */}
                   <div className="absolute left-full w-16 h-px bg-gold-accent opacity-60 ml-4 top-1/2 transform -translate-y-1/2"></div>
                 </div>
               );
@@ -101,7 +103,7 @@ const Contact = () => {
           </div>
 
           {/* Descriptions Column - Right */}
-          <div className="flex flex-col justify-center space-y-5 flex-1 max-w-md h-full">
+          <div className="flex flex-col justify-center space-y-5 flex-1 max-w-md">
             {professionalPillars.map((pillar, index) => (
               <div key={index} className="bg-white-pure border border-gold-accent/20 p-4 rounded-lg shadow-sm hover:shadow-editorial transition-shadow duration-300">
                 <h3 className="font-heading text-sm font-bold text-gold-accent mb-2 tracking-wide">
@@ -113,6 +115,30 @@ const Contact = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Mobile Layout: visible below lg */}
+        <div className="block lg:hidden max-w-2xl mx-auto">
+           <Accordion type="single" collapsible className="w-full">
+            {professionalPillars.map((pillar, index) => {
+              const IconComponent = pillar.icon;
+              return (
+                <AccordionItem value={`item-${index}`} key={index}>
+                  <AccordionTrigger className="font-heading text-base text-ink-black hover:no-underline">
+                    <div className="flex items-center gap-4">
+                      <div className="flex-shrink-0 bg-white-pure border border-gold-accent/30 rounded-full w-12 h-12 flex items-center justify-center">
+                         <IconComponent className="w-6 h-6 text-gold-accent" />
+                      </div>
+                      <span className="text-left">{pillar.title}</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-slate-elegant font-editorial text-sm leading-relaxed pb-4">
+                    {pillar.description}
+                  </AccordionContent>
+                </AccordionItem>
+              )
+            })}
+          </Accordion>
         </div>
       </div>
     </section>

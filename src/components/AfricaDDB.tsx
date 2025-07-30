@@ -1,9 +1,7 @@
 
-import { SectionContainer } from './ui/section-container';
 const AfricaDDB = () => {
-  return <SectionContainer 
-    id="africaddb" 
-    className="relative overflow-hidden"
+  return <div
+    className="relative overflow-hidden w-full py-12 md:py-16"
     style={{
       backgroundImage: 'url(/lovable-uploads/09861dfd-7dd8-4613-b85a-455a319b75f1.png)',
       backgroundSize: 'cover',
@@ -12,24 +10,14 @@ const AfricaDDB = () => {
     }}
   >
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Imagem do Continente Africano - Esquerda */}
-          <div className="relative order-2 lg:order-1">
-            <div className="h-[40vh] md:h-[50vh] lg:h-[60vh] flex items-center justify-center">
-              <img src="/lovable-uploads/d2c3d440-d9a8-4970-bf0b-b4fbdc110f06.png" alt="Logo África" className="max-w-full max-h-full object-contain" />
-            </div>
+          <div className="relative order-2 lg:order-1 flex items-center justify-center">
+            <img src="/lovable-uploads/d2c3d440-d9a8-4970-bf0b-b4fbdc110f06.png" alt="Logo África" className="w-full h-auto max-w-sm lg:max-w-md object-contain" />
           </div>
 
           {/* Conteúdo - Direita */}
           <div className="space-y-6 md:space-y-8 order-1 lg:order-2">
-            {/* Section Label */}
-            <div className="mb-6 md:mb-8">
-              <span className="inline-block text-gold-accent font-accent text-xs md:text-sm tracking-widest mb-3 md:mb-4">
-                DESTAQUE PROFISSIONAL
-              </span>
-              <div className="w-20 md:w-24 h-px bg-gold-accent"></div>
-            </div>
-            
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white-pure mb-6 md:mb-8 leading-none">
               Africa Creative DDB
             </h2>

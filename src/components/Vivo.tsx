@@ -1,11 +1,8 @@
 
-import { SectionContainer } from './ui/section-container';
-
 const Vivo = () => {
   return (
-    <SectionContainer 
-      id="vivo" 
-      className="relative overflow-hidden"
+    <div
+      className="relative overflow-hidden w-full py-12 md:py-16"
       style={{
         backgroundImage: 'url(/lovable-uploads/09861dfd-7dd8-4613-b85a-455a319b75f1.png)',
         backgroundSize: 'cover',
@@ -14,28 +11,18 @@ const Vivo = () => {
       }}
     >
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Logo VIVO - Esquerda */}
-          <div className="relative">
-            <div className="h-[60vh] flex items-center justify-center">
-              <img 
-                src="/lovable-uploads/f2c837a9-61c0-43b8-85af-ccbe5c6c392a.png" 
-                alt="Logo VIVO" 
-                className="max-w-full max-h-full object-contain" 
-              />
-            </div>
+          <div className="relative flex items-center justify-center">
+            <img
+              src="/lovable-uploads/f2c837a9-61c0-43b8-85af-ccbe5c6c392a.png"
+              alt="Logo VIVO"
+              className="w-full h-auto max-w-sm lg:max-w-md object-contain"
+            />
           </div>
 
           {/* Conteúdo - Direita */}
-          <div className="space-y-8">
-            {/* Section Label */}
-            <div className="mb-8">
-              <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-4">
-                DESTAQUE PROFISSIONAL
-              </span>
-              <div className="w-24 h-px bg-gold-accent"></div>
-            </div>
-            
+          <div className="space-y-6 md:space-y-8">
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-white-pure mb-8 leading-none">
               VIVO
             </h2>

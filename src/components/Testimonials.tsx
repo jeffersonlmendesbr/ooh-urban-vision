@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
+  const [isTestimonialPaused, setIsTestimonialPaused] = useState(false);
+  const [isImagePaused, setIsImagePaused] = useState(false);
 
   const testimonials = [
     {
@@ -43,19 +45,21 @@ const Testimonials = () => {
 
   // Auto-scroll para testemunhos (8 segundos para leitura confortável)
   useEffect(() => {
+    if (isTestimonialPaused) return;
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 8000);
     return () => clearInterval(interval);
-  }, [testimonials.length]);
+  }, [testimonials.length, isTestimonialPaused]);
 
   // Auto-scroll para imagens (5 segundos)
   useEffect(() => {
+    if (isImagePaused) return;
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % mediaImages.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [mediaImages.length]);
+  }, [mediaImages.length, isImagePaused]);
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -74,7 +78,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="min-h-screen flex flex-col bg-warm-beige py-8 md:py-12">
+    <section id="testimonials" className="flex flex-col bg-warm-beige py-16 sm:py-20 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col">
         {/* Header com título centralizado e botão LinkedIn */}
         <div className="flex flex-col md:flex-row justify-between items-center py-6 md:py-12 mt-2 md:mt-4 gap-4 md:gap-0">
@@ -97,8 +101,12 @@ const Testimonials = () => {
         {/* Conteúdo principal */}
         <div className="grid lg:grid-cols-2 gap-6 md:gap-12 flex-1 items-center min-h-0">
           {/* Lado Esquerdo - Testemunhos */}
-          <div className="relative h-full flex flex-col justify-center">
-            <div className="relative bg-soft-white rounded-xl p-4 md:p-6 lg:p-8 flex flex-col justify-between" style={{ minHeight: '350px', maxHeight: '500px' }}>
+          <div
+            className="relative h-full flex flex-col justify-center"
+            onMouseEnter={() => setIsTestimonialPaused(true)}
+            onMouseLeave={() => setIsTestimonialPaused(false)}
+          >
+            <div className="relative bg-soft-white rounded-xl p-4 md:p-6 lg:p-8 flex flex-col justify-between">
               <div className="overflow-y-auto flex-1">
                 <div className="flex mb-4 md:mb-6" role="img" aria-label="Avaliação: 5 de 5 estrelas">
                   {[...Array(5)].map((_, i) => (
@@ -155,8 +163,12 @@ const Testimonials = () => {
           </div>
 
           {/* Lado Direito - Imagens de Mídia */}
-          <div className="relative h-full flex flex-col justify-center">
-            <div className="relative bg-soft-white rounded-xl p-4 md:p-6 flex items-center justify-center" style={{ minHeight: '300px', maxHeight: '500px' }}>
+          <div
+            className="relative h-full flex flex-col justify-center"
+            onMouseEnter={() => setIsImagePaused(true)}
+            onMouseLeave={() => setIsImagePaused(false)}
+          >
+            <div className="relative bg-soft-white rounded-xl p-4 md:p-6 flex items-center justify-center">
               <div className="relative w-full h-full">
                 <img
                   src={mediaImages[currentImage].src}
