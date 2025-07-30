@@ -1,10 +1,7 @@
-import { SectionContainer } from './ui/section-container';
-
 const Eletromidia = () => {
   return (
-    <SectionContainer 
-      id="eletromidia" 
-      className="relative overflow-hidden"
+    <div
+      className="relative overflow-hidden w-full py-12 md:py-16"
       style={{
         backgroundImage: 'url(/lovable-uploads/09861dfd-7dd8-4613-b85a-455a319b75f1.png)',
         backgroundSize: 'cover',
@@ -13,28 +10,18 @@ const Eletromidia = () => {
       }}
     >
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Logo Eletromidia - Esquerda */}
-          <div className="relative">
-            <div className="h-[60vh] flex items-center justify-center">
-              <img 
-                src="/lovable-uploads/ae3d4628-d043-4ed3-b3ee-fb59396fef58.png" 
-                alt="Logo Eletromidia" 
-                className="max-w-full max-h-full object-contain" 
-              />
-            </div>
+          <div className="relative flex items-center justify-center">
+            <img
+              src="/lovable-uploads/ae3d4628-d043-4ed3-b3ee-fb59396fef58.png"
+              alt="Logo Eletromidia"
+              className="w-full h-auto max-w-sm lg:max-w-md object-contain"
+            />
           </div>
 
           {/* Conteúdo - Direita */}
-          <div className="space-y-8">
-            {/* Section Label */}
-            <div className="mb-8">
-              <span className="inline-block text-gold-accent font-accent text-sm tracking-widest mb-4">
-                DESTAQUE PROFISSIONAL
-              </span>
-              <div className="w-24 h-px bg-gold-accent"></div>
-            </div>
-            
+          <div className="space-y-6 md:space-y-8">
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-white-pure mb-8 leading-none">
               Eletromidia
             </h2>

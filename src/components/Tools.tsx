@@ -96,7 +96,7 @@ const Tools = () => {
         onClick={() => isMobile ? setSelectedItem(item) : undefined}
       >
         <CardContent className={cn(
-          'p-4 md:p-5 h-32 md:h-36 flex flex-col justify-between',
+          'p-4 md:p-5 flex flex-col justify-between min-h-[150px]',
           'bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md border border-white/10 rounded-xl',
           'group-hover:border-gold-accent/50 group-hover:shadow-2xl group-hover:shadow-gold-accent/10',
           'group-hover:bg-gradient-to-br group-hover:from-gold-accent/5 group-hover:to-gold-accent/10',
@@ -216,20 +216,9 @@ const Tools = () => {
   };
 
   const getGridColumns = () => {
-    const itemCount = getCurrentItems().length;
-    
-    // Mobile-first responsive grid
-    if (itemCount <= 2) return 'grid-cols-1 sm:grid-cols-2';
-    if (itemCount <= 3) return 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3';
-    if (itemCount <= 4) return 'grid-cols-2 sm:grid-cols-2 md:grid-cols-4';
-    if (itemCount <= 6) return 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-6';
-    
-    // For categories with many items, ensure no horizontal scrolling
-    if (selectedCategory === 'strong' || selectedCategory === 'tools') {
-      return 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6';
-    }
-    
-    return 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5';
+    // A consistent, responsive grid that works for any number of items.
+    // This provides a more stable and predictable layout than changing columns based on item count.
+    return 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6';
   };
 
   return (
