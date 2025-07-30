@@ -7,7 +7,8 @@ const Hero = () => {
       <div className="absolute inset-0">
         <img
           src="/lovable-uploads/214736ae-a6c9-4c22-8290-099d5e531c50.png"
-          alt="Jefferson Mendes"
+          alt="Foto de Jefferson Mendes especialista em Mídia OOH"
+          loading="lazy"
           className="object-cover w-full h-full"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />

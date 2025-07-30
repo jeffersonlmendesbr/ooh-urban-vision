@@ -13,7 +13,8 @@ const PepeTribute = () => {
                 <div className="relative">
                   <img
                     src="/lovable-uploads/2b9c99c8-66c1-4acd-baf4-1baf4182873c.png"
-                    alt="Edson Pereira Pinto do Nascimento - Pepê"
+                    alt="Edson Pereira Pinto do Nascimento - Pepê, referência em OOH"
+                    loading="lazy"
                     className="w-32 h-32 lg:w-40 lg:h-40 object-cover rounded-lg border border-primary/20"
                   />
                 </div>

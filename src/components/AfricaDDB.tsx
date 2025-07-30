@@ -5,7 +5,8 @@ const AfricaDDB = () => (
     <div className="flex items-center justify-center">
       <img
         src="/lovable-uploads/d2c3d440-d9a8-4970-bf0b-b4fbdc110f06.png"
-        alt="Logo África"
+        alt="Logo da Africa Creative DDB para projetos OOH"
+        loading="lazy"
         className="w-full h-auto max-w-md object-contain"
       />
     </div>

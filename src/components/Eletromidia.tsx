@@ -4,7 +4,8 @@ const Eletromidia = () => (
     <div className="flex items-center justify-center">
       <img
         src="/lovable-uploads/ae3d4628-d043-4ed3-b3ee-fb59396fef58.png"
-        alt="Logo Eletromidia"
+        alt="Logo Eletromidia especialista em OOH"
+        loading="lazy"
         className="w-full h-auto max-w-md object-contain"
       />
     </div>

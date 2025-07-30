@@ -9,9 +9,9 @@ const About = () => {
           {/* Content Column */}
           <div className="flex flex-col justify-center space-y-8 glass-card p-8 lg:p-12 h-full">
             <div>
-              <span className="text-sm font-bold tracking-widest uppercase text-primary">
+              <h2 className="text-sm font-bold tracking-widest uppercase text-primary">
                 Sobre
-              </span>
+              </h2>
               <div className="w-16 h-0.5 mt-2 bg-primary" />
             </div>
             

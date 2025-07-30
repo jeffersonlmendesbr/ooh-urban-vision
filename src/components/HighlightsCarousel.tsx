@@ -40,9 +40,9 @@ const HighlightsCarousel = () => {
       <div className="absolute inset-0 bg-background/80" />
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-            <span className="text-sm font-bold tracking-widest uppercase text-primary">
+            <h2 className="text-sm font-bold tracking-widest uppercase text-primary">
               Destaque Profissional
-            </span>
+            </h2>
             <div className="w-20 h-0.5 mt-2 bg-primary mx-auto" />
         </div>
 

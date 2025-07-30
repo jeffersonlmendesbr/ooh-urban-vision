@@ -5,7 +5,8 @@ const Vivo = () => (
     <div className="flex items-center justify-center">
       <img
         src="/lovable-uploads/f2c837a9-61c0-43b8-85af-ccbe5c6c392a.png"
-        alt="Logo VIVO"
+        alt="Logo da VIVO em campanhas OOH"
+        loading="lazy"
         className="w-full h-auto max-w-md object-contain"
       />
     </div>

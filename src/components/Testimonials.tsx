@@ -129,6 +129,7 @@ const Testimonials = () => {
               <img
                 src={mediaImages[currentImage].src}
                 alt={mediaImages[currentImage].alt}
+                loading="lazy"
                 className="max-w-full max-h-full object-contain rounded-md"
               />
             </Card>
