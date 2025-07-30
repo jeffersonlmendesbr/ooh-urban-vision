@@ -1,6 +1,8 @@
 import { Linkedin, Mail, MessageCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
+  const { t } = useTranslation();
   return (
     <section id="hero" className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
       {/* Background Image and a more subtle gradient overlay */}
@@ -19,7 +21,7 @@ const Hero = () => {
 
         {/* Top Tagline */}
         <span className="mb-6 text-sm font-medium tracking-widest uppercase text-primary fade-in">
-          Creative • Strategic • Leadership
+          {t('hero.tagline')}
         </span>
 
         {/* Main Content */}
@@ -30,11 +32,11 @@ const Hero = () => {
               <span className="italic text-primary"> Mendes</span>
             </h1>
             <p className="mt-4 text-lg md:text-xl text-foreground/80 fade-in" style={{ animationDelay: '0.4s' }}>
-              Especialista em Mídia OOH
+              {t('hero.title')}
             </p>
           </div>
           <p className="max-w-md mx-auto mt-8 text-lg text-center text-foreground/70 md:text-xl fade-in" style={{ animationDelay: '0.6s' }}>
-            Transformando o comum em extraordinário. Uma campanha OOH por vez.
+            {t('hero.subtitle')}
           </p>
         </div>
 
@@ -48,7 +50,7 @@ const Hero = () => {
             aria-label="Visitar LinkedIn de Jefferson Mendes"
           >
             <Linkedin className="w-5 h-5 text-primary" aria-hidden="true" />
-            <span className="font-medium text-primary">LinkedIn</span>
+            <span className="font-medium text-primary">{t('hero.linkedin')}</span>
           </a>
           <a
             href="mailto:jeffersonlmendes@gmail.com"
@@ -56,7 +58,7 @@ const Hero = () => {
             aria-label="Enviar email para Jefferson Mendes"
           >
             <Mail className="w-5 h-5 text-foreground/80" aria-hidden="true" />
-            <span className="font-medium text-foreground/80">E-mail</span>
+            <span className="font-medium text-foreground/80">{t('hero.email')}</span>
           </a>
           <a
             href="https://wa.me/5511997941150"
@@ -66,7 +68,7 @@ const Hero = () => {
             aria-label="Conversar no WhatsApp com Jefferson Mendes"
           >
             <MessageCircle className="w-5 h-5 text-primary-foreground" aria-hidden="true" />
-            <span className="font-medium text-primary-foreground">WhatsApp</span>
+            <span className="font-medium text-primary-foreground">{t('hero.whatsapp')}</span>
           </a>
         </div>
       </div>
