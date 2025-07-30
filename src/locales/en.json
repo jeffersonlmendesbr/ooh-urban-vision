@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "africaddb": "Africa DDB",
+    "experience": "Jornada",
+    "cases": "Cases",
+    "manifesto": "Manifesto",
+    "nationalpresence": "Presença Nacional",
+    "tools": "Ferramentas",
+    "oohplanner": "OOH Planner",
+    "testimonials": "Testemunhos",
+    "contact": "Contato"
+  },
+  "hero": {
+    "tagline": "Creative • Strategic • Leadership",
+    "title": "Especialista em Mídia OOH",
+    "subtitle": "Transformando o comum em extraordinário. Uma campanha OOH por vez.",
+    "linkedin": "LinkedIn",
+    "email": "E-mail",
+    "whatsapp": "WhatsApp"
+  },
+  "about": {
+    "heading": "Sobre",
+    "p1": "Sou publicitário com mais de 15 anos dedicados à mídia OOH. Atuei em agências como VML e Galeria, liderando campanhas nacionais para marcas como VIVO, e também em veículos como Eletromidia e Kallas. Na agência de planejamento LATCOM trabalhei com projetos internacionais para Disney, ESPN e Spotify.",
+    "p2": "Acredito que a rua é muito mais do que um ponto de exibição – ela é território de disputa onde a mídia exterior precisa ser planejada com inteligência, sensibilidade e intenção.",
+    "p3": "Tenho um pé na criação e outro na estratégia. Conheço as ferramentas, os números e os mapas – mas também caminho pelas ruas.",
+    "quote": "Busco conectar marcas a contextos reais. E mais do que mídia, criar presença.",
+    "author": "Jefferson Mendes"
+  },
+  "footer": {
+    "connect": "Conecte-se",
+    "cta": "Estou sempre aberto para discutir projetos, trocar ideias sobre o futuro da mídia OOH ou simplesmente conversar sobre como podemos transformar espaços urbanos em oportunidades.",
+    "email": "E-mail",
+    "phone": "Telefone",
+    "linkedin": "LinkedIn",
+    "seeProfile": "Ver Perfil",
+    "rights": "© {{year}} Jefferson Mendes. Todos os direitos reservados."
+  },
+  "notFound": {
+    "title": "Oops! Página não encontrada",
+    "returnHome": "Voltar ao início"
+  }
+}
