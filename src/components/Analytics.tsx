@@ -31,9 +31,16 @@ const Analytics = () => {
 
   const COLORS = ['#D4AF37', '#B8860B', '#E5D4A1', '#94A3B8'];
 
+  interface BarLabelProps {
+    x?: number;
+    y?: number;
+    width?: number;
+    height?: number;
+    value?: number;
+  }
+
   // Função customizada para renderizar labels nas barras
-  const renderCustomizedLabel = (props: any) => {
-    const { x, y, width, height, value } = props;
+  const renderCustomizedLabel = ({ x = 0, y = 0, width = 0, height = 0, value }: BarLabelProps) => {
     return (
       <text 
         x={x + width / 2} 
@@ -50,8 +57,7 @@ const Analytics = () => {
   };
 
   // Função customizada para renderizar labels nas barras de permanência
-  const renderTenureLabel = (props: any) => {
-    const { x, y, width, height, value } = props;
+  const renderTenureLabel = ({ x = 0, y = 0, width = 0, height = 0, value }: BarLabelProps) => {
     return (
       <text 
         x={x + width / 2} 
