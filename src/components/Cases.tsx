@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { SectionContainer } from './ui/section-container';
+import { Card } from './ui/card';
 
 interface Project {
   id: string;
@@ -36,109 +36,100 @@ const Cases = () => {
   const [hoveredProject, setHoveredProject] = useState<Project | null>(projectsData[0]);
 
   return (
-    <SectionContainer 
-      id="cases" 
-      className="relative"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/lovable-uploads/644eaac9-68cc-48a8-9622-817a05e2cf81.png')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-4 md:px-6 h-full">
-        {/* Section Header - Alinhado à esquerda */}
-        <div className="mb-6 md:mb-8 text-left">
-          <span className="inline-block text-gold-accent font-accent text-xs md:text-sm tracking-widest mb-2 md:mb-3">
-            VEM PRA RUA
+    <section id="cases" className="py-24 lg:py-32 min-h-screen flex flex-col">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col flex-1">
+        <div className="mb-12">
+          <span className="text-sm font-bold tracking-widest uppercase text-primary">
+            Vem pra Rua
           </span>
-          <div className="w-20 md:w-24 h-px bg-gold-accent"></div>
+          <div className="w-20 h-0.5 mt-2 bg-primary" />
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-4 md:gap-6 h-[calc(100vh-160px)] md:h-[calc(100vh-200px)]">
-          {/* Lista de Projetos - Mais compacta */}
-          <div className="lg:w-1/4 space-y-1 md:space-y-2 overflow-y-auto no-scrollbar max-h-[40vh] md:max-h-[60vh]">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 flex-1">
+          {/* Column 1: Project List */}
+          <div className="lg:col-span-1 space-y-2 overflow-y-auto no-scrollbar pr-4">
             {projectsData.map((project) => (
               <div
                 key={project.id}
                 onMouseEnter={() => setHoveredProject(project)}
-                onMouseLeave={() => setHoveredProject(projectsData[0])}
                 className={`
-                  uppercase text-xs font-accent cursor-pointer transition-all duration-300 hover-lift
-                  p-1.5 md:p-2 border-l-2 transition-colors
+                  p-3 rounded-lg cursor-pointer transition-all duration-200
                   ${hoveredProject?.id === project.id 
-                    ? 'text-gold-accent border-gold-accent bg-gold-accent/10' 
-                    : 'text-cream-editorial border-transparent hover:text-gold-accent hover:border-gold-accent/50'
+                    ? 'bg-primary/10'
+                    : 'bg-transparent hover:bg-primary/5'
                   }
                 `}
               >
-                {project.agency} | {project.client} | {project.name}
+                <p className={`uppercase text-xs font-bold tracking-wider transition-colors ${hoveredProject?.id === project.id ? 'text-primary' : 'text-foreground/60'}`}>
+                  {project.agency} | {project.client}
+                </p>
+                <p className={`text-sm font-semibold transition-colors ${hoveredProject?.id === project.id ? 'text-foreground' : 'text-foreground/80'}`}>
+                  {project.name}
+                </p>
               </div>
             ))}
           </div>
 
-          {/* Mídia Central - Adaptado para mobile */}
-          <div className="lg:w-1/2 relative overflow-hidden flex items-start justify-center -mt-[5vh] md:-mt-[10vh] lg:-mt-[15vh]">
-            <div className="w-[280px] h-[400px] md:w-[320px] md:h-[460px] lg:w-[360px] lg:h-[515px] relative">
+          {/* Column 2: Media Display */}
+          <div className="lg:col-span-1 relative flex items-center justify-center">
+            <div className="w-full max-w-sm h-[500px] relative">
               {projectsData.map((project) => (
-                <div
+                <Card
                   key={project.id}
                   className={`
-                    absolute inset-0 flex items-center justify-center transition-all duration-500
-                    ${hoveredProject?.id === project.id ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}
+                    absolute inset-0 flex items-center justify-center text-center p-8 transition-all duration-300
+                    ${hoveredProject?.id === project.id ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}
                   `}
                 >
-                  <div className="w-full h-full bg-slate-elegant/20 border border-gold-accent/20 flex items-center justify-center shadow-editorial hover-glow transition-all duration-300">
-                    <div className="text-center px-4">
-                      <div className="text-lg md:text-xl font-heading text-gold-accent mb-2 md:mb-3">
-                        {project.agency}
-                      </div>
-                      <div className="text-sm md:text-base font-editorial text-cream-editorial mb-1 md:mb-2">
-                        {project.client}
-                      </div>
-                      <div className="text-base md:text-lg font-accent text-white-pure">
-                        {project.name}
-                      </div>
-                    </div>
+                  <div>
+                    <p className="text-2xl font-bold text-primary mb-2">
+                      {project.agency}
+                    </p>
+                    <p className="text-lg text-foreground/80 mb-4">
+                      {project.client}
+                    </p>
+                    <p className="text-3xl font-extrabold text-foreground text-glow">
+                      {project.name}
+                    </p>
                   </div>
-                </div>
+                </Card>
               ))}
             </div>
           </div>
 
-          {/* Descrição - Mais compacta */}
-          <div className="lg:w-1/4 space-y-3 md:space-y-4 max-h-[50vh] md:max-h-[60vh] overflow-y-auto no-scrollbar">
-            <div className="space-y-2 md:space-y-3">
-              <h3 className="font-heading text-lg md:text-xl text-gold-accent">
+          {/* Column 3: Description */}
+          <div className="lg:col-span-1 flex flex-col justify-center space-y-6">
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold text-primary">
                 Histórias Reais nas Ruas
               </h3>
-              <p className="text-cream-editorial font-editorial leading-relaxed text-xs md:text-sm">
+              <p className="text-foreground/80 leading-relaxed">
                 Cada projeto representa uma história real nas ruas. O desafio vai além da criação visual — 
                 está em entender o espaço, o tempo, o público e o impacto.
               </p>
-              <p className="text-cream-editorial font-editorial leading-relaxed text-xs md:text-sm">
+              <p className="text-foreground/80 leading-relaxed">
                 A mídia exterior exige mais do que presença: ela pede propósito. É sobre criar relevância 
                 onde todos passam — mas nem todos olham.
               </p>
             </div>
             
             {hoveredProject && (
-              <div className="border-t border-gold-accent/30 pt-3 md:pt-4 animate-fade-in">
-                <h4 className="font-accent text-gold-accent text-xs tracking-wide mb-1 md:mb-2">
-                  PROJETO EM DESTAQUE
+              <div className="border-t border-primary/20 pt-6 animate-in fade-in duration-500">
+                <h4 className="text-sm font-semibold tracking-widest uppercase text-primary mb-2">
+                  Projeto em Destaque
                 </h4>
-                <div className="text-white-pure font-heading text-sm md:text-base">
+                <p className="text-lg font-bold text-foreground">
                   {hoveredProject.agency} × {hoveredProject.client}
-                </div>
-                <div className="text-cream-editorial font-editorial text-xs md:text-sm">
+                </p>
+                <p className="text-base text-foreground/80">
                   {hoveredProject.name}
-                </div>
+                </p>
               </div>
             )}
           </div>
         </div>
       </div>
-    </SectionContainer>
+    </section>
   );
 };
 

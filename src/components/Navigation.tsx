@@ -7,7 +7,6 @@ const Navigation = () => {
   const {
     isMenuOpen,
     activeSection,
-    navTextColor,
     toggleMenu,
     scrollToSection,
   } = useNavigation();
@@ -15,7 +14,6 @@ const Navigation = () => {
   return (
     <>
       <NavigationHeader
-        navTextColor={navTextColor}
         isMenuOpen={isMenuOpen}
         onToggleMenu={toggleMenu}
         onScrollToSection={scrollToSection}

@@ -4,7 +4,6 @@ import { sections } from '../config/sections';
 export const useNavigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const [navTextColor, setNavTextColor] = useState('text-ink-black');
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -35,7 +34,7 @@ export const useNavigation = () => {
     }
   }, [isMenuOpen]);
 
-  // Track active section and update nav text color
+  // Track active section
   useEffect(() => {
     const ids = ['hero', ...sections.filter((s) => s.includeInNav).map((s) => s.id)];
     const elements = ids
@@ -47,14 +46,6 @@ export const useNavigation = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
-            
-            // Define text color based on section
-            const darkSections = ['africaddb', 'cases', 'manifesto', 'nationalpresence'];
-            if (darkSections.includes(entry.target.id)) {
-              setNavTextColor('text-white-pure');
-            } else {
-              setNavTextColor('text-ink-black');
-            }
           }
         });
       },
@@ -68,7 +59,6 @@ export const useNavigation = () => {
   return {
     isMenuOpen,
     activeSection,
-    navTextColor,
     toggleMenu,
     closeMenu,
     scrollToSection,

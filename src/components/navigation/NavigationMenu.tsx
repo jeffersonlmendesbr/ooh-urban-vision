@@ -57,7 +57,7 @@ const NavigationMenu = ({ isMenuOpen, activeSection, onScrollToSection }: Naviga
     <div
       id="hamburger-menu"
       ref={menuRef}
-      className="fixed top-0 left-0 right-0 bottom-0 w-full h-full min-h-screen z-40 bg-ink-black/95 backdrop-blur-lg animate-in fade-in"
+      className="fixed top-0 left-0 right-0 bottom-0 w-full h-full min-h-screen z-40 bg-background/90 backdrop-blur-lg animate-in fade-in"
       style={{ width: '100vw', height: '100vh' }}
       role="dialog"
       aria-modal="true"

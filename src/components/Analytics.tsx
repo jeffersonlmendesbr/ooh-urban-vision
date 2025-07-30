@@ -1,257 +1,131 @@
-import { TrendingUp, Users, Building2, Target, BarChart3 } from 'lucide-react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, LabelList } from 'recharts';
+import { Users, Building2, Target, BarChart3 } from 'lucide-react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, PieChart, Pie, Cell, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, LabelList, Legend, Tooltip } from 'recharts';
+import { Card } from './ui/card';
 
 const Analytics = () => {
-  // Dados para o gráfico de comparação de tempo em liderança
-  const leadershipData = [
-    { name: 'Jefferson', value: 52, color: '#D4AF37' },
-    { name: 'Mercado', value: 28, color: '#94A3B8' }
-  ];
+  // HSL colors corresponding to the new design system for recharts
+  const primaryColor = 'hsl(40 80% 60%)';
+  const foregroundColor = 'hsl(220 20% 98%)';
+  const mutedColor = 'hsl(220 15% 65%)';
+  const cardColor = 'hsl(220 10% 12%)';
 
-  // Dados para o gráfico de permanência por empresa
-  const tenureData = [
-    { name: 'Jefferson', years: 2.4 },
-    { name: 'Mercado', years: 1.9 }
-  ];
-
-  // Dados para o radar de competências
+  const leadershipData = [{ name: 'Jefferson', value: 52 }, { name: 'Mercado', value: 28 }];
+  const tenureData = [{ name: 'Jefferson', years: 2.4 }, { name: 'Mercado', years: 1.9 }];
   const skillsData = [
     { skill: 'Experiência OOH', Jefferson: 90, Mercado: 45 },
     { skill: 'Liderança', Jefferson: 85, Mercado: 60 },
     { skill: 'Permanência', Jefferson: 75, Mercado: 50 },
     { skill: 'Versatilidade', Jefferson: 80, Mercado: 55 }
   ];
-
-  // Dados para distribuição de experiência
   const distributionData = [
-    { name: 'Agência', value: 47, color: '#D4AF37' },
-    { name: 'Veículo', value: 25, color: '#B8860B' },
-    { name: 'Outros', value: 28, color: '#E5D4A1' }
+    { name: 'Agência', value: 47 },
+    { name: 'Veículo', value: 25 },
+    { name: 'Outros', value: 28 }
   ];
+  const PIE_COLORS = ['hsl(40 80% 60%)', 'hsl(40 80% 45%)', 'hsl(40 80% 30%)'];
 
-  const COLORS = ['#D4AF37', '#B8860B', '#E5D4A1', '#94A3B8'];
+  const ChartCard = ({ title, subtitle, icon: Icon, children }: { title: string, subtitle: string, icon: React.ElementType, children: React.ReactNode }) => (
+    <Card className="p-6 h-full flex flex-col">
+      <div className="flex items-center mb-4">
+        <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mr-4">
+          <Icon className="w-6 h-6" />
+        </div>
+        <div>
+          <h3 className="font-bold text-lg text-foreground">{title}</h3>
+          <p className="text-sm text-foreground/70">{subtitle}</p>
+        </div>
+      </div>
+      <div className="flex-1 text-xs">
+        {children}
+      </div>
+    </Card>
+  );
 
-  interface BarLabelProps {
-    x?: number;
-    y?: number;
-    width?: number;
-    height?: number;
-    value?: number;
-  }
-
-  // Função customizada para renderizar labels nas barras
-  const renderCustomizedLabel = ({ x = 0, y = 0, width = 0, height = 0, value }: BarLabelProps) => {
-    return (
-      <text 
-        x={x + width / 2} 
-        y={y + height / 2} 
-        fill="#ffffff" 
-        textAnchor="middle" 
-        dominantBaseline="middle"
-        fontSize="12"
-        fontWeight="bold"
-      >
-        {value}%
-      </text>
-    );
-  };
-
-  // Função customizada para renderizar labels nas barras de permanência
-  const renderTenureLabel = ({ x = 0, y = 0, width = 0, height = 0, value }: BarLabelProps) => {
-    return (
-      <text 
-        x={x + width / 2} 
-        y={y + height / 2} 
-        fill="#ffffff" 
-        textAnchor="middle" 
-        dominantBaseline="middle"
-        fontSize="12"
-        fontWeight="bold"
-      >
-        {value}
-      </text>
-    );
+  const CustomTooltip = ({ active, payload, label }: any) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="p-2 glass-card text-xs border-primary/20">
+          <p className="label text-foreground/80">{`${label}`}</p>
+          {payload.map((pld: any, index: number) => (
+            <p key={index} style={{ color: pld.fill }}>{`${pld.name}: ${pld.value}`}</p>
+          ))}
+        </div>
+      );
+    }
+    return null;
   };
 
   return (
-    <section id="analytics" className="h-screen flex flex-col bg-white text-slate-800 relative overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url(/lovable-uploads/dc602ce6-63c0-4c69-bdfe-7d0b12f1b478.png)'
-        }}
-      ></div>
-      {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/30"></div>
-      
-      {/* Section Header */}
-      <div className="relative z-10 text-center pt-8 pb-6">
-        <span className="inline-block text-amber-400 font-semibold text-sm tracking-widest mb-3">
-          ANÁLISE PROFISSIONAL
-        </span>
-        <h2 className="font-serif text-4xl lg:text-5xl text-white mb-4 font-bold">
-          Analytics da Carreira
-        </h2>
-        <div className="w-32 h-px bg-amber-400 mx-auto mb-4"></div>
-        <p className="text-white/90 max-w-2xl mx-auto leading-relaxed">
-          Dados objetivos que demonstram consistência, maturidade e especialização 
-          comparados às médias do mercado brasileiro.
-        </p>
-      </div>
-
-      {/* Charts Grid */}
-      <div className="flex-1 px-8 relative z-10 pb-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto h-full">
-          {/* Tempo em Liderança - Bar Chart */}
-          <div className="bg-white/80 backdrop-blur-sm border border-amber-200 rounded-xl p-6 shadow-lg">
-            <div className="flex items-center mb-4">
-              <Users className="w-6 h-6 text-amber-600 mr-3" />
-              <div>
-                <h3 className="font-bold text-lg text-slate-800">Tempo em Liderança</h3>
-                <p className="text-sm text-slate-600">% do tempo de carreira</p>
-              </div>
-            </div>
-            <div className="h-40">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={leadershipData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
-                  <XAxis dataKey="name" stroke="#64748B" fontSize={12} />
-                  <YAxis stroke="#64748B" fontSize={12} />
-                  <Bar dataKey="value" fill="#D4AF37" radius={[4, 4, 0, 0]}>
-                    <LabelList dataKey="value" content={renderCustomizedLabel} />
-                  </Bar>
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-            <p className="text-xs text-slate-500 mt-2">
-              <span className="font-medium text-amber-600">Fonte:</span> LinkedIn Workforce Insights
-            </p>
-          </div>
-
-          {/* Permanência Média - Line Chart */}
-          <div className="bg-white/80 backdrop-blur-sm border border-amber-200 rounded-xl p-6 shadow-lg">
-            <div className="flex items-center mb-4">
-              <Building2 className="w-6 h-6 text-amber-600 mr-3" />
-              <div>
-                <h3 className="font-bold text-lg text-slate-800">Permanência Média</h3>
-                <p className="text-sm text-slate-600">Anos por empresa</p>
-              </div>
-            </div>
-            <div className="h-40">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={tenureData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
-                  <XAxis dataKey="name" stroke="#64748B" fontSize={12} />
-                  <YAxis stroke="#64748B" fontSize={12} />
-                  <Bar dataKey="years" fill="#B8860B" radius={[4, 4, 0, 0]}>
-                    <LabelList dataKey="years" content={renderTenureLabel} />
-                  </Bar>
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-            <p className="text-xs text-slate-500 mt-2">
-              <span className="font-medium text-amber-600">Fonte:</span> LinkedIn Brasil, 2023
-            </p>
-          </div>
-
-          {/* Radar de Competências */}
-          <div className="bg-white/80 backdrop-blur-sm border border-amber-200 rounded-xl p-6 shadow-lg">
-            <div className="flex items-center mb-4">
-              <Target className="w-6 h-6 text-amber-600 mr-3" />
-              <div>
-                <h3 className="font-bold text-lg text-slate-800">Radar de Competências</h3>
-                <p className="text-sm text-slate-600">Comparativo multidimensional</p>
-              </div>
-            </div>
-            <div className="h-40">
-              <ResponsiveContainer width="100%" height="100%">
-                <RadarChart data={skillsData} margin={{ top: 20, right: 30, bottom: 20, left: 30 }}>
-                  <PolarGrid stroke="#E5E7EB" />
-                  <PolarAngleAxis dataKey="skill" tick={{ fontSize: 10, fill: '#64748B' }} />
-                  <PolarRadiusAxis tick={{ fontSize: 10, fill: '#64748B' }} domain={[0, 100]} />
-                  <Radar
-                    name="Jefferson"
-                    dataKey="Jefferson"
-                    stroke="#D4AF37"
-                    fill="#D4AF37"
-                    fillOpacity={0.3}
-                    strokeWidth={2}
-                  />
-                  <Radar
-                    name="Mercado"
-                    dataKey="Mercado"
-                    stroke="#94A3B8"
-                    fill="#94A3B8"
-                    fillOpacity={0.1}
-                    strokeWidth={2}
-                  />
-                </RadarChart>
-              </ResponsiveContainer>
-            </div>
-            <div className="flex justify-center gap-4 mt-2">
-              <div className="flex items-center">
-                <div className="w-3 h-3 bg-amber-600 rounded-full mr-2"></div>
-                <span className="text-xs text-slate-600">Jefferson</span>
-              </div>
-              <div className="flex items-center">
-                <div className="w-3 h-3 bg-slate-400 rounded-full mr-2"></div>
-                <span className="text-xs text-slate-600">Mercado</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Distribuição de Experiência - Pie Chart */}
-          <div className="bg-white/80 backdrop-blur-sm border border-amber-200 rounded-xl p-6 shadow-lg">
-            <div className="flex items-center mb-4">
-              <BarChart3 className="w-6 h-6 text-amber-600 mr-3" />
-              <div>
-                <h3 className="font-bold text-lg text-slate-800">Distribuição da Experiência</h3>
-                <p className="text-sm text-slate-600">Segmentos de atuação</p>
-              </div>
-            </div>
-            <div className="h-40">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={distributionData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={30}
-                    outerRadius={60}
-                    paddingAngle={2}
-                    dataKey="value"
-                  >
-                    {distributionData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                </PieChart>
-              </ResponsiveContainer>
-            </div>
-            <div className="grid grid-cols-3 gap-2 mt-2">
-              {distributionData.map((item, index) => (
-                <div key={index} className="text-center">
-                  <div className="flex items-center justify-center mb-1">
-                    <div 
-                      className="w-3 h-3 rounded-full mr-2" 
-                      style={{ backgroundColor: item.color }}
-                    ></div>
-                  </div>
-                  <div className="text-xs font-medium text-slate-800">{item.name}</div>
-                  <div className="text-xs text-slate-600">{item.value}%</div>
-                </div>
-              ))}
-            </div>
-          </div>
+    <section id="analytics" className="py-24 lg:py-32" style={{
+      backgroundImage: `
+        radial-gradient(circle at 5% 5%, hsla(var(--primary), 0.1) 0px, transparent 30%),
+        radial-gradient(circle at 95% 95%, hsla(var(--primary), 0.1) 0px, transparent 30%)
+      `,
+    }}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <span className="text-sm font-bold tracking-widest uppercase text-primary">Análise Profissional</span>
+          <div className="w-20 h-0.5 mt-2 bg-primary mx-auto" />
+          <h2 className="mt-4 text-3xl lg:text-4xl font-bold text-foreground mb-4">Analytics da Carreira</h2>
+          <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
+            Dados objetivos que demonstram consistência, maturidade e especialização comparados às médias do mercado brasileiro.
+          </p>
         </div>
-      </div>
 
-      {/* Bottom Note */}
-      <div className="relative z-10 text-center pb-6">
-        <p className="text-xs text-white/70 max-w-4xl mx-auto">
-          * Dados compilados com base em fontes públicas e análises setoriais. 
-          Comparativos refletem médias observadas no mercado brasileiro de mídia e publicidade.
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <ChartCard title="Tempo em Liderança" subtitle="% do tempo de carreira" icon={Users}>
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={leadershipData} margin={{ top: 5, right: 20, left: -10, bottom: 0 }}>
+                <CartesianGrid stroke={mutedColor} strokeOpacity={0.2} />
+                <XAxis dataKey="name" stroke={mutedColor} fontSize={12} tickLine={false} axisLine={false} />
+                <YAxis stroke={mutedColor} fontSize={12} tickLine={false} axisLine={false} />
+                <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsla(var(--primary), 0.1)' }} />
+                <Bar dataKey="value" fill={primaryColor} radius={[4, 4, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </ChartCard>
+
+          <ChartCard title="Permanência Média" subtitle="Anos por empresa" icon={Building2}>
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={tenureData} margin={{ top: 5, right: 20, left: -10, bottom: 0 }}>
+                <CartesianGrid stroke={mutedColor} strokeOpacity={0.2} />
+                <XAxis dataKey="name" stroke={mutedColor} fontSize={12} tickLine={false} axisLine={false} />
+                <YAxis stroke={mutedColor} fontSize={12} tickLine={false} axisLine={false} />
+                <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsla(var(--primary), 0.1)' }} />
+                <Bar dataKey="years" fill={primaryColor} radius={[4, 4, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </ChartCard>
+
+          <ChartCard title="Radar de Competências" subtitle="Comparativo multidimensional" icon={Target}>
+            <ResponsiveContainer width="100%" height="100%">
+              <RadarChart cx="50%" cy="50%" outerRadius="80%" data={skillsData}>
+                <PolarGrid stroke={mutedColor} strokeOpacity={0.3} />
+                <PolarAngleAxis dataKey="skill" tick={{ fill: foregroundColor, fontSize: 10 }} />
+                <PolarRadiusAxis angle={30} domain={[0, 100]} tick={{ fill: mutedColor, fontSize: 10 }} />
+                <Tooltip content={<CustomTooltip />} />
+                <Radar name="Jefferson" dataKey="Jefferson" stroke={primaryColor} fill={primaryColor} fillOpacity={0.4} />
+                <Radar name="Mercado" dataKey="Mercado" stroke={mutedColor} fill={mutedColor} fillOpacity={0.2} />
+                <Legend iconSize={10} wrapperStyle={{fontSize: "12px"}} />
+              </RadarChart>
+            </ResponsiveContainer>
+          </ChartCard>
+
+          <ChartCard title="Distribuição da Experiência" subtitle="Segmentos de atuação" icon={BarChart3}>
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie data={distributionData} cx="50%" cy="50%" labelLine={false} outerRadius={80} dataKey="value" nameKey="name">
+                  {distributionData.map((entry, index) => <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />)}
+                </Pie>
+                <Tooltip content={<CustomTooltip />} />
+                <Legend iconSize={10} wrapperStyle={{fontSize: "12px"}}/>
+              </PieChart>
+            </ResponsiveContainer>
+          </ChartCard>
+        </div>
+
+        <p className="text-center text-xs text-foreground/60 mt-12">
+          * Dados compilados com base em fontes públicas e análises setoriais. Comparativos refletem médias observadas no mercado brasileiro de mídia e publicidade.
         </p>
       </div>
     </section>

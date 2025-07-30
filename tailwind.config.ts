@@ -80,11 +80,6 @@ export default {
 					from: { height: 'var(--radix-accordion-content-height)' },
 					to: { height: '0' },
 				},
-        'fade-in-slightly-delayed': {
-          '0%': { opacity: '0', transform: 'translateY(10px)' },
-          '50%': { opacity: '0', transform: 'translateY(10px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
         'ticker-scroll': { // Animação para o ticker
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' },
@@ -93,7 +88,6 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-        'fadeInSlightlyDelayed': 'fade-in-slightly-delayed 1s ease-out forwards',
         'ticker-scroll': 'ticker-scroll 30s linear infinite', // Duração da animação do ticker
 			},
 		}
