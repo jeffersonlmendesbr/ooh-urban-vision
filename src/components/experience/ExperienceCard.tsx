@@ -17,7 +17,8 @@ export const ExperienceCard = ({ experience }: ExperienceCardProps) => (
       <div className="w-full h-[180px] flex items-center justify-center my-4">
         <img
           src={experience.logoUrl}
-          alt={`${experience.companyName} logo`}
+          alt={`${experience.companyName} logo para mídia OOH`}
+          loading="lazy"
           className="max-w-[160px] max-h-[160px] object-contain"
         />
       </div>

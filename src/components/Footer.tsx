@@ -8,9 +8,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
         <div className="mb-12">
-          <span className="text-sm font-bold tracking-widest uppercase text-primary">
+          <h3 className="text-sm font-bold tracking-widest uppercase text-primary">
             Conecte-se
-          </span>
+          </h3>
           <div className="w-20 h-0.5 mt-2 bg-primary mx-auto" />
         </div>
 

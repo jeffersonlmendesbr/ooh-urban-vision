@@ -9,12 +9,12 @@ const Manifesto = () => {
     >
       <div className="container max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <Card className="p-8 lg:p-16 text-center">
-          <div className="mb-12">
-            <span className="text-sm font-bold tracking-widest uppercase text-primary">
-              Manifesto
-            </span>
-            <div className="w-20 h-0.5 mt-2 bg-primary mx-auto" />
-          </div>
+        <div className="mb-12">
+          <h2 className="text-sm font-bold tracking-widest uppercase text-primary">
+            Manifesto
+          </h2>
+          <div className="w-20 h-0.5 mt-2 bg-primary mx-auto" />
+        </div>
           
           <div className="space-y-8 text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto">
             <p>

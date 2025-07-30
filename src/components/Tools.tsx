@@ -156,13 +156,13 @@ const Tools = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
-          <span className="text-sm font-bold tracking-widest uppercase text-primary">
+          <h2 className="text-sm font-bold tracking-widest uppercase text-primary">
             Ferramentas e Plataformas
-          </span>
-          <div className="w-20 h-0.5 mt-2 bg-primary mx-auto" />
-          <h2 className="mt-4 text-xl text-foreground/80 max-w-2xl mx-auto">
-            Especialização contínua em ferramentas estratégicas do mercado OOH
           </h2>
+          <div className="w-20 h-0.5 mt-2 bg-primary mx-auto" />
+          <p className="mt-4 text-xl text-foreground/80 max-w-2xl mx-auto">
+            Especialização contínua em ferramentas estratégicas do mercado OOH
+          </p>
         </div>
 
         <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">

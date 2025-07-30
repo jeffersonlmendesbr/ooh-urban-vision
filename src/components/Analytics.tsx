@@ -64,9 +64,9 @@ const Analytics = () => {
     }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <span className="text-sm font-bold tracking-widest uppercase text-primary">Análise Profissional</span>
+          <h2 className="text-sm font-bold tracking-widest uppercase text-primary">Análise Profissional</h2>
           <div className="w-20 h-0.5 mt-2 bg-primary mx-auto" />
-          <h2 className="mt-4 text-3xl lg:text-4xl font-bold text-foreground mb-4">Analytics da Carreira</h2>
+          <p className="mt-4 text-3xl lg:text-4xl font-bold text-foreground mb-4">Analytics da Carreira</p>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
             Dados objetivos que demonstram consistência, maturidade e especialização comparados às médias do mercado brasileiro.
           </p>

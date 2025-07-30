@@ -32,9 +32,9 @@ const NationalPresence = () => (
   >
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-12">
-        <span className="text-sm font-bold tracking-widest uppercase text-primary">
+        <h2 className="text-sm font-bold tracking-widest uppercase text-primary">
           Alcance Nacional
-        </span>
+        </h2>
         <div className="w-20 h-0.5 mt-2 bg-primary mx-auto" />
         <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
           Planejar é mais do que escolher espaços, é entender as ruas. Estas são as praças em que já estive em visita técnica, construindo um conhecimento prático e profundo do OOH em todo o Brasil.

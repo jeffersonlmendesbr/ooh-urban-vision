@@ -39,9 +39,9 @@ const Cases = () => {
     <section id="cases" className="py-24 lg:py-32 min-h-screen flex flex-col">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col flex-1">
         <div className="mb-12">
-          <span className="text-sm font-bold tracking-widest uppercase text-primary">
+          <h2 className="text-sm font-bold tracking-widest uppercase text-primary">
             Vem pra Rua
-          </span>
+          </h2>
           <div className="w-20 h-0.5 mt-2 bg-primary" />
         </div>
 
