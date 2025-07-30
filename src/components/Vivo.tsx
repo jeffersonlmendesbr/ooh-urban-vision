@@ -1,16 +1,19 @@
 
-const Vivo = () => {
-  return (
-    <div
-      className="relative overflow-hidden w-full py-12 md:py-16"
-      style={{
-        backgroundImage: 'url(/lovable-uploads/09861dfd-7dd8-4613-b85a-455a319b75f1.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-6">
+import { SectionContainer } from './ui/section-container';
+
+const Vivo = () => (
+  <SectionContainer
+    id="vivo"
+    className="relative overflow-hidden w-full py-12 md:py-16"
+    style={{
+      backgroundImage:
+        'url(/lovable-uploads/09861dfd-7dd8-4613-b85a-455a319b75f1.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}
+  >
+    <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Logo VIVO - Esquerda */}
           <div className="relative flex items-center justify-center">
@@ -59,6 +62,5 @@ const Vivo = () => {
       </div>
     </SectionContainer>
   );
-};
 
 export default Vivo;

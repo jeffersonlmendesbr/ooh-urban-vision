@@ -1,15 +1,19 @@
 
-const AfricaDDB = () => {
-  return <div
+import { SectionContainer } from './ui/section-container';
+
+const AfricaDDB = () => (
+  <SectionContainer
+    id="africaddb"
     className="relative overflow-hidden w-full py-12 md:py-16"
     style={{
-      backgroundImage: 'url(/lovable-uploads/09861dfd-7dd8-4613-b85a-455a319b75f1.png)',
+      backgroundImage:
+        'url(/lovable-uploads/09861dfd-7dd8-4613-b85a-455a319b75f1.png)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
     }}
   >
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Imagem do Continente Africano - Esquerda */}
           <div className="relative order-2 lg:order-1 flex items-center justify-center">
@@ -52,6 +56,7 @@ eles convivem juntos."</blockquote>
           </div>
         </div>
       </div>
-    </SectionContainer>;
-};
+    </SectionContainer>
+);
+
 export default AfricaDDB;
