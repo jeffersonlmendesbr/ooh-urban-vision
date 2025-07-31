@@ -7,8 +7,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Button } from './ui/button';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 import AfricaDDB from './AfricaDDB';
 import Vivo from './Vivo';
@@ -60,16 +58,8 @@ const HighlightsCarousel = () => {
             ))}
           </CarouselContent>
 
-          <CarouselPrevious asChild>
-            <Button variant="secondary" size="icon" className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
-              <ArrowLeft />
-            </Button>
-          </CarouselPrevious>
-          <CarouselNext asChild>
-            <Button variant="secondary" size="icon" className="absolute right-0 top-1/2 -translate-y-1/2 z-10">
-              <ArrowRight />
-            </Button>
-          </CarouselNext>
+          <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 z-10" />
+          <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 z-10" />
         </Carousel>
       </div>
     </section>
