@@ -1,5 +1,4 @@
 import React from 'react';
-import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -22,9 +21,6 @@ const slides = [
 ];
 
 const HighlightsCarousel = () => {
-  const plugin = React.useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true, stopOnMouseEnter: true })
-  );
 
   return (
     <section
@@ -47,7 +43,6 @@ const HighlightsCarousel = () => {
         </div>
 
         <Carousel
-          plugins={[plugin.current]}
           className="w-full"
           opts={{
             loop: true,

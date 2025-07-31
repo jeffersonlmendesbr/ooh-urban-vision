@@ -1,5 +1,5 @@
 
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from './ui/tabs';
 import { timelineData, TimelineItem } from '../data/timeline';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from './ui/hover-card';
@@ -214,7 +214,7 @@ const Tools = () => {
               <div className="space-y-4 pt-4">
                 <div className="flex items-start gap-4">
                   <div className={cn('w-12 h-12 rounded-lg flex items-center justify-center shrink-0', selectedItem.id === 'eca-usp' ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary')}>
-                    <CategoryIcon className="w-6 h-6" />
+                    {React.createElement(categoryIcons[selectedCategory as keyof typeof categoryIcons], { className: "w-6 h-6" })}
                   </div>
                   <div className="flex-1">
                     {selectedItem.subtitle && <p className="text-sm text-primary font-semibold mb-2">{selectedItem.subtitle}</p>}
