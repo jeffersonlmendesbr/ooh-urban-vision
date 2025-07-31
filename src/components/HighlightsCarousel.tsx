@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
+import { Button } from './ui/button';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 import AfricaDDB from './AfricaDDB';
 import Vivo from './Vivo';
@@ -19,6 +20,15 @@ const slides = [
 ];
 
 const HighlightsCarousel = () => {
+  const [carouselApi, setCarouselApi] = React.useState<CarouselApi>();
+
+  const scrollPrev = useCallback(() => {
+    carouselApi?.scrollPrev();
+  }, [carouselApi]);
+
+  const scrollNext = useCallback(() => {
+    carouselApi?.scrollNext();
+  }, [carouselApi]);
 
   return (
     <section
@@ -41,6 +51,7 @@ const HighlightsCarousel = () => {
         </div>
 
         <Carousel
+          setApi={setCarouselApi}
           className="w-full"
           opts={{
             loop: true,
@@ -58,8 +69,23 @@ const HighlightsCarousel = () => {
             ))}
           </CarouselContent>
 
-          <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 z-10" />
-          <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 z-10" />
+          <Button 
+            variant="secondary" 
+            size="icon" 
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10"
+            onClick={scrollPrev}
+          >
+            <ArrowLeft className="w-4 h-4" />
+          </Button>
+          
+          <Button 
+            variant="secondary" 
+            size="icon" 
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10"
+            onClick={scrollNext}
+          >
+            <ArrowRight className="w-4 h-4" />
+          </Button>
         </Carousel>
       </div>
     </section>
