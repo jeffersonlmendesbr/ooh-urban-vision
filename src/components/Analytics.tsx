@@ -41,12 +41,20 @@ const Analytics = () => {
     </Card>
   );
 
-  const CustomTooltip = ({ active, payload, label }: any) => {
+  const CustomTooltip = ({
+    active,
+    payload,
+    label,
+  }: {
+    active?: boolean
+    payload?: { fill: string; name: string; value: number }[]
+    label?: string
+  }) => {
     if (active && payload && payload.length) {
       return (
         <div className="p-2 glass-card text-xs border-primary/20">
           <p className="label text-foreground/80">{`${label}`}</p>
-          {payload.map((pld: any, index: number) => (
+          {payload.map((pld, index) => (
             <p key={index} style={{ color: pld.fill }}>{`${pld.name}: ${pld.value}`}</p>
           ))}
         </div>
