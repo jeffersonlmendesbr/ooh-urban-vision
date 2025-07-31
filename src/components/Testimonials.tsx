@@ -57,7 +57,19 @@ const Testimonials = () => {
     return () => clearInterval(interval);
   }, [mediaImages.length, isImagePaused]);
 
-  const CarouselControls = ({ onPrev, onNext, count, currentIndex, onIndicatorClick }: any) => (
+  const CarouselControls = ({
+    onPrev,
+    onNext,
+    count,
+    currentIndex,
+    onIndicatorClick,
+  }: {
+    onPrev: () => void
+    onNext: () => void
+    count: number
+    currentIndex: number
+    onIndicatorClick: (index: number) => void
+  }) => (
     <div className="flex flex-col items-center mt-6 space-y-4">
       <div className="flex space-x-3">
         <Button variant="secondary" size="icon" onClick={onPrev} aria-label="Anterior">

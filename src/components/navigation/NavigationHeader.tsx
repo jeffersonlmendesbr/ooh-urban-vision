@@ -1,5 +1,6 @@
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import ThemeToggle from '../ThemeToggle';
 
 interface NavigationHeaderProps {
   isMenuOpen: boolean;
@@ -37,6 +38,7 @@ const NavigationHeader = ({
               <button onClick={() => changeLang('en')}>EN 🇺🇸</button>
               <button onClick={() => changeLang('es')}>ES 🇪🇸</button>
             </div>
+            <ThemeToggle />
             <button
               onClick={onToggleMenu}
               className="p-2 text-foreground hover:text-primary transition-colors z-50"
