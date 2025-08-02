@@ -23,30 +23,30 @@ const NavigationHeader = ({
     i18n.changeLanguage(lng);
   };
   return (
-    <header className="fixed top-0 w-full z-50 transition-all duration-300 bg-background/50 backdrop-blur-lg border-b border-glass-border">
+    <header className="fixed top-0 w-full z-50 transition-all duration-300 glass-card border-b border-glass-border backdrop-blur-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24">
           <div
-            className="text-2xl font-bold tracking-tight cursor-pointer text-foreground hover:text-primary transition-colors"
+            className="text-3xl font-black tracking-wide cursor-pointer gradient-text text-glow interactive"
             onClick={() => onScrollToSection('hero')}
           >
             Jefferson Mendes
           </div>
-          <div className="flex items-center gap-4">
-            <div className="text-sm space-x-2">
-              <button onClick={() => changeLang('pt')}>PT 🇧🇷</button>
-              <button onClick={() => changeLang('en')}>EN 🇺🇸</button>
-              <button onClick={() => changeLang('es')}>ES 🇪🇸</button>
+          <div className="flex items-center gap-6">
+            <div className="text-sm space-x-4 font-bold">
+              <button onClick={() => changeLang('pt')} className="interactive text-primary hover:text-secondary">PT 🇧🇷</button>
+              <button onClick={() => changeLang('en')} className="interactive text-primary hover:text-secondary">EN 🇺🇸</button>
+              <button onClick={() => changeLang('es')} className="interactive text-primary hover:text-secondary">ES 🇪🇸</button>
             </div>
             <ThemeToggle />
             <button
               onClick={onToggleMenu}
-              className="p-2 text-foreground hover:text-primary transition-colors z-50"
+              className="p-3 utilitarian-border rounded-lg text-foreground hover:text-primary interactive z-50"
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
               aria-controls="hamburger-menu"
             >
-              {isMenuOpen ? <X size={28} aria-hidden="true" /> : <Menu size={28} aria-hidden="true" />}
+              {isMenuOpen ? <X size={32} aria-hidden="true" /> : <Menu size={32} aria-hidden="true" />}
             </button>
           </div>
         </div>

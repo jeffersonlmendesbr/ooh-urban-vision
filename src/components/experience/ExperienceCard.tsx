@@ -7,30 +7,33 @@ interface ExperienceCardProps {
 }
 
 export const ExperienceCard = ({ experience }: ExperienceCardProps) => (
-  <Card className="min-w-[400px] w-[400px] h-[580px] flex flex-col hover:border-primary/50 hover:-translate-y-1">
-    <CardHeader className="text-center pt-8">
-      <div className="mb-4">
-        <span className="bg-primary/10 border border-primary/30 text-primary font-semibold text-xs tracking-widest uppercase px-4 py-2 rounded-full">
+  <Card className="min-w-[420px] w-[420px] h-[600px] flex flex-col maximalist-glow hover:scale-105 transition-all duration-500 relative overflow-hidden">
+    {/* Enhanced background with prismatic effect */}
+    <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-secondary/3 pointer-events-none" />
+    
+    <CardHeader className="text-center pt-10 relative z-10">
+      <div className="mb-6">
+        <span className="utilitarian-border bg-primary/15 text-primary font-bold text-sm tracking-[0.2em] uppercase px-6 py-3 rounded-lg shadow-lg">
           {experience.tagType}
         </span>
       </div>
-      <div className="w-full h-[180px] flex items-center justify-center my-4">
+      <div className="w-full h-[200px] flex items-center justify-center my-6 glass-primary rounded-xl p-4">
         <img
           src={experience.logoUrl}
           alt={`${experience.companyName} logo para mídia OOH`}
           loading="lazy"
-          className="max-w-[160px] max-h-[160px] object-contain"
+          className="max-w-[180px] max-h-[180px] object-contain filter drop-shadow-lg"
         />
       </div>
-      <CardTitle className="text-2xl font-bold text-foreground">
+      <CardTitle className="text-2xl font-black text-foreground mb-2 tracking-wide">
         {experience.title}
       </CardTitle>
-      <CardDescription className="text-base text-primary font-semibold">
+      <CardDescription className="text-lg text-secondary font-bold tracking-wide text-glow-secondary">
         {experience.period}
       </CardDescription>
     </CardHeader>
-    <CardContent className="text-center text-foreground/80 flex-1 flex items-center">
-      <p className="text-base leading-relaxed">
+    <CardContent className="text-center text-foreground/85 flex-1 flex items-center relative z-10">
+      <p className="text-lg leading-relaxed font-medium tracking-wide">
         {experience.description}
       </p>
     </CardContent>
