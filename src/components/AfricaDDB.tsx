@@ -1,21 +1,12 @@
-
-const AfricaDDB = () => (
-  <div className="grid lg:grid-cols-2 gap-12 items-center">
+const AfricaDDB = () => <div className="grid lg:grid-cols-2 gap-12 items-center">
     {/* Image Column */}
     <div className="flex items-center justify-center">
-      <img
-        src="/lovable-uploads/d2c3d440-d9a8-4970-bf0b-b4fbdc110f06.png"
-        alt="Logo da Africa Creative DDB para projetos OOH"
-        loading="lazy"
-        className="w-full h-auto max-w-md object-contain"
-      />
+      <img src="/lovable-uploads/d2c3d440-d9a8-4970-bf0b-b4fbdc110f06.png" alt="Logo da Africa Creative DDB para projetos OOH" loading="lazy" className="w-full h-auto max-w-md object-contain" />
     </div>
 
     {/* Content Column */}
     <div className="space-y-6">
-      <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-        Africa Creative DDB
-      </h2>
+      <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">Africa Creative</h2>
 
       <div className="space-y-4">
         <div className="inline-block bg-primary text-primary-foreground px-4 py-1 rounded-full font-semibold text-sm tracking-wide">
@@ -44,7 +35,5 @@ const AfricaDDB = () => (
         </div>
       </div>
     </div>
-  </div>
-);
-
+  </div>;
 export default AfricaDDB;
