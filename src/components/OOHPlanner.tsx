@@ -5,14 +5,14 @@ import { Card } from "./ui/card";
 
 const OOHPlanner = () => {
   return (
-    <section id="oohplanner" className="py-24 lg:py-32 flex items-center justify-center">
+    <section id="oohplanner" className="py-24 lg:py-32 flex items-center justify-center bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-100">
       <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Card className="p-8 lg:p-16 text-center hover:border-primary/50 hover:-translate-y-1">
           <div className="mb-8">
-            <span className="text-sm font-bold tracking-widest uppercase text-primary">
+            <span className="text-sm font-bold tracking-widest uppercase text-violet-600">
               Projeto Pessoal
             </span>
-            <div className="w-20 h-0.5 mt-2 bg-primary mx-auto" />
+            <div className="w-20 h-0.5 mt-2 bg-violet-600 mx-auto" />
           </div>
 
           <h2 className="text-5xl lg:text-6xl font-extrabold text-foreground mb-6 text-glow">
@@ -31,7 +31,7 @@ const OOHPlanner = () => {
             </p>
           </Card>
 
-          <Button asChild size="lg">
+          <Button asChild size="lg" className="bg-violet-600 hover:bg-violet-700 text-white">
             <a
               href="https://oohplanner.com"
               target="_blank"
@@ -41,7 +41,7 @@ const OOHPlanner = () => {
             </a>
           </Button>
 
-          <p className="mt-8 text-xl font-semibold text-primary italic">
+          <p className="mt-8 text-xl font-semibold text-violet-600 italic">
             Porque estratégia não deveria ser privilégio.
           </p>
         </Card>

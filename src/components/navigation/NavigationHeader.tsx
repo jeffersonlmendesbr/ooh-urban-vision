@@ -23,7 +23,7 @@ const NavigationHeader = ({
     i18n.changeLanguage(lng);
   };
   return (
-    <header className="fixed top-0 w-full z-50 transition-all duration-300 glass-card border-b border-glass-border backdrop-blur-2xl">
+    <header className="fixed top-0 w-full z-50 transition-all duration-300 glass-card border-b border-glass-border backdrop-blur-2xl bg-white/90 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           <div

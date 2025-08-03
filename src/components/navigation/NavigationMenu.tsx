@@ -44,14 +44,18 @@ const NavigationMenu = ({ isMenuOpen, activeSection, onScrollToSection }: Naviga
   const menuItems = [
     { label: t('nav.home'), sectionId: 'hero' },
     { label: t('nav.about'), sectionId: 'about' },
-    { label: t('nav.africaddb'), sectionId: 'africaddb' },
+    { label: t('nav.highlights'), sectionId: 'highlights' },
     { label: t('nav.experience'), sectionId: 'experience' },
+    { label: t('nav.pepetribute'), sectionId: 'pepetribute' },
     { label: t('nav.cases'), sectionId: 'cases' },
     { label: t('nav.manifesto'), sectionId: 'manifesto' },
     { label: t('nav.nationalpresence'), sectionId: 'nationalpresence' },
     { label: t('nav.tools'), sectionId: 'tools' },
+    { label: t('nav.oohdescomplicado'), sectionId: 'oohdescomplicado' },
     { label: t('nav.oohplanner'), sectionId: 'oohplanner' },
     { label: t('nav.testimonials'), sectionId: 'testimonials' },
+    { label: t('nav.analytics'), sectionId: 'analytics' },
+    { label: t('nav.faq'), sectionId: 'faq' },
     { label: t('nav.contact'), sectionId: 'contact' },
   ];
 

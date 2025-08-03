@@ -29,14 +29,14 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-24 lg:py-32">
+    <section id="faq" className="py-24 lg:py-32 bg-gradient-to-br from-rose-50 via-pink-50 to-fuchsia-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <span className="text-sm font-bold tracking-widest uppercase text-primary">
+            <span className="text-sm font-bold tracking-widest uppercase text-rose-600">
               Perguntas Frequentes
             </span>
-            <div className="w-20 h-0.5 mt-2 bg-primary mx-auto" />
+            <div className="w-20 h-0.5 mt-2 bg-rose-600 mx-auto" />
             <h2 className="mt-4 text-3xl lg:text-4xl font-bold text-foreground">
               FAQ
             </h2>

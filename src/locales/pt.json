@@ -2,14 +2,18 @@
   "nav": {
     "home": "Início",
     "about": "Sobre",
-    "africaddb": "Africa DDB",
+    "highlights": "Destaques",
     "experience": "Jornada",
+    "pepetribute": "Homenagem",
     "cases": "Cases",
     "manifesto": "Manifesto",
     "nationalpresence": "Presença Nacional",
     "tools": "Ferramentas",
+    "oohdescomplicado": "OOH Descomplicado",
     "oohplanner": "OOH Planner",
     "testimonials": "Testemunhos",
+    "analytics": "Analytics",
+    "faq": "FAQ",
     "contact": "Contato"
   },
   "hero": {

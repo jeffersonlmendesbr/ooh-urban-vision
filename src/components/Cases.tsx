@@ -1,133 +1,148 @@
 
 import { useState } from 'react';
-import { Card } from './ui/card';
 
 interface Project {
   id: string;
   agency: string;
   client: string;
   name: string;
-  mediaPlaceholderUrl: string;
+  description: string;
+  image: string;
 }
 
 const projectsData: Project[] = [
-  { id: 'wilson', agency: 'AFRICA', client: 'VIVO', name: 'WILSON', mediaPlaceholderUrl: 'placeholder-wilson.jpg' },
-  { id: 'futuro', agency: 'AFRICA', client: 'VIVO', name: 'FUTURO', mediaPlaceholderUrl: 'placeholder-futuro.jpg' },
-  { id: 'raizes', agency: 'AFRICA', client: 'VIVO', name: 'RAIZES VIVAS', mediaPlaceholderUrl: 'placeholder-raizes.jpg' },
-  { id: 'recicle', agency: 'AFRICA', client: 'VIVO', name: 'RECICLE', mediaPlaceholderUrl: 'placeholder-recicle.jpg' },
-  { id: 'olimpiadas', agency: 'VML', client: 'VIVO', name: 'OLIMPIADAS', mediaPlaceholderUrl: 'placeholder-olimpiadas.jpg' },
-  { id: 'blackfriday', agency: 'VML', client: 'VIVO', name: 'BLACK FRIDAY', mediaPlaceholderUrl: 'placeholder-blackfriday.jpg' },
-  { id: 'nordeste', agency: 'VML', client: 'VIVO', name: 'NORDESTE', mediaPlaceholderUrl: 'placeholder-nordeste.jpg' },
-  { id: 'cooperados', agency: 'GALERIA', client: 'VIVO', name: 'COOPERADOS', mediaPlaceholderUrl: 'placeholder-cooperados.jpg' },
-  { id: 'total', agency: 'GALERIA', client: 'VIVO', name: 'TOTAL', mediaPlaceholderUrl: 'placeholder-total.jpg' },
-  { id: '5g', agency: 'GALERIA', client: 'VIVO', name: '5G', mediaPlaceholderUrl: 'placeholder-5g.jpg' },
-  { id: 'reileao', agency: 'LATCOM', client: 'DISNEY', name: 'O REI LEAO', mediaPlaceholderUrl: 'placeholder-reileao.jpg' },
-  { id: 'toystory', agency: 'LATCOM', client: 'DISNEY', name: 'TOY STORY', mediaPlaceholderUrl: 'placeholder-toystory.jpg' },
-  { id: 'malevola', agency: 'LATCOM', client: 'DISNEY', name: 'MALEVOLA', mediaPlaceholderUrl: 'placeholder-malevola.jpg' },
-  { id: 'espn', agency: 'LATCOM', client: 'DISNEY', name: 'ESPN', mediaPlaceholderUrl: 'placeholder-espn.jpg' },
-  { id: 'natgeo', agency: 'LATCOM', client: 'DISNEY', name: 'NATGEO', mediaPlaceholderUrl: 'placeholder-natgeo.jpg' },
-  { id: 'fox', agency: 'LATCOM', client: 'DISNEY', name: 'FOX', mediaPlaceholderUrl: 'placeholder-fox.jpg' },
-  { id: 'vingadores', agency: 'LATCOM', client: 'DISNEY', name: 'VINGADORES', mediaPlaceholderUrl: 'placeholder-vingadores.jpg' },
-  { id: 'spotifyretro', agency: 'LATCOM', client: 'SPOTIFY', name: 'RETROSPECTIVA', mediaPlaceholderUrl: 'placeholder-spotifyretro.jpg' },
-  { id: 'spotifyartistas', agency: 'LATCOM', client: 'SPOTIFY', name: 'ARTISTAS', mediaPlaceholderUrl: 'placeholder-spotifyartistas.jpg' },
+  { 
+    id: 'wilson', 
+    agency: 'AFRICA', 
+    client: 'VIVO', 
+    name: 'WILSON', 
+    description: 'Campanha emocional usando tecnologia e proximidade.',
+    image: '/lovable-uploads/a1717b63-d6f0-4787-a3ca-42ee07cde2d2.png'
+  },
+  { 
+    id: 'futuro', 
+    agency: 'AFRICA', 
+    client: 'VIVO', 
+    name: 'FUTURO', 
+    description: 'Visão de conectividade e inovação no Brasil.',
+    image: '/lovable-uploads/644eaac9-68cc-48a8-9622-817a05e2cf81.png'
+  },
+  { 
+    id: 'raizes', 
+    agency: 'AFRICA', 
+    client: 'VIVO', 
+    name: 'RAIZES VIVAS', 
+    description: 'Conexão com tradições e modernidade.',
+    image: '/lovable-uploads/74901c2f-77b9-4e9a-ae45-d368d7d1b97a.png'
+  },
+  { 
+    id: 'recicle', 
+    agency: 'AFRICA', 
+    client: 'VIVO', 
+    name: 'RECICLE', 
+    description: 'Sustentabilidade e responsabilidade social.',
+    image: '/lovable-uploads/9c3e7a8c-2ed0-412a-8465-f17bb05911f9.png'
+  },
+  { 
+    id: 'olimpiadas', 
+    agency: 'VML', 
+    client: 'VIVO', 
+    name: 'OLIMPIADAS', 
+    description: 'Cobertura dos Jogos Olímpicos no Brasil.',
+    image: '/lovable-uploads/597d1cf2-94e0-4cff-8e85-a903c1a11fe4.png'
+  },
+  { 
+    id: 'blackfriday', 
+    agency: 'VML', 
+    client: 'VIVO', 
+    name: 'BLACK FRIDAY', 
+    description: 'Ofertas especiais e promoções sazonais.',
+    image: '/lovable-uploads/5bf1055e-408b-4fd2-9a8c-68bb02edd87d.png'
+  }
 ];
 
 const Cases = () => {
-  const [hoveredProject, setHoveredProject] = useState<Project | null>(projectsData[0]);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="cases" className="py-24 lg:py-32 min-h-screen flex flex-col">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col flex-1">
-        <div className="mb-12">
-          <h2 className="text-sm font-bold tracking-widest uppercase text-primary">
+    <section id="cases" className="py-24 lg:py-32 min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-red-100">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 text-center">
+          <h2 className="text-sm font-bold tracking-widest uppercase text-purple-600 mb-4">
             Vem pra Rua
           </h2>
-          <div className="w-20 h-0.5 mt-2 bg-primary" />
+          <div className="w-20 h-0.5 bg-purple-600 mx-auto mb-6" />
+          <h3 className="text-4xl font-bold text-gray-900">Cases de Sucesso</h3>
+          <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+            Cada projeto representa uma história real nas ruas, conectando marcas a contextos únicos.
+          </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 flex-1">
-          {/* Column 1: Project List */}
-          <div className="lg:col-span-1 space-y-2 overflow-y-auto no-scrollbar pr-4">
-            {projectsData.map((project) => (
-              <div
-                key={project.id}
-                onMouseEnter={() => setHoveredProject(project)}
-                className={`
-                  p-3 rounded-lg cursor-pointer transition-all duration-200
-                  ${hoveredProject?.id === project.id 
-                    ? 'bg-primary/10'
-                    : 'bg-transparent hover:bg-primary/5'
-                  }
-                `}
-              >
-                <p className={`uppercase text-xs font-bold tracking-wider transition-colors ${hoveredProject?.id === project.id ? 'text-primary' : 'text-foreground/60'}`}>
+        {/* Grid de Imagens */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-6 max-w-6xl mx-auto">
+          {projectsData.map((project) => (
+            <div
+              key={project.id}
+              className="group relative aspect-square overflow-hidden rounded-lg cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              onClick={() => setSelectedProject(project)}
+            >
+              <img
+                src={project.image}
+                alt={`${project.agency} - ${project.client} - ${project.name}`}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-xs font-semibold uppercase tracking-wider opacity-90">
                   {project.agency} | {project.client}
                 </p>
-                <p className={`text-sm font-semibold transition-colors ${hoveredProject?.id === project.id ? 'text-foreground' : 'text-foreground/80'}`}>
+                <p className="text-sm font-bold mt-1">
                   {project.name}
                 </p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
 
-          {/* Column 2: Media Display */}
-          <div className="lg:col-span-1 relative flex items-center justify-center">
-            <div className="w-full max-w-sm h-[500px] relative">
-              {projectsData.map((project) => (
-                <Card
-                  key={project.id}
-                  className={`
-                    absolute inset-0 flex items-center justify-center text-center p-8 transition-all duration-300
-                    ${hoveredProject?.id === project.id ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}
-                  `}
+        {/* Modal de Detalhes */}
+        {selectedProject && (
+          <div 
+            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedProject(null)}
+          >
+            <div 
+              className="bg-white rounded-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative">
+                <img
+                  src={selectedProject.image}
+                  alt={`${selectedProject.agency} - ${selectedProject.client} - ${selectedProject.name}`}
+                  className="w-full h-64 object-cover rounded-t-xl"
+                />
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-4 right-4 bg-white/90 hover:bg-white text-gray-800 rounded-full w-8 h-8 flex items-center justify-center font-bold"
                 >
-                  <div>
-                    <p className="text-2xl font-bold text-primary mb-2">
-                      {project.agency}
-                    </p>
-                    <p className="text-lg text-foreground/80 mb-4">
-                      {project.client}
-                    </p>
-                    <p className="text-3xl font-extrabold text-foreground text-glow">
-                      {project.name}
-                    </p>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Column 3: Description */}
-          <div className="lg:col-span-1 flex flex-col justify-center space-y-6">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-primary">
-                Histórias Reais nas Ruas
-              </h3>
-              <p className="text-foreground/80 leading-relaxed">
-                Cada projeto representa uma história real nas ruas. O desafio vai além da criação visual — 
-                está em entender o espaço, o tempo, o público e o impacto.
-              </p>
-              <p className="text-foreground/80 leading-relaxed">
-                A mídia exterior exige mais do que presença: ela pede propósito. É sobre criar relevância 
-                onde todos passam — mas nem todos olham.
-              </p>
-            </div>
-            
-            {hoveredProject && (
-              <div className="border-t border-primary/20 pt-6 animate-in fade-in duration-500">
-                <h4 className="text-sm font-semibold tracking-widest uppercase text-primary mb-2">
-                  Projeto em Destaque
-                </h4>
-                <p className="text-lg font-bold text-foreground">
-                  {hoveredProject.agency} × {hoveredProject.client}
-                </p>
-                <p className="text-base text-foreground/80">
-                  {hoveredProject.name}
+                  ×
+                </button>
+              </div>
+              <div className="p-6">
+                <div className="mb-4">
+                  <p className="text-sm font-bold uppercase tracking-wider text-purple-600">
+                    {selectedProject.agency} | {selectedProject.client}
+                  </p>
+                  <h3 className="text-2xl font-bold text-gray-900 mt-2">
+                    {selectedProject.name}
+                  </h3>
+                </div>
+                <p className="text-gray-700 leading-relaxed">
+                  {selectedProject.description}
                 </p>
               </div>
-            )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

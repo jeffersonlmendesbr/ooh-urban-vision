@@ -33,16 +33,9 @@ const HighlightsCarousel = () => {
   return (
     <section
       id="highlights"
-      className="relative w-full overflow-hidden py-24 lg:py-32"
-      style={{
-        backgroundImage: 'url(/lovable-uploads/09861dfd-7dd8-4613-b85a-455a319b75f1.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
-      }}
+      className="relative w-full overflow-hidden py-24 lg:py-32 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-100"
     >
-      <div className="absolute inset-0 bg-background/80" />
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         <div className="text-center mb-12">
             <h2 className="text-sm font-bold tracking-widest uppercase text-primary">
               Destaque Profissional

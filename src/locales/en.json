@@ -1,31 +1,35 @@
 {
   "nav": {
-    "home": "Início",
-    "about": "Sobre",
-    "africaddb": "Africa DDB",
-    "experience": "Jornada",
+    "home": "Home",
+    "about": "About",
+    "highlights": "Highlights",
+    "experience": "Journey",
+    "pepetribute": "Tribute",
     "cases": "Cases",
     "manifesto": "Manifesto",
-    "nationalpresence": "Presença Nacional",
-    "tools": "Ferramentas",
+    "nationalpresence": "National Presence",
+    "tools": "Tools",
+    "oohdescomplicado": "OOH Simplified",
     "oohplanner": "OOH Planner",
-    "testimonials": "Testemunhos",
-    "contact": "Contato"
+    "testimonials": "Testimonials",
+    "analytics": "Analytics",
+    "faq": "FAQ",
+    "contact": "Contact"
   },
   "hero": {
     "tagline": "Creative • Strategic • Leadership",
-    "title": "Especialista em Mídia OOH",
-    "subtitle": "Transformando o comum em extraordinário. Uma campanha OOH por vez.",
+    "title": "OOH Media Specialist",
+    "subtitle": "Transforming the ordinary into extraordinary. One OOH campaign at a time.",
     "linkedin": "LinkedIn",
-    "email": "E-mail",
+    "email": "Email",
     "whatsapp": "WhatsApp"
   },
   "about": {
-    "heading": "Sobre",
-    "p1": "Sou publicitário com mais de 15 anos dedicados à mídia OOH. Atuei em agências como VML e Galeria, liderando campanhas nacionais para marcas como VIVO, e também em veículos como Eletromidia e Kallas. Na agência de planejamento LATCOM trabalhei com projetos internacionais para Disney, ESPN e Spotify.",
-    "p2": "Acredito que a rua é muito mais do que um ponto de exibição – ela é território de disputa onde a mídia exterior precisa ser planejada com inteligência, sensibilidade e intenção.",
-    "p3": "Tenho um pé na criação e outro na estratégia. Conheço as ferramentas, os números e os mapas – mas também caminho pelas ruas.",
-    "quote": "Busco conectar marcas a contextos reais. E mais do que mídia, criar presença.",
+    "heading": "About",
+    "p1": "I'm an advertising professional with over 15 years dedicated to OOH media. I've worked at agencies like VML and Galeria, leading national campaigns for brands like VIVO, and also at media companies like Eletromidia and Kallas. At planning agency LATCOM, I worked on international projects for Disney, ESPN and Spotify.",
+    "p2": "I believe the street is much more than a display point – it's a disputed territory where outdoor media needs to be planned with intelligence, sensitivity and intention.",
+    "p3": "I have one foot in creativity and another in strategy. I know the tools, the numbers and the maps – but I also walk the streets.",
+    "quote": "I seek to connect brands to real contexts. And more than media, create presence.",
     "author": "Jefferson Mendes"
   },
   "footer": {
