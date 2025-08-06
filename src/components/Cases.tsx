@@ -72,14 +72,14 @@ const Cases = () => {
             Vem pra Rua
           </h2>
           <div className="w-20 h-0.5 bg-purple-600 mx-auto mb-6" />
-          <h3 className="text-4xl font-bold text-gray-900">Cases de Sucesso</h3>
-          <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+          <h3 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-gray-900">Cases de Sucesso</h3>
+          <p className="text-lg lg:text-xl xl:text-2xl text-gray-600 mt-4 max-w-2xl xl:max-w-4xl mx-auto">
             Cada projeto representa uma história real nas ruas, conectando marcas a contextos únicos.
           </p>
         </div>
 
         {/* Grid de Imagens */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 lg:gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4 lg:gap-6 xl:gap-8 max-w-7xl xl:max-w-8xl mx-auto">
           {projectsData.map((project) => (
             <div
               key={project.id}

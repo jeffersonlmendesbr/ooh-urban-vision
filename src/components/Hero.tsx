@@ -53,17 +53,17 @@ const Hero = () => {
           {/* Hyper-realistic Main Title */}
           <div className="w-full mb-12">
             <div className="text-center text-foreground">
-              <h1 className="text-6xl font-black md:text-8xl lg:text-9xl text-glow slide-up relative tracking-tight" style={{ animationDelay: '0.2s' }}>
+              <h1 className="text-6xl font-black md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] text-glow slide-up relative tracking-tight" style={{ animationDelay: '0.2s' }}>
                 Jefferson
                 <span className="block text-primary gradient-text text-glow-secondary"> Mendes</span>
                 {/* Reflection effect */}
                 <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/10 pointer-events-none rounded-lg" />
               </h1>
-              <p className="mt-6 text-xl md:text-2xl text-secondary font-bold slide-up text-glow-secondary tracking-wide" style={{ animationDelay: '0.4s' }}>
+              <p className="mt-6 text-xl md:text-2xl lg:text-3xl xl:text-4xl text-secondary font-bold slide-up text-glow-secondary tracking-wide" style={{ animationDelay: '0.4s' }}>
                 {t('hero.title')}
               </p>
             </div>
-            <p className="max-w-2xl mx-auto mt-10 text-xl text-center text-foreground/80 md:text-2xl slide-up font-medium leading-relaxed" style={{ animationDelay: '0.6s' }}>
+            <p className="max-w-2xl xl:max-w-4xl mx-auto mt-10 text-xl text-center text-foreground/80 md:text-2xl lg:text-3xl xl:text-4xl slide-up font-medium leading-relaxed" style={{ animationDelay: '0.6s' }}>
               {t('hero.subtitle')}
             </p>
           </div>

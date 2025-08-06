@@ -36,12 +36,12 @@ const NationalPresence = () => (
           Alcance Nacional
         </h2>
         <div className="w-20 h-0.5 mt-2 bg-primary mx-auto" />
-        <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
+        <p className="mt-4 max-w-2xl xl:max-w-4xl mx-auto text-lg lg:text-xl xl:text-2xl text-foreground/80">
           Planejar é mais do que escolher espaços, é entender as ruas. Estas são as praças em que já estive em visita técnica, construindo um conhecimento prático e profundo do OOH em todo o Brasil.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 lg:gap-8">
         {cityGroups.map((group) => (
           <Card key={group.region} className="text-center">
             <CardHeader>

@@ -225,11 +225,11 @@ const Tools = () => {
               Ferramentas e Plataformas
             </span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-foreground mb-6 leading-tight">
             Arsenal Tecnológico
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50 mx-auto mb-6 rounded-full" />
-          <p className="text-xl lg:text-2xl text-foreground/80 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl lg:text-2xl xl:text-3xl text-foreground/80 max-w-3xl xl:max-w-5xl mx-auto leading-relaxed">
             Especialização contínua em ferramentas estratégicas que potencializam resultados no mercado OOH
           </p>
         </div>

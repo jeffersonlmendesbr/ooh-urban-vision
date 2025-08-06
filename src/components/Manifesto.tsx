@@ -30,7 +30,7 @@ const Manifesto = () => {
               <div className="w-32 h-1 mt-6 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full shadow-lg" />
             </div>
             
-            <div className="space-y-12 text-xl lg:text-3xl text-foreground/85 max-w-5xl mx-auto">
+            <div className="space-y-12 text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-foreground/85 max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto">
               <p className="slide-up font-medium leading-relaxed tracking-wide">
                 Acredito que a Mídia OOH não é apenas sobre o espaço físico. É também um reflexo do
                 comportamento urbano. Tem ritmo vivo. Da sociedade com suas escolhas e evoluções em meio

@@ -27,7 +27,7 @@ const NavigationHeader = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20 lg:h-24">
           <div
-            className="text-xl sm:text-2xl lg:text-3xl font-black tracking-wide cursor-pointer gradient-text text-glow interactive"
+            className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-black tracking-wide cursor-pointer gradient-text text-glow interactive"
             onClick={() => onScrollToSection('hero')}
           >
             Jefferson Mendes

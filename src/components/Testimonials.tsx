@@ -99,7 +99,7 @@ const Testimonials = () => {
     <section id="testimonials" className="py-12 sm:py-16 lg:py-24 xl:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12 text-center md:text-left">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 md:mb-0">
+          <h2 className="text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-foreground mb-4 md:mb-0">
             O que dizem sobre mim
           </h2>
           <Button asChild variant="link" className="text-base text-primary">
@@ -109,7 +109,7 @@ const Testimonials = () => {
           </Button>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-2 gap-8 xl:gap-12 items-stretch">
           <div onMouseEnter={() => setIsTestimonialPaused(true)} onMouseLeave={() => setIsTestimonialPaused(false)} className="flex flex-col">
             <Card className="flex-1 flex flex-col min-h-[450px] hover:border-primary/50 hover:-translate-y-1">
               <CardHeader>

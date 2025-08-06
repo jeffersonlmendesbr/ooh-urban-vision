@@ -22,7 +22,7 @@ const About = () => {
                 <div className="w-24 h-1 mt-4 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full" />
               </div>
               
-              <div className="space-y-8 text-xl text-foreground/85 font-medium leading-relaxed tracking-wide">
+              <div className="space-y-8 text-xl lg:text-2xl xl:text-3xl text-foreground/85 font-medium leading-relaxed tracking-wide">
                 <p className="slide-up">{t('about.p1')}</p>
                 <p className="slide-up" style={{ animationDelay: '0.2s' }}>{t('about.p2')}</p>
                 <p className="slide-up" style={{ animationDelay: '0.4s' }}>{t('about.p3')}</p>
@@ -34,7 +34,7 @@ const About = () => {
           <div className="relative mt-8 lg:mt-0">
             <div className="relative p-6 sm:p-8 lg:p-12 xl:p-16 glass-card hyper-shadow maximalist-glow">
               <Quote className="absolute top-6 right-6 w-16 h-16 text-emerald-600/30 drop-shadow-lg" />
-              <blockquote className="text-4xl lg:text-5xl font-black text-foreground leading-tight mb-8 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+              <blockquote className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black text-foreground leading-tight mb-8 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
                 {t('about.quote')}
               </blockquote>
               <div className="text-base font-bold tracking-[0.2em] uppercase text-teal-600">
