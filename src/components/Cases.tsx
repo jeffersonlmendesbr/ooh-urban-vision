@@ -65,20 +65,19 @@ const Cases = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="cases" className="py-12 sm:py-16 lg:py-24 xl:py-32 min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-red-100">
+    <section id="cases" className="py-12 sm:py-16 lg:py-24 xl:py-32 min-h-screen">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <h2 className="text-sm font-bold tracking-widest uppercase text-purple-600 mb-4">
             Vem pra Rua
           </h2>
           <div className="w-20 h-0.5 bg-purple-600 mx-auto mb-6" />
-          <h3 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-gray-900">Cases de Sucesso</h3>
-          <p className="text-lg lg:text-xl xl:text-2xl text-gray-600 mt-4 max-w-2xl xl:max-w-4xl mx-auto">
+          <h3 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold">Cases de Sucesso</h3>
+          <p className="text-lg lg:text-xl xl:text-2xl mt-4 max-w-2xl xl:max-w-4xl mx-auto">
             Cada projeto representa uma história real nas ruas, conectando marcas a contextos únicos.
           </p>
         </div>
 
-        {/* Grid de Imagens */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4 lg:gap-6 xl:gap-8 max-w-7xl xl:max-w-8xl mx-auto">
           {projectsData.map((project) => (
             <div
@@ -104,14 +103,13 @@ const Cases = () => {
           ))}
         </div>
 
-        {/* Modal de Detalhes */}
         {selectedProject && (
           <div 
             className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedProject(null)}
           >
             <div 
-              className="bg-white rounded-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+              className="glass-card rounded-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative">
@@ -132,11 +130,11 @@ const Cases = () => {
                   <p className="text-sm font-bold uppercase tracking-wider text-purple-600">
                     {selectedProject.agency} | {selectedProject.client}
                   </p>
-                  <h3 className="text-2xl font-bold text-gray-900 mt-2">
+                  <h3 className="text-2xl font-bold mt-2">
                     {selectedProject.name}
                   </h3>
                 </div>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="leading-relaxed">
                   {selectedProject.description}
                 </p>
               </div>
