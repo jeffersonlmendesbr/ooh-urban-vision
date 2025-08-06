@@ -1,6 +1,8 @@
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import ThemeToggle from '../ThemeToggle';
+import { useScrollDetection } from '../../hooks/useScrollDetection';
 
 interface NavigationHeaderProps {
   isMenuOpen: boolean;
@@ -14,16 +16,23 @@ const NavigationHeader = ({
   onScrollToSection
 }: NavigationHeaderProps) => {
   const { i18n } = useTranslation();
+  const navigate = useNavigate();
+  const isScrolled = useScrollDetection(100);
+  
   const changeLang = (lng: string) => {
     if (lng === 'pt') {
-      window.location.pathname = '/';
+      navigate('/');
     } else {
-      window.location.pathname = `/${lng}`;
+      navigate(`/${lng}`);
     }
     i18n.changeLanguage(lng);
   };
   return (
-    <header className="fixed top-0 w-full z-50 transition-all duration-300 glass-card border-b border-glass-border backdrop-blur-2xl bg-white/90 shadow-sm">
+    <header className={`fixed top-0 w-full z-50 transition-all duration-500 glass-card border-b backdrop-blur-2xl ${
+      isScrolled 
+        ? 'border-glass-border bg-white/95 dark:bg-background/95 shadow-lg' 
+        : 'border-transparent bg-white/70 dark:bg-background/70 shadow-sm'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20 lg:h-24">
           <div
