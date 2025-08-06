@@ -33,7 +33,7 @@ const HighlightsCarousel = () => {
   return (
     <section
       id="highlights"
-      className="relative w-full overflow-hidden py-24 lg:py-32 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-100"
+      className="relative w-full overflow-hidden py-12 sm:py-16 lg:py-24 xl:py-32 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-100"
     >
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         <div className="text-center mb-12">

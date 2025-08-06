@@ -5,7 +5,7 @@ const Manifesto = () => {
   return (
     <section 
       id="manifesto" 
-      className="py-32 lg:py-40 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-100 via-gray-50 to-zinc-100"
+      className="py-12 sm:py-20 lg:py-32 xl:py-40 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-100 via-gray-50 to-zinc-100"
     >
       {/* Hyper-realistic background texture */}
       <div className="absolute inset-0" style={{ background: 'var(--gradient-mesh)' }} />

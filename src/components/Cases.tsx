@@ -65,7 +65,7 @@ const Cases = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="cases" className="py-24 lg:py-32 min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-red-100">
+    <section id="cases" className="py-12 sm:py-16 lg:py-24 xl:py-32 min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-red-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <h2 className="text-sm font-bold tracking-widest uppercase text-purple-600 mb-4">

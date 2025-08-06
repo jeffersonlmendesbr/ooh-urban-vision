@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 const Hero = () => {
   const { t } = useTranslation();
   return (
-    <section id="hero" className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100">
+    <section id="hero" className="relative w-full h-screen min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100">
       {/* Enhanced Background with Hyper-realistic Effects */}
       <div className="absolute inset-0">
         {/* Multi-layer gradient for depth */}
@@ -27,10 +27,10 @@ const Hero = () => {
       </div>
       
       {/* Enhanced Glass Container with Maximalist Effects */}
-      <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center w-full max-w-6xl p-12 mx-auto glass-card maximalist-glow">
+      <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center w-full max-w-6xl p-4 sm:p-8 lg:p-12 mx-auto glass-card maximalist-glow">
         {/* Jefferson's Photo - Now in focus */}
         <div className="relative mb-8 lg:mb-0 lg:mr-12 flex-shrink-0">
-          <div className="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
+          <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
             <img
               src="/lovable-uploads/214736ae-a6c9-4c22-8290-099d5e531c50.png"
               alt="Jefferson Mendes - Especialista em Mídia OOH"

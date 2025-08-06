@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 const About = () => {
   const { t } = useTranslation();
   return (
-    <section id="about" className="w-full py-32 lg:py-40 relative overflow-hidden bg-gradient-to-br from-green-50 via-emerald-50 to-teal-100">
+    <section id="about" className="w-full py-12 sm:py-20 lg:py-32 xl:py-40 relative overflow-hidden bg-gradient-to-br from-green-50 via-emerald-50 to-teal-100">
       {/* Background mesh */}
       <div className="absolute inset-0" style={{ background: 'var(--gradient-mesh)' }} />
       
@@ -12,7 +12,7 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
 
           {/* Content Column with enhanced styling */}
-          <div className="flex flex-col justify-center space-y-10 glass-card maximalist-glow p-12 lg:p-16 h-full relative overflow-hidden">
+          <div className="flex flex-col justify-center space-y-6 sm:space-y-8 lg:space-y-10 glass-card maximalist-glow p-6 sm:p-8 lg:p-12 xl:p-16 h-full relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 pointer-events-none rounded-xl" />
             <div className="relative z-10">
               <div>
@@ -32,7 +32,7 @@ const About = () => {
           
           {/* Quote Column with hyper-realistic effects */}
           <div className="relative mt-8 lg:mt-0">
-            <div className="relative p-12 lg:p-16 glass-card hyper-shadow maximalist-glow">
+            <div className="relative p-6 sm:p-8 lg:p-12 xl:p-16 glass-card hyper-shadow maximalist-glow">
               <Quote className="absolute top-6 right-6 w-16 h-16 text-emerald-600/30 drop-shadow-lg" />
               <blockquote className="text-4xl lg:text-5xl font-black text-foreground leading-tight mb-8 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
                 {t('about.quote')}

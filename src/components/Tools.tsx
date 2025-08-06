@@ -191,7 +191,7 @@ const Tools = () => {
   return (
     <section
       id="tools" 
-      className="py-32 lg:py-40 relative overflow-hidden bg-gradient-to-b from-background via-background to-background/95"
+      className="py-12 sm:py-20 lg:py-32 xl:py-40 relative overflow-hidden bg-gradient-to-b from-background via-background to-background/95"
     >
       {/* Enhanced background with subtle patterns */}
       <div className="absolute inset-0 opacity-40">

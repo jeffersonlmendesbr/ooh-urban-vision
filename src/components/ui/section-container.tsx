@@ -22,7 +22,7 @@ export const SectionContainer = ({
       id={id} 
       className={cn(
         fullHeight ? 'min-h-screen' : 'min-h-[50vh]',
-        'flex items-center py-24',
+        'flex items-center py-8 sm:py-16 lg:py-24',
         className
       )}
       style={style}

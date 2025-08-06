@@ -96,7 +96,7 @@ const Testimonials = () => {
   );
 
   return (
-    <section id="testimonials" className="py-24 lg:py-32">
+    <section id="testimonials" className="py-12 sm:py-16 lg:py-24 xl:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12 text-center md:text-left">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 md:mb-0">

@@ -22,7 +22,7 @@ const cityGroups = [
 const NationalPresence = () => (
   <section
     id="nationalpresence"
-    className="py-24 lg:py-32 relative overflow-hidden"
+    className="py-12 sm:py-16 lg:py-24 xl:py-32 relative overflow-hidden"
     style={{
       backgroundImage: `
         radial-gradient(circle at 10% 10%, hsla(var(--primary), 0.1) 0px, transparent 20%),

@@ -5,7 +5,7 @@ import { Card } from "./ui/card";
 
 const OOHPlanner = () => {
   return (
-    <section id="oohplanner" className="py-24 lg:py-32 flex items-center justify-center bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-100">
+    <section id="oohplanner" className="py-12 sm:py-16 lg:py-24 xl:py-32 flex items-center justify-center bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-100">
       <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Card className="p-8 lg:p-16 text-center hover:border-primary/50 hover:-translate-y-1">
           <div className="mb-8">

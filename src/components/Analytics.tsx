@@ -87,7 +87,7 @@ const Analytics = () => {
   return (
     <section 
       id="analytics" 
-      className="py-32 lg:py-40 relative overflow-hidden"
+      className="py-12 sm:py-20 lg:py-32 xl:py-40 relative overflow-hidden"
     >
       {/* Enhanced background */}
       <div className="absolute inset-0 opacity-40">
