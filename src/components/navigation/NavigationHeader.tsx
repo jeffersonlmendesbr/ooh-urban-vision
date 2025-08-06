@@ -28,11 +28,7 @@ const NavigationHeader = ({
     i18n.changeLanguage(lng);
   };
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-500 glass-card border-b backdrop-blur-2xl ${
-      isScrolled 
-        ? 'border-glass-border bg-white/95 dark:bg-background/95 shadow-lg' 
-        : 'border-transparent bg-white/70 dark:bg-background/70 shadow-sm'
-    }`}>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-500 glass-card ${isScrolled ? 'shadow-lg' : 'shadow-sm'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20 lg:h-24">
           <div

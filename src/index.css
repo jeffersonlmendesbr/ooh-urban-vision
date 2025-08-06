@@ -9,131 +9,53 @@
 
 @layer base {
   :root {
-    /* Hyper-Modern Grayscale Foundation */
-    --background: 0 0% 98%; /* Ultra-light gray */
-    --foreground: 0 0% 8%; /* Deep charcoal */
-
-    /* Glassmorphism Card System */
-    --card: 0 0% 100%; /* Pure white with transparency */
-    --card-foreground: 0 0% 12%;
-
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
-
-    /* Utilitarian Primary - Industrial Orange */
-    --primary: 22 100% 52%; /* #FF6B00 - High-contrast industrial orange */
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 22 100% 65%; /* Lighter for glow effects */
-    --primary-variant: 18 85% 45%; /* Darker variant */
-
-    /* Maximalist Secondary - Electric Blue */
-    --secondary: 210 100% 56%; /* #007AFF - Electric blue */
-    --secondary-foreground: 0 0% 100%;
-    --secondary-glow: 210 100% 70%;
-
-    /* Hyper-realistic Accent - Neon Green */
-    --accent: 120 84% 45%; /* #00D654 - Neon green */
-    --accent-foreground: 0 0% 8%;
-    --accent-glow: 120 84% 60%;
-
-    /* Muted Grays - Modern Gradations */
-    --muted: 0 0% 95%; /* Light muted */
-    --muted-foreground: 0 0% 35%; /* Medium gray */
-    --muted-dark: 0 0% 20%; /* Dark gray */
-
-    /* Utility Colors */
-    --destructive: 0 84% 60%; /* Bright red */
-    --destructive-foreground: 0 0% 100%;
-    --warning: 45 100% 51%; /* Golden yellow */
-    --success: 120 84% 45%; /* Success green */
-
-    /* Border and Input - Ultra-subtle */
-    --border: 0 0% 90%;
-    --input: 0 0% 96%;
-    --ring: 22 100% 52%;
-
-    /* Glass System - Advanced */
-    --radius: 1rem; /* Larger radius for modern feel */
-    --glass-primary: hsla(22, 100%, 52%, 0.08); /* Primary tinted glass */
-    --glass-secondary: hsla(210, 100%, 56%, 0.06); /* Secondary tinted glass */
-    --glass-neutral: hsla(0, 0%, 100%, 0.85); /* Pure glass */
-    --glass-dark: hsla(0, 0%, 0%, 0.05); /* Dark glass */
-    --glass-border: hsla(0, 0%, 255%, 0.2); /* Subtle border */
-    --glass-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Enhanced shadow */
-    --glass-blur: 24px; /* Increased blur */
-
-    /* Light Effects */
-    --glow-primary: 0 0 40px hsla(22, 100%, 52%, 0.4);
-    --glow-secondary: 0 0 40px hsla(210, 100%, 56%, 0.3);
-    --glow-accent: 0 0 40px hsla(120, 84%, 45%, 0.3);
-    --inner-glow: inset 0 2px 4px 0 hsla(0, 0%, 100%, 0.8);
-    
-    /* Advanced Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-variant)));
-    --gradient-glass: linear-gradient(145deg, hsla(0, 0%, 100%, 0.95), hsla(0, 0%, 100%, 0.7));
-    --gradient-mesh: radial-gradient(ellipse at top, hsla(22, 100%, 52%, 0.1), transparent),
-                     radial-gradient(ellipse at bottom right, hsla(210, 100%, 56%, 0.08), transparent),
-                     radial-gradient(ellipse at bottom left, hsla(120, 84%, 45%, 0.06), transparent);
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --glass-neutral: hsla(0, 0%, 100%, 0.5);
+    --glass-border: hsla(0, 0%, 255%, 0.2);
+    --glass-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --glass-blur: 16px;
   }
 
-  /* Dark Mode - Hyper-Modern Night Vision */
   .dark {
-    /* Ultra-dark Foundation */
-    --background: 0 0% 3%; /* Almost black */
-    --foreground: 0 0% 95%; /* Pure white text */
-    
-    /* Dark Glass Cards */
-    --card: 0 0% 6%; /* Dark card background */
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 4%;
-    --popover-foreground: 0 0% 95%;
-    
-    /* Enhanced Colors for Dark Mode */
-    --primary: 22 100% 58%; /* Brighter orange for contrast */
-    --primary-foreground: 0 0% 95%;
-    --primary-glow: 22 100% 70%;
-    --primary-variant: 18 85% 50%;
-    
-    --secondary: 210 100% 62%; /* Brighter blue */
-    --secondary-foreground: 0 0% 95%;
-    --secondary-glow: 210 100% 75%;
-    
-    --accent: 120 84% 55%; /* Brighter green */
-    --accent-foreground: 0 0% 95%;
-    --accent-glow: 120 84% 70%;
-    
-    /* Dark Muted System */
-    --muted: 0 0% 8%;
-    --muted-foreground: 0 0% 70%;
-    --muted-dark: 0 0% 15%;
-    
-    /* Dark Utilities */
-    --destructive: 0 84% 65%;
-    --destructive-foreground: 0 0% 95%;
-    --border: 0 0% 12%;
-    --input: 0 0% 8%;
-    --ring: 22 100% 58%;
-    
-    /* Dark Glass System */
-    --glass-primary: hsla(22, 100%, 58%, 0.12); /* Enhanced visibility */
-    --glass-secondary: hsla(210, 100%, 62%, 0.1);
-    --glass-neutral: hsla(0, 0%, 100%, 0.05); /* Subtle white glass */
-    --glass-dark: hsla(0, 0%, 0%, 0.3); /* Deeper dark glass */
-    --glass-border: hsla(0, 0%, 100%, 0.1);
-    --glass-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-    
-    /* Enhanced Dark Glows */
-    --glow-primary: 0 0 60px hsla(22, 100%, 58%, 0.6);
-    --glow-secondary: 0 0 60px hsla(210, 100%, 62%, 0.5);
-    --glow-accent: 0 0 60px hsla(120, 84%, 55%, 0.5);
-    --inner-glow: inset 0 2px 4px 0 hsla(0, 0%, 0%, 0.8);
-    
-    /* Dark Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-variant)));
-    --gradient-glass: linear-gradient(145deg, hsla(0, 0%, 100%, 0.08), hsla(0, 0%, 100%, 0.02));
-    --gradient-mesh: radial-gradient(ellipse at top, hsla(22, 100%, 58%, 0.15), transparent),
-                     radial-gradient(ellipse at bottom right, hsla(210, 100%, 62%, 0.12), transparent),
-                     radial-gradient(ellipse at bottom left, hsla(120, 84%, 55%, 0.1), transparent);
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --glass-neutral: hsla(222.2, 84%, 4.9%, 0.5);
   }
 }
 
@@ -142,23 +64,9 @@
     @apply border-border;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     @apply bg-background text-foreground;
-    font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    /* Hyper-realistic mesh background */
-    background: hsl(var(--background));
-    background-image: var(--gradient-mesh);
-    /* Subtle noise texture for hyper-realism */
-    background-blend-mode: overlay;
-    /* Hardware acceleration */
-    transform: translateZ(0);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Inter', sans-serif;
   }
 }
 
